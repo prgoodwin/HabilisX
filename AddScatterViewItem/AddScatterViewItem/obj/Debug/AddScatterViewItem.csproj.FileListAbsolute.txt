@@ -1,0 +1,32 @@
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\bin\Debug\Resources\icon.png
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\bin\Debug\AddScatterViewItem.xml
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\bin\Debug\AddScatterViewItem.exe
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\bin\Debug\AddScatterViewItem.pdb
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem.csprojResolveAssemblyReference.cache
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\SurfaceWindow1.baml
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\App.baml
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\App.g.cs
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem_Content.g.cs
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem_MarkupCompile.cache
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem.g.resources
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem.Properties.Resources.resources
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem.csproj.GenerateResource.Cache
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem.exe
+C:\Users\User\AppData\Local\Temporary Projects\AddScatterViewItem\obj\Debug\AddScatterViewItem.pdb
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem.exe
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem.pdb
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\bin\Debug\Resources\icon.png
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\bin\Debug\AddScatterViewItem.xml
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\bin\Debug\AddScatterViewItem.exe
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\bin\Debug\AddScatterViewItem.pdb
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\SurfaceWindow1.baml
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\App.baml
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\SurfaceWindow1.g.cs
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\App.g.cs
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem_Content.g.cs
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem_MarkupCompile.cache
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem.g.resources
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem.Properties.Resources.resources
+C:\Users\User\Documents\Visual Studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\obj\Debug\AddScatterViewItem.csproj.GenerateResource.Cache

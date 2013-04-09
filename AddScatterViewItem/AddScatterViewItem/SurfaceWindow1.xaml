@@ -1,0 +1,61 @@
+﻿<s:SurfaceWindow x:Class="AddScatterViewItem.SurfaceWindow1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008"
+    Title="AddScatterViewItem" Foreground="Lime">
+    <!--        <s:SurfaceButton 
+            Name="SurfaceButtonAddImplicit"
+            Content="Add Item (Implicit)"
+            Height="80" Width="160" /> -->
+
+<!--        <s:SurfaceButton 
+            Name="SurfaceButtonAddExplicit"
+            Content="Add Item (Explicit)"
+            Grid.Column="1" Grid.Row="0" 
+            Height="80" Width="160" /> -->
+
+    <s:ScatterView Name="MyScatterView"  Foreground="Black" Background="#FF0071FF">
+       
+        <!-- MAGIC LENS-->
+            <s:ScatterViewItem Background="Transparent" AllowDrop="True" DragEnter="ScatterViewItem_DragEnter" 
+                               s:SurfaceDragDrop.DragEnter="ScatterViewItem_DragEnter">
+                <Image  Name="frame" Source="C:\Users\User\documents\visual studio 2010\Projects\AddScatterViewItem\AddScatterViewItem\Resources\pictureFrame.png" 
+                        Width="Auto" Height="Auto" TouchMove="frame_TouchMove" MouseMove="frame_MouseMove" MouseDown="frame_MouseDown"
+                        s:SurfaceDragDrop.DragEnter="ScatterViewItem_DragEnter"/>
+            </s:ScatterViewItem>
+            
+            <!-- TITLE -->
+        <s:ScatterViewItem Center="100,250" Height = "38" Orientation="0" AllowDrop="True"
+                           MouseMove="titleTile_MouseMove">
+            <TextBox  Name="TitleTile" Foreground="Black" Background="Lavender" Margin="8" 
+                      Height="30" Width="150" 
+                      FontSize="14" FontWeight="Bold" FontStyle="Normal" 
+                      Text="Title=" AcceptsReturn="False" TextChanged="titleTile_TextChanged" />
+        </s:ScatterViewItem>
+
+            <!-- Authors -->
+        <s:ScatterViewItem Center="100,150" Height = "38" Orientation="0" AllowDrop="True"
+                           MouseMove="AuthorTile_MouseMove" >
+            <TextBox  Name="AuthorTile" Foreground="Black" Background="Lavender" Margin="8" 
+                      Height="30" Width="150" 
+                      FontSize="14" FontWeight="Bold" FontStyle="Normal" 
+                      Text="Author=" AcceptsReturn="False" TextChanged="AuthorTile_TextChanged" />
+        </s:ScatterViewItem>
+
+        <!-- Date -->
+        <s:ScatterViewItem Center="100,50" Height = "38" Orientation="0" AllowDrop="True"  
+                           MouseMove="DateTile_MouseMove" PreviewMouseDown="ScatterViewItem_PreviewMouseDown">
+            <TextBox  Name="DateTile"  Foreground="Black" Background="Lavender" Margin="8"
+                              Height="30" Width="150" 
+                              FontSize="14" FontWeight="Bold" FontStyle="Normal" 
+                              Text="Date=" AcceptsReturn="False" DragOver="DateTile_DragOver" TextChanged="DateTile_TextChanged" />
+        </s:ScatterViewItem>
+            <!-- This will be automatically wrapped in a ScatterViewItem control-->
+            <!-- <Rectangle Width="142" Height="112" Margin="8" Fill="Blue"/>-->
+            <!-- This is explicitly placed inside a ScatterViewItem control-->
+        </s:ScatterView>
+
+    <!--</Grid>--></s:SurfaceWindow>
+<!-- <s:ScatterViewItem Background="Transparent" Height="600">
+            -->
+<!--           -->
