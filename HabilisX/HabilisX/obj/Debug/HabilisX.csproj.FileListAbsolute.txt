@@ -38,3 +38,24 @@ C:\Users\User\Documents\Visual Studio 2010\Projects\HabilisX\HabilisX\obj\Debug\
 C:\Users\User\Documents\Visual Studio 2010\Projects\HabilisX\HabilisX\obj\Debug\HabilisX.csproj.GenerateResource.Cache
 C:\Users\User\Documents\Visual Studio 2010\Projects\HabilisX\HabilisX\obj\Debug\HabilisX.exe.manifest
 C:\Users\User\Documents\Visual Studio 2010\Projects\HabilisX\HabilisX\obj\Debug\HabilisX.application
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.exe
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.pdb
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\surfacewindow1.baml
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\App.baml
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\surfacewindow1.g.cs
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\App.g.cs
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX_Content.g.cs
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX_MarkupCompile.cache
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.g.resources
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.Properties.Resources.resources
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\bin\Debug\HabilisX.xml
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\bin\Debug\Resources\pin.gif
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\bin\Debug\HabilisX.exe.manifest
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\bin\Debug\HabilisX.application
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\bin\Debug\HabilisX.exe
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\bin\Debug\HabilisX.pdb
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.exe.manifest
+C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.application
