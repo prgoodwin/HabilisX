@@ -230,7 +230,65 @@ namespace HabilisX
             item.Content = NewEntryTileTextBox(sender, item);
             item.Center = new Point(X, 130);
             item.Background = color;
+            item.TouchMove += new EventHandler<TouchEventArgs>(item_TouchMove);
+            item.TouchDown += new EventHandler<TouchEventArgs>(item_TouchDown);
+            item.TouchUp += new EventHandler<TouchEventArgs>(item_TouchUp);
+            item.StylusMove += new StylusEventHandler(item_StylusMove);
+            item.StylusInAirMove += new StylusEventHandler(item_StylusInAirMove);
+            item.MouseMove += new MouseEventHandler(item_MouseMove);
+            item.ManipulationStarted += new EventHandler<ManipulationStartedEventArgs>(item_ManipulationStarted);
+            item.ManipulationDelta += new EventHandler<ManipulationDeltaEventArgs>(item_ManipulationDelta);
             return item;
+        }
+
+        void item_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+        {
+            debugText("manipulationDelta");
+        }
+
+        void item_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
+        {
+            debugText("Manipulation Started");
+        }
+
+        private void clearDebug(object sender, RoutedEventArgs e) {
+            ((SurfaceButton)(Debug.Content)).Content = "This is the debug";
+            
+        }
+        void debugText(String str) {
+            ((SurfaceButton)(Debug.Content)).Content = str;
+            Console.WriteLine(str);
+
+        }
+
+        void item_MouseMove(object sender, MouseEventArgs e)
+        {
+            debugText("MouseMove");
+        }
+
+        void item_StylusInAirMove(object sender, StylusEventArgs e)
+        {
+            debugText("StylusInAirMove");
+        }
+
+        void item_StylusMove(object sender, StylusEventArgs e)
+        {
+            debugText("StylusMove");
+        }
+
+        void item_TouchUp(object sender, TouchEventArgs e)
+        {
+            debugText("TouchUp");
+        }
+
+        void item_TouchDown(object sender, TouchEventArgs e)
+        {
+            debugText("Touch Down");
+        }
+
+        void item_TouchMove(object sender, TouchEventArgs e)
+        {
+            debugText("TouchMove");
         }
         private BitmapImage NewEmbededResource(String path)
         {
@@ -807,8 +865,6 @@ namespace HabilisX
         }
         private void note_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
-
             if (MyScatterView.Items.Contains(sender))
             {
 
@@ -829,7 +885,6 @@ namespace HabilisX
         }
         private void magnifier_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             if (MyScatterView.Items.Contains(sender))
             {
                 Entry detailedEntry = new Entry();
@@ -880,7 +935,6 @@ namespace HabilisX
 
         private void StringFilterTile_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
 
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
@@ -949,8 +1003,6 @@ namespace HabilisX
         }
         private void StringListTile_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
-
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1018,7 +1070,6 @@ namespace HabilisX
         }
         private void DateTile_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1101,7 +1152,6 @@ namespace HabilisX
         }
         private void IntTile_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1183,7 +1233,6 @@ namespace HabilisX
         }
         private void IntListTile_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1266,7 +1315,6 @@ namespace HabilisX
 
         private void scatterFrame_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             if (!MyScatterView.Items.Contains(sender))
             {
                 return;
@@ -1287,7 +1335,6 @@ namespace HabilisX
         }
         private void pushPin_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 ((PushPin)sender).SetRelativeZIndex(0);
@@ -1334,7 +1381,6 @@ namespace HabilisX
 
         private void paperClip_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
@@ -1406,7 +1452,6 @@ namespace HabilisX
         }
         private void ruler_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
@@ -1493,7 +1538,6 @@ namespace HabilisX
 
         private void net_MouseMove(object sender, MouseEventArgs e)
         {
-            ((ScatterViewItem)sender).Background = Brushes.Purple;
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
