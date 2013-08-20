@@ -26,8 +26,8 @@ namespace HabilisX
     /// </summary>
     public partial class SurfaceWindow1 : SurfaceWindow
     {
-        Assembly _assembly;
-        Stream _imageStream;
+        Assembly assembly;
+        Stream imageStream;
 
         public const int TOP = 0;
         public const int BOTTOM = 1;
@@ -161,51 +161,55 @@ namespace HabilisX
         #region Add Buttons & MouseEventHandlers
         private void AddStringFilter_Click(object sender, RoutedEventArgs e)
         {
-            ScatterViewItem item = new ScatterViewItem();
-            item.Center = new Point(290, 130);
-            item.Orientation = 0;
-            item.Background = Brushes.DarkSlateGray;
-            item.MinHeight = 30;
+            ScatterViewItem item = NewFilterTile(sender, 290, Brushes.DarkSlateGray);
             item.MouseMove += new MouseEventHandler(StringFilterTile_MouseMove);
             item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-
-
-            TextBox txt = new TextBox();
-            txt.Foreground = Brushes.Black;
-            txt.Margin = new Thickness(8);
-            txt.Height = 30;
-            txt.Width = 150;
-            txt.FontSize = 14;
-            txt.FontWeight = FontWeights.Bold;
-            txt.Text = (String)((SurfaceButton)sender).Tag + "=";
-            txt.AcceptsReturn = false;
-            txt.TextChanged += new TextChangedEventHandler(FilterTile_TextChanged);
-            txt.Tag = ((SurfaceButton)sender).Tag;
-            item.Content = txt;
-            item.Tag = ((SurfaceButton)sender).Tag;
-
-
-            Thickness bottomMargin = txt.Margin;
-            bottomMargin.Bottom = 50;
-            txt.Margin = bottomMargin;
-
 
             MyScatterView.Items.Add(item);
         }
         private void AddStringListFilter_Click(object sender, RoutedEventArgs e)
         {
-            ScatterViewItem item = new ScatterViewItem();
-            item.Center = new Point(300, 105);
-            item.Orientation = 0;
-            item.Background = Brushes.SlateGray;
-            item.MinHeight = 30;
+            ScatterViewItem item = NewFilterTile(sender, 464, Brushes.SlateGray);
+
             item.MouseMove += new MouseEventHandler(StringListTile_MouseMove);
             item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
 
+            MyScatterView.Items.Add(item);
+        }
+        private void AddDateFilter_Click(object sender, RoutedEventArgs e)
+        {
+            ScatterViewItem item = NewFilterTile(sender, 638, Brushes.LightGray);
+            item.MouseMove += new MouseEventHandler(DateTile_MouseMove);
+            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
+            MyScatterView.Items.Add(item);
+        }
+        private void AddIntFilter_Click(object sender, RoutedEventArgs e)
+        {
+            ScatterViewItem item = NewFilterTile(sender, 812, new SolidColorBrush(Color.FromRgb(191, 191, 191)));
 
-            TextBox txt = new TextBox();
-            txt.Foreground = Brushes.Black;
+            item.MouseMove += new MouseEventHandler(IntTile_MouseMove);
+            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
+            MyScatterView.Items.Add(item);
+
+        }
+        private void AddIntListFilter_Click(object sender, RoutedEventArgs e)
+        {
+            ScatterViewItem item = NewFilterTile(sender, 986, Brushes.SlateGray);
+
+            item.MouseMove += new MouseEventHandler(IntListTile_MouseMove);
+            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
+
+            MyScatterView.Items.Add(item);
+        }
+
+        private SurfaceTextBox NewEntryTileTextBox(object sender, ScatterViewItem item)
+        {
+            SurfaceTextBox txt = new SurfaceTextBox();
+            txt.Background = item.Background;
             txt.Margin = new Thickness(8);
+            Thickness bottomMargin = txt.Margin;
+            bottomMargin.Bottom = 50;
+            txt.Margin = bottomMargin;
             txt.Height = 30;
             txt.Width = 150;
             txt.FontSize = 14;
@@ -215,174 +219,91 @@ namespace HabilisX
             txt.TextChanged += new TextChangedEventHandler(FilterTile_TextChanged);
             txt.Tag = ((SurfaceButton)sender).Tag;
 
-            item.Content = txt;
-            item.Tag = ((SurfaceButton)sender).Tag;
-            MyScatterView.Items.Add(item);
+            return txt;
         }
-        private void AddDateFilter_Click(object sender, RoutedEventArgs e)
+        private ScatterViewItem NewFilterTile(object sender, int X, Brush color)
         {
             ScatterViewItem item = new ScatterViewItem();
-            item.Center = new Point(300, 170);
-            item.Orientation = 0;
-            item.Background = Brushes.LightGray;
-            item.MinHeight = 30;
-
-            item.MouseMove += new MouseEventHandler(DateTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-
-
-            TextBox txt = new TextBox();
-            txt.Foreground = Brushes.Black;
-            txt.Margin = new Thickness(8);
-            txt.Height = 30;
-            txt.Width = 150;
-            txt.FontSize = 14;
-            txt.FontWeight = FontWeights.Bold;
-            txt.Text = (String)((SurfaceButton)sender).Tag + "=";
-            txt.AcceptsReturn = false;
-            txt.Tag = ((SurfaceButton)sender).Tag;
-            txt.TextChanged += new TextChangedEventHandler(IntTile_TextChanged);
-
-            item.Content = txt;
             item.Tag = ((SurfaceButton)sender).Tag;
-            MyScatterView.Items.Add(item);
+            item.Orientation = 0;
+            item.MinHeight = 30;
+            item.Content = NewEntryTileTextBox(sender, item);
+            item.Center = new Point(X, 130);
+            item.Background = color;
+            return item;
         }
-        private void AddIntFilter_Click(object sender, RoutedEventArgs e)
+        private BitmapImage NewEmbededResource(String path)
         {
-            ScatterViewItem item = new ScatterViewItem();
-            item.Center = new Point(300, 170);
-            item.Orientation = 0;
-            item.Background = new SolidColorBrush(Color.FromRgb(191, 191, 191));
-            item.MinHeight = 30;
+            assembly = Assembly.GetExecutingAssembly();
+            imageStream = assembly.GetManifestResourceStream(path);
 
-            item.MouseMove += new MouseEventHandler(IntTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-
-
-            TextBox txt = new TextBox();
-            txt.Foreground = Brushes.Black;
-            txt.Margin = new Thickness(8);
-            txt.Height = 30;
-            txt.Width = 150;
-            txt.FontSize = 14;
-            txt.FontWeight = FontWeights.Bold;
-            txt.Text = (String)((SurfaceButton)sender).Tag + "=";
-            txt.AcceptsReturn = false;
-            txt.Tag = ((SurfaceButton)sender).Tag;
-            txt.TextChanged += new TextChangedEventHandler(IntTile_TextChanged);
-
-            item.Content = txt;
-            item.Tag = ((SurfaceButton)sender).Tag;
-            MyScatterView.Items.Add(item);
-
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = imageStream;
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.EndInit();
+            image.Freeze();
+            return image;
         }
-        private void AddIntListFilter_Click(object sender, RoutedEventArgs e)
-        {
-            ScatterViewItem item = new ScatterViewItem();
-            item.Center = new Point(300, 105);
-            item.Orientation = 0;
-            item.Background = Brushes.SlateGray;
-            item.MinHeight = 30;
-            item.MouseMove += new MouseEventHandler(IntListTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-
-
-            TextBox txt = new TextBox();
-            txt.Foreground = Brushes.Black;
-            txt.Margin = new Thickness(8);
-            txt.Height = 30;
-            txt.Width = 150;
-            txt.FontSize = 14;
-            txt.FontWeight = FontWeights.Bold;
-            txt.Text = (String)((SurfaceButton)sender).Tag + "=";
-            txt.AcceptsReturn = false;
-            txt.TextChanged += new TextChangedEventHandler(IntTile_TextChanged);
-            txt.Tag = ((SurfaceButton)sender).Tag;
-
-            item.Content = txt;
-            item.Tag = ((SurfaceButton)sender).Tag;
-            MyScatterView.Items.Add(item);
+        private void RemoveShadow(ScatterViewItem tool) {
+            RoutedEventHandler loadedEventHandler = null;
+            loadedEventHandler = new RoutedEventHandler(delegate
+            {
+                tool.Loaded -= loadedEventHandler;
+                Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome ssc;
+                ssc = tool.Template.FindName("shadow", tool) as Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome;
+                ssc.Visibility = Visibility.Hidden;
+            });
+            tool.Loaded += loadedEventHandler;
         }
 
         private void AddPushPinButton_Click(object sender, RoutedEventArgs e)
         {
-            _assembly = Assembly.GetExecutingAssembly();
-            _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.pin.gif");
-
-
-            Image im = new Image();
-
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = _imageStream;
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.EndInit();
-            image.Freeze();
-            im.Source = image;
-
             PushPin pushPin = new PushPin();
-            pushPin.Orientation = 0;
-            pushPin.Center = new Point(250, 235);
+
+
             pushPin.Background = Brushes.Transparent;
+            pushPin.CanRotate = false;
+            pushPin.Center = new Point(250, 235);
             pushPin.Height = 35;
             pushPin.MinHeight = 50;
             pushPin.MinWidth = 50;
-            pushPin.Content = im;
-            pushPin.CanRotate = false;
+            pushPin.Orientation = 0;
+            pushPin.ShowsActivationEffects = false;
             pushPin.MouseDoubleClick += new MouseButtonEventHandler(pushPin_MouseDoubleClick);
             pushPin.MouseMove += new MouseEventHandler(pushPin_MouseMove);
-            pushPin.ShowsActivationEffects = false;
-            pushPin.BorderBrush = System.Windows.Media.Brushes.Transparent;
 
-            RoutedEventHandler loadedEventHandler = null;
-            loadedEventHandler = new RoutedEventHandler(delegate
-            {
-                pushPin.Loaded -= loadedEventHandler;
-                Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome ssc;
-                ssc = pushPin.Template.FindName("shadow", pushPin) as Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome;
-                ssc.Visibility = Visibility.Hidden;
-            });
-            pushPin.Loaded += loadedEventHandler;
+            RemoveShadow(pushPin);
+
+            Image im = new Image();
+            im.Source = NewEmbededResource("HabilisX.Resources.pin.gif");
+            pushPin.Content = im;
+           
             MyScatterView.Items.Add(pushPin);
             this.pushPins.Add(pushPin);
 
         }
+
         private void AddRulerButton_Click(object sender, RoutedEventArgs e)
         {
 
-            _assembly = Assembly.GetExecutingAssembly();
-            _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.ruler.png");
-
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = _imageStream;
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.EndInit();
-            image.Freeze();
-
-
-
-
-
-            ImageBrush ib = new ImageBrush();
-            ib.ImageSource = image;
-
-            ScatterView innerView = new ScatterView();
-            innerView.Background = ib;
-
             Ruler ruler = new Ruler();
-            ruler.Content = innerView;
-            ruler.Orientation = 0;
-            ruler.MinHeight = 0;
+            ruler.Center = new Point(431, 300);
             ruler.Height = 75;
+            ruler.MinHeight = 0;
+            ruler.Orientation = 0;
             ruler.Width = 412;
             ruler.MaxHeight = 1000;
             ruler.MaxWidth = 1000;
-            ruler.Center = new Point(431, 300);
-            //ruler.Background = Brushes.Transparent;
             ruler.MouseMove += new MouseEventHandler(ruler_MouseMove);
             ruler.MouseDoubleClick += new MouseButtonEventHandler(ruler_MouseDoubleClick);
+            
+            ScatterView innerView = new ScatterView();
+            ruler.Content = innerView;
 
+            ImageBrush ib = new ImageBrush();
+            ib.ImageSource = NewEmbededResource("HabilisX.Resources.ruler.png");
+            innerView.Background = ib;
 
             MyScatterView.Items.Add(ruler);
             this.rulers.Add(ruler);
@@ -391,6 +312,8 @@ namespace HabilisX
         private void AddMagicLensButton_Click(object sender, RoutedEventArgs e)
         {
             MagicLens magicLens = new MagicLens();
+
+
             magicLens.Background = Brushes.Transparent;
             magicLens.Center = new Point(350, 415);
             magicLens.Orientation = 0;
@@ -400,57 +323,36 @@ namespace HabilisX
             ScatterView innerView = new ScatterView();
             innerView.BorderBrush = Brushes.Black;
             innerView.BorderThickness = new Thickness(10);
-
             magicLens.Content = innerView;
 
             MyScatterView.Items.Add(magicLens);
             this.lenses.Add(magicLens);
-            // <s:ScatterViewItem Name="ScatterFrame" Background="Transparent" MouseMove="scatterFrame_MouseMove">
-            //     <s:ScatterView Name="FrameFilters" BorderBrush="Black" BorderThickness="10"/>
-            // </s:ScatterViewItem>
         }
         private void AddMagnifyingGlass_Click(object sender, RoutedEventArgs e)
         {
-            Canvas innerView = new Canvas();
-            innerView.Width = 100;
-            innerView.Height = 100;
 
-            _assembly = Assembly.GetExecutingAssembly();
-            _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.magnifyingGlass.png");
 
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = _imageStream;
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.EndInit();
-            image.Freeze();
-
-            ImageBrush im = new ImageBrush();
-            im.ImageSource = image;
-
-            innerView.Background = im;
 
             MagnifyingGlass magnifier = new MagnifyingGlass();
-            magnifier.Orientation = 0;
-            magnifier.Center = new Point(275, 450);
             magnifier.Background = Brushes.Transparent;
-            magnifier.Content = innerView;
             magnifier.CanRotate = false;
+            magnifier.Center = new Point(275, 450);
+            magnifier.Orientation = 0;
+            magnifier.ShowsActivationEffects = false;
             magnifier.MouseDoubleClick += new MouseButtonEventHandler(magnifyingGlass_MouseDoubleClick);
             magnifier.MouseMove += new MouseEventHandler(magnifier_MouseMove);
 
-            magnifier.ShowsActivationEffects = false;
-            magnifier.BorderBrush = System.Windows.Media.Brushes.Transparent;
+            Canvas innerView = new Canvas();
+            innerView.Width = 100;
+            innerView.Height = 100;
+            magnifier.Content = innerView;
 
-            RoutedEventHandler loadedEventHandler = null;
-            loadedEventHandler = new RoutedEventHandler(delegate
-            {
-                magnifier.Loaded -= loadedEventHandler;
-                Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome ssc;
-                ssc = magnifier.Template.FindName("shadow", magnifier) as Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome;
-                ssc.Visibility = Visibility.Hidden;
-            });
-            magnifier.Loaded += loadedEventHandler;
+            ImageBrush im = new ImageBrush();
+            im.ImageSource = NewEmbededResource("HabilisX.Resources.magnifyingGlass.png");
+            innerView.Background = im;
+
+            RemoveShadow(magnifier);
+
             MyScatterView.Items.Add(magnifier);
             mags.Add(magnifier);
 
@@ -461,48 +363,33 @@ namespace HabilisX
         }
         private void AddPaperClip_Click(object sender, RoutedEventArgs e)
         {
-            _assembly = Assembly.GetExecutingAssembly();
-            _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.paperClip.png");
 
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = _imageStream;
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.EndInit();
-            image.Freeze();
+ 
+            PaperClip paperClip = new PaperClip();
+            paperClip.Background = Brushes.Transparent;
+            paperClip.CanRotate = false;
+            paperClip.Center = new Point(295, 495);
+            paperClip.Height = 50;
+            paperClip.MinHeight = 5;
+            paperClip.MinWidth = 5;
+            paperClip.Orientation = 0;
+            paperClip.ShowsActivationEffects = false;
+            paperClip.Width = 150;
+            paperClip.MouseDoubleClick += new MouseButtonEventHandler(paperClip_MouseDoubleClick);
+            paperClip.MouseMove += new MouseEventHandler(paperClip_MouseMove);
 
-            ImageBrush ib = new ImageBrush();
-            ib.ImageSource = image;
             ScatterView innerView = new ScatterView();
-            innerView.Background = ib;
             innerView.Width = 150;
             innerView.MinHeight = 5;
             innerView.MinWidth = 5;
-
-            PaperClip paperClip = new PaperClip();
             paperClip.Content = innerView;
-            paperClip.Orientation = 0;
-            paperClip.Center = new Point(295, 495);
-            paperClip.Background = Brushes.Transparent;
-            paperClip.MinHeight = 5;
-            paperClip.MinWidth = 5;
-            paperClip.Height = 50;
-            paperClip.Width = 150;
-            paperClip.CanRotate = false;
-            paperClip.MouseDoubleClick += new MouseButtonEventHandler(paperClip_MouseDoubleClick);
-            paperClip.MouseMove += new MouseEventHandler(paperClip_MouseMove);
-            paperClip.ShowsActivationEffects = false;
-            paperClip.BorderBrush = System.Windows.Media.Brushes.Transparent;
 
-            RoutedEventHandler loadedEventHandler = null;
-            loadedEventHandler = new RoutedEventHandler(delegate
-            {
-                paperClip.Loaded -= loadedEventHandler;
-                Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome ssc;
-                ssc = paperClip.Template.FindName("shadow", paperClip) as Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome;
-                ssc.Visibility = Visibility.Hidden;
-            });
-            paperClip.Loaded += loadedEventHandler;
+            ImageBrush ib = new ImageBrush();
+            ib.ImageSource = NewEmbededResource("HabilisX.Resources.paperClip.png");
+            innerView.Background = ib;
+
+            RemoveShadow(paperClip);
+
             MyScatterView.Items.Add(paperClip);
             this.paperClips.Add(paperClip);
 
@@ -516,7 +403,7 @@ namespace HabilisX
             innerView.Background = new SolidColorBrush(Color.FromRgb(252, 240, 173));
 
             //Titie text box
-            TextBox titleText = new TextBox();
+            SurfaceTextBox titleText = new SurfaceTextBox();
             titleText.Foreground = Brushes.Black;
             titleText.Margin = new Thickness(8);
             titleText.Height = 30;
@@ -529,7 +416,7 @@ namespace HabilisX
             titleText.BorderBrush = Brushes.Transparent;
 
             //Content text box
-            TextBox txt = new TextBox();
+            SurfaceTextBox txt = new SurfaceTextBox();
             txt.Foreground = Brushes.Black;
             txt.Margin = new Thickness(8);
             txt.FontSize = 14;
@@ -557,27 +444,17 @@ namespace HabilisX
             note.MaxHeight = 1000;
             note.MaxWidth = 1000;
             note.Center = new Point(350, 620);
-            //note.MouseUp += new MouseButtonEventHandler(note_MouseMove);
             note.MouseMove += new MouseEventHandler(note_MouseMove);
             note.MouseDoubleClick += new MouseButtonEventHandler(note_MouseDoubleClick);
 
             MyScatterView.Items.Add(note);
         }
-
         private void AddNetButton_Click(object sender, RoutedEventArgs e)
         {
 
-            _assembly = Assembly.GetExecutingAssembly();
-            _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.net.png");
 
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = _imageStream;
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.EndInit();
-            image.Freeze();
             ImageBrush ib = new ImageBrush();
-            ib.ImageSource = image;
+            ib.ImageSource = NewEmbededResource("HabilisX.Resources.net.png");
 
             ScatterView innerView = new ScatterView();
             innerView.Background = ib;
@@ -594,15 +471,7 @@ namespace HabilisX
             net.ShowsActivationEffects = false;
             net.BorderBrush = System.Windows.Media.Brushes.Transparent;
 
-            RoutedEventHandler loadedEventHandler = null;
-            loadedEventHandler = new RoutedEventHandler(delegate
-            {
-                net.Loaded -= loadedEventHandler;
-                Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome ssc;
-                ssc = net.Template.FindName("shadow", net) as Microsoft.Surface.Presentation.Generic.SurfaceShadowChrome;
-                ssc.Visibility = Visibility.Hidden;
-            });
-            net.Loaded += loadedEventHandler;
+            RemoveShadow(net);
 
             MyScatterView.Items.Add(net);
             this.nets.Add(net);
@@ -751,6 +620,7 @@ namespace HabilisX
             hasClosedLabel = false;
         }
 
+
         void paperClip_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (!hasClosedLabel)
@@ -772,7 +642,7 @@ namespace HabilisX
             innerView.Background = new SolidColorBrush(Color.FromRgb(252, 240, 173));
 
             //Titie text box
-            TextBox titleText = new TextBox();
+            SurfaceTextBox titleText = new SurfaceTextBox();
             titleText.Foreground = Brushes.Black;
             titleText.Margin = new Thickness(8);
             titleText.Height = 30;
@@ -785,7 +655,7 @@ namespace HabilisX
             titleText.BorderBrush = Brushes.Transparent;
 
             //Content text box
-            TextBox txt = new TextBox();
+            SurfaceTextBox txt = new SurfaceTextBox();
             txt.Foreground = Brushes.Black;
             txt.Margin = new Thickness(8);
             txt.FontSize = 14;
@@ -913,12 +783,12 @@ namespace HabilisX
                     ((Entry)sender).CanRotate = false;
                     item.SetRelativeZIndex(0);
                     Image im = new Image();
-                    _assembly = Assembly.GetExecutingAssembly();
-                    _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
+                    assembly = Assembly.GetExecutingAssembly();
+                    imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
 
                     BitmapImage image = new BitmapImage();
                     image.BeginInit();
-                    image.StreamSource = _imageStream;
+                    image.StreamSource = imageStream;
                     image.CacheOption = BitmapCacheOption.OnLoad;
                     image.EndInit();
                     image.Freeze();
@@ -937,6 +807,7 @@ namespace HabilisX
         }
         private void note_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
 
             if (MyScatterView.Items.Contains(sender))
             {
@@ -958,6 +829,7 @@ namespace HabilisX
         }
         private void magnifier_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             if (MyScatterView.Items.Contains(sender))
             {
                 Entry detailedEntry = new Entry();
@@ -1008,6 +880,8 @@ namespace HabilisX
 
         private void StringFilterTile_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
+
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1075,6 +949,8 @@ namespace HabilisX
         }
         private void StringListTile_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
+
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1142,6 +1018,7 @@ namespace HabilisX
         }
         private void DateTile_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1224,6 +1101,7 @@ namespace HabilisX
         }
         private void IntTile_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1305,6 +1183,7 @@ namespace HabilisX
         }
         private void IntListTile_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
             String userInput = "";
@@ -1387,6 +1266,7 @@ namespace HabilisX
 
         private void scatterFrame_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             if (!MyScatterView.Items.Contains(sender))
             {
                 return;
@@ -1407,16 +1287,17 @@ namespace HabilisX
         }
         private void pushPin_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 ((PushPin)sender).SetRelativeZIndex(0);
                 Image im = new Image();
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.pin.gif");
+                assembly = Assembly.GetExecutingAssembly();
+                imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pin.gif");
 
                 BitmapImage image = new BitmapImage();
                 image.BeginInit();
-                image.StreamSource = _imageStream;
+                image.StreamSource = imageStream;
                 image.CacheOption = BitmapCacheOption.OnLoad;
                 image.EndInit();
                 image.Freeze();
@@ -1430,12 +1311,12 @@ namespace HabilisX
                     if (((PushPin)sender).AreBoundaryIntersecting(entry))
                     {
                         Image im = new Image();
-                        _assembly = Assembly.GetExecutingAssembly();
-                        _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
+                        assembly = Assembly.GetExecutingAssembly();
+                        imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
 
                         BitmapImage image = new BitmapImage();
                         image.BeginInit();
-                        image.StreamSource = _imageStream;
+                        image.StreamSource = imageStream;
                         image.CacheOption = BitmapCacheOption.OnLoad;
                         image.EndInit();
                         image.Freeze();
@@ -1453,6 +1334,7 @@ namespace HabilisX
 
         private void paperClip_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
@@ -1491,12 +1373,12 @@ namespace HabilisX
                         cur.Center = new Point(((PaperClip)sender).Center.X + offset + 8, ((PaperClip)sender).Center.Y - (cur.ActualHeight / 4) + 20 * i);
                     }
                     ((PaperClip)sender).SetRelativeZIndex(0);
-                    _assembly = Assembly.GetExecutingAssembly();
-                    _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.paperClipOccluded.png");
+                    assembly = Assembly.GetExecutingAssembly();
+                    imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.paperClipOccluded.png");
 
                     BitmapImage image = new BitmapImage();
                     image.BeginInit();
-                    image.StreamSource = _imageStream;
+                    image.StreamSource = imageStream;
                     image.CacheOption = BitmapCacheOption.OnLoad;
                     image.EndInit();
                     image.Freeze();
@@ -1524,6 +1406,7 @@ namespace HabilisX
         }
         private void ruler_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
@@ -1610,6 +1493,7 @@ namespace HabilisX
 
         private void net_MouseMove(object sender, MouseEventArgs e)
         {
+            ((ScatterViewItem)sender).Background = Brushes.Purple;
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
@@ -1697,12 +1581,12 @@ namespace HabilisX
                 if (pin.AreBoundaryIntersecting(entry))
                 {
                     Image im = new Image();
-                    _assembly = Assembly.GetExecutingAssembly();
-                    _imageStream = _assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
+                    assembly = Assembly.GetExecutingAssembly();
+                    imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
 
                     BitmapImage image = new BitmapImage();
                     image.BeginInit();
-                    image.StreamSource = _imageStream;
+                    image.StreamSource = imageStream;
                     image.CacheOption = BitmapCacheOption.OnLoad;
                     image.EndInit();
                     image.Freeze();
@@ -1817,7 +1701,7 @@ namespace HabilisX
         }
         private double getNewY()
         {
-            return num.Next(50, 650);
+            return num.Next(200, 650);
         }
         private double getNewOrientation()
         {
