@@ -1942,6 +1942,18 @@ namespace HabilisX
         #endregion
 
         #region surface template functions
+        protected override void OnPreviewTouchDown(TouchEventArgs e)
+        {
+           bool isFinger = e.TouchDevice.GetIsFingerRecognized();
+           bool isTag = e.TouchDevice.GetIsTagRecognized();
+           if (isFinger == false && isTag == false)
+           {
+              e.Handled = true;
+              return;
+           }
+           base.OnPreviewTouchDown(e);
+        }
+
         /// <summary>
         /// Occurs when the window is about to close. 
         /// </summary>
