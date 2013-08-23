@@ -19,8 +19,64 @@ using System.IO;
 using System.Reflection;
 
 
+
+
 namespace HabilisX
 {
+   class EventSubscriber
+   {
+      private static readonly MethodInfo HandleMethod =
+          typeof(EventSubscriber)
+              .GetMethod("HandleEvent",
+                         BindingFlags.Instance |
+                         BindingFlags.NonPublic);
+
+      private readonly EventInfo evt;
+
+      private EventSubscriber(EventInfo evt)
+      {
+         this.evt = evt;
+      }
+
+      private void HandleEvent(object sender, EventArgs args)
+      {
+         Console.WriteLine("Event {0} fired", evt.Name);
+      }
+
+      private void Subscribe(object target)
+      {
+         try
+         {
+            Delegate handler = Delegate.CreateDelegate(
+             evt.EventHandlerType, this, HandleMethod);
+            evt.AddEventHandler(target, handler);
+
+         }
+         catch {
+            try
+            {
+               Delegate handler = Delegate.CreateDelegate(evt.EventHandlerType, this, HandleMethod, true);
+               evt.AddEventHandler(target, handler);
+            }
+            catch (Exception f)
+            {
+               Console.WriteLine("exception: " + f);
+            }
+        }
+      }
+
+      public static void SubscribeAll(object target)
+      {
+         foreach (EventInfo evt in target.GetType().GetEvents())
+         {
+            EventSubscriber subscriber = new EventSubscriber(evt);
+            subscriber.Subscribe(target);
+         }
+      }
+   }
+
+
+
     /// <summary>
     /// Interaction logic for SurfaceWindow1.xaml
     /// </summary>
@@ -146,6 +202,7 @@ namespace HabilisX
                 e.Center = new Point(this.getNewX(), this.getNewY());
                 e.Orientation = this.getNewOrientation();
                 e.MouseMove += new MouseEventHandler(entry_MouseMove);
+                EventSubscriber.SubscribeAll(e);
                 MyScatterView.Items.Add(e);
                 this.entries.Add(e);
             }
@@ -230,14 +287,16 @@ namespace HabilisX
             item.Content = NewEntryTileTextBox(sender, item);
             item.Center = new Point(X, 130);
             item.Background = color;
-            item.TouchMove += new EventHandler<TouchEventArgs>(item_TouchMove);
-            item.TouchDown += new EventHandler<TouchEventArgs>(item_TouchDown);
-            item.TouchUp += new EventHandler<TouchEventArgs>(item_TouchUp);
-            item.StylusMove += new StylusEventHandler(item_StylusMove);
-            item.StylusInAirMove += new StylusEventHandler(item_StylusInAirMove);
-            item.MouseMove += new MouseEventHandler(item_MouseMove);
-            item.ManipulationStarted += new EventHandler<ManipulationStartedEventArgs>(item_ManipulationStarted);
-            item.ManipulationDelta += new EventHandler<ManipulationDeltaEventArgs>(item_ManipulationDelta);
+
+            EventSubscriber.SubscribeAll(item);
+           //item.TouchMove += new EventHandler<TouchEventArgs>(item_TouchMove);
+            //item.TouchDown += new EventHandler<TouchEventArgs>(item_TouchDown);
+            //item.TouchUp += new EventHandler<TouchEventArgs>(item_TouchUp);
+            //item.StylusMove += new StylusEventHandler(item_StylusMove);
+            //item.StylusInAirMove += new StylusEventHandler(item_StylusInAirMove);
+            //item.MouseMove += new MouseEventHandler(item_MouseMove);
+            //item.ManipulationStarted += new EventHandler<ManipulationStartedEventArgs>(item_ManipulationStarted);
+            //item.ManipulationDelta += new EventHandler<ManipulationDeltaEventArgs>(item_ManipulationDelta);
             return item;
         }
 
