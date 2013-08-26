@@ -5,7 +5,7 @@
     Title="HabilisX" Foreground="Green" Height="300" Width="300">
 
     <!-- Main scatterview (whole window)-->
-    <s:ScatterView Name="MyScatterView"  Foreground="Black" Background="#FF0071FF">
+    <s:ScatterView Name="MyScatterView"  Foreground="Black" Background="#FF0071FF" LayoutUpdated="ScatterView_LayoutUpdated">
 
 
         <!-- Push Pin-->

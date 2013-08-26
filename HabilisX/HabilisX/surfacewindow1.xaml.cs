@@ -40,7 +40,11 @@ namespace HabilisX
 
       private void HandleEvent(object sender, EventArgs args)
       {
-         Console.WriteLine("Event {0} fired", evt.Name);
+         String str = "null";
+         if(sender != null){
+            str = sender.GetType().Name;
+         }
+         Console.WriteLine("Event {0} fired {1}", evt.Name, str);
       }
 
       private void Subscribe(object target)
@@ -202,7 +206,9 @@ namespace HabilisX
                 e.Center = new Point(this.getNewX(), this.getNewY());
                 e.Orientation = this.getNewOrientation();
                 e.MouseMove += new MouseEventHandler(entry_MouseMove);
-                EventSubscriber.SubscribeAll(e);
+               //LAYOUTUPDATED
+ 
+                //EventSubscriber.SubscribeAll(e);
                 MyScatterView.Items.Add(e);
                 this.entries.Add(e);
             }
@@ -215,6 +221,11 @@ namespace HabilisX
             AddWindowAvailabilityHandlers();
         }
 
+
+        private void ScatterView_LayoutUpdated(object sender, EventArgs e) {
+           debugText("Layout Has been found");
+        
+        }
         #region Add Buttons & MouseEventHandlers
         private void AddStringFilter_Click(object sender, RoutedEventArgs e)
         {
@@ -288,7 +299,7 @@ namespace HabilisX
             item.Center = new Point(X, 130);
             item.Background = color;
 
-            EventSubscriber.SubscribeAll(item);
+//            EventSubscriber.SubscribeAll(item);
            //item.TouchMove += new EventHandler<TouchEventArgs>(item_TouchMove);
             //item.TouchDown += new EventHandler<TouchEventArgs>(item_TouchDown);
             //item.TouchUp += new EventHandler<TouchEventArgs>(item_TouchUp);
