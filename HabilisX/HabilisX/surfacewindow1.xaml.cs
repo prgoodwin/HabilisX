@@ -205,7 +205,7 @@ namespace HabilisX
                 e.Content = innerView;
                 e.Center = new Point(this.getNewX(), this.getNewY());
                 e.Orientation = this.getNewOrientation();
-                e.MouseMove += new MouseEventHandler(entry_MouseMove);
+                //e.MouseMove += new MouseEventHandler(entry_MouseMove);
                //LAYOUTUPDATED
  
                 //EventSubscriber.SubscribeAll(e);
@@ -223,8 +223,45 @@ namespace HabilisX
 
 
         private void ScatterView_LayoutUpdated(object sender, EventArgs e) {
-           debugText("Layout Has been found");
-        
+           //debugText("Layout Has been found");
+           //debugText(this.pushPins.Count + " pushpins");
+           foreach (Entry entry in this.entries)
+           {
+
+              foreach (PushPin item in this.pushPins)
+              {
+                 if (MyScatterView.Items.Contains(item)) {
+                    if(entry.AreBoundaryIntersecting(item)){
+
+                       entry.CanMove = false;
+                       entry.CanScale = false;
+                       entry.CanRotate = false;
+                       item.SetRelativeZIndex(0);
+                       Image im = new Image();
+                       assembly = Assembly.GetExecutingAssembly();
+                       imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
+
+                       BitmapImage image = new BitmapImage();
+                       image.BeginInit();
+                       image.StreamSource = imageStream;
+                       image.CacheOption = BitmapCacheOption.OnLoad;
+                       image.EndInit();
+                       image.Freeze();
+                       im.Source = image;
+                       item.Content = im;
+
+                       //item.bring
+
+                       Console.Out.WriteLine("Stopping a move");
+                       return;
+                 }
+              }
+              }
+              entry.CanMove = true;
+              entry.CanRotate = true;
+              entry.CanScale = true;
+           }
+
         }
         #region Add Buttons & MouseEventHandlers
         private void AddStringFilter_Click(object sender, RoutedEventArgs e)
@@ -298,27 +335,7 @@ namespace HabilisX
             item.Content = NewEntryTileTextBox(sender, item);
             item.Center = new Point(X, 130);
             item.Background = color;
-
-//            EventSubscriber.SubscribeAll(item);
-           //item.TouchMove += new EventHandler<TouchEventArgs>(item_TouchMove);
-            //item.TouchDown += new EventHandler<TouchEventArgs>(item_TouchDown);
-            //item.TouchUp += new EventHandler<TouchEventArgs>(item_TouchUp);
-            //item.StylusMove += new StylusEventHandler(item_StylusMove);
-            //item.StylusInAirMove += new StylusEventHandler(item_StylusInAirMove);
-            //item.MouseMove += new MouseEventHandler(item_MouseMove);
-            //item.ManipulationStarted += new EventHandler<ManipulationStartedEventArgs>(item_ManipulationStarted);
-            //item.ManipulationDelta += new EventHandler<ManipulationDeltaEventArgs>(item_ManipulationDelta);
             return item;
-        }
-
-        void item_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
-        {
-            debugText("manipulationDelta");
-        }
-
-        void item_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
-        {
-            debugText("Manipulation Started");
         }
 
         private void clearDebug(object sender, RoutedEventArgs e) {
@@ -331,35 +348,6 @@ namespace HabilisX
 
         }
 
-        void item_MouseMove(object sender, MouseEventArgs e)
-        {
-            debugText("MouseMove");
-        }
-
-        void item_StylusInAirMove(object sender, StylusEventArgs e)
-        {
-            debugText("StylusInAirMove");
-        }
-
-        void item_StylusMove(object sender, StylusEventArgs e)
-        {
-            debugText("StylusMove");
-        }
-
-        void item_TouchUp(object sender, TouchEventArgs e)
-        {
-            debugText("TouchUp");
-        }
-
-        void item_TouchDown(object sender, TouchEventArgs e)
-        {
-            debugText("Touch Down");
-        }
-
-        void item_TouchMove(object sender, TouchEventArgs e)
-        {
-            debugText("TouchMove");
-        }
         private BitmapImage NewEmbededResource(String path)
         {
             assembly = Assembly.GetExecutingAssembly();
@@ -902,36 +890,6 @@ namespace HabilisX
 
         private void entry_MouseMove(object sender, MouseEventArgs e)
         {
-            foreach (PushPin item in this.pushPins)
-            {
-                if (item.AreBoundaryIntersecting((FrameworkElement)sender))
-                {
-                    ((Entry)sender).CanMove = false;
-                    ((Entry)sender).CanScale = false;
-                    ((Entry)sender).CanRotate = false;
-                    item.SetRelativeZIndex(0);
-                    Image im = new Image();
-                    assembly = Assembly.GetExecutingAssembly();
-                    imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
-
-                    BitmapImage image = new BitmapImage();
-                    image.BeginInit();
-                    image.StreamSource = imageStream;
-                    image.CacheOption = BitmapCacheOption.OnLoad;
-                    image.EndInit();
-                    image.Freeze();
-                    im.Source = image;
-                    item.Content = im;
-
-                    //item.bring
-
-                    Console.Out.WriteLine("Stopping a move");
-                    return;
-                }
-            }
-            ((Entry)sender).CanMove = true;
-            ((Entry)sender).CanRotate = true;
-            ((Entry)sender).CanScale = true;
         }
         private void note_MouseMove(object sender, MouseEventArgs e)
         {
