@@ -23,61 +23,63 @@ using System.Reflection;
 
 namespace HabilisX
 {
-   class EventSubscriber
-   {
-      private static readonly MethodInfo HandleMethod =
-          typeof(EventSubscriber)
-              .GetMethod("HandleEvent",
-                         BindingFlags.Instance |
-                         BindingFlags.NonPublic);
+    class EventSubscriber
+    {
+        private static readonly MethodInfo HandleMethod =
+            typeof(EventSubscriber)
+                .GetMethod("HandleEvent",
+                           BindingFlags.Instance |
+                           BindingFlags.NonPublic);
 
-      private readonly EventInfo evt;
+        private readonly EventInfo evt;
 
-      private EventSubscriber(EventInfo evt)
-      {
-         this.evt = evt;
-      }
+        private EventSubscriber(EventInfo evt)
+        {
+            this.evt = evt;
+        }
 
-      private void HandleEvent(object sender, EventArgs args)
-      {
-         String str = "null";
-         if(sender != null){
-            str = sender.GetType().Name;
-         }
-         Console.WriteLine("Event {0} fired {1}", evt.Name, str);
-      }
+        private void HandleEvent(object sender, EventArgs args)
+        {
+            String str = "null";
+            if (sender != null)
+            {
+                str = sender.GetType().Name;
+            }
+            Console.WriteLine("Event {0} fired {1}", evt.Name, str);
+        }
 
-      private void Subscribe(object target)
-      {
-         try
-         {
-            Delegate handler = Delegate.CreateDelegate(
-             evt.EventHandlerType, this, HandleMethod);
-            evt.AddEventHandler(target, handler);
-
-         }
-         catch {
+        private void Subscribe(object target)
+        {
             try
             {
-               Delegate handler = Delegate.CreateDelegate(evt.EventHandlerType, this, HandleMethod, true);
-               evt.AddEventHandler(target, handler);
+                Delegate handler = Delegate.CreateDelegate(
+                 evt.EventHandlerType, this, HandleMethod);
+                evt.AddEventHandler(target, handler);
+
             }
-            catch (Exception f)
+            catch
             {
-               Console.WriteLine("exception: " + f);
+                try
+                {
+                    Delegate handler = Delegate.CreateDelegate(evt.EventHandlerType, this, HandleMethod, true);
+                    evt.AddEventHandler(target, handler);
+                }
+                catch (Exception f)
+                {
+                    Console.WriteLine("exception: " + f);
+                }
             }
         }
-      }
 
-      public static void SubscribeAll(object target)
-      {
-         foreach (EventInfo evt in target.GetType().GetEvents())
-         {
-            EventSubscriber subscriber = new EventSubscriber(evt);
-            subscriber.Subscribe(target);
-         }
-      }
-   }
+        public static void SubscribeAll(object target)
+        {
+            foreach (EventInfo evt in target.GetType().GetEvents())
+            {
+                EventSubscriber subscriber = new EventSubscriber(evt);
+                subscriber.Subscribe(target);
+            }
+        }
+    }
 
 
 
@@ -205,9 +207,10 @@ namespace HabilisX
                 e.Content = innerView;
                 e.Center = new Point(this.getNewX(), this.getNewY());
                 e.Orientation = this.getNewOrientation();
+                e.GotFocus += new RoutedEventHandler(Entry_GotFocus);
                 //e.MouseMove += new MouseEventHandler(entry_MouseMove);
-               //LAYOUTUPDATED
- 
+                //LAYOUTUPDATED
+
                 //EventSubscriber.SubscribeAll(e);
                 MyScatterView.Items.Add(e);
                 this.entries.Add(e);
@@ -221,48 +224,98 @@ namespace HabilisX
             AddWindowAvailabilityHandlers();
         }
 
-
-        private void ScatterView_LayoutUpdated(object sender, EventArgs e) {
-           //debugText("Layout Has been found");
-           //debugText(this.pushPins.Count + " pushpins");
-           foreach (Entry entry in this.entries)
-           {
-
-              foreach (PushPin item in this.pushPins)
-              {
-                 if (MyScatterView.Items.Contains(item)) {
-                    if(entry.AreBoundaryIntersecting(item)){
-
-                       entry.CanMove = false;
-                       entry.CanScale = false;
-                       entry.CanRotate = false;
-                       item.SetRelativeZIndex(0);
-                       Image im = new Image();
-                       assembly = Assembly.GetExecutingAssembly();
-                       imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
-
-                       BitmapImage image = new BitmapImage();
-                       image.BeginInit();
-                       image.StreamSource = imageStream;
-                       image.CacheOption = BitmapCacheOption.OnLoad;
-                       image.EndInit();
-                       image.Freeze();
-                       im.Source = image;
-                       item.Content = im;
-
-                       //item.bring
-
-                       Console.Out.WriteLine("Stopping a move");
-                       return;
-                 }
-              }
-              }
-              entry.CanMove = true;
-              entry.CanRotate = true;
-              entry.CanScale = true;
-           }
+        void Entry_GotFocus(object sender, RoutedEventArgs e)
+        {
 
         }
+
+
+        private void ScatterView_LayoutUpdated(object sender, EventArgs e)
+        {
+            ISet<PushPin> set = new HashSet<PushPin>();
+            foreach (Entry entry in this.entries)
+            {
+                Boolean pinned = false;
+                
+
+
+                foreach (PushPin pin in this.pushPins)
+                {
+                    if (pin.AreBoundaryIntersecting(entry))
+                    {
+                        pinned = true;
+                        set.Add(pin);
+                    }
+
+                }
+
+                if (pinned)
+                {
+                    entry.CanMove = false;
+                    entry.CanScale = false;
+                    entry.CanRotate = false;
+
+                }
+                else {
+                    entry.CanMove = true;
+                    entry.CanRotate = true;
+                    entry.CanScale = true;
+                }
+            }
+
+
+            foreach (PushPin pin in this.pushPins)
+            {
+                pin.SetRelativeZIndex(0);
+                if (set.Contains(pin) && (int)pin.Tag == 1)
+                {
+                    SetImageToOccludedPin(pin);
+                }else if(!set.Contains(pin) && (int)pin.Tag == 0){
+                    SetImageToPin(pin);
+                }
+            }
+
+            
+
+
+        }
+
+        private void SetImageToOccludedPin(PushPin pin)
+        {
+            Image im = new Image();
+            assembly = Assembly.GetExecutingAssembly();
+            imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = imageStream;
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.EndInit();
+            image.Freeze();
+            im.Source = image;
+            ((Image)pin.Content).Source = image;
+            pin.Tag = 0;
+        }
+
+        private void SetImageToPin(PushPin pin)
+        {
+            Image im = new Image();
+            assembly = Assembly.GetExecutingAssembly();
+            imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pin.gif");
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = imageStream;
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.EndInit();
+            image.Freeze();
+            im.Source = image;
+            ((Image)pin.Content).Source = image;
+            pin.Tag = 1;
+        }
+
+
+
         #region Add Buttons & MouseEventHandlers
         private void AddStringFilter_Click(object sender, RoutedEventArgs e)
         {
@@ -338,11 +391,13 @@ namespace HabilisX
             return item;
         }
 
-        private void clearDebug(object sender, RoutedEventArgs e) {
+        private void clearDebug(object sender, RoutedEventArgs e)
+        {
             ((SurfaceButton)(Debug.Content)).Content = "This is the debug";
-            
+
         }
-        void debugText(String str) {
+        void debugText(String str)
+        {
             ((SurfaceButton)(Debug.Content)).Content = str;
             Console.WriteLine(str);
 
@@ -361,7 +416,8 @@ namespace HabilisX
             image.Freeze();
             return image;
         }
-        private void RemoveShadow(ScatterViewItem tool) {
+        private void RemoveShadow(ScatterViewItem tool)
+        {
             RoutedEventHandler loadedEventHandler = null;
             loadedEventHandler = new RoutedEventHandler(delegate
             {
@@ -387,18 +443,20 @@ namespace HabilisX
             pushPin.Orientation = 0;
             pushPin.ShowsActivationEffects = false;
             pushPin.MouseDoubleClick += new MouseButtonEventHandler(pushPin_MouseDoubleClick);
-            pushPin.MouseMove += new MouseEventHandler(pushPin_MouseMove);
+
 
             RemoveShadow(pushPin);
 
             Image im = new Image();
             im.Source = NewEmbededResource("HabilisX.Resources.pin.gif");
+            pushPin.Tag = 1;
             pushPin.Content = im;
-           
+
             MyScatterView.Items.Add(pushPin);
             this.pushPins.Add(pushPin);
 
         }
+
 
         private void AddRulerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -413,7 +471,7 @@ namespace HabilisX
             ruler.MaxWidth = 1000;
             ruler.MouseMove += new MouseEventHandler(ruler_MouseMove);
             ruler.MouseDoubleClick += new MouseButtonEventHandler(ruler_MouseDoubleClick);
-            
+
             ScatterView innerView = new ScatterView();
             ruler.Content = innerView;
 
@@ -480,7 +538,7 @@ namespace HabilisX
         private void AddPaperClip_Click(object sender, RoutedEventArgs e)
         {
 
- 
+
             PaperClip paperClip = new PaperClip();
             paperClip.Background = Brushes.Transparent;
             paperClip.CanRotate = false;
@@ -1361,51 +1419,6 @@ namespace HabilisX
                 }
             }
         }
-        private void pushPin_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                ((PushPin)sender).SetRelativeZIndex(0);
-                Image im = new Image();
-                assembly = Assembly.GetExecutingAssembly();
-                imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pin.gif");
-
-                BitmapImage image = new BitmapImage();
-                image.BeginInit();
-                image.StreamSource = imageStream;
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.EndInit();
-                image.Freeze();
-                im.Source = image;
-                ((PushPin)sender).Content = im;
-            }
-            else
-            {
-                foreach (Entry entry in this.entries)
-                {
-                    if (((PushPin)sender).AreBoundaryIntersecting(entry))
-                    {
-                        Image im = new Image();
-                        assembly = Assembly.GetExecutingAssembly();
-                        imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
-
-                        BitmapImage image = new BitmapImage();
-                        image.BeginInit();
-                        image.StreamSource = imageStream;
-                        image.CacheOption = BitmapCacheOption.OnLoad;
-                        image.EndInit();
-                        image.Freeze();
-                        im.Source = image;
-                        ((Image)((PushPin)(sender)).Content).Source = image;
-
-                        entry.CanMove = false;
-                        entry.CanRotate = false;
-                        entry.CanScale = false;
-                    }
-                }
-            }
-
-        }
 
         private void paperClip_MouseMove(object sender, MouseEventArgs e)
         {
@@ -1972,14 +1985,14 @@ namespace HabilisX
         #region surface template functions
         protected override void OnPreviewTouchDown(TouchEventArgs e)
         {
-           bool isFinger = e.TouchDevice.GetIsFingerRecognized();
-           bool isTag = e.TouchDevice.GetIsTagRecognized();
-           if (isFinger == false && isTag == false)
-           {
-              e.Handled = true;
-              return;
-           }
-           base.OnPreviewTouchDown(e);
+            bool isFinger = e.TouchDevice.GetIsFingerRecognized();
+            bool isTag = e.TouchDevice.GetIsTagRecognized();
+            if (isFinger == false && isTag == false)
+            {
+                e.Handled = true;
+                return;
+            }
+            base.OnPreviewTouchDown(e);
         }
 
         /// <summary>
