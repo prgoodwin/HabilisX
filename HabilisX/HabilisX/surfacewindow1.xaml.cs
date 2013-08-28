@@ -112,6 +112,7 @@ namespace HabilisX
         public List<Net> nets = new List<Net>();
         public List<Ruler> rulers = new List<Ruler>();
         public List<PaperClip> paperClips = new List<PaperClip>();
+        public List<ScatterViewItem> filters = new List<ScatterViewItem>();
         Random num = new Random();
 
         /// <summary>
@@ -319,47 +320,39 @@ namespace HabilisX
         #region Add Buttons & MouseEventHandlers
         private void AddStringFilter_Click(object sender, RoutedEventArgs e)
         {
-            ScatterViewItem item = NewFilterTile(sender, 290, Brushes.DarkSlateGray);
-            item.MouseMove += new MouseEventHandler(StringFilterTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-
-            MyScatterView.Items.Add(item);
+           AddNewFilterTile(sender, 290, Brushes.DarkSlateGray);
         }
         private void AddStringListFilter_Click(object sender, RoutedEventArgs e)
         {
-            ScatterViewItem item = NewFilterTile(sender, 464, Brushes.SlateGray);
-
-            item.MouseMove += new MouseEventHandler(StringListTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-
-            MyScatterView.Items.Add(item);
+            AddNewFilterTile(sender, 464, Brushes.SlateGray);
         }
         private void AddDateFilter_Click(object sender, RoutedEventArgs e)
         {
-            ScatterViewItem item = NewFilterTile(sender, 638, Brushes.LightGray);
-            item.MouseMove += new MouseEventHandler(DateTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-            MyScatterView.Items.Add(item);
+            AddNewFilterTile(sender, 638, Brushes.LightGray);
         }
         private void AddIntFilter_Click(object sender, RoutedEventArgs e)
         {
-            ScatterViewItem item = NewFilterTile(sender, 812, new SolidColorBrush(Color.FromRgb(191, 191, 191)));
-
-            item.MouseMove += new MouseEventHandler(IntTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-            MyScatterView.Items.Add(item);
-
+            AddNewFilterTile(sender, 812, new SolidColorBrush(Color.FromRgb(191, 191, 191)));
         }
         private void AddIntListFilter_Click(object sender, RoutedEventArgs e)
         {
-            ScatterViewItem item = NewFilterTile(sender, 986, Brushes.SlateGray);
-
-            item.MouseMove += new MouseEventHandler(IntListTile_MouseMove);
-            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
-
-            MyScatterView.Items.Add(item);
+            AddNewFilterTile(sender, 986, Brushes.SlateGray);
         }
 
+        private void AddNewFilterTile(object sender, int X, Brush color)
+        {
+            ScatterViewItem item = new ScatterViewItem();
+            item.Tag = ((SurfaceButton)sender).Tag;
+            item.Orientation = 0;
+            item.MinHeight = 30;
+            item.Content = NewEntryTileTextBox(sender, item);
+            item.Center = new Point(X, 130);
+            item.Background = color;
+            item.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
+            MyScatterView.Items.Add(item);
+            this.filters.Add(item);
+
+        }
         private SurfaceTextBox NewEntryTileTextBox(object sender, ScatterViewItem item)
         {
             SurfaceTextBox txt = new SurfaceTextBox();
@@ -379,17 +372,7 @@ namespace HabilisX
 
             return txt;
         }
-        private ScatterViewItem NewFilterTile(object sender, int X, Brush color)
-        {
-            ScatterViewItem item = new ScatterViewItem();
-            item.Tag = ((SurfaceButton)sender).Tag;
-            item.Orientation = 0;
-            item.MinHeight = 30;
-            item.Content = NewEntryTileTextBox(sender, item);
-            item.Center = new Point(X, 130);
-            item.Background = color;
-            return item;
-        }
+
 
         private void clearDebug(object sender, RoutedEventArgs e)
         {
