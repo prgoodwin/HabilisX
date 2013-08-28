@@ -109,7 +109,6 @@ namespace HabilisX
         public List<PushPin> pushPins = new List<PushPin>();
         public List<Entry> entries = new List<Entry>();
         public List<MagicLens> lenses = new List<MagicLens>();
-        public List<Net> nets = new List<Net>();
         public List<Ruler> rulers = new List<Ruler>();
         public List<PaperClip> paperClips = new List<PaperClip>();
         public List<ScatterViewItem> filters = new List<ScatterViewItem>();
@@ -208,11 +207,7 @@ namespace HabilisX
                 e.Content = innerView;
                 e.Center = new Point(this.getNewX(), this.getNewY());
                 e.Orientation = this.getNewOrientation();
-                e.GotFocus += new RoutedEventHandler(Entry_GotFocus);
-                //e.MouseMove += new MouseEventHandler(entry_MouseMove);
-                //LAYOUTUPDATED
-
-                //EventSubscriber.SubscribeAll(e);
+                e.Tag = 0; //highlighting off to begin
                 MyScatterView.Items.Add(e);
                 this.entries.Add(e);
             }
@@ -225,21 +220,14 @@ namespace HabilisX
             AddWindowAvailabilityHandlers();
         }
 
-        void Entry_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
 
         private void ScatterView_LayoutUpdated(object sender, EventArgs e)
         {
             ISet<PushPin> set = new HashSet<PushPin>();
             foreach (Entry entry in this.entries)
             {
+                #region pushPin Interactions
                 Boolean pinned = false;
-                
-
-
                 foreach (PushPin pin in this.pushPins)
                 {
                     if (pin.AreBoundaryIntersecting(entry))
@@ -257,13 +245,49 @@ namespace HabilisX
                     entry.CanRotate = false;
 
                 }
-                else {
+                else
+                {
                     entry.CanMove = true;
                     entry.CanRotate = true;
                     entry.CanScale = true;
                 }
+                #endregion
+
+                #region MagicLens Interactions
+                Boolean highlighted = false;
+                foreach (MagicLens lens in this.lenses)
+                {
+                    if (lens.AreBoundaryIntersecting(entry) && entry.matchesAllFilters(lens.filters))
+                    {
+                        highlighted = true;
+                    }
+                }
+
+                if (highlighted && (int)entry.Tag != 1)
+                {
+                    ((Canvas)(entry.Content)).Background = Brushes.Gold;
+                    entry.Tag = 1;
+                }
+                else if (!highlighted && (int)entry.Tag != 0)
+                {
+
+                    ((Canvas)(entry.Content)).Background = Brushes.Transparent;
+                    entry.Tag = 0;
+                }
+                #endregion
             }
 
+
+            foreach (ScatterViewItem tile in this.filters)
+            {
+                foreach (MagicLens lens in lenses)
+                {
+                    if(lens.AreBoundaryIntersecting(tile))
+                    {
+                        this.activateMagicLensFilter(sender, new StringFilter(userInput, attribute), lens);
+                    }
+                }
+            }
 
             foreach (PushPin pin in this.pushPins)
             {
@@ -271,50 +295,25 @@ namespace HabilisX
                 if (set.Contains(pin) && (int)pin.Tag == 1)
                 {
                     SetImageToOccludedPin(pin);
-                }else if(!set.Contains(pin) && (int)pin.Tag == 0){
+                }
+                else if (!set.Contains(pin) && (int)pin.Tag == 0)
+                {
                     SetImageToPin(pin);
                 }
             }
-
-            
-
-
         }
 
         private void SetImageToOccludedPin(PushPin pin)
         {
-            Image im = new Image();
-            assembly = Assembly.GetExecutingAssembly();
-            imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pinOccluded.gif");
-
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = imageStream;
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.EndInit();
-            image.Freeze();
-            im.Source = image;
-            ((Image)pin.Content).Source = image;
+            ((Image)pin.Content).Source = NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
             pin.Tag = 0;
         }
 
         private void SetImageToPin(PushPin pin)
         {
-            Image im = new Image();
-            assembly = Assembly.GetExecutingAssembly();
-            imageStream = assembly.GetManifestResourceStream("HabilisX.Resources.pin.gif");
-
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = imageStream;
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.EndInit();
-            image.Freeze();
-            im.Source = image;
-            ((Image)pin.Content).Source = image;
+            ((Image)pin.Content).Source = NewEmbededResource("HabilisX.Resources.pin.gif");
             pin.Tag = 1;
         }
-
 
 
         #region Add Buttons & MouseEventHandlers
@@ -474,7 +473,6 @@ namespace HabilisX
             magicLens.Background = Brushes.Transparent;
             magicLens.Center = new Point(350, 415);
             magicLens.Orientation = 0;
-            magicLens.MouseMove += new MouseEventHandler(scatterFrame_MouseMove);
             magicLens.MouseDoubleClick += new MouseButtonEventHandler(magicLens_MouseDoubleClick);
 
             ScatterView innerView = new ScatterView();
@@ -606,33 +604,6 @@ namespace HabilisX
 
             MyScatterView.Items.Add(note);
         }
-        private void AddNetButton_Click(object sender, RoutedEventArgs e)
-        {
-
-
-            ImageBrush ib = new ImageBrush();
-            ib.ImageSource = NewEmbededResource("HabilisX.Resources.net.png");
-
-            ScatterView innerView = new ScatterView();
-            innerView.Background = ib;
-
-            Net net = new Net();
-            net.Content = innerView;
-            net.Orientation = 0;
-            net.Center = new Point(250, 500);
-            net.Background = Brushes.Transparent;
-            net.Height = 250;
-            net.Width = 200;
-            net.MouseMove += new MouseEventHandler(net_MouseMove);
-            net.MouseDoubleClick += new MouseButtonEventHandler(net_MouseDoubleClick);
-            net.ShowsActivationEffects = false;
-            net.BorderBrush = System.Windows.Media.Brushes.Transparent;
-
-            RemoveShadow(net);
-
-            MyScatterView.Items.Add(net);
-            this.nets.Add(net);
-        }
 
         private void save1_Click(object sender, RoutedEventArgs e)
         {
@@ -737,19 +708,6 @@ namespace HabilisX
                 {
                     MyScatterView.Items.Remove(sender);
                     this.lenses.Remove((MagicLens)sender);
-                }
-            }
-
-            hasClosedLabel = false;
-        }
-        void net_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (!hasClosedLabel)
-            {
-                if (MyScatterView.Items.Contains(sender))
-                {
-                    MyScatterView.Items.Remove(sender);
-                    this.nets.Remove((Net)sender);
                 }
             }
 
@@ -867,11 +825,6 @@ namespace HabilisX
             if (tool is MagicLens)
             {
                 ((MagicLens)tool).removeFilter((iFilter)((ScatterViewItem)sender).Tag);
-            }
-
-            if (tool is Net)
-            {
-                ((Net)tool).removeFilter((iFilter)((ScatterViewItem)sender).Tag);
             }
             if (tool is PaperClip)
             {
@@ -1002,7 +955,7 @@ namespace HabilisX
             }
         }
 
-        private void StringFilterTile_MouseMove(object sender, MouseEventArgs e)
+        private void StringFilterTile_MouseMove(object sender)
         {
 
             String attribute = (String)((ScatterViewItem)sender).Tag;
@@ -1048,16 +1001,6 @@ namespace HabilisX
                         }
                     }
 
-                    foreach (Net net in this.nets)
-                    {
-                        if (net.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
-                        {
-
-                            activateNetFilter(sender, new StringFilter(userInput, attribute), net);
-                            return;
-                        }
-                    }
-
                     foreach (PaperClip paperClip in this.paperClips)
                     {
                         if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
@@ -1070,7 +1013,7 @@ namespace HabilisX
                 }
             }
         }
-        private void StringListTile_MouseMove(object sender, MouseEventArgs e)
+        private void StringListTile_MouseMove(object sender)
         {
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
@@ -1115,15 +1058,6 @@ namespace HabilisX
                         }
                     }
 
-                    foreach (Net net in this.nets)
-                    {
-                        if (net.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
-                        {
-
-                            activateNetFilter(sender, new StringListFilter(userInput, attribute), net);
-                            return;
-                        }
-                    }
                     foreach (PaperClip paperClip in this.paperClips)
                     {
                         if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
@@ -1137,7 +1071,7 @@ namespace HabilisX
                 }
             }
         }
-        private void DateTile_MouseMove(object sender, MouseEventArgs e)
+        private void DateTile_MouseMove(object sender)
         {
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
@@ -1196,16 +1130,6 @@ namespace HabilisX
                         }
                     }
 
-                    foreach (Net net in this.nets)
-                    {
-                        if (net.AreBoundaryIntersecting((FrameworkElement)sender))
-                        {
-
-                            activateNetFilter(sender, new DateFilter(new DateTime(year, 1, 1),
-                               filterContent[attribute.Length], attribute), net);
-                            return;
-                        }
-                    }
                     foreach (PaperClip paperClip in this.paperClips)
                     {
                         if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
@@ -1219,7 +1143,7 @@ namespace HabilisX
                 }
             }
         }
-        private void IntTile_MouseMove(object sender, MouseEventArgs e)
+        private void IntTile_MouseMove(object sender)
         {
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
@@ -1278,16 +1202,6 @@ namespace HabilisX
                         }
                     }
 
-                    foreach (Net net in this.nets)
-                    {
-                        if (net.AreBoundaryIntersecting((FrameworkElement)sender))
-                        {
-
-                            activateNetFilter(sender, new IntFilter(queryNumber,
-                               filterContent[attribute.Length], attribute), net);
-                            return;
-                        }
-                    }
                     foreach (PaperClip paperClip in this.paperClips)
                     {
                         if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
@@ -1300,7 +1214,7 @@ namespace HabilisX
                 }
             }
         }
-        private void IntListTile_MouseMove(object sender, MouseEventArgs e)
+        private void IntListTile_MouseMove(object sender)
         {
             String attribute = (String)((ScatterViewItem)sender).Tag;
             String filterContent = ((TextBox)(((ScatterViewItem)sender).Content)).Text;
@@ -1359,16 +1273,6 @@ namespace HabilisX
                         }
                     }
 
-                    foreach (Net net in this.nets)
-                    {
-                        if (net.AreBoundaryIntersecting((FrameworkElement)sender))
-                        {
-
-                            activateNetFilter(sender, new IntListFilter(queryNumber,
-                               filterContent[attribute.Length], attribute), net);
-                            return;
-                        }
-                    }
                     foreach (PaperClip paperClip in this.paperClips)
                     {
                         if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
@@ -1381,28 +1285,6 @@ namespace HabilisX
                 }
             }
         }
-
-        private void scatterFrame_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!MyScatterView.Items.Contains(sender))
-            {
-                return;
-            }
-
-            foreach (Entry item in this.entries)
-            {
-                if (((MagicLens)sender).AreBoundaryIntersecting((FrameworkElement)item) &&//this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)item) &&
-                   item.matchesAllFilters(((MagicLens)sender).filters))
-                {
-                    ((Canvas)(item.Content)).Background = ((MagicLens)sender).color;
-                }
-                else
-                {
-                    ((Canvas)(item.Content)).Background = Brushes.Transparent;
-                }
-            }
-        }
-
         private void paperClip_MouseMove(object sender, MouseEventArgs e)
         {
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
@@ -1560,82 +1442,6 @@ namespace HabilisX
             lastMousePoint = e.GetPosition(MyScatterView);
         }
 
-        private void net_MouseMove(object sender, MouseEventArgs e)
-        {
-            double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
-            //deltaX += Math.Sign(deltaX);
-
-            double deltaY = (e.GetPosition(MyScatterView)).Y - lastMousePoint.Y;
-            //deltaY += Math.Sign(deltaY);
-
-            if (!MyScatterView.Items.Contains(sender))
-            {
-                lastDelta = new Point(deltaX, deltaY);
-                lastMousePoint = e.GetPosition(MyScatterView);
-                return;
-            }
-
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                foreach (Entry item in this.entries)
-                {
-                    if (((Net)sender).AreBoundaryIntersecting((FrameworkElement)item) &&//this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)item) &&
-                       item.matchesAllFilters(((Net)sender).filters))
-                    {
-                        //Move Entry
-                        //This is a terrible solution.  It mostly works;
-                        int side = this.isCollidingOn((Net)sender, item);
-                        Point netCenter = ((Net)sender).Center;
-                        Point itemCenter = item.Center;
-
-                        //double distance = ((Net)sender).ActualHeight / 2 + item.ActualHeight / 2;
-
-                        switch (side)
-                        {
-                            case TOP:
-                                if (deltaY < 0)
-                                {
-                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
-                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
-                                }
-                                break;
-                            case RIGHT:
-                                if (deltaX > 0)
-                                {
-                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
-                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
-                                }
-                                break;
-                            case BOTTOM:
-                                if (deltaY > 0)
-                                {
-                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
-                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
-                                }
-                                break;
-                            case LEFT:
-                                if (deltaX < 0)
-                                {
-                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
-                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
-                                }
-
-                                break;
-                        }
-
-                        checkForPins(item);
-                    }
-                    else
-                    {
-                        ((Canvas)(item.Content)).Background = Brushes.Transparent;
-                    }
-                }
-            }
-            lastDelta = new Point(deltaX, deltaY);
-            lastMousePoint = e.GetPosition(MyScatterView);
-
-        }
-
 
         #endregion
 
@@ -1716,27 +1522,6 @@ namespace HabilisX
             entry.Center = new Point(entry.Center.X + deltaX, entry.Center.Y + deltaY);
 
 
-        }
-        private int isCollidingOn(Net tool, Entry entry)
-        {
-            Point difference = new Point(entry.Center.X - tool.Center.X, entry.Center.Y - tool.Center.Y);
-
-            if (difference.X > 0 && Math.Abs(difference.X) > Math.Abs(difference.Y))
-            {
-                return RIGHT;
-            }
-            else if (difference.X < 0 && Math.Abs(difference.X) > Math.Abs(difference.Y))
-            {
-                return LEFT;
-            }
-            else if (difference.Y < 0 && Math.Abs(difference.Y) > Math.Abs(difference.X))
-            {
-                return TOP;
-            }
-            else
-            {
-                return BOTTOM;
-            }
         }
         private int isCollidingOn(Ruler tool, Entry entry)
         {
@@ -1848,34 +1633,6 @@ namespace HabilisX
 
             e.addAttribute(att);
 
-        }
-        private void activateNetFilter(object sender, iFilter query, Net net)
-        {
-            MyScatterView.Items.Remove(sender);
-
-            ScatterViewItem filterTile = new ScatterViewItem();
-            filterTile.MinHeight = 0;
-            filterTile.Background = Brushes.Transparent;
-            filterTile.ShowsActivationEffects = false;
-            filterTile.MouseDoubleClick += new MouseButtonEventHandler(activeFilter_MouseDoubleClick);
-            filterTile.Tag = query;
-
-            Label filter = new Label();
-            filter.Content = query.getQueryString();
-            filter.Foreground = Brushes.White;
-            filter.Background = query.getColor();
-
-            ((ScatterView)(net.Content)).Items.Add(filterTile);
-
-            filterTile.Content = filter;
-            double x = (15 * net.filters.Count) + 17;
-            double y = (40 * net.filters.Count) + 35;
-            filterTile.Center = new Point(2 * net.ActualWidth / 3 - x, net.ActualHeight / 2 + y);
-            filterTile.Orientation = 20;
-            filterTile.CanMove = false;
-            filterTile.CanRotate = false;
-            filterTile.CanScale = false;
-            net.addFilter(query);
         }
         private void activateMagicLensFilter(object sender, iFilter query, MagicLens lens)
         {
