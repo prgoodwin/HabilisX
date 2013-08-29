@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Microsoft.Surface.Presentation.Controls
 {
@@ -20,8 +22,45 @@ namespace Microsoft.Surface.Presentation.Controls
          intersecting = new List<UIElement>();
          color = Brushes.Gold;
          filters = new List<iFilter>();
+
+
+         this.Background = Brushes.Transparent;
+         this.Center = new Point(350, 415);
+         this.Orientation = 0;
+
+         ScatterView innerView = new ScatterView();
+         innerView.BorderBrush = Brushes.Black;
+         innerView.BorderThickness = new Thickness(10);
+         this.Content = innerView;
       }
 
+      public ScatterViewItem activateMagicLensFilter(iFilter query)
+      {
+
+          ScatterViewItem filterTile = new ScatterViewItem();
+          filterTile.MinHeight = 0;
+          filterTile.Background = Brushes.Transparent;
+          filterTile.ShowsActivationEffects = false;
+          filterTile.Tag = query;
+
+          Label filter = new Label();
+          filter.Content = query.getQueryString();
+          filter.Foreground = Brushes.White;
+          filter.Background = query.getColor();
+
+          ((ScatterView)(this.Content)).Items.Add(filterTile);
+
+          filterTile.Content = filter;
+          double y = (50 * this.filters.Count) + 10;
+          filterTile.Center = new Point(-50, y);
+          filterTile.Orientation = 0;
+          filterTile.CanMove = false;
+          filterTile.CanRotate = false;
+          filterTile.CanScale = false;
+          this.addFilter(query);
+
+          return filterTile;
+      }
       public bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
          RectangleGeometry cursorBounds =

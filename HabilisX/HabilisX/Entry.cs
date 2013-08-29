@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
-
+using System.Windows.Controls;
 
 namespace Microsoft.Surface.Presentation.Controls
 {
@@ -15,9 +15,27 @@ namespace Microsoft.Surface.Presentation.Controls
       public Dictionary<String, object> attributes = new Dictionary<String,object>();
 
       private const int CHARSPERLINE = 40;
-
+      private Label L;
 
       public Entry() {
+          L = new Label();
+          // Set the content of the label.
+          L.Content = this.toString();
+          L.FontSize = 12;
+
+
+
+          Canvas innerView = new Canvas();
+          innerView.Background = Brushes.Transparent;
+          innerView.Children.Add(L);
+
+
+          this.Width = 260;
+          this.Height = 170;
+          this.Content = innerView;
+          this.Center = new Point(this.getNewX(), this.getNewY());
+          this.Orientation = this.getNewOrientation();
+          this.Tag = 0; //highlighting off to begin
       }
 
       public Entry(Dictionary<String, object> attributes) {
@@ -26,11 +44,14 @@ namespace Microsoft.Surface.Presentation.Controls
 
       public void addAttribute(String key, object value) {
          attributes.Add(key, value);
+         L.Content = this.toString();
+
       }
 
       public void addAllAttributes(Dictionary<String,object> attributes)
       {
          this.attributes = attributes;
+         L.Content = this.toString();
       }
 
       public bool matchesAllFilters(List<iFilter> filters)
@@ -198,5 +219,20 @@ namespace Microsoft.Surface.Presentation.Controls
          return newStr.ToString();
 
       }
+
+      private double getNewX()
+      {
+          return HabilisX.Utils.nextNum(400, 1200);
+      }
+      private double getNewY()
+      {
+          return HabilisX.Utils.nextNum(200, 650);
+      }
+      private double getNewOrientation()
+      {
+          return  HabilisX.Utils.nextNum(-60, 60);
+      }
+
    }
+
 }

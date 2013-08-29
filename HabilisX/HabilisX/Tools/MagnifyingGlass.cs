@@ -16,7 +16,23 @@ namespace Microsoft.Surface.Presentation.Controls
       public MagnifyingGlass()
       {
          detailsText.FontSize = 24;
+        this.Background = Brushes.Transparent;
+        this.CanRotate = false;
+         this.Center = new Point(275, 450);
+         this.Orientation = 0;
+         this.ShowsActivationEffects = false;
+         Canvas innerView = new Canvas();
+         innerView.Width = 100;
+         innerView.Height = 100;
+         this.Content = innerView;
 
+         ImageBrush im = new ImageBrush();
+         im.ImageSource = HabilisX.Utils.NewEmbededResource("HabilisX.Resources.magnifyingGlass.png");
+         innerView.Background = im;
+
+         HabilisX.Utils.RemoveShadow(this);
+         innerView.Children.Add(this.detailsText);
+         Canvas.SetLeft(this.detailsText, 100);
 
       }
 

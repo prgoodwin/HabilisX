@@ -84,16 +84,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Filters\FilterTiles\DateFilterTile.cs" />
+    <Compile Include="Filters\FilterTiles\FilterTile.cs" />
+    <Compile Include="Filters\FilterTiles\IntFilterTile.cs" />
+    <Compile Include="Filters\FilterTiles\IntListFilterTile.cs" />
+    <Compile Include="Filters\FilterTiles\StringFilterTile.cs" />
+    <Compile Include="Filters\FilterTiles\StringListFilterTile.cs" />
     <Compile Include="Filters\IntFilter.cs" />
     <Compile Include="Filters\IntListFilter.cs" />
     <Compile Include="Filters\ListFilter.cs" />
     <Compile Include="Tools\MagicLens.cs" />
     <Compile Include="Filters\DateFilter.cs" />
     <Compile Include="Tools\MagnifyingGlass.cs" />
-    <Compile Include="Tools\Net.cs" />
     <Compile Include="Tools\PaperClip.cs" />
     <Compile Include="Tools\PushPin.cs" />
     <Compile Include="Filters\StringFilter.cs" />
+    <Compile Include="Utils.cs" />
     <Page Include="surfacewindow1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

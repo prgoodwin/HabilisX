@@ -18,6 +18,20 @@ namespace Microsoft.Surface.Presentation.Controls
 
       public Ruler() {
          filters = new List<iFilter>();
+         this.Center = new Point(431, 300);
+         this.Height = 75;
+         this.MinHeight = 0;
+         this.Orientation = 0;
+         this.Width = 412;
+         this.MaxHeight = 1000;
+         this.MaxWidth = 1000;
+
+         ScatterView innerView = new ScatterView();
+         this.Content = innerView;
+         ImageBrush ib = new ImageBrush();
+         ib.ImageSource = HabilisX.Utils.NewEmbededResource("HabilisX.Resources.ruler.png");
+         innerView.Background = ib;
+
       }
 
 
