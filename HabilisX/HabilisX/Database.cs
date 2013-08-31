@@ -180,6 +180,16 @@ namespace HabilisX
          paper10.addAttribute("publicationDate", pubDate);
          paper10.addAttribute("pages", 10);
          this.addEntry(paper10);
+
+         for (int i = 0; i < 190; i++) {
+             Entry paper = new Entry();
+             paper.addAttribute("title", title);
+             paper.addAttribute("authors", authors);
+             paper.addAttribute("publicationDate", pubDate);
+             paper.addAttribute("pages", 10);
+             this.addEntry(paper);
+
+         }
       }
    }
 }

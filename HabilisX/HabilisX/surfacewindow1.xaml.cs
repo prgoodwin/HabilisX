@@ -53,6 +53,7 @@ namespace HabilisX
         public List<Ruler> rulers = new List<Ruler>();
         public List<PaperClip> paperClips = new List<PaperClip>();
         public List<FilterTile> filters = new List<FilterTile>();
+        public List<ScatterViewItem> notes = new List<ScatterViewItem>();
         Random num = new Random();
 
         /// <summary>
@@ -150,6 +151,8 @@ namespace HabilisX
         private void ScatterView_LayoutUpdated(object sender, EventArgs e)
         {
             ISet<PushPin> set = new HashSet<PushPin>();
+
+
             foreach (Entry entry in this.entries)
             {
                 #region pushPin Interactions
@@ -201,6 +204,70 @@ namespace HabilisX
                     entry.Tag = 0;
                 }
                 #endregion
+
+                #region Note Interactions
+                foreach (ScatterViewItem note in this.notes)
+                {
+                    if (MyScatterView.Items.Contains(note) && entry.AreBoundaryIntersecting(note))
+                    {
+                        this.activateNote(entry, note);
+                    }
+                }
+                #endregion
+
+            }
+
+            List<Entry> detailedEntries = new List<Entry>();
+            //List<MagnifyingGlass> glasses = new List<MagnifyingGlass>();
+            foreach (MagnifyingGlass glass in this.mags)
+            {
+                if (MyScatterView.Items.Contains(glass))
+                {
+                    Entry detailedEntry = new Entry();
+                    Boolean foundOne = false;
+                    foreach (Entry entry in this.entries)
+                    {
+                        if (glass.AreBoundaryIntersecting(entry) && !foundOne)
+                        {
+                            //Add to list and get one with highest z index;
+                            detailedEntry = entry;
+                            foundOne = true;
+                        }
+                        else if (glass.AreBoundaryIntersecting(entry) && foundOne)
+                        {
+                            if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
+                            {
+                                detailedEntry = entry;
+                            }
+                        }
+
+                    }
+                    if (!foundOne)
+                    {
+                        //glasses.Add(glass);
+                        glass.detailsText.Background = Brushes.Transparent;
+                        glass.detailsText.Content = "";
+                    }
+                    detailedEntries.Add(detailedEntry);
+                }
+
+            }
+
+            foreach (Entry entry in this.entries)
+            {
+                if(detailedEntries.Contains(entry) &&!((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
+                {
+                    entry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
+
+                    int index = detailedEntries.IndexOf(entry);
+                    MagnifyingGlass glass = this.mags[index];
+                    glass.detailsText.Background = new SolidColorBrush(Color.FromArgb(180, 128, 128, 128));
+                    glass.detailsText.Content = glass.getDetails(entry);
+    
+                }
+                else if (!detailedEntries.Contains(entry) && ((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080")) {
+                    entry.Background = new SolidColorBrush(Color.FromArgb(230, 191,191,191));
+                }
             }
 
 
@@ -210,8 +277,10 @@ namespace HabilisX
                 {
                     if (MyScatterView.Items.Contains(tile) && glass.AreBoundaryIntersecting(tile))
                     {
-                        this.activateMagnifyingGlassFilter(tile, tile.attTag, glass, tile.Background);
-                        return;
+                        ScatterViewItem filterTile = glass.activateMagnifyingGlassFilter(tile);//tile, tile.attTag, tile.Background);
+                        filterTile.MouseDoubleClick += new MouseButtonEventHandler(AttributeFilter_MouseDoubleClick);
+
+                        MyScatterView.Items.Remove(tile);
                     }
                 }
 
@@ -227,7 +296,22 @@ namespace HabilisX
                         }
                     }
                 }
+
+                foreach (PaperClip clip in this.paperClips)
+                {
+                    if (MyScatterView.Items.Contains(tile) && clip.AreBoundaryIntersecting(tile))
+                    {
+                        if (tile.hasInput())
+                        {
+                            ScatterViewItem filterTile = clip.activatePaperClipFilter(tile.getFilter());
+                            filterTile.MouseDoubleClick += new MouseButtonEventHandler(activeFilter_MouseDoubleClick);
+                            MyScatterView.Items.Remove(tile);
+                        }
+                    }
+                }
             }
+
+
 
             foreach (PushPin pin in this.pushPins)
             {
@@ -266,7 +350,6 @@ namespace HabilisX
             AddNewFilterTile(new IntListFilterTile((String)((SurfaceButton)sender).Tag));
         }
 
-
         private void AddNewFilterTile(FilterTile tile)
         {
             tile.MouseDoubleClick += new MouseButtonEventHandler(FilterTile_MouseDoubleClick);
@@ -282,8 +365,6 @@ namespace HabilisX
             this.pushPins.Add(pushPin);
 
         }
-
-
         private void AddRulerButton_Click(object sender, RoutedEventArgs e)
         {
             Ruler ruler = new Ruler();
@@ -304,7 +385,7 @@ namespace HabilisX
         {
             MagnifyingGlass magnifier = new MagnifyingGlass();
             magnifier.MouseDoubleClick += new MouseButtonEventHandler(magnifyingGlass_MouseDoubleClick);
-            magnifier.MouseMove += new MouseEventHandler(magnifier_MouseMove);
+            // magnifier.MouseMove += new MouseEventHandler(magnifier_MouseMove);
             MyScatterView.Items.Add(magnifier);
             mags.Add(magnifier);
 
@@ -371,9 +452,9 @@ namespace HabilisX
             note.MaxHeight = 1000;
             note.MaxWidth = 1000;
             note.Center = new Point(350, 620);
-            note.MouseMove += new MouseEventHandler(note_MouseMove);
             note.MouseDoubleClick += new MouseButtonEventHandler(note_MouseDoubleClick);
 
+            this.notes.Add(note);
             MyScatterView.Items.Add(note);
         }
 
@@ -467,10 +548,13 @@ namespace HabilisX
         }
         void FilterTile_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (MyScatterView.Items.Contains(sender))
+            if (!((FilterTile)sender).onTextBox && MyScatterView.Items.Contains(sender))
             {
+                this.filters.Remove((FilterTile)sender);
                 MyScatterView.Items.Remove(sender);
             }
+
+            ((FilterTile)sender).onTextBox = false;
         }
         void magicLens_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -570,9 +654,9 @@ namespace HabilisX
             note.MaxHeight = 1000;
             note.MaxWidth = 1000;
             note.Center = new Point(325, 625);
-            note.MouseMove += new MouseEventHandler(note_MouseMove);
             note.MouseDoubleClick += new MouseButtonEventHandler(note_MouseDoubleClick);
 
+            this.notes.Add(note);
             MyScatterView.Items.Add(note);
 
             Canvas FrameFilters = (Canvas)((ScatterViewItem)sender).Parent;
@@ -584,6 +668,7 @@ namespace HabilisX
         {
             if (MyScatterView.Items.Contains(sender))
             {
+                notes.Remove((ScatterViewItem)sender);
                 MyScatterView.Items.Remove(sender);
             }
         }
@@ -645,78 +730,7 @@ namespace HabilisX
 
         #region mouseMoved Events & activeFilterEventHandlers
 
-        private void entry_MouseMove(object sender, MouseEventArgs e)
-        {
-        }
-        private void note_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (MyScatterView.Items.Contains(sender))
-            {
 
-                if (e.LeftButton == MouseButtonState.Pressed)
-                {
-                    foreach (Entry entry in this.entries)
-                    {
-                        if (entry.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
-                        {
-                            activateNote(entry, (ScatterViewItem)sender);
-                            return;
-                        }
-                    }
-                }
-            }
-
-
-        }
-        private void magnifier_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (MyScatterView.Items.Contains(sender))
-            {
-                Entry detailedEntry = new Entry();
-                Boolean foundOne = false;
-                String details = "";
-                foreach (Entry entry in this.entries)
-                {
-                    if (((MagnifyingGlass)sender).AreBoundaryIntersecting(entry) && !foundOne)
-                    {
-                        //Add to list and get one with highest z index;
-                        detailedEntry = entry;
-                        detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
-                        details = ((MagnifyingGlass)sender).getDetails(entry);
-                        //((MagnifyingGlass)sender).detailsText.Content = details;
-                        foundOne = true;
-                    }
-                    else if (((MagnifyingGlass)sender).AreBoundaryIntersecting(entry) && foundOne)
-                    {
-                        if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
-                        {
-                            detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
-                            detailedEntry = entry;
-                            detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
-                            details = ((MagnifyingGlass)sender).getDetails(entry);
-                        }
-                    }
-                    else
-                    {
-                        entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
-
-                    }
-                }
-
-                if (foundOne && details.Length > 0)
-                {
-                    ((MagnifyingGlass)sender).detailsText.Background = new SolidColorBrush(Color.FromArgb(180, 128, 128, 128));
-                }
-                else
-                {
-                    ((MagnifyingGlass)sender).detailsText.Background = Brushes.Transparent;
-                }
-
-                ((MagnifyingGlass)sender).detailsText.Content = details;
-
-
-            }
-        }
         private void paperClip_MouseMove(object sender, MouseEventArgs e)
         {
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
@@ -1018,41 +1032,6 @@ namespace HabilisX
 
         }
 
-        private void activateMagnifyingGlassFilter(object sender, String att, MagnifyingGlass e, Brush color)
-        {
-
-
-            //Make label out of title
-            Label filterTitle = new Label();
-            filterTitle.Content = att.ToString().ToLower();
-            filterTitle.Foreground = Brushes.White;
-
-            //remove big note
-            MyScatterView.Items.Remove(sender);
-
-            //Make item that will be attached
-            ScatterViewItem Filter = new ScatterViewItem();
-            Filter.MouseDoubleClick += new MouseButtonEventHandler(AttributeFilter_MouseDoubleClick);
-            Filter.Tag = att;
-
-            //Format visually
-            Filter.Background = color;
-            Filter.ShowsActivationEffects = false;
-            Filter.MinHeight = 0;
-            Filter.Height = 35;
-            double y = (40 * (e.attributes.Count - 1)) + 10;
-
-            //Attach 
-            Filter.Content = filterTitle;
-
-            ((Canvas)(e.Content)).Children.Add(Filter);
-            Canvas.SetRight(Filter, 105);
-            Canvas.SetTop(Filter, y);
-
-            e.addAttribute(att);
-
-        }
-
         private void activateNote(Entry e, ScatterViewItem note)
         {
             //Save the fields of the two text boxes
@@ -1083,34 +1062,6 @@ namespace HabilisX
             ((Canvas)(e.Content)).Children.Add(annotation);
             Canvas.SetRight(annotation, 260);
         }
-        private void activatePaperClipFilter(object sender, iFilter query, PaperClip paperClip)
-        {
-            MyScatterView.Items.Remove(sender);
-
-            ScatterViewItem filterTile = new ScatterViewItem();
-            filterTile.MinHeight = 0;
-            filterTile.Background = Brushes.Transparent;
-            filterTile.ShowsActivationEffects = false;
-            filterTile.MouseDoubleClick += new MouseButtonEventHandler(activeFilter_MouseDoubleClick);
-            filterTile.Tag = query;
-
-            Label filter = new Label();
-            filter.Content = query.getQueryString();
-            filter.Foreground = Brushes.White;
-            filter.Background = query.getColor();
-
-            ((ScatterView)(paperClip.Content)).Items.Add(filterTile);
-
-            filterTile.Content = filter;
-            double y = (50 * paperClip.filters.Count) + 10;
-            filterTile.Center = new Point(-50, y);
-            filterTile.Orientation = 0;
-            filterTile.CanMove = false;
-            filterTile.CanRotate = false;
-            filterTile.CanScale = false;
-            paperClip.addFilter(query);
-        }
-
 
         #endregion
 

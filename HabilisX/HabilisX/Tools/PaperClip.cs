@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Controls;
 
 namespace Microsoft.Surface.Presentation.Controls
 {
@@ -36,6 +37,33 @@ namespace Microsoft.Surface.Presentation.Controls
 
          HabilisX.Utils.RemoveShadow(this);
 
+      }
+
+      public ScatterViewItem activatePaperClipFilter(iFilter query)
+      {
+          ScatterViewItem filterTile = new ScatterViewItem();
+          filterTile.MinHeight = 0;
+          filterTile.Background = Brushes.Transparent;
+          filterTile.ShowsActivationEffects = false;
+          filterTile.Tag = query;
+
+          Label filter = new Label();
+          filter.Content = query.getQueryString();
+          filter.Foreground = Brushes.White;
+          filter.Background = query.getColor();
+
+          ((ScatterView)(this.Content)).Items.Add(filterTile);
+
+          filterTile.Content = filter;
+          double y = (50 * this.filters.Count) + 10;
+          filterTile.Center = new Point(-50, y);
+          filterTile.Orientation = 0;
+          filterTile.CanMove = false;
+          filterTile.CanRotate = false;
+          filterTile.CanScale = false;
+          this.addFilter(query);
+
+          return filterTile;
       }
 
       public void addFilter(iFilter filter)

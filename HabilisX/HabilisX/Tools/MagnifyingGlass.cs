@@ -49,6 +49,40 @@ namespace Microsoft.Surface.Presentation.Controls
          }
       }
 
+      public ScatterViewItem activateMagnifyingGlassFilter(FilterTile tile)
+      {
+
+
+          //Make label out of title
+          Label filterTitle = new Label();
+          filterTitle.Content = tile.attTag.ToLower();
+          filterTitle.Foreground = Brushes.White;
+
+
+
+          //Make item that will be attached
+          ScatterViewItem Filter = new ScatterViewItem();
+          Filter.Tag = tile.attTag;
+
+          //Format visually
+          Filter.Background = tile.Background;
+          Filter.ShowsActivationEffects = false;
+          Filter.MinHeight = 0;
+          Filter.Height = 35;
+          double y = (40 * (this.attributes.Count - 1)) + 10;
+
+          //Attach 
+          Filter.Content = filterTitle;
+
+          ((Canvas)(this.Content)).Children.Add(Filter);
+          Canvas.SetRight(Filter, 105);
+          Canvas.SetTop(Filter, y);
+
+          this.addAttribute(tile.attTag);
+
+          return Filter;
+
+      }
 
       public bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {

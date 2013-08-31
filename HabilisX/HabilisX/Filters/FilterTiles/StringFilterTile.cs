@@ -15,5 +15,18 @@ namespace Microsoft.Surface.Presentation.Controls
             return new HabilisX.StringFilter(this.getUserInput(), this.attTag);
         }
 
+        public String getUserInput()
+        {
+            String input = "";
+
+            if (this.hasInput() && this.getContent().Substring(0, this.attTag.Length + 1).Equals(this.attTag + "="))
+            {
+                input = this.getContent().Substring(this.attTag.Length + 1);
+            }
+
+            return input;
+        }
+
+
     }
 }

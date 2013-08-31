@@ -11,7 +11,8 @@ namespace Microsoft.Surface.Presentation.Controls
     public abstract class FilterTile : ScatterViewItem
     {
         public String attTag;
-        private SurfaceTextBox txt = new SurfaceTextBox();
+        public Boolean onTextBox = false;
+
         protected void init(String attTag, int X, Brush color) {
             this.Tag = attTag;
             this.attTag = attTag;
@@ -23,26 +24,18 @@ namespace Microsoft.Surface.Presentation.Controls
         }
 
         public String getContent(){
-            return txt.Text;
+            return ((SurfaceTextBox)this.Content).Text;
         
         }
 
         public Boolean hasInput(){
-            return txt.Text.Length > attTag.Length+1;
+            return this.getContent().Length > attTag.Length+1;
         }
 
-        public String getUserInput() {
-            String input = "";
 
-            if (this.getContent().Length > this.attTag.Length + 1 && this.getContent().Substring(0, this.attTag.Length + 1).Equals(this.attTag + "="))
-            {
-                input = this.getContent().Substring(this.attTag.Length + 1);
-            }
-
-            return input;
-        }
         private SurfaceTextBox NewEntryTileTextBox(String attTag, ScatterViewItem item)
         {
+            SurfaceTextBox txt = new SurfaceTextBox();
             txt.Background = item.Background;
             txt.Margin = new Thickness(8);
             Thickness bottomMargin = txt.Margin;
@@ -54,10 +47,18 @@ namespace Microsoft.Surface.Presentation.Controls
             txt.FontWeight = FontWeights.Bold;
             txt.Text = attTag + "=";
             txt.AcceptsReturn = false;
+            
             txt.TextChanged += new TextChangedEventHandler(FilterTile_TextChanged);
+            txt.MouseDoubleClick += new MouseButtonEventHandler(txt_MouseDoubleClick);
             txt.Tag = attTag;
 
             return txt;
+        }
+
+        void txt_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            onTextBox = true;
+            e.Handled = true;
         }
 
 
