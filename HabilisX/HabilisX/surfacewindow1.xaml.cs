@@ -182,6 +182,56 @@ namespace HabilisX
                 }
                 #endregion
 
+                #region Ruler Interactions
+                foreach (Ruler ruler in this.rulers)
+                {
+                    if (entry.CanMove && ruler.AreBoundaryIntersecting(entry))
+                    {
+                        if (entry.Orientation != this.findNewOrientation(ruler, entry))
+                        {
+                            entry.Orientation = this.findNewOrientation(ruler, entry);
+                        }
+                        Point center = entry.Center;
+                        int side = ruler.BoundaryIntersectingOnSide(entry);//this.isCollidingOn(ruler, entry);
+
+
+                        switch (side)
+                        {
+                            case TOP:
+                                center.Y -= 1;
+                                break;
+                            case BOTTOM:
+                                center.Y += 1;
+                                break;
+                            case LEFT:
+                                center.X -= 1;
+                                break;
+                            case RIGHT:
+                                center.X += 1;
+                                break;
+                            default:
+                                break;
+                        }
+
+                        entry.Center = center;
+
+                    }
+                }
+                #endregion
+
+                foreach (PaperClip clip in this.paperClips)
+                {
+                    if (entry.CanMove && clip.AreBoundaryIntersecting(entry) && (entry.matchesAllFilters(clip.filters) ||
+                   clip.filters.Count == 0))
+                    {
+                        clip.addEntry(entry); 
+                    }
+                    else
+                    {
+                        clip.removeEntry(entry);
+                    }
+                }
+
                 #region MagicLens Interactions
                 Boolean highlighted = false;
                 foreach (MagicLens lens in this.lenses)
@@ -217,6 +267,33 @@ namespace HabilisX
 
             }
 
+            foreach (PaperClip clip in this.paperClips) {
+                int listoffset = -1;
+                foreach (Entry cur in clip.toOrganize) {
+                    listoffset++;
+                    cur.SetRelativeZIndex(0);
+                    double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
+                    cur.Orientation = 0;
+                    cur.Center = new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
+                }
+                clip.SetRelativeZIndex(0);
+                if ((int)clip.Tag == 0 && clip.toOrganize.Count > 0)
+                {
+                    ImageBrush ib = new ImageBrush();
+                    ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
+                    ((ScatterView)clip.Content).Background = ib;
+                    clip.Tag = 1;
+                }
+                else if ((int)clip.Tag == 1 && clip.toOrganize.Count == 0) {
+                    ImageBrush ib = new ImageBrush();
+                    ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClip.png");
+                    ((ScatterView)clip.Content).Background = ib;
+                    clip.Tag = 0;
+
+                
+                }
+            }
+            #region Magnifying Glass interactions
             List<Entry> detailedEntries = new List<Entry>();
             //List<MagnifyingGlass> glasses = new List<MagnifyingGlass>();
             foreach (MagnifyingGlass glass in this.mags)
@@ -253,9 +330,10 @@ namespace HabilisX
 
             }
 
+
             foreach (Entry entry in this.entries)
             {
-                if(detailedEntries.Contains(entry) &&!((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
+                if (detailedEntries.Contains(entry) && !((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
                 {
                     entry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
 
@@ -263,14 +341,17 @@ namespace HabilisX
                     MagnifyingGlass glass = this.mags[index];
                     glass.detailsText.Background = new SolidColorBrush(Color.FromArgb(180, 128, 128, 128));
                     glass.detailsText.Content = glass.getDetails(entry);
-    
+
                 }
-                else if (!detailedEntries.Contains(entry) && ((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080")) {
-                    entry.Background = new SolidColorBrush(Color.FromArgb(230, 191,191,191));
+                else if (!detailedEntries.Contains(entry) && ((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
+                {
+                    entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
                 }
             }
 
+            #endregion
 
+            #region activate filter tiles if intersecting with tool
             foreach (FilterTile tile in this.filters)
             {
                 foreach (MagnifyingGlass glass in this.mags)
@@ -311,8 +392,10 @@ namespace HabilisX
                 }
             }
 
+            #endregion
 
 
+            #region make pushpin always on top
             foreach (PushPin pin in this.pushPins)
             {
                 pin.SetRelativeZIndex(0);
@@ -325,6 +408,8 @@ namespace HabilisX
                     pin.SetImageToPin();
                 }
             }
+
+            #endregion
         }
 
 
@@ -368,7 +453,7 @@ namespace HabilisX
         private void AddRulerButton_Click(object sender, RoutedEventArgs e)
         {
             Ruler ruler = new Ruler();
-            ruler.MouseMove += new MouseEventHandler(ruler_MouseMove);
+            //ruler.MouseMove += new MouseEventHandler(ruler_MouseMove);
             ruler.MouseDoubleClick += new MouseButtonEventHandler(ruler_MouseDoubleClick);
             MyScatterView.Items.Add(ruler);
             this.rulers.Add(ruler);
@@ -397,7 +482,7 @@ namespace HabilisX
         {
             PaperClip paperClip = new PaperClip();
             paperClip.MouseDoubleClick += new MouseButtonEventHandler(paperClip_MouseDoubleClick);
-            paperClip.MouseMove += new MouseEventHandler(paperClip_MouseMove);
+            //paperClip.MouseMove += new MouseEventHandler(paperClip_MouseMove);
             MyScatterView.Items.Add(paperClip);
             this.paperClips.Add(paperClip);
 
@@ -797,10 +882,7 @@ namespace HabilisX
         private void ruler_MouseMove(object sender, MouseEventArgs e)
         {
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
-            //deltaX += Math.Sign(deltaX);
-
             double deltaY = (e.GetPosition(MyScatterView)).Y - lastMousePoint.Y;
-            //deltaY += Math.Sign(deltaY);
 
             if (!MyScatterView.Items.Contains(sender))
             {
@@ -867,7 +949,7 @@ namespace HabilisX
                     {
                         item.Orientation = this.findNewOrientation((Ruler)sender, item);
                     }
-                    checkForPins(item);
+                    //checkForPins(item);
 
                 }
                 else
@@ -901,30 +983,30 @@ namespace HabilisX
 
 
 
-        private void checkForPins(Entry entry)
-        {
-            bool foundPin = false;
-            foreach (PushPin pin in this.pushPins)
-            {
-                if (pin.AreBoundaryIntersecting(entry))
-                {
-                    ((Image)pin.Content).Source = Utils.NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
+        //private void checkForPins(Entry entry)
+        //{
+        //    bool foundPin = false;
+        //    foreach (PushPin pin in this.pushPins)
+        //    {
+        //        if (pin.AreBoundaryIntersecting(entry))
+        //        {
+        //            ((Image)pin.Content).Source = Utils.NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
 
-                    entry.CanMove = false;
-                    entry.CanRotate = false;
-                    entry.CanScale = false;
-                    foundPin = true;
-                }
-            }
+        //            entry.CanMove = false;
+        //            entry.CanRotate = false;
+        //            entry.CanScale = false;
+        //            foundPin = true;
+        //        }
+        //    }
 
-            if (!foundPin)
-            {
-                entry.CanMove = true;
-                entry.CanRotate = true;
-                entry.CanScale = true;
+        //    if (!foundPin)
+        //    {
+        //        entry.CanMove = true;
+        //        entry.CanRotate = true;
+        //        entry.CanScale = true;
 
-            }
-        }
+        //    }
+        //}
 
         private void moveEntry(Entry entry, Point center)
         {

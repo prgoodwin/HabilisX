@@ -35,14 +35,14 @@ namespace Microsoft.Surface.Presentation.Controls
       }
 
 
-      public bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
+      public bool AreBoundaryIntersecting(FrameworkElement item)
       {
-         RectangleGeometry cursorBounds =
-             new RectangleGeometry(new Rect(0, 0, cursorVisual.ActualWidth, cursorVisual.ActualHeight));
-         RectangleGeometry targetBounds =
+         RectangleGeometry itemBounds =
+             new RectangleGeometry(new Rect(0, 0, item.ActualWidth, item.ActualHeight));
+         RectangleGeometry rulerBounds =
              new RectangleGeometry(new Rect(0, 0, this.ActualWidth, this.ActualHeight));
-         cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
-         return cursorBounds.FillContainsWithDetail(targetBounds) != IntersectionDetail.Empty;
+         itemBounds.Transform = (Transform)item.TransformToVisual(this);
+         return itemBounds.FillContainsWithDetail(rulerBounds) != IntersectionDetail.Empty;
       }
 
 
@@ -55,30 +55,36 @@ namespace Microsoft.Surface.Presentation.Controls
          RectangleGeometry targetBoundsBottom =
              new RectangleGeometry(new Rect(0, this.ActualHeight-1, this.ActualWidth, 1));
          RectangleGeometry targetBoundsLeft =
-             new RectangleGeometry(new Rect(0, 0, 1, this.ActualHeight));
+             new RectangleGeometry(new Rect(0, 5, 1, this.ActualHeight-10));
          RectangleGeometry targetBoundsRight =
-             new RectangleGeometry(new Rect(0, this.ActualWidth-1, 1, this.ActualHeight));
+             new RectangleGeometry(new Rect(this.ActualWidth - 1, 5, 1, this.ActualHeight-10));
 
 
          cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
 
 
-         if (cursorBounds.FillContainsWithDetail(targetBoundsTop) != IntersectionDetail.Empty)
+         if (cursorBounds.FillContainsWithDetail(targetBoundsLeft) != IntersectionDetail.Empty)
          {
+             Console.WriteLine("FOUND A LEFT");
+            return LEFT;
+         }
+         else if (cursorBounds.FillContainsWithDetail(targetBoundsRight) != IntersectionDetail.Empty)
+         {
+             Console.WriteLine("FOUND A RIGHT");
+            return RIGHT;
+         }
+         else if(cursorBounds.FillContainsWithDetail(targetBoundsTop) != IntersectionDetail.Empty)
+         {
+             Console.WriteLine("FOUND A TOP");
             return TOP;
          }
-         else if (cursorBounds.FillContainsWithDetail(targetBoundsBottom) != IntersectionDetail.Empty)
+         else //if (cursorBounds.FillContainsWithDetail(targetBoundsBottom) != IntersectionDetail.Empty)
          {
+             Console.WriteLine("FOUND A BOTTOM");
             return BOTTOM;
          }
 
-         else if (cursorBounds.FillContainsWithDetail(targetBoundsLeft) != IntersectionDetail.Empty)
-         {
-            return LEFT;
-         }
-         else {
-            return RIGHT;
-         }
+
       }
 
 
