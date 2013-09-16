@@ -5,10 +5,13 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
+using Microsoft.Surface.Presentation.Controls;
 
-namespace Microsoft.Surface.Presentation.Controls
+
+namespace HabilisX.Tools
 {
-   public class MagnifyingGlass : ScatterViewItem
+    public class MagnifyingGlass : Tool
+    
    {
       public List<String> attributes = new List<String>();
       public Label detailsText = new Label();
@@ -84,7 +87,7 @@ namespace Microsoft.Surface.Presentation.Controls
 
       }
 
-      public bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
+      public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
          RectangleGeometry cursorBounds =
              new RectangleGeometry(new Rect(0, 0, cursorVisual.ActualWidth, cursorVisual.ActualHeight));
@@ -105,6 +108,9 @@ namespace Microsoft.Surface.Presentation.Controls
 
          return str;
       }
+
+    
+
    }
 }
 

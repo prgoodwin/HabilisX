@@ -5,12 +5,13 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
+using Microsoft.Surface.Presentation.Controls;
 
 
-
-namespace Microsoft.Surface.Presentation.Controls
+namespace HabilisX.Tools
 {
-   public class PushPin : ScatterViewItem
+    public class PushPin : Tool
+    
    {
 
       public PushPin() {
@@ -44,7 +45,7 @@ namespace Microsoft.Surface.Presentation.Controls
           this.Tag = 1;
       }
 
-      public bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
+      public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
          try
          {
@@ -66,7 +67,8 @@ namespace Microsoft.Surface.Presentation.Controls
          }
       }
 
-   
+
+
    }
 
 

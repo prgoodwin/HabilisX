@@ -16,10 +16,17 @@
             <s:SurfaceButton Content="Add Push Pin" Height="50" Width="160"   Click="AddPushPinButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </s:ScatterViewItem>
 
-        <!-- Ruler -->
+        <!-- Ruler 
         <s:ScatterViewItem Name="RulerButton" Orientation="0" Center="100,300" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
             <s:SurfaceButton Content="Add Ruler" Height="50" Width="160"   Click="AddRulerButton_Click"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </s:ScatterViewItem> -->
+
+        <!-- Note Button-->
+        <s:ScatterViewItem Name="NoteButton" Orientation="0" Center="100,300" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Add Note" Height="50" Width="160" Foreground="Black" Click="AddNote_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </s:ScatterViewItem>
+
+
 
         <!-- Magic Lens Button-->
         <s:ScatterViewItem Name="MagicLensButton" Orientation="0" Center="100,365" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
@@ -36,10 +43,6 @@
             <s:SurfaceButton Content="Add Paper Clip" Height="50" Width="160"  Click="AddPaperClip_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </s:ScatterViewItem>
 
-        <!-- Note Button-->
-        <s:ScatterViewItem Name="NoteButton" Orientation="0" Center="100,560" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="Add Note" Height="50" Width="160" Foreground="Black" Click="AddNote_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </s:ScatterViewItem>
 
         <s:ScatterViewItem Name="Debug" Orientation="0" Center="300,560" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
             <s:SurfaceButton Content="This is the debug" Height="50" Width="160" Foreground="Black" Click="clearDebug" HorizontalAlignment="Center" VerticalAlignment="Center" />

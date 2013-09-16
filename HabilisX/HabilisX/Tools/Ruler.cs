@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Controls;
 using System.Windows;
+using Microsoft.Surface.Presentation.Controls;
 using System.Windows.Media;
 
-namespace Microsoft.Surface.Presentation.Controls
+
+namespace HabilisX.Tools
 {
-   public class Ruler : ScatterViewItem
+    public class Ruler : Tool
+    
    {
       public List<iFilter> filters;
       public const int TOP = 0;
@@ -35,7 +38,7 @@ namespace Microsoft.Surface.Presentation.Controls
       }
 
 
-      public bool AreBoundaryIntersecting(FrameworkElement item)
+      public override bool AreBoundaryIntersecting(FrameworkElement item)
       {
          RectangleGeometry itemBounds =
              new RectangleGeometry(new Rect(0, 0, item.ActualWidth, item.ActualHeight));
@@ -92,6 +95,7 @@ namespace Microsoft.Surface.Presentation.Controls
       {
          this.filters.Add(filter);
       }
+
 
    }
 }

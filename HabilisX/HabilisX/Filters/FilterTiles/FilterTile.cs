@@ -35,22 +35,25 @@ namespace Microsoft.Surface.Presentation.Controls
 
         private SurfaceTextBox NewEntryTileTextBox(String attTag, ScatterViewItem item)
         {
+            
             SurfaceTextBox txt = new SurfaceTextBox();
+            txt.AcceptsReturn = false;
             txt.Background = item.Background;
-            txt.Margin = new Thickness(8);
-            Thickness bottomMargin = txt.Margin;
-            bottomMargin.Bottom = 50;
-            txt.Margin = bottomMargin;
-            txt.Height = 30;
-            txt.Width = 150;
             txt.FontSize = 14;
             txt.FontWeight = FontWeights.Bold;
+            txt.Height = 30;
+            txt.Margin = new Thickness(8);
+
+            Thickness bottomMargin = txt.Margin;
+            bottomMargin.Bottom = 50;
+
+            txt.Margin = bottomMargin;
+            txt.Tag = attTag;
             txt.Text = attTag + "=";
-            txt.AcceptsReturn = false;
+            txt.Width = 150;
             
             txt.TextChanged += new TextChangedEventHandler(FilterTile_TextChanged);
             txt.MouseDoubleClick += new MouseButtonEventHandler(txt_MouseDoubleClick);
-            txt.Tag = attTag;
 
             return txt;
         }

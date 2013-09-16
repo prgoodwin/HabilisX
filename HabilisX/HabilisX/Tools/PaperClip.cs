@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using Microsoft.Surface.Presentation.Controls;
 using System.Windows.Controls;
 
-namespace Microsoft.Surface.Presentation.Controls
+
+namespace HabilisX.Tools
 {
-    public class PaperClip : ScatterViewItem
+    public class PaperClip : Tool
     {
         public List<iFilter> filters;
         public HashSet<Entry> toOrganize;
@@ -26,7 +28,7 @@ namespace Microsoft.Surface.Presentation.Controls
             this.Orientation = 0;
             this.ShowsActivationEffects = false;
             this.Width = 150;
-
+            this.MouseDown += new System.Windows.Input.MouseButtonEventHandler(PaperClip_MouseDown);
             ScatterView innerView = new ScatterView();
             innerView.Width = 150;
             innerView.MinHeight = 5;
@@ -41,6 +43,11 @@ namespace Microsoft.Surface.Presentation.Controls
 
             this.Tag = 0; //For image
 
+        }
+
+        void PaperClip_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Canvas.SetZIndex(this, 0);
         }
 
         public void addEntry(Entry entry)
@@ -99,7 +106,7 @@ namespace Microsoft.Surface.Presentation.Controls
             }
         }
 
-        public bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
+        public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
         {
             RectangleGeometry cursorBounds =
                 new RectangleGeometry(new Rect(0, 0, cursorVisual.ActualWidth, cursorVisual.ActualHeight));
@@ -108,6 +115,9 @@ namespace Microsoft.Surface.Presentation.Controls
             cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
             return cursorBounds.FillContainsWithDetail(targetBounds) != IntersectionDetail.Empty;
         }
+
+
+
 
     }
 }

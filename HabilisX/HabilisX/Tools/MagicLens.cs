@@ -6,13 +6,16 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Microsoft.Surface.Presentation.Controls;
 
-namespace Microsoft.Surface.Presentation.Controls
+
+namespace HabilisX.Tools
 {
    // Summary:
    //     Represents an item that users can manipulate in a Microsoft.Surface.Presentation.Controls.ScatterView
    //     control.
-   public class MagicLens : ScatterViewItem
+    public class MagicLens : Tool
+    
    {
       public List<iFilter> filters;
       public List<UIElement> intersecting;
@@ -61,7 +64,7 @@ namespace Microsoft.Surface.Presentation.Controls
 
           return filterTile;
       }
-      public bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
+      public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
          RectangleGeometry cursorBounds =
              new RectangleGeometry(new Rect(0, 0, cursorVisual.ActualWidth, cursorVisual.ActualHeight));
@@ -79,5 +82,7 @@ namespace Microsoft.Surface.Presentation.Controls
             this.filters.Remove(filter);
          }
       }
+
+      
    }
 }
