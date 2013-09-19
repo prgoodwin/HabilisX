@@ -51,7 +51,7 @@ namespace HabilisX
 
       public string getQueryString() {
          
-         return this.q.ToString().ToLower() + " " + this.query.Month + "/" + this.query.Day + "/" + this.query.Year;
+         return this.q.ToString().ToLower() + " " + this.query.Year;
       }
 
       public Brush getColor() {

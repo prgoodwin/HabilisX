@@ -156,14 +156,14 @@ namespace HabilisX
 
         private void ScatterView_LayoutUpdated(object sender, EventArgs e)
         {
-            this.mags.Sort();
-            this.pushPins.Sort();
-            this.entries.Sort();
-            this.lenses.Sort();
-            this.rulers.Sort();
-            this.paperClips.Sort();
-            this.filters.Sort();
-            this.notes.Sort();
+            //    this.mags.Sort();
+            //    this.pushPins.Sort();
+            //    this.entries.Sort();
+            //    this.lenses.Sort();
+            //    this.rulers.Sort();
+            //    this.paperClips.Sort();
+            //    this.filters.Sort();
+            //    this.notes.Sort();
 
             #region Trash Interactions
             foreach (MagnifyingGlass item in this.mags)
@@ -232,7 +232,7 @@ namespace HabilisX
             }
             #endregion
 
-            ISet<PushPin> set = new HashSet<PushPin>();
+                ISet<PushPin> set = new HashSet<PushPin>();
             foreach (Entry entry in this.entries)
             {
                 #region pushPin Interactions
@@ -262,63 +262,26 @@ namespace HabilisX
                 }
                 #endregion
 
-                #region Ruler Interactions
-                foreach (Ruler ruler in this.rulers)
-                {
-                    if (entry.CanMove && ruler.AreBoundaryIntersecting(entry))
-                    {
-                        if (entry.Orientation != this.findNewOrientation(ruler, entry))
-                        {
-                            entry.Orientation = this.findNewOrientation(ruler, entry);
-                        }
-                        Point center = entry.Center;
-                        int side = ruler.BoundaryIntersectingOnSide(entry);//this.isCollidingOn(ruler, entry);
-
-
-                        switch (side)
-                        {
-                            case TOP:
-                                center.Y -= 1;
-                                break;
-                            case BOTTOM:
-                                center.Y += 1;
-                                break;
-                            case LEFT:
-                                center.X -= 1;
-                                break;
-                            case RIGHT:
-                                center.X += 1;
-                                break;
-                            default:
-                                break;
-                        }
-
-                        entry.Center = center;
-
-                    }
-                }
-                #endregion
-
                 #region PaperClip Interactions
-                foreach (PaperClip clip in this.paperClips)
-                {
-                    if (clip.AreBoundaryIntersecting(entry) && (entry.matchesAllFilters(clip.filters) ||
-                   clip.filters.Count == 0) && !isAlreadyClipped(clip, entry))
-                    {
-                        clip.addEntry(entry);
-                    }
-                    else
-                    {
-                        clip.removeEntry(entry);
-                    }
-                }
+                //        foreach (PaperClip clip in this.paperClips)
+                //        {
+                //            if (clip.AreBoundaryIntersecting(entry) && (entry.matchesAllFilters(clip.filters) ||
+                //           clip.filters.Count == 0) && !isAlreadyClipped(clip, entry))
+                //            {
+                //                clip.addEntry(entry);
+                //            }
+                //            else
+                //            {
+                //                clip.removeEntry(entry);
+                //            }
+                //        }
                 #endregion
 
                 #region MagicLens Interactions
                 Boolean highlighted = false;
                 foreach (MagicLens lens in this.lenses)
                 {
-                    if (lens.AreBoundaryIntersecting(entry) && entry.matchesAllFilters(lens.filters))
+                    if (lens.AreBoundaryIntersecting(entry) && entry.matchesAllFilters(lens.filters) && (Canvas.GetZIndex(lens) > Canvas.GetZIndex(entry)))
                     {
                         highlighted = true;
                     }
@@ -338,107 +301,111 @@ namespace HabilisX
                 #endregion
 
                 #region Note Interactions
-                foreach (ScatterViewItem note in this.notes)
-                {
-                    if (MyScatterView.Items.Contains(note) && entry.AreBoundaryIntersecting(note))
-                    {
-                        this.activateNote(entry, note);
-                        return;
-                    }
-                }
+                //        foreach (ScatterViewItem note in this.notes)
+                //        {
+                //            if (MyScatterView.Items.Contains(note) && entry.AreBoundaryIntersecting(note))
+                //            {
+                //                this.activateNote(entry, note);
+                //                return;
+                //            }
+                //        }
+                #endregion
+
+                //    }
+
+                #region paperclip part deux
+
+                //    foreach (PaperClip clip in this.paperClips)
+                //    {
+                //        int listoffset = -1;
+                //        foreach (Entry cur in clip.toOrganize)
+                //        {
+                //            listoffset++;
+                //            if (cur.CanMove)
+                //            {
+                //                cur.SetRelativeZIndex(0);
+                //                double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
+                //                cur.Orientation = 0;
+                //                cur.Center = new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
+                //            }
+                //        }
+                //        clip.SetRelativeZIndex(0);
+                //        if ((int)clip.Tag == 0 && clip.toOrganize.Count > 0)
+                //        {
+                //            ImageBrush ib = new ImageBrush();
+                //            ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
+                //            ((ScatterView)clip.Content).Background = ib;
+                //            clip.Tag = 1;
+                //        }
+                //        else if ((int)clip.Tag == 1 && clip.toOrganize.Count == 0)
+                //        {
+                //            ImageBrush ib = new ImageBrush();
+                //            ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClip.png");
+                //            ((ScatterView)clip.Content).Background = ib;
+                //            clip.Tag = 0;
+
+
+                //        }
                 #endregion
 
             }
-
-            foreach (PaperClip clip in this.paperClips)
-            {
-                int listoffset = -1;
-                foreach (Entry cur in clip.toOrganize)
-                {
-                    listoffset++;
-                    if (cur.CanMove)
-                    {
-                        cur.SetRelativeZIndex(0);
-                        double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
-                        cur.Orientation = 0;
-                        cur.Center = new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
-                    }
-                }
-                clip.SetRelativeZIndex(0);
-                if ((int)clip.Tag == 0 && clip.toOrganize.Count > 0)
-                {
-                    ImageBrush ib = new ImageBrush();
-                    ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
-                    ((ScatterView)clip.Content).Background = ib;
-                    clip.Tag = 1;
-                }
-                else if ((int)clip.Tag == 1 && clip.toOrganize.Count == 0)
-                {
-                    ImageBrush ib = new ImageBrush();
-                    ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClip.png");
-                    ((ScatterView)clip.Content).Background = ib;
-                    clip.Tag = 0;
-
-
-                }
-            }
             #region Magnifying Glass interactions
-            List<Entry> detailedEntries = new List<Entry>();
-            //List<MagnifyingGlass> glasses = new List<MagnifyingGlass>();
-            foreach (MagnifyingGlass glass in this.mags)
-            {
-                if (MyScatterView.Items.Contains(glass))
-                {
-                    Entry detailedEntry = new Entry();
-                    Boolean foundOne = false;
-                    foreach (Entry entry in this.entries)
-                    {
-                        if (glass.AreBoundaryIntersecting(entry) && !foundOne)
-                        {
-                            //Add to list and get one with highest z index;
-                            detailedEntry = entry;
-                            foundOne = true;
-                        }
-                        else if (glass.AreBoundaryIntersecting(entry) && foundOne)
-                        {
-                            if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
-                            {
-                                detailedEntry = entry;
-                            }
-                        }
+            //    List<Entry> detailedEntries = new List<Entry>();
+            //    //List<MagnifyingGlass> glasses = new List<MagnifyingGlass>();
+            //    foreach (MagnifyingGlass glass in this.mags)
+            //    {
+            //        if (MyScatterView.Items.Contains(glass))
+            //        {
+            //            Entry detailedEntry = new Entry();
+            //            Boolean foundOne = false;
+            //            foreach (Entry entry in this.entries)
+            //            {
+            //                if (glass.AreBoundaryIntersecting(entry) && !foundOne)
+            //                {
+            //                    //Add to list and get one with highest z index;
+            //                    detailedEntry = entry;
+            //                    foundOne = true;
+            //                }
+            //                else if (glass.AreBoundaryIntersecting(entry) && foundOne)
+            //                {
+            //                    if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
+            //                    {
+            //                        detailedEntry = entry;
+            //                    }
+            //                }
 
-                    }
-                    if (!foundOne)
-                    {
-                        //glasses.Add(glass);
-                        glass.detailsText.Background = Brushes.Transparent;
-                        glass.detailsText.Content = "";
-                    }
-                    detailedEntries.Add(detailedEntry);
-                }
+            //            }
+            //            if (!foundOne)
+            //            {
+            //                //glasses.Add(glass);
+            //                glass.detailsText.Background = Brushes.Transparent;
+            //                glass.detailsText.Content = "";
+            //            }
+            //            detailedEntries.Add(detailedEntry);
+            //        }
 
-            }
+            //    }
 
 
-            foreach (Entry entry in this.entries)
-            {
-                if (detailedEntries.Contains(entry) && !((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
-                {
-                    entry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
+            //    foreach (Entry entry in this.entries)
+            //    {
+            //        if (detailedEntries.Contains(entry) && !((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
+            //        {
+            //            entry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
 
-                    int index = detailedEntries.IndexOf(entry);
-                    MagnifyingGlass glass = this.mags[index];
-                    glass.detailsText.Content = glass.getDetails(entry);
-                    if (glass.getDetails(entry).Length > 0)
-                    {
-                        glass.detailsText.Background = new SolidColorBrush(Color.FromArgb(180, 128, 128, 128));
-                    }
-                }
-                else if (!detailedEntries.Contains(entry) && ((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
-                {
-                    entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
-                }
-            }
+            //            int index = detailedEntries.IndexOf(entry);
+            //            MagnifyingGlass glass = this.mags[index];
+            //            glass.detailsText.Content = glass.getDetails(entry);
+            //            if (glass.getDetails(entry).Length > 0)
+            //            {
+            //                glass.detailsText.Background = new SolidColorBrush(Color.FromArgb(180, 128, 128, 128));
+            //            }
+            //        }
+            //        else if (!detailedEntries.Contains(entry) && ((SolidColorBrush)(entry.Background)).Color.ToString().Equals("#E6808080"))
+            //        {
+            //            entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+            //        }
+            //    }
 
             #endregion
 
@@ -538,11 +505,13 @@ namespace HabilisX
 
         private void AddNewFilterTile(FilterTile tile)
         {
+            //tile.MouseMove += new MouseEventHandler(FilterTile_MouseMove);
             AddToScreen(tile);
         }
 
 
-        private void AddNewTool(Tool tool) {
+        private void AddNewTool(Tool tool)
+        {
             AddToScreen(tool);
             tool.MouseDown += new MouseButtonEventHandler(tool_MouseDown);
             //tool.TouchDown += new EventHandler<TouchEventArgs>(tool_TouchDown);
@@ -577,28 +546,38 @@ namespace HabilisX
         private void AddPushPinButton_Click(object sender, RoutedEventArgs e)
         {
             PushPin pushPin = new PushPin();
+            //pushPin.MouseMove += new MouseEventHandler(pushPin_MouseMove);
+            //pushPin.PreviewTouchMove += new EventHandler<TouchEventArgs>(pushPin_PreviewTouchMove);
             AddNewTool(pushPin);
         }
         private void AddRulerButton_Click(object sender, RoutedEventArgs e)
         {
             Ruler ruler = new Ruler();
+            ruler.MouseMove += new MouseEventHandler(ruler_MouseMove);
+            ruler.PreviewTouchMove += new EventHandler<TouchEventArgs>(ruler_PreviewTouchMove);
             AddNewTool(ruler);
         }
         private void AddMagicLensButton_Click(object sender, RoutedEventArgs e)
         {
             MagicLens magicLens = new MagicLens();
+            //magicLens.MouseMove += new MouseEventHandler(magicLens_MouseMove);
+            //magicLens.PreviewTouchMove  +=new EventHandler<TouchEventArgs>(magicLens_PreviewTouchMove);
             AddNewTool(magicLens);
         }
 
         private void AddMagnifyingGlass_Click(object sender, RoutedEventArgs e)
         {
             MagnifyingGlass magnifier = new MagnifyingGlass();
+            magnifier.MouseMove += new MouseEventHandler(magnifier_MouseMove);
+            magnifier.MouseMove += new MouseEventHandler(magnifier_MouseMove);
             AddNewTool(magnifier);
         }
 
         private void AddPaperClip_Click(object sender, RoutedEventArgs e)
         {
             PaperClip paperClip = new PaperClip();
+            paperClip.MouseMove += new MouseEventHandler(paperClip_MouseMove);
+            paperClip.PreviewTouchMove += new EventHandler<TouchEventArgs>(paperClip_PreviewTouchMove);
             AddNewTool(paperClip);
         }
 
@@ -606,6 +585,8 @@ namespace HabilisX
         {
 
             Note note = new Note();
+            note.MouseMove += new MouseEventHandler(note_MouseMove);
+            note.PreviewTouchMove += new EventHandler<TouchEventArgs>(note_PreviewTouchMove);
             AddNewTool(note);
         }
 
@@ -863,25 +844,759 @@ namespace HabilisX
 
         //}
 
-        private void IntTile_TextChanged(object sender, TextChangedEventArgs e)
+
+
+        #endregion
+
+        #region Mouse Move
+        private void entry_PreviewTouchMove(object sender, TouchEventArgs e)
         {
-            String str = (String)((TextBox)sender).Tag;
-
-            if (((TextBox)sender).Text.Length < str.Length || !(((TextBox)sender).Text.Substring(0, str.Length).Equals(str)))
+            foreach (PushPin item in this.pushPins)
             {
-                ((TextBox)sender).Text = str;
-                ((TextBox)sender).Select(str.Length, 0);
+                if (item.AreBoundaryIntersecting((FrameworkElement)sender))
+                {
+                    ((Entry)sender).CanMove = false;
+                    ((Entry)sender).CanScale = false;
+                    ((Entry)sender).CanRotate = false;
+                    item.SetRelativeZIndex(0);
+                    Image im = new Image();
+
+                    im.Source = Utils.NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
+                    item.Content = im;
+
+                    Console.Out.WriteLine("Stopping a move");
+                    return;
+                }
             }
-
-            if (((TextBox)sender).Text.Length >= str.Length + 1 && !(((TextBox)sender).Text[str.Length] == '=' || ((TextBox)sender).Text[str.Length] == '>' || ((TextBox)sender).Text[str.Length] == '<'))
+            ((Entry)sender).CanMove = true;
+            ((Entry)sender).CanRotate = true;
+            ((Entry)sender).CanScale = true;
+        }
+        private void entry_MouseMove(object sender, MouseEventArgs e)
+        {
+            foreach (PushPin item in this.pushPins)
             {
-                ((TextBox)sender).Text = str;
-                ((TextBox)sender).Select(str.Length, 0);
+                if (item.AreBoundaryIntersecting((FrameworkElement)sender))
+                {
+                    ((Entry)sender).CanMove = false;
+                    ((Entry)sender).CanScale = false;
+                    ((Entry)sender).CanRotate = false;
+                    item.SetRelativeZIndex(0);
+                    Image im = new Image();
+
+                    im.Source = Utils.NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
+                    item.Content = im;
+
+                    Console.Out.WriteLine("Stopping a move");
+                    return;
+                }
+            }
+            ((Entry)sender).CanMove = true;
+            ((Entry)sender).CanRotate = true;
+            ((Entry)sender).CanScale = true;
+        }
+
+        private void note_PreviewTouchMove(object sender, TouchEventArgs e)
+        {
+            if (MyScatterView.Items.Contains(sender))
+            {
+
+                foreach (Entry entry in this.entries)
+                {
+                    if (entry.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
+                    {
+                        activateNote(entry, (ScatterViewItem)sender);
+                        return;
+                    }
+                }
+            }
+        }
+        private void note_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (MyScatterView.Items.Contains(sender))
+            {
+
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    foreach (Entry entry in this.entries)
+                    {
+                        if (entry.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
+                        {
+                            activateNote(entry, (ScatterViewItem)sender);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void magnifier_PreviewTouchMove(object sender, TouchEventArgs e)
+        {
+
+            if (MyScatterView.Items.Contains(sender))
+            {
+                Entry detailedEntry = new Entry();
+                Boolean foundOne = false;
+                String details = "";
+                foreach (Entry entry in this.entries)
+                {
+                    if (((MagnifyingGlass)sender).AreBoundaryIntersecting(entry) && !foundOne)
+                    {
+                        //Add to list and get one with highest z index;
+                        detailedEntry = entry;
+                        detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
+                        details = ((MagnifyingGlass)sender).getDetails(entry);
+                        //((MagnifyingGlass)sender).detailsText.Content = details;
+                        foundOne = true;
+                    }
+                    else if (((MagnifyingGlass)sender).AreBoundaryIntersecting(entry) && foundOne)
+                    {
+                        if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
+                        {
+                            detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+                            detailedEntry = entry;
+                            detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
+                            details = ((MagnifyingGlass)sender).getDetails(entry);
+                        }
+                    }
+                    else
+                    {
+                        entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+
+                    }
+                }
+
+                if (foundOne && details.Length > 0)
+                {
+                    ((MagnifyingGlass)sender).detailsText.Background = new SolidColorBrush(Color.FromArgb(180, 128, 128, 128));
+                }
+                else
+                {
+                    ((MagnifyingGlass)sender).detailsText.Background = Brushes.Transparent;
+                }
+
+                ((MagnifyingGlass)sender).detailsText.Content = details;
+
 
             }
 
         }
+        private void magnifier_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (MyScatterView.Items.Contains(sender))
+            {
+                Entry detailedEntry = new Entry();
+                Boolean foundOne = false;
+                String details = "";
+                foreach (Entry entry in this.entries)
+                {
+                    if (((MagnifyingGlass)sender).AreBoundaryIntersecting(entry) && !foundOne)
+                    {
+                        //Add to list and get one with highest z index;
+                        detailedEntry = entry;
+                        detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
+                        details = ((MagnifyingGlass)sender).getDetails(entry);
+                        //((MagnifyingGlass)sender).detailsText.Content = details;
+                        foundOne = true;
+                    }
+                    else if (((MagnifyingGlass)sender).AreBoundaryIntersecting(entry) && foundOne)
+                    {
+                        if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
+                        {
+                            detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+                            detailedEntry = entry;
+                            detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
+                            details = ((MagnifyingGlass)sender).getDetails(entry);
+                        }
+                    }
+                    else
+                    {
+                        entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
 
+                    }
+                }
+
+                if (foundOne && details.Length > 0)
+                {
+                    ((MagnifyingGlass)sender).detailsText.Background = new SolidColorBrush(Color.FromArgb(180, 128, 128, 128));
+                }
+                else
+                {
+                    ((MagnifyingGlass)sender).detailsText.Background = Brushes.Transparent;
+                }
+
+                ((MagnifyingGlass)sender).detailsText.Content = details;
+
+
+            }
+        }
+
+        private void FilterTile_PreviewTouchMove(object sender, TouchEventArgs e)
+        {
+            if (MyScatterView.Items.Contains(sender))
+            {
+
+                foreach (MagnifyingGlass glass in this.mags)
+                {
+                    if (glass.AreBoundaryIntersecting((ScatterViewItem)sender))
+                    {
+                        glass.activateMagnifyingGlassFilter((FilterTile)sender);
+                        RemoveFromScreen((FilterTile)sender);
+                        return;
+                    }
+                }
+            }
+
+
+
+            if (MyScatterView.Items.Contains(sender) && ((FilterTile)sender).hasInput())
+            {
+
+                foreach (MagicLens lens in this.lenses)
+                {
+                    if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
+                    {
+                        lens.activateMagicLensFilter(((FilterTile)sender).getFilter());
+                        RemoveFromScreen((FilterTile)sender);
+                        return;
+                    }
+                }
+
+                foreach (PaperClip paperClip in this.paperClips)
+                {
+                    if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
+                    {
+                        paperClip.activatePaperClipFilter(((FilterTile)sender).getFilter());
+                        RemoveFromScreen((FilterTile)sender);
+                        return;
+                    }
+                }
+            }
+        }
+        private void FilterTile_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (MyScatterView.Items.Contains(sender))
+            {
+
+                foreach (MagnifyingGlass glass in this.mags)
+                {
+                    if (glass.AreBoundaryIntersecting((ScatterViewItem)sender))
+                    {
+                        glass.activateMagnifyingGlassFilter((FilterTile)sender);
+                        RemoveFromScreen((FilterTile)sender);
+                        return;
+                    }
+                }
+            }
+
+
+
+            if (MyScatterView.Items.Contains(sender) && ((FilterTile)sender).hasInput())
+            {
+
+                foreach (MagicLens lens in this.lenses)
+                {
+                    if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
+                    {
+                        lens.activateMagicLensFilter(((FilterTile)sender).getFilter());
+                        RemoveFromScreen((FilterTile)sender);
+                        return;
+                    }
+                }
+
+                foreach (PaperClip paperClip in this.paperClips)
+                {
+                    if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
+                    {
+                        paperClip.activatePaperClipFilter(((FilterTile)sender).getFilter());
+                        RemoveFromScreen((FilterTile)sender);
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void magicLens_PreviewTouchMove(object sender, TouchEventArgs e)
+        {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
+            foreach (Entry item in this.entries)
+            {
+                if (((MagicLens)sender).AreBoundaryIntersecting((FrameworkElement)item) &&//this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)item) &&
+                   item.matchesAllFilters(((MagicLens)sender).filters))
+                {
+                    ((Canvas)(item.Content)).Background = ((MagicLens)sender).color;
+                }
+                else
+                {
+                    ((Canvas)(item.Content)).Background = Brushes.Transparent;
+                }
+            }
+        }
+        private void magicLens_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
+            foreach (Entry item in this.entries)
+            {
+                if (((MagicLens)sender).AreBoundaryIntersecting((FrameworkElement)item) &&//this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)item) &&
+                   item.matchesAllFilters(((MagicLens)sender).filters))
+                {
+                    ((Canvas)(item.Content)).Background = ((MagicLens)sender).color;
+                }
+                else
+                {
+                    ((Canvas)(item.Content)).Background = Brushes.Transparent;
+                }
+            }
+        }
+
+        private void pushPin_PreviewTouchMove(object sender, TouchEventArgs e)
+        {
+            foreach (Entry entry in this.entries)
+            {
+                if (((PushPin)sender).AreBoundaryIntersecting(entry))
+                {
+                    ((Image)((PushPin)(sender)).Content).Source = Utils.NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
+
+                    entry.CanMove = false;
+                    entry.CanRotate = false;
+                    entry.CanScale = false;
+                }
+            }
+        }
+        private void pushPin_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                ((PushPin)sender).SetRelativeZIndex(0);
+                Image im = new Image();
+                im.Source = Utils.NewEmbededResource("HabilisX.Resources.pin.gif");
+                ((PushPin)sender).Content = im;
+            }
+            else
+            {
+                foreach (Entry entry in this.entries)
+                {
+                    if (((PushPin)sender).AreBoundaryIntersecting(entry))
+                    {
+                        ((Image)((PushPin)(sender)).Content).Source = Utils.NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
+
+                        entry.CanMove = false;
+                        entry.CanRotate = false;
+                        entry.CanScale = false;
+                    }
+                }
+            }
+
+        }
+
+        private void paperClip_PreviewTouchMove(object sender, TouchEventArgs e)
+        {
+            PaperClip clip = sender as PaperClip;
+            foreach (Entry entry in this.entries)
+            {
+
+                if (clip.AreBoundaryIntersecting(entry) && (entry.matchesAllFilters(clip.filters) ||
+               clip.filters.Count == 0) && !isAlreadyClipped(clip, entry))
+                {
+                    clip.addEntry(entry);
+                }
+                else
+                {
+                    clip.removeEntry(entry);
+                }
+            }
+
+
+
+            int listoffset = -1;
+            foreach (Entry cur in clip.toOrganize)
+            {
+                listoffset++;
+                if (cur.CanMove)
+                {
+                    cur.SetRelativeZIndex(0);
+                    double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
+                    cur.Orientation = 0;
+                    cur.Center = new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
+                }
+            }
+            clip.SetRelativeZIndex(0);
+            if ((int)clip.Tag == 0 && clip.toOrganize.Count > 0)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
+                ((ScatterView)clip.Content).Background = ib;
+                clip.Tag = 1;
+            }
+            else if ((int)clip.Tag == 1 && clip.toOrganize.Count == 0)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClip.png");
+                ((ScatterView)clip.Content).Background = ib;
+                clip.Tag = 0;
+
+
+            }
+
+        }
+        private void paperClip_MouseMove(object sender, MouseEventArgs e)
+        {
+            PaperClip clip = sender as PaperClip;
+            foreach (Entry entry in this.entries)
+            {
+
+                if (clip.AreBoundaryIntersecting(entry) && (entry.matchesAllFilters(clip.filters) ||
+               clip.filters.Count == 0) && !isAlreadyClipped(clip, entry))
+                {
+                    clip.addEntry(entry);
+                }
+                else
+                {
+                    clip.removeEntry(entry);
+                }
+            }
+
+
+
+            int listoffset = -1;
+            foreach (Entry cur in clip.toOrganize)
+            {
+                listoffset++;
+                if (cur.CanMove)
+                {
+                    cur.SetRelativeZIndex(0);
+                    double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
+                    cur.Orientation = 0;
+                    cur.Center = new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
+                }
+            }
+            clip.SetRelativeZIndex(0);
+            if ((int)clip.Tag == 0 && clip.toOrganize.Count > 0)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
+                ((ScatterView)clip.Content).Background = ib;
+                clip.Tag = 1;
+            }
+            else if ((int)clip.Tag == 1 && clip.toOrganize.Count == 0)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClip.png");
+                ((ScatterView)clip.Content).Background = ib;
+                clip.Tag = 0;
+
+
+            }
+
+
+
+            //double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
+            ////deltaX += Math.Sign(deltaX);
+
+            //double deltaY = (e.GetPosition(MyScatterView)).Y - lastMousePoint.Y;
+            ////deltaY += Math.Sign(deltaY);
+            //if (!MyScatterView.Items.Contains(sender))
+            //{
+            //    lastDelta = new Point(deltaX, deltaY);
+            //    lastMousePoint = e.GetPosition(MyScatterView);
+            //    return;
+            //}
+
+            //List<Entry> toOrganize = new List<Entry>();
+
+            //foreach (Entry entry in this.entries)
+            //{
+            //    if (((PaperClip)sender).AreBoundaryIntersecting(entry) && (entry.matchesAllFilters(((PaperClip)sender).filters) ||
+            //       ((PaperClip)sender).filters.Count == 0))
+            //    {
+            //        toOrganize.Add(entry);
+            //    }
+            //}
+
+            //if (e.LeftButton != MouseButtonState.Pressed)
+            //{
+
+            //    if (toOrganize.Count != 0)
+            //    {
+
+            //        for (int i = 0; i < Math.Min(7,toOrganize.Count); i++)
+            //        {
+            //            Entry cur = toOrganize[i];
+            //            cur.SetRelativeZIndex(0);
+            //            double offset = cur.ActualWidth / 2 - (((PaperClip)sender).ActualWidth / 2);
+            //            cur.Orientation = 0;
+            //            cur.Center = new Point(((PaperClip)sender).Center.X + offset + 8, ((PaperClip)sender).Center.Y - (cur.ActualHeight / 4) + 20 * i);
+            //        }
+            //        ((PaperClip)sender).SetRelativeZIndex(0);
+            //        ImageBrush ib = new ImageBrush();
+            //        ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
+
+
+
+            //        ((ScatterView)((PaperClip)sender).Content).Background = ib;
+
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (Entry entry in toOrganize)
+            //    {
+            //        entry.SetRelativeZIndex(0);
+            //        entry.Center = new Point(entry.Center.X + deltaX, entry.Center.Y + deltaY);
+            //    }
+            //    ((PaperClip)sender).SetRelativeZIndex(0);
+            //}
+
+            //lastDelta = new Point(deltaX, deltaY);
+            //lastMousePoint = e.GetPosition(MyScatterView);
+        }
+
+        private void ruler_PreviewTouchMove(object sender, TouchEventArgs e)
+        {
+            double deltaX = e.GetTouchPoint(MyScatterView).Position.X - lastMousePoint.X;
+            //deltaX += Math.Sign(deltaX);
+
+            double deltaY = e.GetTouchPoint(MyScatterView).Position.Y - lastMousePoint.Y;
+            //deltaY += Math.Sign(deltaY);
+
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                lastDelta = new Point(deltaX, deltaY);
+                lastMousePoint = e.GetTouchPoint(MyScatterView).Position;
+                return;
+            }
+
+            foreach (Entry item in this.entries)
+            {
+                if (item.CanMove && ((Ruler)sender).AreBoundaryIntersecting((FrameworkElement)item))
+                {
+                    //Move Entry
+                    //This is a terrible solution.  It mostly works;
+                    int side = this.isCollidingOn((Ruler)sender, item);
+                    Point rulerCenter = ((Ruler)sender).Center;
+                    Point itemCenter = item.Center;
+
+                    switch (side)
+                    {
+                        case TOP:
+                            if (deltaY < 0)
+                            {
+                                moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                ((Canvas)(item.Content)).Background = Brushes.Blue;
+                            }
+                            break;
+                        case RIGHT:
+                            if (deltaX > 0)
+                            {
+                                moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                ((Canvas)(item.Content)).Background = Brushes.Blue;
+                            }
+                            break;
+                        case BOTTOM:
+                            if (deltaY > 0)
+                            {
+                                moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                ((Canvas)(item.Content)).Background = Brushes.Blue;
+                            }
+                            break;
+                        case LEFT:
+                            if (deltaX < 0)
+                            {
+                                moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                ((Canvas)(item.Content)).Background = Brushes.Blue;
+                            }
+
+                            break;
+                    }
+
+                    bool isClipped = false;
+                    foreach (PaperClip clip in this.paperClips)
+                    {
+                        if (clip.AreBoundaryIntersecting(item))
+                        {
+                            isClipped = true;
+                        }
+                    }
+
+                    if (!isClipped)
+                    {
+                        item.Orientation = this.findNewOrientation((Ruler)sender, item);
+                    }
+                    checkForPins(item);
+
+                }
+                else
+                {
+                    ((Canvas)(item.Content)).Background = Brushes.Transparent;
+                }
+            }
+
+            lastDelta = new Point(deltaX, deltaY);
+            lastMousePoint = e.GetTouchPoint(MyScatterView).Position;
+
+
+        }
+        private void ruler_MouseMove(object sender, MouseEventArgs e)
+        {
+            double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
+            //deltaX += Math.Sign(deltaX);
+
+            double deltaY = (e.GetPosition(MyScatterView)).Y - lastMousePoint.Y;
+            //deltaY += Math.Sign(deltaY);
+
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                lastDelta = new Point(deltaX, deltaY);
+                lastMousePoint = e.GetPosition(MyScatterView);
+                return;
+            }
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                foreach (Entry item in this.entries)
+                {
+                    if (item.CanMove && ((Ruler)sender).AreBoundaryIntersecting((FrameworkElement)item))
+                    {
+                        //Move Entry
+                        //This is a terrible solution.  It mostly works;
+                        int side = this.isCollidingOn((Ruler)sender, item);
+                        Point rulerCenter = ((Ruler)sender).Center;
+                        Point itemCenter = item.Center;
+
+                        switch (side)
+                        {
+                            case TOP:
+                                if (deltaY < 0)
+                                {
+                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
+                                }
+                                break;
+                            case RIGHT:
+                                if (deltaX > 0)
+                                {
+                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
+                                }
+                                break;
+                            case BOTTOM:
+                                if (deltaY > 0)
+                                {
+                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
+                                }
+                                break;
+                            case LEFT:
+                                if (deltaX < 0)
+                                {
+                                    moveEntry(item, new Point(item.Center.X + deltaX, item.Center.Y + deltaY));
+                                    ((Canvas)(item.Content)).Background = Brushes.Blue;
+                                }
+
+                                break;
+                        }
+
+                        bool isClipped = false;
+                        foreach (PaperClip clip in this.paperClips)
+                        {
+                            if (clip.AreBoundaryIntersecting(item))
+                            {
+                                isClipped = true;
+                            }
+                        }
+
+                        if (!isClipped)
+                        {
+                            item.Orientation = this.findNewOrientation((Ruler)sender, item);
+                        }
+                        checkForPins(item);
+
+                    }
+                    else
+                    {
+                        ((Canvas)(item.Content)).Background = Brushes.Transparent;
+                    }
+                }
+            }
+            lastDelta = new Point(deltaX, deltaY);
+            lastMousePoint = e.GetPosition(MyScatterView);
+        }
+
+
+        private void checkForPins(Entry entry)
+        {
+            bool foundPin = false;
+            foreach (PushPin pin in this.pushPins)
+            {
+                if (pin.AreBoundaryIntersecting(entry))
+                {
+                    ((Image)pin.Content).Source = Utils.NewEmbededResource("HabilisX.Resources.pinOccluded.gif");
+
+                    entry.CanMove = false;
+                    entry.CanRotate = false;
+                    entry.CanScale = false;
+                    foundPin = true;
+                }
+            }
+
+            if (!foundPin)
+            {
+                entry.CanMove = true;
+                entry.CanRotate = true;
+                entry.CanScale = true;
+
+            }
+        }
+        private void moveEntry(Entry entry, Point center)
+        {
+            double deltaX = center.X - entry.Center.X;
+            double deltaY = center.Y - entry.Center.Y;
+
+            foreach (PushPin pin in this.pushPins)
+            {
+                if (pin.AreBoundaryIntersecting(entry))
+                {
+                    return;
+                }
+            }
+
+            foreach (PaperClip p in this.paperClips)
+            {
+                if (p.AreBoundaryIntersecting(entry))
+                {
+                    foreach (Entry e in this.entries)
+                    {
+                        if (p.AreBoundaryIntersecting(e))
+                        {
+                            if (!e.CanMove)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                e.Center = new Point(e.Center.X + deltaX, e.Center.Y + deltaY);
+                            }
+                        }
+                    }
+                    p.Center = new Point(p.Center.X + deltaX, p.Center.Y + deltaY);
+
+                    return;
+                }
+            }
+
+            entry.Center = new Point(entry.Center.X + deltaX, entry.Center.Y + deltaY);
+
+
+        }
         #endregion
 
         #region Helper Methods

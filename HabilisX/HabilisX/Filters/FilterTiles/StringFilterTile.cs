@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Media;
+using System.Windows.Controls;
 namespace Microsoft.Surface.Presentation.Controls
 {
     public class StringFilterTile : FilterTile
@@ -25,6 +26,16 @@ namespace Microsoft.Surface.Presentation.Controls
             }
 
             return input;
+        }
+
+        protected override void FilterTile_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            String str = (String)((TextBox)sender).Tag + "=";
+            if (((TextBox)sender).Text.Length < str.Length || !(((TextBox)sender).Text.Substring(0, str.Length).Equals(str)))
+            {
+                ((TextBox)sender).Text = str;
+                ((TextBox)sender).Select(str.Length, 0);
+            }
         }
 
 

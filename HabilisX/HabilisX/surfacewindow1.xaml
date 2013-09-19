@@ -5,10 +5,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008"
-    Title="HabilisX" Foreground="Green" Height="300" Width="300">
+    Title="HabilisX" Foreground="Green" Height="1340" Width="1155">
 
     <!-- Main scatterview (whole window)-->
-    <s:ScatterView Name="MyScatterView"  Foreground="Black" Background="#FF0071FF" LayoutUpdated="ScatterView_LayoutUpdated">
+    <s:ScatterView Name="MyScatterView"  Foreground="Black" Background="#FF0071FF" LayoutUpdated="ScatterView_LayoutUpdated" Height="1080" Width="1920">
+        <!-- -->
 
 
         <!-- Push Pin-->
