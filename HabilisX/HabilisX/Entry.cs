@@ -16,7 +16,8 @@ namespace Microsoft.Surface.Presentation.Controls
         public Dictionary<String, object> attributes = new Dictionary<String, object>();
         public Boolean isClipped = false;
 
-        private const int CHARSPERLINE = 40;
+        private const int CHARSPERLINE = 50;
+        private int numLines = 1;
         private Label L;
 
         public Entry()
@@ -27,18 +28,19 @@ namespace Microsoft.Surface.Presentation.Controls
             L.FontSize = 12;
 
 
-
             Canvas innerView = new Canvas();
             innerView.Background = Brushes.Transparent;
             innerView.Children.Add(L);
 
 
-            this.Width = 260;
-            this.Height = 170;
+            this.Width = 310;
+            //Console.WriteLine("Going to height...");
+            //this.Height = this.numLines*12;
             this.Content = innerView;
             this.Center = new Point(this.getNewX(), this.getNewY());
             this.Orientation = this.getNewOrientation();
             this.Tag = 0; //highlighting off to begin
+            this.CanScale = false;
         }
 
         public Entry(Dictionary<String, object> attributes)
@@ -205,7 +207,12 @@ namespace Microsoft.Surface.Presentation.Controls
 
             }
 
+           this.numLines = str.Count(f => f == '\n') + 1;
+           Console.WriteLine("numLines: " + this.numLines);
+           this.Height = this.numLines * 15;
             return str;
+
+
         }
 
 

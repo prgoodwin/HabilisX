@@ -140,8 +140,6 @@ namespace HabilisX
             foreach (Entry e in dataSet.allEntries)
             {
                 AddToScreen(e);
-                //MyScatterView.Items.Add(e);
-                //this.entries.Add(e);
             }
 
             #endregion
@@ -508,8 +506,6 @@ namespace HabilisX
             //tile.MouseMove += new MouseEventHandler(FilterTile_MouseMove);
             AddToScreen(tile);
         }
-
-
         private void AddNewTool(Tool tool)
         {
             AddToScreen(tool);
@@ -568,7 +564,7 @@ namespace HabilisX
         private void AddMagnifyingGlass_Click(object sender, RoutedEventArgs e)
         {
             MagnifyingGlass magnifier = new MagnifyingGlass();
-            magnifier.MouseMove += new MouseEventHandler(magnifier_MouseMove);
+            magnifier.PreviewTouchMove +=new EventHandler<TouchEventArgs>(magnifier_PreviewTouchMove);
             magnifier.MouseMove += new MouseEventHandler(magnifier_MouseMove);
             AddNewTool(magnifier);
         }
