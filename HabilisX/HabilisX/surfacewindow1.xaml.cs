@@ -1222,9 +1222,12 @@ namespace HabilisX
                     cur.SetRelativeZIndex(0);
                     double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
                     cur.Orientation = 0;
-                    cur.Center = new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
+                    cur.Center = new Point(clip.Center.X + cur.Width / 2 - offset + 13, clip.Center.Y + cur.Height / 2 - 150 + 20 * listoffset);
+
+                    //new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
                 }
             }
+
             clip.SetRelativeZIndex(0);
             if ((int)clip.Tag == 0 && clip.toOrganize.Count > 0)
             {
@@ -1272,7 +1275,9 @@ namespace HabilisX
                     cur.SetRelativeZIndex(0);
                     double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
                     cur.Orientation = 0;
-                    cur.Center = new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
+                    cur.Center = new Point(clip.Center.X + cur.Width / 2 - offset + 13, clip.Center.Y + cur.Height/2 - 150 + 20 * listoffset);
+                        
+                        //new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
                 }
             }
             clip.SetRelativeZIndex(0);
@@ -1598,17 +1603,7 @@ namespace HabilisX
         #region Helper Methods
 
 
-        private void clearDebug(object sender, RoutedEventArgs e)
-        {
-            ((SurfaceButton)(Debug.Content)).Content = "This is the debug";
-
-        }
-        void debugText(String str)
-        {
-            ((SurfaceButton)(Debug.Content)).Content = str;
-            Console.WriteLine(str);
-
-        }
+        
 
         public void AddToScreen(ScatterViewItem item)
         {

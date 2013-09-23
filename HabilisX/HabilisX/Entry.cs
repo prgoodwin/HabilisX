@@ -243,7 +243,7 @@ namespace Microsoft.Surface.Presentation.Controls
         }
         private double getNewY()
         {
-            return HabilisX.Utils.nextNum(200, 650);
+            return HabilisX.Utils.nextNum(275, 750);
         }
         private double getNewOrientation()
         {

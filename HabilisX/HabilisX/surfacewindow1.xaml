@@ -45,9 +45,6 @@
         </s:ScatterViewItem>
 
 
-        <s:ScatterViewItem Name="Debug" Orientation="0" Center="300,560" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="This is the debug" Height="50" Width="160" Foreground="Black" Click="clearDebug" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </s:ScatterViewItem>
 
 
         <!-- Save State 1-->
