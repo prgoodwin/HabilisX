@@ -200,8 +200,14 @@ namespace Microsoft.Surface.Presentation.Controls
         {
             String str = "";
 
+            int counter = 0;
             foreach (String attribute in this.attributes.Keys)
             {
+                counter++;
+                if (counter > 4) {
+                    break;
+                }
+
                 str += this.printAttribute(attribute);
                 str += "\n\n";
 
