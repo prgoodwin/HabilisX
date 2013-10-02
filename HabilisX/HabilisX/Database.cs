@@ -16,7 +16,7 @@ namespace HabilisX
             allEntries = new List<Entry>();
             allAttributes = new Dictionary<String, Type>();
             //this.newInit();
-            newInit();
+            //newInit();
             parseFromBibtex();
         }
 
@@ -36,54 +36,51 @@ namespace HabilisX
 
         private void parseFromBibtex()
         {
-            string[] text = System.IO.File.ReadAllLines(@"C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\Resources\bibtexUnrelated.txt");
+            string[] text = System.IO.File.ReadAllLines(@"C:\Users\User\Documents\GitHub\HabilisX\HabilisX\HabilisX\Resources\bibtexUnrelated.txt");
             Entry entry = new Entry();
             int entries = 0;
-            Boolean inEntry = false;
-            Boolean inAbstract = false;
             //foreach (String str in text)
             for(int i=0; i<text.Length; i++)
             {
                 Console.WriteLine(i);
                 String cur = text[i].Trim();
-                if (i == 440) {
-                    Console.WriteLine("Do this other thing instead");
-                    int index = cur.IndexOf('=');
-                    String attName = cur.Substring(0, index).Trim();
-                    String attValue = cur.Substring(index + 1).Replace('{', ' ').Replace('}', ' ').Trim();
-                    if (attValue[attValue.Length - 1] == ',')
-                    {
-                        attValue = attValue.Substring(0, attValue.Length - 1).Trim();
-                    }
-                    Console.WriteLine("\"" + attName + "\"" + " " + "\"" + attValue + "\"");
-                    entry.addAttribute(attName, attValue);
-                    this.addEntry(entry);
-                    return;
-                } else if (cur.Length > 0 && cur[0] == '@')
+                if (cur.Length > 0 && cur[0] == '@')
                 {
-                    inEntry = true;
                     entries++;
                 }
                 else if (cur.Length > 0 && cur[0] == '}')
                 {
-                    inEntry = false;
                     this.addEntry(entry);
                     entry = new Entry();
                 }
                 else if (cur.Length > 0 && cur.Contains('='))
                 {
-                    int index = cur.IndexOf('=');
-                    String attName = cur.Substring(0, index).Trim();
-                    String attValue = cur.Substring(index+1).Replace('{',' ').Replace('}', ' ').Trim();
-                    if (attValue[attValue.Length - 1] == ',') {
-                        attValue = attValue.Substring(0, attValue.Length - 1).Trim();
-                    }
-                    Console.WriteLine("\"" + attName + "\"" + " " + "\"" + attValue + "\"");
-                    entry.addAttribute(attName, attValue);
+                   String[] ignoreAtts = { "url", "isbn", "location", "acmid", "publisher", "address", "doi", "issn" };
+                   int index = cur.IndexOf('=');
+                   String attName = cur.Substring(0, index).Trim();
+                   String attValue = cur.Substring(index + 1).Replace('{', ' ').Replace('}', ' ').Trim();
+                   if (!ignoreAtts.Contains(attName))
+                   {
+                      if (attValue[attValue.Length - 1] == ',')
+                      {
+                         attValue = attValue.Substring(0, attValue.Length - 1).Trim();
+                      }
+                      //Console.WriteLine("\"" + attName + "\"" + " " + "\"" + attValue + "\"");
+                      int number;
+                      bool result = Int32.TryParse(attValue, out number);
+                      if (result)
+                      {
+                         entry.addAttribute(attName, number);
+                      }
+                      else
+                      {
+                         entry.addAttribute(attName, attValue);
+                      }
+                   }
                 }
             }
 
-
+            //this.addEntry(entry);
             Console.WriteLine("ENTRIES: " + entries);
         }
         private void init()

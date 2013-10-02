@@ -26,6 +26,9 @@ namespace Microsoft.Surface.Presentation.Controls
             // Set the content of the label.
             L.Content = this.toString();
             L.FontSize = 12;
+            //L.Foreground = Brushes.Black;
+            //L.FontWeight = FontWeights.Bold;
+           
 
 
             Canvas innerView = new Canvas();
@@ -214,7 +217,7 @@ namespace Microsoft.Surface.Presentation.Controls
             }
 
            this.numLines = str.Count(f => f == '\n') + 1;
-           Console.WriteLine("numLines: " + this.numLines);
+           //Console.WriteLine("numLines: " + this.numLines);
            this.Height = this.numLines * 15;
             return str;
 

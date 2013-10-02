@@ -81,7 +81,7 @@ namespace HabilisX
 
                 ScatterViewItem newButton = new ScatterViewItem();
                 newButton.Orientation = 0;
-                newButton.Center = new Point(100 + (180 * i), 40);
+                newButton.Center = new Point(280 + (180 * (i%9)), 40 + 75*(int)(i/9));
                 newButton.Height = 50;
                 newButton.Width = 160;
                 //newButton.Background = Brushes.DarkSlateGray;

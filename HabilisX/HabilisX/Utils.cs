@@ -43,6 +43,5 @@ namespace HabilisX
             image.Freeze();
             return image;
         }
-
     }
 }
