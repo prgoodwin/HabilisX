@@ -844,6 +844,10 @@ namespace HabilisX
         #region Mouse Move
         private void entry_PreviewTouchMove(object sender, TouchEventArgs e)
         {
+            if(!MyScatterView.Items.Contains(sender)){
+                return;
+            }
+
             foreach (PushPin item in this.pushPins)
             {
                 if (item.AreBoundaryIntersecting((FrameworkElement)sender))
@@ -865,6 +869,11 @@ namespace HabilisX
         }
         private void entry_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             foreach (PushPin item in this.pushPins)
             {
                 if (item.AreBoundaryIntersecting((FrameworkElement)sender))
@@ -887,6 +896,11 @@ namespace HabilisX
 
         private void note_PreviewTouchMove(object sender, TouchEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             if (MyScatterView.Items.Contains(sender))
             {
 
@@ -902,6 +916,11 @@ namespace HabilisX
         }
         private void note_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             if (MyScatterView.Items.Contains(sender))
             {
 
@@ -921,6 +940,11 @@ namespace HabilisX
 
         private void magnifier_PreviewTouchMove(object sender, TouchEventArgs e)
         {
+
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
 
             if (MyScatterView.Items.Contains(sender))
             {
@@ -972,6 +996,12 @@ namespace HabilisX
         }
         private void magnifier_MouseMove(object sender, MouseEventArgs e)
         {
+
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+            
             if (MyScatterView.Items.Contains(sender))
             {
                 Entry detailedEntry = new Entry();
@@ -1022,6 +1052,11 @@ namespace HabilisX
 
         private void FilterTile_PreviewTouchMove(object sender, TouchEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             if (MyScatterView.Items.Contains(sender))
             {
 
@@ -1064,6 +1099,11 @@ namespace HabilisX
         }
         private void FilterTile_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
 
             if (MyScatterView.Items.Contains(sender))
             {
@@ -1113,6 +1153,11 @@ namespace HabilisX
                 return;
             }
 
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             foreach (Entry item in this.entries)
             {
                 if (((MagicLens)sender).AreBoundaryIntersecting((FrameworkElement)item) &&//this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)item) &&
@@ -1128,6 +1173,11 @@ namespace HabilisX
         }
         private void magicLens_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             if (!MyScatterView.Items.Contains(sender))
             {
                 return;
@@ -1149,6 +1199,11 @@ namespace HabilisX
 
         private void pushPin_PreviewTouchMove(object sender, TouchEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             foreach (Entry entry in this.entries)
             {
                 if (((PushPin)sender).AreBoundaryIntersecting(entry))
@@ -1162,6 +1217,11 @@ namespace HabilisX
         }
         private void pushPin_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 ((PushPin)sender).SetRelativeZIndex(0);
@@ -1187,6 +1247,11 @@ namespace HabilisX
 
         private void paperClip_PreviewTouchMove(object sender, TouchEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             PaperClip clip = sender as PaperClip;
             foreach (Entry entry in this.entries)
             {
@@ -1240,6 +1305,11 @@ namespace HabilisX
         }
         private void paperClip_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             PaperClip clip = sender as PaperClip;
             foreach (Entry entry in this.entries)
             {
@@ -1354,6 +1424,11 @@ namespace HabilisX
 
         private void ruler_PreviewTouchMove(object sender, TouchEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             double deltaX = e.GetTouchPoint(MyScatterView).Position.X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
@@ -1439,6 +1514,11 @@ namespace HabilisX
         }
         private void ruler_MouseMove(object sender, MouseEventArgs e)
         {
+            if (!MyScatterView.Items.Contains(sender))
+            {
+                return;
+            }
+
             double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
             //deltaX += Math.Sign(deltaX);
 
@@ -1908,7 +1988,7 @@ namespace HabilisX
             if (sender != null)
             {
                 str = sender.GetType().Name;
-            }
+           } 
             Console.WriteLine("Event {0} fired {1}", evt.Name, str);
         }
 
