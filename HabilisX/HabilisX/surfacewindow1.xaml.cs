@@ -87,7 +87,6 @@ namespace HabilisX
                 //newButton.Background = Brushes.DarkSlateGray;
                 newButton.MinHeight = 0;
                 newButton.CanMove = false;
-                newButton.CanScale = false;
                 newButton.CanRotate = false;
 
                 SurfaceButton myButton = new SurfaceButton();
@@ -248,7 +247,6 @@ namespace HabilisX
                 if (pinned)
                 {
                     entry.CanMove = false;
-                    entry.CanScale = false;
                     entry.CanRotate = false;
 
                 }
@@ -256,7 +254,6 @@ namespace HabilisX
                 {
                     entry.CanMove = true;
                     entry.CanRotate = true;
-                    entry.CanScale = true;
                 }
                 #endregion
 
@@ -852,7 +849,6 @@ namespace HabilisX
                 if (item.AreBoundaryIntersecting((FrameworkElement)sender))
                 {
                     ((Entry)sender).CanMove = false;
-                    ((Entry)sender).CanScale = false;
                     ((Entry)sender).CanRotate = false;
                     item.SetRelativeZIndex(0);
                     Image im = new Image();
@@ -866,7 +862,6 @@ namespace HabilisX
             }
             ((Entry)sender).CanMove = true;
             ((Entry)sender).CanRotate = true;
-            ((Entry)sender).CanScale = true;
         }
         private void entry_MouseMove(object sender, MouseEventArgs e)
         {
@@ -875,7 +870,6 @@ namespace HabilisX
                 if (item.AreBoundaryIntersecting((FrameworkElement)sender))
                 {
                     ((Entry)sender).CanMove = false;
-                    ((Entry)sender).CanScale = false;
                     ((Entry)sender).CanRotate = false;
                     item.SetRelativeZIndex(0);
                     Image im = new Image();
@@ -889,7 +883,6 @@ namespace HabilisX
             }
             ((Entry)sender).CanMove = true;
             ((Entry)sender).CanRotate = true;
-            ((Entry)sender).CanScale = true;
         }
 
         private void note_PreviewTouchMove(object sender, TouchEventArgs e)
@@ -1164,7 +1157,6 @@ namespace HabilisX
 
                     entry.CanMove = false;
                     entry.CanRotate = false;
-                    entry.CanScale = false;
                 }
             }
         }
@@ -1187,7 +1179,6 @@ namespace HabilisX
 
                         entry.CanMove = false;
                         entry.CanRotate = false;
-                        entry.CanScale = false;
                     }
                 }
             }
@@ -1544,7 +1535,6 @@ namespace HabilisX
 
                     entry.CanMove = false;
                     entry.CanRotate = false;
-                    entry.CanScale = false;
                     foundPin = true;
                 }
             }
@@ -1553,7 +1543,6 @@ namespace HabilisX
             {
                 entry.CanMove = true;
                 entry.CanRotate = true;
-                entry.CanScale = true;
 
             }
         }

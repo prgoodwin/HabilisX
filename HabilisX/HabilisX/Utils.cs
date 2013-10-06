@@ -43,5 +43,15 @@ namespace HabilisX
             image.Freeze();
             return image;
         }
+
+        public static String[] NewEmbededTextFile(String path) {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(path));
+            char[] pars = {'\n'};
+
+            return reader.ReadToEnd().Split(pars);
+
+
+        }
     }
 }
