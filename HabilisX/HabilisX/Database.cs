@@ -37,7 +37,6 @@ namespace HabilisX
         private void parseFromBibtex()
         {
             string[] text = Utils.NewEmbededTextFile("HabilisX.Resources.bibtexUnrelated.txt");
-            //string[] text = System.IO.File.ReadAllLines(@"C:\Users\User\Documents\GitHub\HabilisX\HabilisX\HabilisX\Resources\bibtexUnrelated.txt");
             Entry entry = new Entry();
             int entries = 0;
             //foreach (String str in text)
@@ -56,7 +55,8 @@ namespace HabilisX
                 }
                 else if (cur.Length > 0 && cur.Contains('='))
                 {
-                   String[] ignoreAtts = { "url", "isbn", "location", "acmid", "publisher", "address", "doi", "issn" };
+                   String[] ignoreAtts = { "url", "isbn", "location", "acmid", "publisher", "address", "doi", 
+                                            "issn", "pages", "articleno" };
                    int index = cur.IndexOf('=');
                    String attName = cur.Substring(0, index).Trim();
                    String attValue = cur.Substring(index + 1).Replace('{', ' ').Replace('}', ' ').Trim();

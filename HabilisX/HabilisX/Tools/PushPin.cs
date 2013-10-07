@@ -50,7 +50,8 @@ namespace HabilisX.Tools
          try
          {
             RectangleGeometry cursorBounds =
-             new RectangleGeometry(new Rect(0, 0, cursorVisual.ActualWidth, cursorVisual.ActualHeight));
+             new RectangleGeometry(new Rect(cursorVisual.ActualWidth/4, cursorVisual.ActualHeight/4, 
+                cursorVisual.ActualWidth/2, cursorVisual.ActualHeight/2));
             RectangleGeometry targetBounds =
                 new RectangleGeometry(new Rect((this.ActualWidth / 4), (2 * this.ActualHeight / 3), 1, 1));
             cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
