@@ -48,6 +48,12 @@ namespace HabilisX.Tools
                 return false;
             }
         }
+
+        public override void removeFilter(object filter)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 
 

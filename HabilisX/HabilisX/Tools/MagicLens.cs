@@ -41,13 +41,11 @@ namespace HabilisX.Tools
 
       public void activateMagicLensFilter(iFilter query, ScatterViewItem filterTile)
       {
-          double y = (50 * (this.filters.Count))-10;
+          double y = (40 * (this.filters.Count)) - 10;
           Canvas.SetRight(filterTile, this.ActualWidth - 10);
           Canvas.SetTop(filterTile, y);
           this.addFilter(query);
       }
-
-
 
       public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
@@ -58,16 +56,29 @@ namespace HabilisX.Tools
          cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
          return cursorBounds.FillContainsWithDetail(targetBounds) != IntersectionDetail.Empty;
       }
+
       public void addFilter(iFilter filter) {
          this.filters.Add(filter);
       }
 
-      public void removeFilter(iFilter filter) {
+      public override void removeFilter(object filt) {
+          iFilter filter = filt as iFilter;
+
          if(this.filters.Contains(filter)){
             this.filters.Remove(filter);
          }
-      }
 
-      
+         UIElementCollection child = ((Canvas)this.Content).Children;
+         int childrenCount = 0;
+         for (int i = 0; i < ((Canvas)this.Content).Children.Count; i++)
+         {
+             if (((Canvas)this.Content).Children[i] is ScatterViewItem)
+             {
+                 ScatterViewItem tile = ((Canvas)this.Content).Children[i] as ScatterViewItem;
+                 Canvas.SetTop(tile, (40 * childrenCount) - 10);
+                 childrenCount++;
+             }
+         }
+      }
    }
 }

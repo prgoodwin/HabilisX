@@ -70,5 +70,10 @@ namespace HabilisX.Tools
             cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
             return cursorBounds.FillContainsWithDetail(targetBounds) != IntersectionDetail.Empty;
         }
+
+        public override void removeFilter(object filter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

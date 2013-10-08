@@ -44,54 +44,36 @@ namespace HabilisX.Tools
          attributes.Add(str);
       }
 
-      public void removeAttribute(String str)
+      public override void removeFilter(object filt)
       {
+          String str = filt as String;
+ 
          if (attributes.Contains(str))
          {
             attributes.Remove(str);
          }
+
+         UIElementCollection child = ((Canvas)this.Content).Children;
+         int childrenCount = 0;
+         for (int i = 0; i < ((Canvas)this.Content).Children.Count; i++)
+         {
+             if (((Canvas)this.Content).Children[i] is ScatterViewItem)
+             {
+                 ScatterViewItem tile = ((Canvas)this.Content).Children[i] as ScatterViewItem;
+                 Canvas.SetTop(tile, (40 * childrenCount) - 10);
+                 childrenCount++;
+             }
+         }
       }
 
-      public ScatterViewItem activateMagnifyingGlassFilter(FilterTile tile)
+      public void activateMagnifyingGlassFilter(String attTag, ScatterViewItem filterTile)
       {
 
-
-          //Make label out of title
-          Label label = new Label();
-          label.Content = tile.attTag.ToLower();
-          label.Foreground = Brushes.White;
-
-
-
-          //Make item that will be attached
-          ScatterViewItem filterTile = new ScatterViewItem();
-          filterTile.PreviewMouseDown +=new System.Windows.Input.MouseButtonEventHandler(filterTile_PreviewMouseDown);
-          filterTile.MouseUp += new System.Windows.Input.MouseButtonEventHandler(filterTile_MouseUp);
-          filterTile.TouchEnter +=new EventHandler<System.Windows.Input.TouchEventArgs>(filterTile_TouchEnter);
-          filterTile.TouchLeave += new EventHandler<System.Windows.Input.TouchEventArgs>(filterTile_TouchLeave);
-
-          
-          filterTile.Tag = tile.attTag;
-          filterTile.Background = tile.Background;
-          filterTile.ShowsActivationEffects = false;
-          filterTile.MinHeight = 0;
-          filterTile.Height = 35;
-          double y = (40 * (this.attributes.Count - 1)) + 10;
-
-          //Attach 
-          filterTile.Content = label;
-
-          ((Canvas)(this.Content)).Children.Add(filterTile);
+          double y = (40 * (this.attributes.Count)) - 10;
           Canvas.SetRight(filterTile, 105);
           Canvas.SetTop(filterTile, y);
-
-          this.addAttribute(tile.attTag);
-
-          return filterTile;
-
+          this.addAttribute(attTag);
       }
-
-
 
       public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
@@ -114,9 +96,6 @@ namespace HabilisX.Tools
 
          return str;
       }
-
-    
-
    }
 }
 

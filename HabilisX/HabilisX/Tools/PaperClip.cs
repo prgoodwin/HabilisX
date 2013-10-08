@@ -69,7 +69,7 @@ namespace HabilisX.Tools
 
        public void activatePaperClipFilter(iFilter query, ScatterViewItem filterTile)
         {
-            double y = (50 * (this.filters.Count)) - 10;
+            double y = (40 * (this.filters.Count)) - 10;
             Canvas.SetTop(filterTile, y);
             Canvas.SetRight(filterTile, this.ActualWidth+5);
             this.addFilter(query);
@@ -80,12 +80,27 @@ namespace HabilisX.Tools
             this.filters.Add(filter);
         }
 
-        public void removeFilter(iFilter filter)
+        public override void removeFilter(object filt)
         {
+            iFilter filter = filt as iFilter;
+
             if (this.filters.Contains(filter))
             {
                 this.filters.Remove(filter);
             }
+
+            UIElementCollection child = ((Canvas)this.Content).Children;
+            int childrenCount = 0;
+            for (int i = 0; i < ((Canvas)this.Content).Children.Count; i++)
+            {
+                if (((Canvas)this.Content).Children[i] is ScatterViewItem)
+                {
+                    ScatterViewItem tile = ((Canvas)this.Content).Children[i] as ScatterViewItem;
+                    Canvas.SetTop(tile, (40 * childrenCount) - 10);
+                    childrenCount++;
+                }
+            }
+
         }
 
         public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)

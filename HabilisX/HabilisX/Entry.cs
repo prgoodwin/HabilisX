@@ -258,11 +258,9 @@ namespace Microsoft.Surface.Presentation.Controls
         {
             return HabilisX.Utils.nextNum(-60, 60);
         }
-
-
-    
+        public override void removeFilter(object filter)
+        {
+            throw new NotImplementedException();
+        }
     }
-
-
-
 }

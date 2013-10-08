@@ -312,11 +312,9 @@ namespace HabilisX
             {
                if (MyScatterView.Items.Contains(tile) && glass.AreBoundaryIntersecting(tile) && !toBeRemoved.Contains(tile))
                {
-                  ScatterViewItem filterTile = glass.activateMagnifyingGlassFilter(tile);//tile, tile.attTag, tile.Background);
-                  //filterTile.MouseDoubleClick += new MouseButtonEventHandler(AttributeFilter_MouseDoubleClick);
-
+                  glass.activateFilter(tile);//tile, tile.attTag, tile.Background);
                   toBeRemoved.Add(tile);
-                  //MyScatterView.Items.Remove(tile);
+                 
                }
             }
 
@@ -934,7 +932,7 @@ namespace HabilisX
             {
                if (glass.AreBoundaryIntersecting((ScatterViewItem)sender))
                {
-                  glass.activateMagnifyingGlassFilter((FilterTile)sender);
+                  glass.activateFilter((FilterTile)sender);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -982,7 +980,7 @@ namespace HabilisX
             {
                if (glass.AreBoundaryIntersecting((ScatterViewItem)sender))
                {
-                  glass.activateMagnifyingGlassFilter((FilterTile)sender);
+                  glass.activateFilter((FilterTile)sender);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
