@@ -67,35 +67,12 @@ namespace HabilisX.Tools
             }
         }
 
-        public ScatterViewItem activatePaperClipFilter(iFilter query)
+       public void activatePaperClipFilter(iFilter query, ScatterViewItem filterTile)
         {
-            ScatterViewItem filterTile = new ScatterViewItem();
-            filterTile.PreviewMouseDown += new MouseButtonEventHandler(filterTile_PreviewMouseDown);
-            filterTile.MinHeight = 0;
-            filterTile.Background = Brushes.Transparent;
-            filterTile.ShowsActivationEffects = false;
-            filterTile.Tag = query;
-
-            Label filter = new Label();
-            filter.Content = query.getQueryString();
-            filter.Foreground = Brushes.White;
-            filter.Background = query.getColor();
-
             double y = (50 * (this.filters.Count)) - 10;
-            ((Canvas)(this.Content)).Children.Add(filterTile);
-            Canvas.SetRight(filterTile, this.ActualWidth+5);
             Canvas.SetTop(filterTile, y);
-
-            filterTile.Content = filter;
-            //double y = (50 * this.filters.Count) + 10;
-            filterTile.Center = new Point(-50, y);
-            filterTile.Orientation = 0;
-            filterTile.CanMove = false;
-            filterTile.CanRotate = false;
-            filterTile.CanScale = false;
+            Canvas.SetRight(filterTile, this.ActualWidth+5);
             this.addFilter(query);
-
-            return filterTile;
         }
 
         public void addFilter(iFilter filter)

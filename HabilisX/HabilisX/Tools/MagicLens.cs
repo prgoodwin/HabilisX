@@ -39,36 +39,12 @@ namespace HabilisX.Tools
          this.Content = innerView;
       }
 
-      public ScatterViewItem activateMagicLensFilter(iFilter query)
+      public void activateMagicLensFilter(iFilter query, ScatterViewItem filterTile)
       {
-
-          Label label = new Label();
-          label.Content = query.getQueryString();
-          label.Foreground = Brushes.White;
-          label.Background = query.getColor();
-
-          ScatterViewItem filterTile = new ScatterViewItem();
-          filterTile.PreviewMouseDown += new MouseButtonEventHandler(filterTile_PreviewMouseDown);
-          filterTile.MinHeight = 0;
-          filterTile.Background = Brushes.Transparent;
-          filterTile.ShowsActivationEffects = false;
-          filterTile.Tag = query;
-
           double y = (50 * (this.filters.Count))-10;
-          ((Canvas)(this.Content)).Children.Add(filterTile);
           Canvas.SetRight(filterTile, this.ActualWidth - 10);
           Canvas.SetTop(filterTile, y);
-
-          filterTile.Content = label;
-          
-          filterTile.Center = new Point(-100, y);
-          filterTile.Orientation = 0;
-          filterTile.CanMove = false;
-          filterTile.CanRotate = false;
-          filterTile.CanScale = false;
           this.addFilter(query);
-
-          return filterTile;
       }
 
 

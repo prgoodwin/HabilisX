@@ -66,7 +66,11 @@ namespace HabilisX.Tools
           //Make item that will be attached
           ScatterViewItem filterTile = new ScatterViewItem();
           filterTile.PreviewMouseDown +=new System.Windows.Input.MouseButtonEventHandler(filterTile_PreviewMouseDown);
-         
+          filterTile.MouseUp += new System.Windows.Input.MouseButtonEventHandler(filterTile_MouseUp);
+          filterTile.TouchEnter +=new EventHandler<System.Windows.Input.TouchEventArgs>(filterTile_TouchEnter);
+          filterTile.TouchLeave += new EventHandler<System.Windows.Input.TouchEventArgs>(filterTile_TouchLeave);
+
+          
           filterTile.Tag = tile.attTag;
           filterTile.Background = tile.Background;
           filterTile.ShowsActivationEffects = false;
@@ -86,6 +90,8 @@ namespace HabilisX.Tools
           return filterTile;
 
       }
+
+
 
       public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {

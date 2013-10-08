@@ -326,7 +326,7 @@ namespace HabilisX
                {
                   if (tile.hasInput())
                   {
-                     ScatterViewItem filterTile = lens.activateMagicLensFilter(tile.getFilter());
+                     lens.activateFilter(tile.getFilter());
                      //filterTile.MouseDoubleClick += new MouseButtonEventHandler(activeFilter_MouseDoubleClick);
                      toBeRemoved.Add(tile);
                      //RemoveFromScreen(tile);
@@ -341,7 +341,7 @@ namespace HabilisX
                {
                   if (tile.hasInput())
                   {
-                     ScatterViewItem filterTile = clip.activatePaperClipFilter(tile.getFilter());
+                     clip.activateFilter(tile.getFilter());
                      //filterTile.MouseDoubleClick += new MouseButtonEventHandler(activeFilter_MouseDoubleClick);
                      toBeRemoved.Add(tile);
                      //MyScatterView.Items.Remove(tile);
@@ -950,7 +950,7 @@ namespace HabilisX
             {
                if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  lens.activateMagicLensFilter(((FilterTile)sender).getFilter());
+                  lens.activateFilter(((FilterTile)sender).getFilter());
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -960,7 +960,7 @@ namespace HabilisX
             {
                if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  paperClip.activatePaperClipFilter(((FilterTile)sender).getFilter());
+                  paperClip.activateFilter(((FilterTile)sender).getFilter());
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -998,7 +998,7 @@ namespace HabilisX
             {
                if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  lens.activateMagicLensFilter(((FilterTile)sender).getFilter());
+                  lens.activateFilter(((FilterTile)sender).getFilter());
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -1008,7 +1008,7 @@ namespace HabilisX
             {
                if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  paperClip.activatePaperClipFilter(((FilterTile)sender).getFilter());
+                  paperClip.activateFilter(((FilterTile)sender).getFilter());
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
