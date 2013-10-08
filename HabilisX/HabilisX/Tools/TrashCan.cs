@@ -34,9 +34,11 @@ namespace HabilisX.Tools
             try
             {
                 RectangleGeometry cursorBounds =
-                 new RectangleGeometry(new Rect(0, 0, cursorVisual.ActualWidth, cursorVisual.ActualHeight));
+                 new RectangleGeometry(new Rect(cursorVisual.ActualWidth / 3, cursorVisual.ActualHeight / 3,
+                cursorVisual.ActualWidth / 3, cursorVisual.ActualHeight / 3));
                 RectangleGeometry targetBounds =
-                    new RectangleGeometry(new Rect((this.ActualWidth / 2), (this.ActualHeight / 4), 1, 1));
+                    new RectangleGeometry(new Rect((this.ActualWidth / 3), (this.ActualHeight / 4), 
+                        (this.ActualWidth / 3), (this.ActualHeight / 4)));
                 cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
 
                 return cursorBounds.FillContainsWithDetail(targetBounds) != IntersectionDetail.Empty;
