@@ -404,7 +404,21 @@ namespace HabilisX
 
       private void AddNewTool(Tool tool)
       {
+          tool.TouchEnter += new EventHandler<TouchEventArgs>(tool_TouchEnter);
+          tool.TouchLeave += new EventHandler<TouchEventArgs>(tool_TouchLeave);
          AddToScreen(tool);
+      }
+
+      void tool_TouchLeave(object sender, TouchEventArgs e)
+      {
+          ((Tool)sender).numFingers--;
+
+      }
+
+      void tool_TouchEnter(object sender, TouchEventArgs e)
+      {
+          ((Tool)sender).numFingers++;
+
       }
 
       private void AddPushPinButton_Click(object sender, RoutedEventArgs e)
@@ -1016,15 +1030,12 @@ namespace HabilisX
 
       private void magicLens_PreviewTouchMove(object sender, TouchEventArgs e)
       {
+          Console.WriteLine("num " + ((Tool)sender).numFingers);
          if (!MyScatterView.Items.Contains(sender))
          {
             return;
          }
 
-         if (!MyScatterView.Items.Contains(sender))
-         {
-            return;
-         }
 
          foreach (Entry item in this.entries)
          {
@@ -1120,7 +1131,8 @@ namespace HabilisX
 
       private void paperClip_PreviewTouchMove(object sender, TouchEventArgs e)
       {
-         if (!MyScatterView.Items.Contains(sender))
+          Console.WriteLine(((Tool)sender).numFingers);
+         if (!MyScatterView.Items.Contains(sender) || ((Tool)sender).numFingers>=2)
          {
             return;
          }
@@ -1162,14 +1174,14 @@ namespace HabilisX
          {
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
-            ((ScatterView)clip.Content).Background = ib;
+            ((Canvas)clip.Content).Background = ib;
             clip.Tag = 1;
          }
          else if ((int)clip.Tag == 1 && clip.toOrganize.Count == 0)
          {
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClip.png");
-            ((ScatterView)clip.Content).Background = ib;
+            ((Canvas)clip.Content).Background = ib;
             clip.Tag = 0;
 
 
@@ -1297,7 +1309,7 @@ namespace HabilisX
 
       private void ruler_PreviewTouchMove(object sender, TouchEventArgs e)
       {
-         if (!MyScatterView.Items.Contains(sender))
+         if (!MyScatterView.Items.Contains(sender) || ((Tool)sender).numFingers>1)
          {
             return;
          }

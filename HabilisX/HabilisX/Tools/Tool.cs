@@ -14,7 +14,7 @@ namespace HabilisX.Tools
 {
     public abstract class Tool : ScatterViewItem, IComparable<ScatterViewItem>
     {
-
+        public int numFingers = 0;
         System.Timers.Timer timer = new System.Timers.Timer(1500);
         public abstract Boolean AreBoundaryIntersecting(FrameworkElement cursorVisual);
         public abstract void removeFilter(object filter);

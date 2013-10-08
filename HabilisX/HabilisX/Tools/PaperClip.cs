@@ -22,6 +22,7 @@ namespace HabilisX.Tools
             this.toOrganize = new HashSet<Entry>();
             this.Background = Brushes.Transparent;
             this.CanRotate = false;
+            this.CanScale = false;
             this.Center = new Point(295, 495);
             this.Height = 50;
             this.MinHeight = 5;
