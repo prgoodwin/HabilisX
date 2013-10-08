@@ -30,32 +30,38 @@ namespace HabilisX.Tools
          this.Background = Brushes.Transparent;
          this.Center = new Point(350, 415);
          this.Orientation = 0;
+         this.Width = 300;
+         this.Height = 200;
 
-         ScatterView innerView = new ScatterView();
-         innerView.BorderBrush = Brushes.Black;
-         innerView.BorderThickness = new Thickness(10);
+         Canvas innerView = new Canvas();
+         this.BorderBrush = Brushes.Black;
+         this.BorderThickness = new Thickness(10);
          this.Content = innerView;
       }
 
       public ScatterViewItem activateMagicLensFilter(iFilter query)
       {
 
+          Label label = new Label();
+          label.Content = query.getQueryString();
+          label.Foreground = Brushes.White;
+          label.Background = query.getColor();
+
           ScatterViewItem filterTile = new ScatterViewItem();
+          filterTile.PreviewMouseDown += new MouseButtonEventHandler(filterTile_PreviewMouseDown);
           filterTile.MinHeight = 0;
           filterTile.Background = Brushes.Transparent;
           filterTile.ShowsActivationEffects = false;
           filterTile.Tag = query;
 
-          Label filter = new Label();
-          filter.Content = query.getQueryString();
-          filter.Foreground = Brushes.White;
-          filter.Background = query.getColor();
+          double y = (50 * (this.filters.Count))-10;
+          ((Canvas)(this.Content)).Children.Add(filterTile);
+          Canvas.SetRight(filterTile, this.ActualWidth - 10);
+          Canvas.SetTop(filterTile, y);
 
-          ((ScatterView)(this.Content)).Items.Add(filterTile);
-
-          filterTile.Content = filter;
-          double y = (50 * this.filters.Count) + 10;
-          filterTile.Center = new Point(-50, y);
+          filterTile.Content = label;
+          
+          filterTile.Center = new Point(-100, y);
           filterTile.Orientation = 0;
           filterTile.CanMove = false;
           filterTile.CanRotate = false;
@@ -64,6 +70,9 @@ namespace HabilisX.Tools
 
           return filterTile;
       }
+
+
+
       public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
          RectangleGeometry cursorBounds =

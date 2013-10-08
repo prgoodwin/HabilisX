@@ -400,9 +400,10 @@ namespace HabilisX
 
       private void AddNewFilterTile(FilterTile tile)
       {
-         //tile.MouseMove += new MouseEventHandler(FilterTile_MouseMove);
          AddToScreen(tile);
       }
+
+
       private void AddNewTool(Tool tool)
       {
          AddToScreen(tool);
@@ -411,8 +412,6 @@ namespace HabilisX
       private void AddPushPinButton_Click(object sender, RoutedEventArgs e)
       {
          PushPin pushPin = new PushPin();
-         //pushPin.MouseMove += new MouseEventHandler(pushPin_MouseMove);
-         //pushPin.PreviewTouchMove += new EventHandler<TouchEventArgs>(pushPin_PreviewTouchMove);
          AddNewTool(pushPin);
       }
       private void AddRulerButton_Click(object sender, RoutedEventArgs e)
@@ -425,8 +424,6 @@ namespace HabilisX
       private void AddMagicLensButton_Click(object sender, RoutedEventArgs e)
       {
          MagicLens magicLens = new MagicLens();
-         //magicLens.MouseMove += new MouseEventHandler(magicLens_MouseMove);
-         //magicLens.PreviewTouchMove  +=new EventHandler<TouchEventArgs>(magicLens_PreviewTouchMove);
          AddNewTool(magicLens);
       }
 
@@ -1224,14 +1221,14 @@ namespace HabilisX
          {
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
-            ((ScatterView)clip.Content).Background = ib;
+            ((Canvas)clip.Content).Background = ib;
             clip.Tag = 1;
          }
          else if ((int)clip.Tag == 1 && clip.toOrganize.Count == 0)
          {
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClip.png");
-            ((ScatterView)clip.Content).Background = ib;
+            ((Canvas)clip.Content).Background = ib;
             clip.Tag = 0;
 
 

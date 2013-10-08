@@ -57,33 +57,33 @@ namespace HabilisX.Tools
 
 
           //Make label out of title
-          Label filterTitle = new Label();
-          filterTitle.Content = tile.attTag.ToLower();
-          filterTitle.Foreground = Brushes.White;
+          Label label = new Label();
+          label.Content = tile.attTag.ToLower();
+          label.Foreground = Brushes.White;
 
 
 
           //Make item that will be attached
-          ScatterViewItem Filter = new ScatterViewItem();
-          Filter.Tag = tile.attTag;
-
-          //Format visually
-          Filter.Background = tile.Background;
-          Filter.ShowsActivationEffects = false;
-          Filter.MinHeight = 0;
-          Filter.Height = 35;
+          ScatterViewItem filterTile = new ScatterViewItem();
+          filterTile.PreviewMouseDown +=new System.Windows.Input.MouseButtonEventHandler(filterTile_PreviewMouseDown);
+         
+          filterTile.Tag = tile.attTag;
+          filterTile.Background = tile.Background;
+          filterTile.ShowsActivationEffects = false;
+          filterTile.MinHeight = 0;
+          filterTile.Height = 35;
           double y = (40 * (this.attributes.Count - 1)) + 10;
 
           //Attach 
-          Filter.Content = filterTitle;
+          filterTile.Content = label;
 
-          ((Canvas)(this.Content)).Children.Add(Filter);
-          Canvas.SetRight(Filter, 105);
-          Canvas.SetTop(Filter, y);
+          ((Canvas)(this.Content)).Children.Add(filterTile);
+          Canvas.SetRight(filterTile, 105);
+          Canvas.SetTop(filterTile, y);
 
           this.addAttribute(tile.attTag);
 
-          return Filter;
+          return filterTile;
 
       }
 

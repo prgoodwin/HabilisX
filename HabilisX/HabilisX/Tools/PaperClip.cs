@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Media;
 using Microsoft.Surface.Presentation.Controls;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 
 namespace HabilisX.Tools
@@ -29,7 +30,7 @@ namespace HabilisX.Tools
             this.ShowsActivationEffects = false;
             this.Width = 150;
             this.MouseDown += new System.Windows.Input.MouseButtonEventHandler(PaperClip_MouseDown);
-            ScatterView innerView = new ScatterView();
+            Canvas innerView = new Canvas();
             innerView.Width = 150;
             innerView.MinHeight = 5;
             innerView.MinWidth = 5;
@@ -69,6 +70,7 @@ namespace HabilisX.Tools
         public ScatterViewItem activatePaperClipFilter(iFilter query)
         {
             ScatterViewItem filterTile = new ScatterViewItem();
+            filterTile.PreviewMouseDown += new MouseButtonEventHandler(filterTile_PreviewMouseDown);
             filterTile.MinHeight = 0;
             filterTile.Background = Brushes.Transparent;
             filterTile.ShowsActivationEffects = false;
@@ -79,10 +81,13 @@ namespace HabilisX.Tools
             filter.Foreground = Brushes.White;
             filter.Background = query.getColor();
 
-            ((ScatterView)(this.Content)).Items.Add(filterTile);
+            double y = (50 * (this.filters.Count)) - 10;
+            ((Canvas)(this.Content)).Children.Add(filterTile);
+            Canvas.SetRight(filterTile, this.ActualWidth+5);
+            Canvas.SetTop(filterTile, y);
 
             filterTile.Content = filter;
-            double y = (50 * this.filters.Count) + 10;
+            //double y = (50 * this.filters.Count) + 10;
             filterTile.Center = new Point(-50, y);
             filterTile.Orientation = 0;
             filterTile.CanMove = false;
