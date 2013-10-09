@@ -269,7 +269,6 @@ namespace HabilisX
             }
             #endregion
 
-
             #region MagicLens Interactions
             Boolean highlighted = false;
             foreach (MagicLens lens in this.lenses)
@@ -299,9 +298,6 @@ namespace HabilisX
                lens.SetRelativeZIndex(0);
             }
             #endregion
-
-
-
          }
 
          #region activate filter tiles if intersecting with tool
@@ -312,7 +308,7 @@ namespace HabilisX
             {
                if (MyScatterView.Items.Contains(tile) && glass.AreBoundaryIntersecting(tile) && !toBeRemoved.Contains(tile))
                {
-                  glass.activateFilter(tile);//tile, tile.attTag, tile.Background);
+                  glass.activateFilterTile(tile.attTag.ToLower(), tile.Background, tile.attTag);//tile, tile.attTag, tile.Background);
                   toBeRemoved.Add(tile);
                  
                }
@@ -324,11 +320,9 @@ namespace HabilisX
                {
                   if (tile.hasInput())
                   {
-                     lens.activateFilter(tile.getFilter());
-                     //filterTile.MouseDoubleClick += new MouseButtonEventHandler(activeFilter_MouseDoubleClick);
+                     iFilter query = tile.getFilter();
+                     lens.activateFilterTile(query.getQueryString(), query.getColor(), query);
                      toBeRemoved.Add(tile);
-                     //RemoveFromScreen(tile);
-                     //MyScatterView.Items.Remove(tile);
                   }
                }
             }
@@ -339,10 +333,9 @@ namespace HabilisX
                {
                   if (tile.hasInput())
                   {
-                     clip.activateFilter(tile.getFilter());
-                     //filterTile.MouseDoubleClick += new MouseButtonEventHandler(activeFilter_MouseDoubleClick);
+                     iFilter query = tile.getFilter();
+                     clip.activateFilterTile(query.getQueryString(), query.getColor(), query);
                      toBeRemoved.Add(tile);
-                     //MyScatterView.Items.Remove(tile);
                   }
                }
             }
@@ -400,25 +393,9 @@ namespace HabilisX
       {
          AddToScreen(tile);
       }
-
-
       private void AddNewTool(Tool tool)
       {
-          tool.TouchEnter += new EventHandler<TouchEventArgs>(tool_TouchEnter);
-          tool.TouchLeave += new EventHandler<TouchEventArgs>(tool_TouchLeave);
          AddToScreen(tool);
-      }
-
-      void tool_TouchLeave(object sender, TouchEventArgs e)
-      {
-          ((Tool)sender).numFingers--;
-
-      }
-
-      void tool_TouchEnter(object sender, TouchEventArgs e)
-      {
-          ((Tool)sender).numFingers++;
-
       }
 
       private void AddPushPinButton_Click(object sender, RoutedEventArgs e)
@@ -946,7 +923,8 @@ namespace HabilisX
             {
                if (glass.AreBoundaryIntersecting((ScatterViewItem)sender))
                {
-                  glass.activateFilter((FilterTile)sender);
+                  FilterTile tile = sender as FilterTile;
+                  glass.activateFilterTile(tile.attTag.ToLower(), tile.Background, tile.attTag);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -962,7 +940,8 @@ namespace HabilisX
             {
                if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  lens.activateFilter(((FilterTile)sender).getFilter());
+                  iFilter query = ((FilterTile)sender).getFilter();
+                  lens.activateFilterTile(query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -972,7 +951,8 @@ namespace HabilisX
             {
                if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  paperClip.activateFilter(((FilterTile)sender).getFilter());
+                  iFilter query = ((FilterTile)sender).getFilter();
+                  paperClip.activateFilterTile(query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -994,7 +974,8 @@ namespace HabilisX
             {
                if (glass.AreBoundaryIntersecting((ScatterViewItem)sender))
                {
-                  glass.activateFilter((FilterTile)sender);
+                  FilterTile tile = sender as FilterTile;
+                  glass.activateFilterTile(tile.attTag.ToLower(), tile.Background, tile.attTag);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -1010,7 +991,8 @@ namespace HabilisX
             {
                if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  lens.activateFilter(((FilterTile)sender).getFilter());
+                  iFilter query = ((FilterTile)sender).getFilter();
+                  lens.activateFilterTile(query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -1020,7 +1002,8 @@ namespace HabilisX
             {
                if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
                {
-                  paperClip.activateFilter(((FilterTile)sender).getFilter());
+                  iFilter query = ((FilterTile)sender).getFilter();
+                  paperClip.activateFilterTile(query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }

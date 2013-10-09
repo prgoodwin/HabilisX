@@ -96,10 +96,6 @@ namespace HabilisX.Tools
          this.filters.Add(filter);
       }
 
-      public override void removeFilter(object filter)
-      {
-          throw new NotImplementedException();
-      }
 
    }
 }

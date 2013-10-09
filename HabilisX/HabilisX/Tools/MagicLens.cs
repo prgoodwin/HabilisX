@@ -14,7 +14,7 @@ namespace HabilisX.Tools
    // Summary:
    //     Represents an item that users can manipulate in a Microsoft.Surface.Presentation.Controls.ScatterView
    //     control.
-    public class MagicLens : Tool
+    public class MagicLens : FilterTool
     
    {
       public List<iFilter> filters;
@@ -32,20 +32,26 @@ namespace HabilisX.Tools
          this.Orientation = 0;
          this.Width = 300;
          this.Height = 200;
-
+         this.SizeChanged += new SizeChangedEventHandler(MagicLens_SizeChanged);
          Canvas innerView = new Canvas();
          this.BorderBrush = Brushes.Black;
          this.BorderThickness = new Thickness(10);
          this.Content = innerView;
       }
 
-      public void activateMagicLensFilter(iFilter query, ScatterViewItem filterTile)
+      void MagicLens_SizeChanged(object sender, SizeChangedEventArgs e)
       {
-          double y = (40 * (this.filters.Count)) - 10;
-          Canvas.SetRight(filterTile, this.ActualWidth - 10);
-          Canvas.SetTop(filterTile, y);
-          this.addFilter(query);
+         UIElementCollection child = ((Canvas)this.Content).Children;
+         for (int i = 0; i < ((Canvas)this.Content).Children.Count; i++)
+         {
+            if (((Canvas)this.Content).Children[i] is ScatterViewItem)
+            {
+               ScatterViewItem tile = ((Canvas)this.Content).Children[i] as ScatterViewItem;
+               Canvas.SetRight(tile, this.ActualWidth - 10);
+            }
+         }
       }
+
 
       public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
       {
@@ -57,8 +63,12 @@ namespace HabilisX.Tools
          return cursorBounds.FillContainsWithDetail(targetBounds) != IntersectionDetail.Empty;
       }
 
-      public void addFilter(iFilter filter) {
-         this.filters.Add(filter);
+      public override void addFilter(object query, ScatterViewItem filterTile) {
+         double y = (40 * (this.filters.Count)) - 10;
+         Canvas.SetRight(filterTile, this.ActualWidth - 10);
+         Canvas.SetTop(filterTile, y);
+
+         this.filters.Add((iFilter)query);
       }
 
       public override void removeFilter(object filt) {

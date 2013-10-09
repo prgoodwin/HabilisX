@@ -93,6 +93,7 @@
     <Compile Include="Filters\IntFilter.cs" />
     <Compile Include="Filters\IntListFilter.cs" />
     <Compile Include="Filters\ListFilter.cs" />
+    <Compile Include="Tools\FilterTool.cs" />
     <Compile Include="Tools\MagicLens.cs" />
     <Compile Include="Filters\DateFilter.cs" />
     <Compile Include="Tools\MagnifyingGlass.cs" />

@@ -10,7 +10,7 @@ using Microsoft.Surface.Presentation.Controls;
 
 namespace HabilisX.Tools
 {
-    public class MagnifyingGlass : Tool
+    public class MagnifyingGlass : FilterTool
     
    {
       public List<String> attributes = new List<String>();
@@ -39,9 +39,13 @@ namespace HabilisX.Tools
 
       }
 
-      public void addAttribute(String str)
+      public override void addFilter(object attTag, ScatterViewItem filterTile)
       {
-         attributes.Add(str);
+         double y = (40 * (this.attributes.Count)) - 10;
+         Canvas.SetRight(filterTile, 105);
+         Canvas.SetTop(filterTile, y);
+
+         attributes.Add((String)attTag);
       }
 
       public override void removeFilter(object filt)
@@ -64,15 +68,6 @@ namespace HabilisX.Tools
                  childrenCount++;
              }
          }
-      }
-
-      public void activateMagnifyingGlassFilter(String attTag, ScatterViewItem filterTile)
-      {
-
-          double y = (40 * (this.attributes.Count)) - 10;
-          Canvas.SetRight(filterTile, 105);
-          Canvas.SetTop(filterTile, y);
-          this.addAttribute(attTag);
       }
 
       public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)

@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace HabilisX.Tools
 {
-    public class PaperClip : Tool
+    public class PaperClip : FilterTool
     {
         public List<iFilter> filters;
         public HashSet<Entry> toOrganize;
@@ -68,16 +68,13 @@ namespace HabilisX.Tools
             }
         }
 
-       public void activatePaperClipFilter(iFilter query, ScatterViewItem filterTile)
+        public override void addFilter(object query, ScatterViewItem filterTile)
         {
-            double y = (40 * (this.filters.Count)) - 10;
-            Canvas.SetTop(filterTile, y);
-            Canvas.SetRight(filterTile, this.ActualWidth+5);
-            this.addFilter(query);
-        }
+           double y = (40 * (this.filters.Count)) - 10;
+           Canvas.SetTop(filterTile, y);
+           Canvas.SetRight(filterTile, this.ActualWidth + 5);
 
-        public void addFilter(iFilter filter)
-        {
+           iFilter filter = query as iFilter;
             this.filters.Add(filter);
         }
 
