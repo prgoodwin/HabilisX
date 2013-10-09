@@ -35,6 +35,9 @@ namespace HabilisX.Tools
                timer = new System.Timers.Timer(1500);
                ScatterViewItem tile = sender as ScatterViewItem;
                Canvas parent = (Canvas)tile.Parent;
+               if (parent == null) {
+                  return;
+               }
                parent.Dispatcher.BeginInvoke(new Action(() => parent.Children.Remove(tile)));
 
                ((FilterTool)(parent.Parent)).Dispatcher.BeginInvoke(new Action(() => ((FilterTool)(parent.Parent)).removeFilter(((ScatterViewItem)sender).Tag)));
@@ -52,8 +55,12 @@ namespace HabilisX.Tools
             timer = new System.Timers.Timer(1500);
             ScatterViewItem tile = sender as ScatterViewItem;
             Canvas parent = (Canvas)tile.Parent;
-            parent.Dispatcher.BeginInvoke(new Action(() => parent.Children.Remove(tile)));
+            if (parent == null)
+            {
+               return;
+            }
 
+            parent.Dispatcher.BeginInvoke(new Action(() => parent.Children.Remove(tile)));
             ((FilterTool)(parent.Parent)).Dispatcher.BeginInvoke(new Action(() => 
                ((FilterTool)(parent.Parent)).removeFilter(((ScatterViewItem)sender).Tag)));
          });
