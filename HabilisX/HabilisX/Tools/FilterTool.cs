@@ -99,7 +99,5 @@ namespace HabilisX.Tools
          ((Canvas)(this.Content)).Children.Add(filterTile);
           this.addFilter(tag, filterTile);
       }
-
-
    }
 }

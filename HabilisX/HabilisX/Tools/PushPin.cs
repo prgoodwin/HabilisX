@@ -50,18 +50,13 @@ namespace HabilisX.Tools
          try
          {
             RectangleGeometry cursorBounds =
-             new RectangleGeometry(new Rect(cursorVisual.ActualWidth/4, cursorVisual.ActualHeight/4, 
-                cursorVisual.ActualWidth/2, cursorVisual.ActualHeight/2));
+             new RectangleGeometry(new Rect(10,10, cursorVisual.ActualWidth-20, cursorVisual.ActualHeight-20));
             RectangleGeometry targetBounds =
                 new RectangleGeometry(new Rect((this.ActualWidth / 4), (2 * this.ActualHeight / 3), 1, 1));
             cursorBounds.Transform = (Transform)cursorVisual.TransformToVisual(this);
 
             return cursorBounds.FillContainsWithDetail(targetBounds) != IntersectionDetail.Empty;
          }
-         //catch (NullReferenceException e)
-         //{
-         //   return false;
-         //}
          catch (Exception e) {
             Console.WriteLine("Found exception: " + e);
             return false;

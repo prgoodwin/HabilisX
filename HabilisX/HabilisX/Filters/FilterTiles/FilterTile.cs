@@ -13,13 +13,13 @@ namespace Microsoft.Surface.Presentation.Controls
         public String attTag;
         public Boolean onTextBox = false;
 
-        protected void init(String attTag, int X, Brush color) {
+        protected void init(String attTag, Brush color) {
             this.Tag = attTag;
             this.attTag = attTag;
             this.Orientation = 0;
             this.MinHeight = 30;
             this.Content = NewEntryTileTextBox(attTag, this);
-            this.Center = new Point(X, 130);
+            this.Center = new Point(280, 200);
             this.Background = color;        
         }
 

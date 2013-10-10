@@ -11,7 +11,7 @@ namespace Microsoft.Surface.Presentation.Controls
     {
         public DateFilterTile(String attTag)
         {
-            init(attTag, 638, Brushes.LightGray);
+            init(attTag, Brushes.LightGray);
         }
 
         public override iFilter getFilter()

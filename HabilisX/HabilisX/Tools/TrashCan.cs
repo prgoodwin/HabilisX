@@ -18,7 +18,7 @@ namespace HabilisX.Tools
             this.CanMove = false;
             this.CanScale = false;
 
-            this.Center = new Point(1800, 920);
+            this.Center = new Point(100, 920);
             this.Height = 200;
             this.Orientation = 0;
             this.ShowsActivationEffects = false;

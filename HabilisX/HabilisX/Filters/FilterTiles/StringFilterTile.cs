@@ -9,7 +9,7 @@ namespace Microsoft.Surface.Presentation.Controls
     public class StringFilterTile : FilterTile
     {
         public StringFilterTile(String attTag) {
-            init(attTag, 290, Brushes.DarkSlateGray);
+            init(attTag, Brushes.DarkSlateGray);
         }
         public override iFilter getFilter()
         {

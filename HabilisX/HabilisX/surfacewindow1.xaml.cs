@@ -321,7 +321,7 @@ namespace HabilisX
                   if (tile.hasInput())
                   {
                      iFilter query = tile.getFilter();
-                     lens.activateFilterTile(query.getQueryString(), query.getColor(), query);
+                     lens.activateFilterTile((String)tile.attTag + ": " + query.getQueryString(), query.getColor(), query);
                      toBeRemoved.Add(tile);
                   }
                }
@@ -334,7 +334,7 @@ namespace HabilisX
                   if (tile.hasInput())
                   {
                      iFilter query = tile.getFilter();
-                     clip.activateFilterTile(query.getQueryString(), query.getColor(), query);
+                     clip.activateFilterTile((String)tile.attTag + ": " + query.getQueryString(), query.getColor(), query);
                      toBeRemoved.Add(tile);
                   }
                }
@@ -941,7 +941,7 @@ namespace HabilisX
                if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
                {
                   iFilter query = ((FilterTile)sender).getFilter();
-                  lens.activateFilterTile(query.getQueryString(), query.getColor(), query);
+                  lens.activateFilterTile((String)((FilterTile)sender).attTag + ": " + query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -952,7 +952,7 @@ namespace HabilisX
                if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
                {
                   iFilter query = ((FilterTile)sender).getFilter();
-                  paperClip.activateFilterTile(query.getQueryString(), query.getColor(), query);
+                  paperClip.activateFilterTile((String)((FilterTile)sender).attTag + ": " + query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -992,7 +992,7 @@ namespace HabilisX
                if (lens.AreBoundaryIntersecting((FrameworkElement)sender))
                {
                   iFilter query = ((FilterTile)sender).getFilter();
-                  lens.activateFilterTile(query.getQueryString(), query.getColor(), query);
+                  lens.activateFilterTile((String)((FilterTile)sender).attTag + ": " + query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }
@@ -1003,7 +1003,7 @@ namespace HabilisX
                if (paperClip.AreBoundaryIntersecting((FrameworkElement)sender))
                {
                   iFilter query = ((FilterTile)sender).getFilter();
-                  paperClip.activateFilterTile(query.getQueryString(), query.getColor(), query);
+                  paperClip.activateFilterTile((String)((FilterTile)sender).attTag + ": " + query.getQueryString(), query.getColor(), query);
                   RemoveFromScreen((FilterTile)sender);
                   return;
                }

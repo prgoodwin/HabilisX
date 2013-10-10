@@ -10,7 +10,7 @@ namespace Microsoft.Surface.Presentation.Controls
     public class IntFilterTile : FilterTile
     {
         public IntFilterTile(String attTag) {
-            init(attTag, 812, new SolidColorBrush(Color.FromRgb(191, 191, 191)));
+            init(attTag, new SolidColorBrush(Color.FromRgb(191, 191, 191)));
         }
 
         public override iFilter getFilter()

@@ -11,7 +11,7 @@ namespace Microsoft.Surface.Presentation.Controls
     {
         public IntListFilterTile(String attTag)
         {
-            init(attTag, 986, Brushes.SlateGray);
+            init(attTag, Brushes.SlateGray);
         }
         public override iFilter getFilter()
         {
