@@ -1021,3 +1021,247 @@
  keywords = {Fitts' law, events, goal crossing, goal passing, graphical user interfaces, input, input performance, interaction techniques, pointing, widgets},
  abstract = {Today's graphical interactive systems largely depend upon pointing actions, i.e. entering an object and selecting it. In this paper we explore whether an alternate paradigm --- crossing boundaries --- may substitute or complement pointing as another fundamental interaction method. We describe an experiment in which we systematically evaluate two target-pointing tasks and four goal-crossing tasks, which differ by the direction of the movement variability constraint (collinear vs. orthogonal) and by the nature of the action (pointing vs. crossing, discrete vs. continuous). We found that participants' temporal performance in each of the six tasks was dependent on the index of difficulty formulated in the same way as in Fitts' law, but that the parameters differ by task. We also found that goal crossing completion time was shorter or no longer than pointing performance under the same index of difficulty. These regularities, as well as qualitative characterizations of crossing actions and their application in HCI, lay the foundation for designing crossing-based user interfaces.}
 } 
+
+@inproceedings{Accot:2002:MDF:503376.503390,
+ author = {Baraff, D., Witkin, A., Kass, M.},
+ title = {An introduction to physically based modeling: particle system dynamics},
+ booktitle = {SIGGRAPH Course Notes},
+ series = {SIGGRAPH Course Notes '97},
+ year = {1997},
+ abstract = {Physically based modeling has become an important new approach to computer animation and computer graphics modeling. Although physically based modeling is inherently a mathematical subject, the math involved needn’t be any more difficult nor esoteric than the math that underlies many other areas of computer graphics, such as ray tracing or surface modeling. Many papers on the subject have presupposed a specialized mathematical background that many members of the computer graphics community lack. Consequently, many capable computer graphics practitioners, despite their interest in the subject, have simply been put off by the density of the math. This course addresses the need to make the principles and methods of physically based modeling accessible to a broader computer graphics audience—those who are familiar with mainstream computer graphics and have the usual basic computer graphics math, such as vector/matrix manipulations, but whose first year calculus course may be only dimly remem-bered. Course topics include modeling the dynamics of particle systems and rigid bodies, basic numerical methods for differential equations, simulation of deformable surfaces, collision detection, modeling energy functions and hard constraints, and the dynamics of collision and contact.} 
+ }
+
+@INPROCEEDINGS{638254, 
+author={Bartram, L.}, 
+booktitle={Systems, Man, and Cybernetics, 1997. Computational Cybernetics and Simulation., 1997 IEEE International Conference on}, 
+title={Can motion increase user interface bandwidth in complex systems?}, 
+year={1997}, 
+volume={2}, 
+pages={1686-1692 vol.2}, 
+abstract={Current user interfaces to complex systems suffer from data displays which are increasingly cumbersome since the representation techniques exceed the human's perceptual capacity to efficiently interpret them. New display dimensions are required to support the user in integrating and relating information across displays and representations. Advances in technology have made animation a viable alternative. Motion holds promise as a perceptually rich and efficient display dimension but little is known about its properties for information display. We summarize types of movement characterization from diverse disciplines and proposes an initial taxonomy of motion properties and application to serve as a framework for further empirical investigation into motion as a useful display dimension}, 
+keywords={computer animation;graphical user interfaces;human factors;animation;complex systems;data displays;display dimensions;information display;motion;movement characterization;perceptual capacity;user interface bandwidth;Animation;Bandwidth;Computer displays;Data visualization;Graphics;Laboratories;Large screen displays;Multimedia systems;Taxonomy;User interfaces}, 
+doi={10.1109/ICSMC.1997.638254}, 
+ISSN={1062-922X},
+}
+
+@MISC{Carpendale99thetardis:,
+    author = {M. S. T. Carpendale and D.J. Cowperthwaite and M. Tigges and A. Fall and F. D. Fracchia},
+    title = {The Tardis: A Visual Exploration Environment for Landscape Dynamics},
+    year = {1999}
+	abstract = {This paper presents the creation of a a visual environment for exploring landscape patterns and changes to such patterns over time. Dynamic landscape patterns can involve both spatial and temporal complexity. Exploration of spatio-temporal landscape patterns should provide the ability to view information at dierent scales to permit navigation of a vast amount of information in a manner that facilitates comprehension rather than confusion. One way of achieving this goal is to support selection, navigation and comparison of progressively rened segments of time and space. We have entitled this system Tardis after the time machine of Dr. Who, to emphasize the exploration of time dependent data and because our use of elastic presentation has the eect of providing more internal space than the external volume suggests. Of special concern in this research is the extent of the data and its inter-relationships that need to be understood over multiple scales, and the challenge inherent in implementing viewing methods to facilitate understanding} 
+	keywords = { Multi-scale Views, Detail-in-Context, Viewing Algorithms, Information Visualization, Multi-dimensional Data }
+}
+
+@INPROCEEDINGS{Maarten99thecontribution,
+    author = {Maarten and Mary P. Czerwinski and Maarten Van Dantzich and George Robertson and Hunter Hoffman},
+    title = {The Contribution of Thumbnail Image, Mouse-over Text and Spatial Location Memory to Web Page Retrieval in 3D},
+    booktitle = {},
+    year = {1999},
+    pages = {163--170},
+    publisher = {Press}
+	abstract = {We present an empirical evaluation of the contribution of pictorial image and spatial location information on the retrieval of previously stored web pages. Subjects were given 100 snapshots of web pages that they stored in spatial locations on an inclined plane in a desktop 3D environment (Data Mountain). We had them return and try to retrieve their pages again, using a variety of retrieval cues. Even though users had not seen their web page layout for several months, their retrieval times were not significantly slower. In addition, on half of the trials, stored pages were not presented as thumbnail images of the web pages but as blank icons. Taking the pictorial thumbnail images away initially led to a significant drop in subjects’ ability to find the pages, although within a short period of time subjects were able to find the pages equally fast without the thumbnail information. These results indicate that the use of 3D visualization techniques such as those described in this paper can lead to improved user memory for where favorite or frequently used information is stored in an electronic environment.} 
+	keywords = {3D information visualization, information retrieval, thumbnail images, spatial location memory}
+}
+@inproceedings{Kurtenbach:1993:LEP:169059.169426,
+ author = {Kurtenbach, Gordon and Buxton, William},
+ title = {The limits of expert performance using hierarchic marking menus},
+ booktitle = {Proceedings of the INTERACT '93 and CHI '93 Conference on Human Factors in Computing Systems},
+ series = {CHI '93},
+ year = {1993},
+ isbn = {0-89791-575-5},
+ location = {Amsterdam, The Netherlands},
+ pages = {482--487},
+ numpages = {6},
+ url = {http://doi.acm.org/10.1145/169059.169426},
+ doi = {10.1145/169059.169426},
+ acmid = {169426},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {accelerators, gestures, input devices, marking menus, pen based input, pie menus},
+ abstract = {A marking menu allows a user to perform a menu selection by either popping-up a radial (or pie) menu, or by making a straight mark in the direction of the desired menu item without popping-up the menu. A hierarchic marking menu uses hierarchic radial menus and “zig-zag” marks to select from the hierarchy. This paper experimentally investigates the bounds on how many items can be in each level, and how deep the hierarchy can be, before using a marking to select an item becomes too slow or prone to errors.}
+} 
+
+@INPROCEEDINGS{Mcguffin02fastsliders:,
+    author = {Michael Mcguffin and Nicolas Burtnyk and Gordon Kurtenbach and King Street},
+    title = {FaST Sliders: Integrating marking menus and the adjustment of continuous values. Graphics Interface},
+    booktitle = {GI 2002 Conference Proceedings},
+    year = {2002},
+    pages = {35--42}
+	abstract = {We propose a technique, called FaST Sliders, for selecting and adjusting continuous values using a fast, transient interaction much like pop-up menus. FaST Sliders combine marking menus and graphical sliders in a design that allows operation with quick ballistic movements for selection and coarse adjustment. Furthermore, additional controls can be displayed within the same interaction, for fine adjustments or other functions. We describe the design of FaST Sliders and a user study comparing FaST Sliders to other transient techniques. The results of our user study indicate that FaST Sliders hold potential. We observed that users found FaST Slider easy to learn and made use of and preferred its affordances for ballistic movement and additional controls.}
+
+}
+
+@INPROCEEDINGS{1250400, 
+author={McGuffin, M.J. and Tancau, L. and Balakrishnan, R.}, 
+booktitle={Visualization, 2003. VIS 2003. IEEE}, 
+title={Using deformations for browsing volumetric data}, 
+year={2003}, 
+pages={401-408}, 
+abstract={Many traditional techniques for "looking inside" volumetric data involve removing portions of the data, for example using various cutting tools, to reveal the interior. This allows the user to see hidden parts of the data, but has the disadvantage of removing potentially important surrounding contextual information. We explore an alternate strategy for browsing that uses deformations, where the user can cut into and open up, spread apart, or peel away parts of the volume in real time, making the interior visible while still retaining surrounding context. We consider various deformation strategies and present a number of interaction techniques based on different metaphors. Our designs pay special attention to the semantic layers that might compose a volume (e.g. the skin, muscle, bone in a scan of a human). Users can apply deformations to only selected layers, or apply a given deformation to a different degree to each layer, making browsing more flexible and facilitating the visualization of relationships between layers. Our interaction techniques are controlled with direct, "in place" manipulation, using pop-up menus and 3D widgets, to avoid the divided attention and awkwardness that would come with panels of traditional widgets. Initial user feedback indicates that our techniques are valuable, especially for showing portions of the data spatially situated in context with surrounding data.}, 
+keywords={data visualisation;graphical user interfaces;rendering (computer graphics);solid modelling;3D widgets;image deformation;interaction techniques;pop-up menu;semantic layers;spatial data;volumetric data browsing;Bones;Chromium;Computer graphics;Computer science;Cutting tools;Data visualization;Feedback;Humans;Muscles;Skin}, 
+doi={10.1109/VISUAL.2003.1250400},
+}
+
+@inproceedings{Bharath:2008:FNH:1378773.1378814,
+ author = {Bharath, A. and Madhvanath, Sriganesh},
+ title = {FreePad: a novel handwriting-based text input for pen and touch interfaces},
+ booktitle = {Proceedings of the 13th international conference on Intelligent user interfaces},
+ series = {IUI '08},
+ year = {2008},
+ isbn = {978-1-59593-987-6},
+ location = {Gran Canaria, Spain},
+ pages = {297--300},
+ numpages = {4},
+ url = {http://doi.acm.org.prox.lib.ncsu.edu/10.1145/1378773.1378814},
+ doi = {10.1145/1378773.1378814},
+ acmid = {1378814},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {handwriting recognition, pen and touch interfaces, text input},
+ abstract = {The last decade has seen tremendous growth in mobile devices such as Pocket PCs, mobile phones, Tablet PCs and notebooks. Most of these devices enable interaction through a stylus or touch interface, powered by handwriting recognition (HWR) capability. In this paper, we propose a novel input method that addresses some of the issues that arise due to the constraints posed by these devices in accepting handwriting input. For instance, many of the devices have a small writing area making "continuous" input difficult if not impossible, and the process of handwriting input demands significant user attention. The proposed solution is inspired by touch-typing, and appreciably reduces user's effort in the interaction, and it is especially suited for very small writing areas. The approach has been demonstrated using a prototype system that recognizes handwritten English words, and its accuracy has been evaluated using a standard dataset of handwritten words. A preliminary user study has also been carried out to understand user acceptance of the proposed technique.}
+}
+
+@inproceedings{Kristensson:2008:IEM:1463160.1463227,
+ author = {Kristensson, Per Ola and Arnell, Olof and Bj\"{o}rk, Annelie and Dahlb\"{a}ck, Nils and Pennerup, Joackim and Prytz, Erik and Wikman, Johan and \AAstr\"{o}m, Niclas},
+ title = {InfoTouch: an explorative multi-touch visualization interface for tagged photo collections},
+ booktitle = {Proceedings of the 5th Nordic conference on Human-computer interaction: building bridges},
+ series = {NordiCHI '08},
+ year = {2008},
+ isbn = {978-1-59593-704-9},
+ location = {Lund, Sweden},
+ pages = {491--494},
+ numpages = {4},
+ url = {http://doi.acm.org.prox.lib.ncsu.edu/10.1145/1463160.1463227},
+ doi = {10.1145/1463160.1463227},
+ acmid = {1463227},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {information visualization, interaction surfaces, multi-touch, photo browsing, photo collections, tag clouds, tagging, tags, visualization},
+ abstract = {We report on a design exploration into how a large multi-touch tabletop display can be used for information visualization. We designed an interface where users explored a tagged photo collection by bi-manual manipulation of the collections' tag cloud. User feedback showed that despite the availability of multi-touch most of the actual interactions were single-touch. However, some particular natural actions, such as grabbing the tag cloud and partitioning it into two parts, were often carried with both hands. Thus our user study indicates that multi-touch can act as a useful complementary interaction method in information visualization interfaces.}
+} 
+
+@inproceedings{Poupyrev:2002:ATD:571985.571993,
+ author = {Poupyrev, Ivan and Maruyama, Shigeaki and Rekimoto, Jun},
+ title = {Ambient touch: designing tactile interfaces for handheld devices},
+ booktitle = {Proceedings of the 15th annual ACM symposium on User interface software and technology},
+ series = {UIST '02},
+ year = {2002},
+ isbn = {1-58113-488-6},
+ location = {Paris, France},
+ pages = {51--60},
+ numpages = {10},
+ url = {http://doi.acm.org.prox.lib.ncsu.edu/10.1145/571985.571993},
+ doi = {10.1145/571985.571993},
+ acmid = {571993},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {mobile devices and interfaces, tactile feedback},
+ abstract = {This paper investigates the sense of touch as a channel for communicating with miniature handheld devices. We embedded a PDA with a TouchEngineTM --- a thin, miniature lower-power tactile actuator that we have designed specifically to use in mobile interfaces (Figure 1). Unlike previous tactile actuators, the TouchEngine is a universal tactile display that can produce a wide variety of tactile feelings from simple clicks to complex vibrotactile patterns. Using the TouchEngine, we began exploring the design space of interactive tactile feedback for handheld computers. Here, we investigated only a subset of this space: using touch as the ambient, background channel of interaction. We proposed a general approach to design such tactile interfaces and described several implemented prototypes. Finally, our user studies demonstrated 22% faster task completion when we enhanced handheld tilting interfaces with tactile feedback.}
+} 
+
+@inproceedings{Oehl:2007:CET:1766451.1766469,
+ author = {Oehl, Michael and Sutter, Christine and Ziefle, Martina},
+ title = {Considerations on efficient touch interfaces: how display size influences the performance in an applied pointing task},
+ booktitle = {Proceedings of the 2007 conference on Human interface: Part I},
+ year = {2007},
+ isbn = {978-3-540-73344-7},
+ location = {Beijing, China},
+ pages = {136--143},
+ numpages = {8},
+ url = {http://dl.acm.org.prox.lib.ncsu.edu/citation.cfm?id=1766451.1766469},
+ acmid = {1766469},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+ keywords = {display size, pointing performance, small screen device, task difficulty, touch input},
+ abstract = {The limited screen space in small technical devices imposes considerable usability challenges. On the one hand objects displayed on small screens should be big enough to be hit successfully, but also small enough to house several objects on the screen at the same time. However, findings up to now show that single pointing is more effective in a large display compared to a smaller display. In the present experiment this was also confirmed for an applied multidirectional serial pointing task. Especially in more difficult tasks, results point at a shift of the speed-accuracy tradeoff. In large displays a fast and comparably accurate execution is chosen in contrast to a very inaccurate and time-consuming style in small displays. From an ergonomic point of view the outcomes recommend an optimized balance of task difficulty and display size in small screen devices.}
+}  
+
+@inproceedings{Vogt:2004:MST:1186223.1186268,
+ author = {Vogt, Florian and Chen, Timothy and Hoskinson, Reynald and Fels, Sidney},
+ title = {A malleable surface touch interface},
+ booktitle = {ACM SIGGRAPH 2004 Sketches},
+ series = {SIGGRAPH '04},
+ year = {2004},
+ isbn = {1-58113-896-2},
+ location = {Los Angeles, California},
+ pages = {36--},
+ url = {http://doi.acm.org.prox.lib.ncsu.edu/10.1145/1186223.1186268},
+ doi = {10.1145/1186223.1186268},
+ acmid = {1186268},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ abstract = {Many conventional whole-hand input devices capture interaction by means of non-contact methods or through some physical medium. Such physical interfaces often involve contact of the hands and fingers with a hard, unyielding surface. In this sketch, we propose an input device that captures whole-hand input through a malleable medium. Its deformability and inherent feedback characteristics make it suitable for sculpting and molding applications.} 
+}
+
+  @inproceedings{Jin:2007:TSU:1766311.1766419,
+ author = {Jin, Zhao Xia and Plocher, Tom and Kiff, Liana},
+ title = {Touch screen user interfaces for older adults: button size and spacing},
+ booktitle = {Proceedings of the 4th international conference on Universal access in human computer interaction: coping with diversity},
+ series = {UAHCI'07},
+ year = {2007},
+ isbn = {978-3-540-73278-5},
+ location = {Beijing, China},
+ pages = {933--941},
+ numpages = {9},
+ url = {http://dl.acm.org.prox.lib.ncsu.edu/citation.cfm?id=1766311.1766419},
+ acmid = {1766419},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+ keywords = {older adults, touch screen, usability, user interface design},
+ abstract = {This study investigated the optimal button size and spacing for touch screen user interfaces intended for use by older adults. Current recommendations in the literature are aimed at general audiences and fail to consider the specific needs of older adults. Three independent variables, button size, button spacing, and manual dexterity were studied in two experiments that measured reaction time, accuracy and user preferences. Design recommendations for touch screen button size and spacing for older adults are stated based on these experiments. The paper also discusses the role of manual dexterity in designing appropriate touch screen interfaces for older adults.}
+} 
+
+@inproceedings{Shen:2007:CTE:1784297.1784317,
+ author = {Shen, Chia},
+ title = {From clicks to touches: enabling face-to-face shared social interface on multi-touch tabletops},
+ booktitle = {Proceedings of the 2nd international conference on Online communities and social computing},
+ series = {OCSC'07},
+ year = {2007},
+ isbn = {978-3-540-73256-3},
+ location = {Beijing, China},
+ pages = {169--175},
+ numpages = {7},
+ url = {http://dl.acm.org.prox.lib.ncsu.edu/citation.cfm?id=1784297.1784317},
+ acmid = {1784317},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+ abstract = {Making the interactions with a digital user interface disappears into and becomes a part of the human to human interaction and conversation is a challenge. Conventional metaphor and underlying interface infrastructure for single-user desktop systems have been traditionally geared towards single mouse and keyboard, click-and-type based, WIMP interface design. On the other hand, people usually meet in social context around a table, facing each other. A table setting provides a large interactive visual and tangible surface. It affords and encourages collaboration, coordination, serendipity, as well as simultaneous and parallel interaction among multiple people. In this paper, we examine and explore the opportunities, challenges, research issues, pitfalls, and plausible approaches for enabling direct touchable, shared social interactions on multi-touch multi-user tabletops.}
+} 
+
+@inproceedings{Motamedi:2007:KTT:1226969.1226974,
+ author = {Motamedi, Nima},
+ title = {Keep in touch: a tactile-vision intimate interface},
+ booktitle = {Proceedings of the 1st international conference on Tangible and embedded interaction},
+ series = {TEI '07},
+ year = {2007},
+ isbn = {978-1-59593-619-6},
+ location = {Baton Rouge, Louisiana},
+ pages = {21--22},
+ numpages = {2},
+ url = {http://doi.acm.org.prox.lib.ncsu.edu/10.1145/1226969.1226974},
+ doi = {10.1145/1226969.1226974},
+ acmid = {1226974},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {intimacy, sensorial interfaces, sensory mapping, tactile},
+ abstract = {We present an overview of Keep in Touch, a networked fabric touchscreen designed to support and maintain intimacy for couples in long distance relationships. To achieve this, a novel sensorial interface was created by combining the visual and tactile senses together. Each partner is presented with a blurred digital projection of their lover. When they touch their partner's body, the image comes into focus revealing their features. We describe how this sensory mapping creates an expressive and emotional interface allowing couples to communicate through touch, gestures, and body language.}
+} 
+
+@inproceedings{Matulic:2007:TST:1284420.1284448,
+ author = {Matulic, Fabrice},
+ title = {Touch scan-n-search: a touchscreen interface to retrieve online versions of scanned documents},
+ booktitle = {Proceedings of the 2007 ACM symposium on Document engineering},
+ series = {DocEng '07},
+ year = {2007},
+ isbn = {978-1-59593-776-6},
+ location = {Winnipeg, Manitoba, Canada},
+ pages = {97--98},
+ numpages = {2},
+ url = {http://doi.acm.org.prox.lib.ncsu.edu/10.1145/1284420.1284448},
+ doi = {10.1145/1284420.1284448},
+ acmid = {1284448},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {GUI, keyword extraction, online news retrieval, scanned document},
+ abstract = {The system described in this paper attempts to tackle the problem of finding online content based on paper documents through an intuitive touchscreen interface designed for modern scanners and multifunction printers. Touch Scan-n-Search allows the user to select elements of a scanned document (e.g. a newspaper article) and to seamlessly connect to common web search services in order to retrieve the online version of the document along with related content. This is achieved by automatically extracting keyphrases from text elements in the document (obtained by OCR) and creating "tappable" GUI widgets to allow the user to control and fine-tune the search requests. The retrieved content can then be printed, sent, or used to compose new documents.}
+} 
