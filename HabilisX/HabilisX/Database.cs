@@ -42,7 +42,7 @@ namespace HabilisX
             //foreach (String str in text)
             for(int i=0; i<text.Length; i++)
             {
-                Console.WriteLine(i);
+                //Console.WriteLine(i);
                 String cur = text[i].Trim();
                 if (cur.Length > 0 && cur[0] == '@')
                 {
@@ -82,7 +82,7 @@ namespace HabilisX
             }
 
             //this.addEntry(entry);
-            Console.WriteLine("ENTRIES: " + entries);
+           // Console.WriteLine("ENTRIES: " + entries);
         }
         private void init()
         {

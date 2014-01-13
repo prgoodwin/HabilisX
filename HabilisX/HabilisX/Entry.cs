@@ -25,8 +25,8 @@ namespace Microsoft.Surface.Presentation.Controls
             L = new Label();
             // Set the content of the label.
             L.Content = this.toString();
-            L.FontSize = 12;
-            //L.Foreground = Brushes.Black;
+            L.FontSize = 14;
+            L.Foreground = Brushes.Black;
             //L.FontWeight = FontWeights.Bold;
            
 
@@ -36,7 +36,7 @@ namespace Microsoft.Surface.Presentation.Controls
             innerView.Children.Add(L);
 
 
-            this.Width = 310;
+            this.Width = 350;
             //Console.WriteLine("Going to height...");
             //this.Height = this.numLines*12;
             this.Content = innerView;
@@ -44,6 +44,7 @@ namespace Microsoft.Surface.Presentation.Controls
             this.Orientation = this.getNewOrientation();
             this.Tag = 0; //highlighting off to begin
             this.CanScale = false;
+            this.Background = new SolidColorBrush(Color.FromArgb(245, 191, 191, 191));
         }
 
         public Entry(Dictionary<String, object> attributes)
@@ -218,7 +219,7 @@ namespace Microsoft.Surface.Presentation.Controls
 
            this.numLines = str.Count(f => f == '\n') + 1;
            //Console.WriteLine("numLines: " + this.numLines);
-           this.Height = this.numLines * 15;
+           this.Height = this.numLines * 20;
             return str;
 
 

@@ -54,7 +54,7 @@ namespace HabilisX.Tools
 
         public void addEntry(Entry entry)
         {
-            if (this.toOrganize.Count < 10)
+            if (this.toOrganize.Count < 8)
             {
                 this.toOrganize.Add(entry);
             }

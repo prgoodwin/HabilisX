@@ -66,12 +66,14 @@ namespace HabilisX
       {
          InitializeComponent();
 
+         Double ScreenWidth = MyScatterView.Width;
+
+
          trash = new TrashCan();
          MyScatterView.Items.Add(trash);
 
          #region make and display the database
 
-         //Initialize the database.  Currently (March '13) it is 10 hardcoded papers
          Database dataSet = new Database();
          List<KeyValuePair<string, Type>> myList = dataSet.allAttributes.ToList();
 
@@ -86,9 +88,15 @@ namespace HabilisX
          {
             String str = myList.ElementAt(i).Key;
 
+
             ScatterViewItem newButton = new ScatterViewItem();
+            Double buttonsOnScreen = Math.Floor((MyScatterView.Width - 280)/ 180) -2;
+
+            Console.WriteLine("BUTTONS: " + buttonsOnScreen);
+
             newButton.Orientation = 0;
-            newButton.Center = new Point(280 + (180 * (i % 9)), 40 + 75 * (int)(i / 9));
+            newButton.Center = new Point(280 + (180 * (i % buttonsOnScreen)), 40 + 75 * (int)(i / buttonsOnScreen));
+            //newButton.Center = new Point(280 + (180 * (i % buttonsOnScreen)), 40 + 75 * (int)(i / buttonsOnScreen));
             newButton.Height = 50;
             newButton.Width = 160;
             //newButton.Background = Brushes.DarkSlateGray;
@@ -135,7 +143,7 @@ namespace HabilisX
             }
 
 
-            Console.WriteLine("ALL ATTRIBUTES: " + str + ", " + dataSet.allAttributes[str].ToString());
+            //Console.WriteLine("ALL ATTRIBUTES: " + str + ", " + dataSet.allAttributes[str].ToString());
          }
 
          #endregion
@@ -146,6 +154,7 @@ namespace HabilisX
          foreach (Entry e in dataSet.allEntries)
          {
             AddToScreen(e);
+//            EventSubscriber.SubscribeAll(e);
          }
 
          #endregion
@@ -1013,7 +1022,7 @@ namespace HabilisX
 
       private void magicLens_PreviewTouchMove(object sender, TouchEventArgs e)
       {
-          Console.WriteLine("num " + ((Tool)sender).numFingers);
+          //Console.WriteLine("num " + ((Tool)sender).numFingers);
          if (!MyScatterView.Items.Contains(sender))
          {
             return;
@@ -1114,7 +1123,7 @@ namespace HabilisX
 
       private void paperClip_PreviewTouchMove(object sender, TouchEventArgs e)
       {
-          Console.WriteLine(((Tool)sender).numFingers);
+          //Console.WriteLine(((Tool)sender).numFingers);
          if (!MyScatterView.Items.Contains(sender) || ((Tool)sender).numFingers>=2)
          {
             return;
@@ -1660,22 +1669,22 @@ namespace HabilisX
 
          if (difference.X > 0 && Math.Abs(difference.X) > Math.Abs(difference.Y))
          {
-            Console.WriteLine("RIGHT");
+            //Console.WriteLine("RIGHT");
             return RIGHT;
          }
          else if (difference.X < 0 && Math.Abs(difference.X) > Math.Abs(difference.Y))
          {
-            Console.WriteLine("LEFT");
+            //Console.WriteLine("LEFT");
             return LEFT;
          }
          else if (difference.Y < 0 && Math.Abs(difference.Y) > Math.Abs(difference.X))
          {
-            Console.WriteLine("TOP");
+            //Console.WriteLine("TOP");
             return TOP;
          }
          else
          {
-            Console.WriteLine("BOTTOM");
+            //Console.WriteLine("BOTTOM");
             return BOTTOM;
          }
       }
