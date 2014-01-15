@@ -9,8 +9,12 @@ using System.Windows;
 
 namespace HabilisX.Tools
 {
-    class Note : Tool
+    public class Note : Tool
     {
+
+        public SurfaceTextBox titleText;
+        public SurfaceTextBox txt;
+
         public Note() {
             Canvas innerView = new Canvas();
             innerView.Width = 260;
@@ -18,7 +22,7 @@ namespace HabilisX.Tools
             innerView.Background = new SolidColorBrush(Color.FromRgb(252, 240, 173));
 
             //Titie text box
-            SurfaceTextBox titleText = new SurfaceTextBox();
+            titleText = new SurfaceTextBox();
             titleText.AcceptsReturn = false;
             titleText.FontSize = 14;
             titleText.FontWeight = FontWeights.Bold;
@@ -29,9 +33,10 @@ namespace HabilisX.Tools
             titleText.Width = 243;
             titleText.Background = new SolidColorBrush(Color.FromRgb(252, 240, 173));
             titleText.BorderBrush = Brushes.Gray;
+            titleText.GotFocus += new RoutedEventHandler(titleText_GotFocus);
 
             //Content text box
-            SurfaceTextBox txt = new SurfaceTextBox();
+            txt = new SurfaceTextBox();
             txt.Foreground = Brushes.Black;
             txt.Margin = new Thickness(8);
             txt.FontSize = 14;
@@ -41,8 +46,10 @@ namespace HabilisX.Tools
             txt.Height = 100;
             txt.AcceptsReturn = true;
             txt.AcceptsTab = true;
+            txt.TextWrapping = TextWrapping.Wrap;
             txt.Background = new SolidColorBrush(Color.FromRgb(252, 240, 173));
             txt.BorderBrush = Brushes.Gray;
+            txt.GotFocus += new RoutedEventHandler(txt_GotFocus);
 
             //Attach
             innerView.Children.Add(titleText);
@@ -58,8 +65,24 @@ namespace HabilisX.Tools
             this.Height = 170;
             this.MaxHeight = 1000;
             this.MaxWidth = 1000;
-            this.Center = new Point(150, 860);
+            this.Center = new Point(350, 620);
         }
+
+        void txt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txt.Text == "Note Text") {
+                txt.Text = "";
+            }
+        }
+
+        void titleText_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (titleText.Text == "Note Title")
+            {
+                titleText.Text = "";
+            }
+        }
+
 
         public override bool AreBoundaryIntersecting(FrameworkElement cursorVisual)
         {

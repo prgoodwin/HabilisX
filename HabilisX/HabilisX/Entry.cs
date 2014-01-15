@@ -15,6 +15,7 @@ namespace Microsoft.Surface.Presentation.Controls
     {
         public Dictionary<String, object> attributes = new Dictionary<String, object>();
         public Boolean isClipped = false;
+        public List<ScatterViewItem> annotations;
 
         private const int CHARSPERLINE = 50;
         private int numLines = 1;
@@ -45,6 +46,8 @@ namespace Microsoft.Surface.Presentation.Controls
             this.Tag = 0; //highlighting off to begin
             this.CanScale = false;
             this.Background = new SolidColorBrush(Color.FromArgb(245, 191, 191, 191));
+
+            this.annotations = new List<ScatterViewItem>();
         }
 
         public Entry(Dictionary<String, object> attributes)
@@ -249,15 +252,104 @@ namespace Microsoft.Surface.Presentation.Controls
 
         private double getNewX()
         {
-            return HabilisX.Utils.nextNum(400, 1200);
+            return HabilisX.Utils.nextNum(700, 1500);
         }
         private double getNewY()
         {
-            return HabilisX.Utils.nextNum(275, 750);
+            return HabilisX.Utils.nextNum(350, 750);
         }
         private double getNewOrientation()
         {
             return HabilisX.Utils.nextNum(-60, 60);
+        }
+    
+        public void addAnnotation(Note note){
+            //Save the fields of the two text boxes
+            String titleString = note.titleText.Text;
+            String noteString = note.txt.Text;
+
+            //Make label out of title
+            Label noteTitle = new Label();
+            noteTitle.Content = titleString;
+            noteTitle.Foreground = Brushes.Black;
+
+            //Make item that will be attached
+            ScatterViewItem annotation = new ScatterViewItem();
+
+            //Format visually
+            annotation.Background = new SolidColorBrush(Color.FromRgb(252, 240, 173));
+            annotation.ShowsActivationEffects = false;
+            annotation.CanScale = false;
+            annotation.MinHeight = 25;
+            annotation.PreviewMouseDown += new System.Windows.Input.MouseButtonEventHandler(annotation_PreviewMouseDown);
+            annotation.PreviewMouseUp += new System.Windows.Input.MouseButtonEventHandler(annotation_PreviewMouseUp);
+            annotation.PreviewTouchDown += new EventHandler<System.Windows.Input.TouchEventArgs>(annotation_PreviewTouchDown);
+            annotation.PreviewTouchUp += new EventHandler<System.Windows.Input.TouchEventArgs>(annotation_PreviewTouchUp);
+            annotation.PreviewMouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler(annotation_PreviewMouseDoubleClick);
+
+            //Attach 
+            annotation.Content = noteTitle;
+            annotation.Tag = noteString;
+
+            this.annotations.Add(annotation);
+
+            ((Canvas)this.Content).Children.Add(annotation);
+            Canvas.SetRight(annotation, this.Width);
+            Canvas.SetTop(annotation, annotations.IndexOf(annotation) * 50); 
+
+
+
+        }
+
+        void annotation_PreviewMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Canvas p = (Canvas)((ScatterViewItem)sender).Parent;
+            p.Children.Remove((ScatterViewItem)sender);
+            Console.WriteLine("found a double click");
+        }
+
+        void annotation_PreviewTouchUp(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            eventRelease((ScatterViewItem)sender);
+        }
+
+        void annotation_PreviewTouchDown(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            eventHold((ScatterViewItem)sender);
+        }
+
+        void annotation_PreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            eventRelease((ScatterViewItem)sender);
+        }
+
+        void eventRelease(ScatterViewItem sender) {
+            String txt = (String)((Label)sender.Content).Content;
+            String title = (String)sender.Tag;
+
+
+            ((Label)sender.Content).Content = title;
+            sender.Tag = txt;
+
+            sender.Width = ((Label)sender.Content).Width;
+            sender.Height = ((Label)sender.Content).Height;
+        }
+        void eventHold(ScatterViewItem sender) {
+            String title = (String)((Label)sender.Content).Content;
+            String txt = (String)sender.Tag;
+
+
+            ((Label)sender.Content).Content = txt;
+            sender.Tag = title;
+
+            sender.Width = 243;//Math.Min(243, ((Label)((ScatterViewItem)sender).Content).Width);
+            sender.Height = ((Label)sender.Content).Height;
+
+        }
+
+        void annotation_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            eventHold((ScatterViewItem)sender);
         }
     }
 }

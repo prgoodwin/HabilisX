@@ -90,9 +90,8 @@ namespace HabilisX
 
 
             ScatterViewItem newButton = new ScatterViewItem();
-            Double buttonsOnScreen = Math.Floor((MyScatterView.Width - 280)/ 180) -2;
+            Double buttonsOnScreen = Math.Floor((MyScatterView.Width - 280)/ 180);
 
-            Console.WriteLine("BUTTONS: " + buttonsOnScreen);
 
             newButton.Orientation = 0;
             newButton.Center = new Point(280 + (180 * (i % buttonsOnScreen)), 40 + 75 * (int)(i / buttonsOnScreen));
@@ -776,7 +775,7 @@ namespace HabilisX
             {
                if (entry.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
                {
-                  activateNote(entry, (ScatterViewItem)sender);
+                  activateNote(entry, (Note)sender);
                   return;
                }
             }
@@ -798,7 +797,7 @@ namespace HabilisX
                {
                   if (entry.AreBoundaryIntersecting((FrameworkElement)sender)) //this.AreBoundaryIntersecting((FrameworkElement)sender, (FrameworkElement)ScatterFrame))
                   {
-                     activateNote(entry, (ScatterViewItem)sender);
+                     activateNote(entry, (Note)sender);
                      return;
                   }
                }
@@ -1582,9 +1581,8 @@ namespace HabilisX
             this.filters.Add((FilterTile)item);
 
          }
-         else if (item is ScatterViewItem)
+         else if (item is Note)
          {
-            Console.WriteLine("God I hope this is a note");
             this.notes.Add(item);
          }
          else
@@ -1630,9 +1628,8 @@ namespace HabilisX
                   this.filters.Remove((FilterTile)item);
 
                }
-               else if (item is ScatterViewItem)
+               else if (item is Note)
                {
-                  Console.WriteLine("God I hope this is a note");
                   this.notes.Remove(item);
                }
                else
@@ -1728,35 +1725,18 @@ namespace HabilisX
 
       }
 
-      private void activateNote(Entry e, ScatterViewItem note)
+      private void activateNote(Entry e, Note note)
       {
-         //Save the fields of the two text boxes
-         String titleString = ((TextBox)((Canvas)(note.Content)).Children[0]).Text;
-         String noteString = ((TextBox)((Canvas)(note.Content)).Children[1]).Text;
+          e.addAnnotation(note);
 
-         //Make label out of title
-         Label noteTitle = new Label();
-         noteTitle.Content = titleString;
-         noteTitle.Foreground = Brushes.Black;
+
 
          //remove big note
          RemoveFromScreen(note);
 
-         //Make item that will be attached
-         ScatterViewItem annotation = new ScatterViewItem();
          //annotation.MouseDoubleClick += new MouseButtonEventHandler(annotation_MouseDoubleClick);
 
-         //Format visually
-         annotation.Background = new SolidColorBrush(Color.FromRgb(252, 240, 173));
-         annotation.ShowsActivationEffects = false;
-         annotation.MinHeight = 0;
 
-         //Attach 
-         annotation.Content = noteTitle;
-         annotation.Tag = noteString;
-
-         ((Canvas)(e.Content)).Children.Add(annotation);
-         Canvas.SetRight(annotation, 260);
       }
 
       #endregion
