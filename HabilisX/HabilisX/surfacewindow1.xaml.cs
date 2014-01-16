@@ -1212,7 +1212,7 @@ namespace HabilisX
                cur.SetRelativeZIndex(0);
                double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
                cur.Orientation = 0;
-               cur.Center = new Point(clip.Center.X + cur.Width / 2 - offset + 13, clip.Center.Y + cur.Height / 2 - 150 + 20 * listoffset);
+               cur.Center = new Point(clip.Center.X + cur.Width / 2 - offset + 33, clip.Center.Y + cur.Height / 2 - 150 + 20 * listoffset);
 
                //new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
             }
@@ -1234,68 +1234,6 @@ namespace HabilisX
 
 
          }
-
-
-
-         //double deltaX = e.GetPosition(MyScatterView).X - lastMousePoint.X;
-         ////deltaX += Math.Sign(deltaX);
-
-         //double deltaY = (e.GetPosition(MyScatterView)).Y - lastMousePoint.Y;
-         ////deltaY += Math.Sign(deltaY);
-         //if (!MyScatterView.Items.Contains(sender))
-         //{
-         //    lastDelta = new Point(deltaX, deltaY);
-         //    lastMousePoint = e.GetPosition(MyScatterView);
-         //    return;
-         //}
-
-         //List<Entry> toOrganize = new List<Entry>();
-
-         //foreach (Entry entry in this.entries)
-         //{
-         //    if (((PaperClip)sender).AreBoundaryIntersecting(entry) && (entry.matchesAllFilters(((PaperClip)sender).filters) ||
-         //       ((PaperClip)sender).filters.Count == 0))
-         //    {
-         //        toOrganize.Add(entry);
-         //    }
-         //}
-
-         //if (e.LeftButton != MouseButtonState.Pressed)
-         //{
-
-         //    if (toOrganize.Count != 0)
-         //    {
-
-         //        for (int i = 0; i < Math.Min(7,toOrganize.Count); i++)
-         //        {
-         //            Entry cur = toOrganize[i];
-         //            cur.SetRelativeZIndex(0);
-         //            double offset = cur.ActualWidth / 2 - (((PaperClip)sender).ActualWidth / 2);
-         //            cur.Orientation = 0;
-         //            cur.Center = new Point(((PaperClip)sender).Center.X + offset + 8, ((PaperClip)sender).Center.Y - (cur.ActualHeight / 4) + 20 * i);
-         //        }
-         //        ((PaperClip)sender).SetRelativeZIndex(0);
-         //        ImageBrush ib = new ImageBrush();
-         //        ib.ImageSource = Utils.NewEmbededResource("HabilisX.Resources.paperClipOccluded.png");
-
-
-
-         //        ((ScatterView)((PaperClip)sender).Content).Background = ib;
-
-         //    }
-         //}
-         //else
-         //{
-         //    foreach (Entry entry in toOrganize)
-         //    {
-         //        entry.SetRelativeZIndex(0);
-         //        entry.Center = new Point(entry.Center.X + deltaX, entry.Center.Y + deltaY);
-         //    }
-         //    ((PaperClip)sender).SetRelativeZIndex(0);
-         //}
-
-         //lastDelta = new Point(deltaX, deltaY);
-         //lastMousePoint = e.GetPosition(MyScatterView);
       }
 
       private void ruler_PreviewTouchMove(object sender, TouchEventArgs e)

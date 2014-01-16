@@ -283,8 +283,8 @@ namespace Microsoft.Surface.Presentation.Controls
             annotation.MinHeight = 25;
             annotation.PreviewMouseDown += new System.Windows.Input.MouseButtonEventHandler(annotation_PreviewMouseDown);
             annotation.PreviewMouseUp += new System.Windows.Input.MouseButtonEventHandler(annotation_PreviewMouseUp);
-            annotation.PreviewTouchDown += new EventHandler<System.Windows.Input.TouchEventArgs>(annotation_PreviewTouchDown);
-            annotation.PreviewTouchUp += new EventHandler<System.Windows.Input.TouchEventArgs>(annotation_PreviewTouchUp);
+            annotation.TouchEnter += new EventHandler<System.Windows.Input.TouchEventArgs>(annotation_TouchEnter);
+            annotation.TouchLeave += new EventHandler<System.Windows.Input.TouchEventArgs>(annotation_TouchLeave);
             annotation.PreviewMouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler(annotation_PreviewMouseDoubleClick);
 
             //Attach 
@@ -301,21 +301,27 @@ namespace Microsoft.Surface.Presentation.Controls
 
         }
 
+
+        int fingers = 0;
+        void annotation_TouchLeave(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            fingers--;
+            eventRelease((ScatterViewItem)sender);
+        }
+
+        void annotation_TouchEnter(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            fingers++;
+            eventHold((ScatterViewItem)sender);
+
+            if (fingers >= 3) {
+            }
+        }
+
         void annotation_PreviewMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Canvas p = (Canvas)((ScatterViewItem)sender).Parent;
             p.Children.Remove((ScatterViewItem)sender);
-            Console.WriteLine("found a double click");
-        }
-
-        void annotation_PreviewTouchUp(object sender, System.Windows.Input.TouchEventArgs e)
-        {
-            eventRelease((ScatterViewItem)sender);
-        }
-
-        void annotation_PreviewTouchDown(object sender, System.Windows.Input.TouchEventArgs e)
-        {
-            eventHold((ScatterViewItem)sender);
         }
 
         void annotation_PreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
