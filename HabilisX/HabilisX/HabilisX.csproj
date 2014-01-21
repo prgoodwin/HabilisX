@@ -151,6 +151,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <EmbeddedResource Include="Resources\save1.txt" />
     <Resource Include="Resources\bibtexRelated.txt" />
     <EmbeddedResource Include="Resources\bibtexUnrelated.txt" />
     <EmbeddedResource Include="Resources\trashCan.png" />
