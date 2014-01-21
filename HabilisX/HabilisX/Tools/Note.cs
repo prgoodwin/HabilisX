@@ -65,7 +65,7 @@ namespace HabilisX.Tools
             this.Height = 170;
             this.MaxHeight = 1000;
             this.MaxWidth = 1000;
-            this.Center = new Point(350, 620);
+            this.Center = new Point(152, 620);
         }
 
         void txt_GotFocus(object sender, RoutedEventArgs e)

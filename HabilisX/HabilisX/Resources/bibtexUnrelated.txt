@@ -49,23 +49,6 @@
  abstract = {The small screen size of handheld mobile devices poses an inherent problem in visualizing data: very often it is too difficult and unpleasant to navigate through the plethora of presented information. This paper presents a novel approach to personalized and adaptive content presentation for handheld devices, which has been implemented in a mobile financial application system based on a 3-tier architecture. The approach is independent of wireless networks and mobile devices. It utilizes a combination of user profiling, data clustering, and visualization techniques (fisheye and semantic zooming), enhancing the understandability of the data and improving the usability of the device.}
 } 
 
-@inproceedings{Zhang:2006:PVH:1141277.1141517,
- author = {Zhang, Dongsong and Karabatis, George and Chen, Zhiyuan and Adipat, Boonlit and Dai, Liwei and Zhang, Zhenxue and Wang, Yu},
- title = {Personalization and visualization on handheld devices},
- booktitle = {Proceedings of the 2006 ACM symposium on Applied computing},
- series = {SAC '06},
- year = {2006},
- isbn = {1-59593-108-2},
- location = {Dijon, France},
- pages = {1008--1012},
- numpages = {5},
- doi = {10.1145/1141277.1141517},
- acmid = {1141517},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {PDA, clustering, mobile devices, user profiles, visualization},
- abstract = {The small screen size of handheld mobile devices poses an inherent problem in visualizing data: very often it is too difficult and unpleasant to navigate through the plethora of presented information. This paper presents a novel approach to personalized and adaptive content presentation for handheld devices, which has been implemented in a mobile financial application system based on a 3-tier architecture. The approach is independent of wireless networks and mobile devices. It utilizes a combination of user profiling, data clustering, and visualization techniques (fisheye and semantic zooming), enhancing the understandability of the data and improving the usability of the device.}
-}
 
  @article{Stock:2007:AIP:1265316.1265324,
  author = {Stock, Oliviero and Zancanaro, Massimo and Busetta, Paolo and Callaway, Charles and Kr\"{u}ger, Antonio and Kruppa, Michael and Kuflik, Tsvi and Not, Elena and Rocchi, Cesare},
@@ -1048,8 +1031,8 @@ ISSN={1062-922X},
     author = {M. S. T. Carpendale and D.J. Cowperthwaite and M. Tigges and A. Fall and F. D. Fracchia},
     title = {The Tardis: A Visual Exploration Environment for Landscape Dynamics},
     year = {1999}
-	abstract = {This paper presents the creation of a a visual environment for exploring landscape patterns and changes to such patterns over time. Dynamic landscape patterns can involve both spatial and temporal complexity. Exploration of spatio-temporal landscape patterns should provide the ability to view information at dierent scales to permit navigation of a vast amount of information in a manner that facilitates comprehension rather than confusion. One way of achieving this goal is to support selection, navigation and comparison of progressively rened segments of time and space. We have entitled this system Tardis after the time machine of Dr. Who, to emphasize the exploration of time dependent data and because our use of elastic presentation has the eect of providing more internal space than the external volume suggests. Of special concern in this research is the extent of the data and its inter-relationships that need to be understood over multiple scales, and the challenge inherent in implementing viewing methods to facilitate understanding} 
 	keywords = { Multi-scale Views, Detail-in-Context, Viewing Algorithms, Information Visualization, Multi-dimensional Data }
+	abstract = {This paper presents the creation of a a visual environment for exploring landscape patterns and changes to such patterns over time. Dynamic landscape patterns can involve both spatial and temporal complexity. Exploration of spatio-temporal landscape patterns should provide the ability to view information at dierent scales to permit navigation of a vast amount of information in a manner that facilitates comprehension rather than confusion. One way of achieving this goal is to support selection, navigation and comparison of progressively rened segments of time and space. We have entitled this system Tardis after the time machine of Dr. Who, to emphasize the exploration of time dependent data and because our use of elastic presentation has the eect of providing more internal space than the external volume suggests. Of special concern in this research is the extent of the data and its inter-relationships that need to be understood over multiple scales, and the challenge inherent in implementing viewing methods to facilitate understanding} 
 }
 
 @INPROCEEDINGS{Maarten99thecontribution,
@@ -1265,3 +1248,23 @@ doi={10.1109/VISUAL.2003.1250400},
  keywords = {GUI, keyword extraction, online news retrieval, scanned document},
  abstract = {The system described in this paper attempts to tackle the problem of finding online content based on paper documents through an intuitive touchscreen interface designed for modern scanners and multifunction printers. Touch Scan-n-Search allows the user to select elements of a scanned document (e.g. a newspaper article) and to seamlessly connect to common web search services in order to retrieve the online version of the document along with related content. This is achieved by automatically extracting keyphrases from text elements in the document (obtained by OCR) and creating "tappable" GUI widgets to allow the user to control and fine-tune the search requests. The retrieved content can then be printed, sent, or used to compose new documents.}
 } 
+
+@INPROCEEDINGS{Maarten99thecontribution,
+    author = {Maarten and Mary P. Czerwinski and Maarten Van Dantzich and George Robertson and Hunter Hoffman},
+    title = {The Contribution of Thumbnail Image, Mouse-over Text and Spatial Location Memory to Web Page Retrieval in 3D},
+    booktitle = {},
+    year = {1999},
+    pages = {163--170},
+    publisher = {Press}
+	abstract = {We present an empirical evaluation of the contribution of pictorial image and spatial location information on the retrieval of previously stored web pages. Subjects were given 100 snapshots of web pages that they stored in spatial locations on an inclined plane in a desktop 3D environment (Data Mountain). We had them return and try to retrieve their pages again, using a variety of retrieval cues. Even though users had not seen their web page layout for several months, their retrieval times were not significantly slower. In addition, on half of the trials, stored pages were not presented as thumbnail images of the web pages but as blank icons. Taking the pictorial thumbnail images away initially led to a significant drop in subjects’ ability to find the pages, although within a short period of time subjects were able to find the pages equally fast without the thumbnail information. These results indicate that the use of 3D visualization techniques such as those described in this paper can lead to improved user memory for where favorite or frequently used information is stored in an electronic environment.}
+}
+@article{,
+	author = {C. Tristram}
+	title = {{The Next Computer Interface}},
+	journal = {MIT Technology Review Magazine},
+	year = {2001}
+	month = dec,
+	pages = {52----61},
+	url = {http://www.technologyreview.com/featuredstory/401304/the-next-computer-interface/},
+	abstract = {“The desktop is dead,” declares David Gelernter. Gelernter is referring to the “desktop metaphor”-the term frequently used for the hierarchical system of files, folders and icons that we use to manage information stored on our home or office computers. At the annual gathering of technophiles at TechXNY/PC Expo 2001 in New York last June, he told the rapt crowd attending his keynote speech that the desktop metaphor is nothing more than virtual Tupperware. “Our electronic documents are scattered by the thousands in all sorts of little containers all over the place,” he said. “The more information and the more computers in our lives, the more of a nuisance this system becomes.”},
+}

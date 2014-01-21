@@ -23,7 +23,7 @@ namespace HabilisX.Tools
             this.Background = Brushes.Transparent;
             this.CanRotate = false;
             this.CanScale = false;
-            this.Center = new Point(295, 495);
+            this.Center = new Point(295, 430);
             this.Height = 50;
             this.MinHeight = 5;
             this.MinWidth = 5;

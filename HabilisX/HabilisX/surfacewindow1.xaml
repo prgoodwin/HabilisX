@@ -12,62 +12,58 @@
     <!-- Main scatterview (whole window)-->
     <s:ScatterView Name="MyScatterView"  Foreground="Black" Background="#FF0071FF" LayoutUpdated="ScatterView_LayoutUpdated" Height="1080" Width="1920">
         <!-- -->
-
-
-        <!-- Push Pin-->
-        <s:ScatterViewItem Name="PushPinButton" Orientation="0" Center="100,235" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="Add Push Pin" Height="50" Width="160"   Click="AddPushPinButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        </s:ScatterViewItem>
-
-        <!-- Ruler -->
-        <s:ScatterViewItem Name="RulerButton" Orientation="0" Center="100,300" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="Add Ruler" Height="50" Width="160"   Click="AddRulerButton_Click"  VerticalAlignment="Center" HorizontalAlignment="Center" />
-        </s:ScatterViewItem>
-
-        <!-- Note Button -->
-        <s:ScatterViewItem Name="NoteButton" Orientation="0" Center="100,560" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="Add Note" Height="50" Width="160" Foreground="Black" Click="AddNote_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </s:ScatterViewItem> 
-
-
-
-        <!-- Magic Lens Button-->
-        <s:ScatterViewItem Name="MagicLensButton" Orientation="0" Center="100,365" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="Add Magic Lens" Height="50" Width="160"   Click="AddMagicLensButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        </s:ScatterViewItem>
-
-        <!-- Magnifying Glass Button-->
-        <s:ScatterViewItem Name="MagnifyingGlassButton" Orientation="0" Center="100,430" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="Add Magnifier" Height="50" Width="160" Foreground="Black" Click="AddMagnifyingGlass_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </s:ScatterViewItem>
-
-        <!-- Paper Clip Button-->
-        <s:ScatterViewItem Name="PaperClipButton" Orientation="0" Center="100,495" Background="Transparent" Height="50" Width="160" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
-            <s:SurfaceButton Content="Add Paper Clip" Height="50" Width="160"  Click="AddPaperClip_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </s:ScatterViewItem>
-
-
-
-
         <!-- Save State 1-->
-        <s:ScatterViewItem Name="Save1" Orientation="0" Center="55,105" MinWidth="50"  Height="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+        <s:ScatterViewItem Name="Save1" Orientation="0" Center="55,40" MinWidth="50"  Height="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
             <s:SurfaceButton Content="Save 1" Height="50" Width="70"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="save1_Click"/>
         </s:ScatterViewItem>
 
         <!-- Load State 1-->
-        <s:ScatterViewItem Name="Load1" Orientation="0" Center="145,105" Height="50" MinWidth="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+        <s:ScatterViewItem Name="Load1" Orientation="0" Center="145,40" Height="50" MinWidth="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
             <s:SurfaceButton Content="Load 1" Height="50" Width="70"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="load1_Click"/>
         </s:ScatterViewItem>
 
         <!-- Save State 2-->
-        <s:ScatterViewItem Name="Save2" Orientation="0" Center="55,170" MinWidth="50" Height="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+        <s:ScatterViewItem Name="Save2" Orientation="0" Center="55,105" MinWidth="50" Height="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
             <s:SurfaceButton Content="Save 2" Height="50" Width="70"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="save2_Click" />
         </s:ScatterViewItem>
 
         <!-- Load State 2-->
-        <s:ScatterViewItem Name="Load2" Orientation="0" Center="145,170" MinWidth="50" Height="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+        <s:ScatterViewItem Name="Load2" Orientation="0" Center="145,105" MinWidth="50" Height="50" Width="70" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
             <s:SurfaceButton Content="Load 2" Height="50" Width="70"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="load2_Click" />
         </s:ScatterViewItem>
-        
-        </s:ScatterView>
+
+
+        <!-- Push Pin-->
+        <s:ScatterViewItem Name="PushPinButton" Orientation="0" Center="100,170" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Add Push Pin" Height="50" Width="160"   Click="AddPushPinButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </s:ScatterViewItem>
+
+        <!-- Ruler -->
+        <s:ScatterViewItem Name="RulerButton" Orientation="0" Center="100,235" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Add Ruler" Height="50" Width="160"   Click="AddRulerButton_Click"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </s:ScatterViewItem>
+
+
+        <!-- Magic Lens Button-->
+        <s:ScatterViewItem Name="MagicLensButton" Orientation="0" Center="100,300" Height="50" Width="160" Background="Transparent" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Add Magic Lens" Height="50" Width="160"   Click="AddMagicLensButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </s:ScatterViewItem>
+
+        <!-- Magnifying Glass Button-->
+        <s:ScatterViewItem Name="MagnifyingGlassButton" Orientation="0" Center="100,365" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Add Magnifier" Height="50" Width="160" Foreground="Black" Click="AddMagnifyingGlass_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </s:ScatterViewItem>
+
+        <!-- Paper Clip Button-->
+        <s:ScatterViewItem Name="PaperClipButton" Orientation="0" Center="100,430" Background="Transparent" Height="50" Width="160" MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Add Paper Clip" Height="50" Width="160"  Click="AddPaperClip_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </s:ScatterViewItem>
+
+        <!-- Note Button -->
+        <s:ScatterViewItem Name="NoteButton" Orientation="0" Center="100,495" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Add Note" Height="50" Width="160" Foreground="Black" Click="AddNote_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </s:ScatterViewItem>
+
+
+    </s:ScatterView>
 </s:SurfaceWindow>

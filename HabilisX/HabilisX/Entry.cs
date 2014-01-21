@@ -17,7 +17,7 @@ namespace Microsoft.Surface.Presentation.Controls
         public Boolean isClipped = false;
         public List<ScatterViewItem> annotations;
 
-        private const int CHARSPERLINE = 50;
+        private const int CHARSPERLINE = 48;
         private int numLines = 1;
         private Label L;
 

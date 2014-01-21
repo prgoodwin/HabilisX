@@ -21,7 +21,7 @@ namespace HabilisX.Tools
 
       public Ruler() {
          filters = new List<iFilter>();
-         this.Center = new Point(431, 300);
+         this.Center = new Point(431, 247);
          this.Height = 75;
          this.MinHeight = 0;
          this.Orientation = 0;

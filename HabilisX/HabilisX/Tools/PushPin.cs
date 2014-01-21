@@ -17,7 +17,7 @@ namespace HabilisX.Tools
       public PushPin() {
           this.Background = Brushes.Transparent;
           this.CanRotate = false;
-          this.Center = new Point(250, 235);
+          this.Center = new Point(250, 170);
           this.Height = 35;
           this.MinHeight = 50;
           this.MinWidth = 50;

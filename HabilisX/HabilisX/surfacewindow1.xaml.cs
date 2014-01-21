@@ -94,7 +94,7 @@ namespace HabilisX
 
 
             newButton.Orientation = 0;
-            newButton.Center = new Point(280 + (180 * (i % buttonsOnScreen)), 40 + 75 * (int)(i / buttonsOnScreen));
+            newButton.Center = new Point(280 + (180 * (i % buttonsOnScreen)), 40 + 65 * (int)(i / buttonsOnScreen));
             //newButton.Center = new Point(280 + (180 * (i % buttonsOnScreen)), 40 + 75 * (int)(i / buttonsOnScreen));
             newButton.Height = 50;
             newButton.Width = 160;
@@ -128,11 +128,13 @@ namespace HabilisX
             else if (dataSet.allAttributes[str].Equals(typeof(DateTime)))
             {
                myButton.Background = Brushes.LightGray;
+               myButton.Foreground = Brushes.Black;
                myButton.Click += new RoutedEventHandler(AddDateFilter_Click);
             }
             else if (dataSet.allAttributes[str].Equals(typeof(int)))
             {
                myButton.Background = Brushes.LightGray;
+               myButton.Foreground = Brushes.Black;
                myButton.Click += new RoutedEventHandler(AddIntFilter_Click);
             }
             else if (dataSet.allAttributes[str].Equals(typeof(List<int>)))
@@ -833,7 +835,7 @@ namespace HabilisX
                {
                   if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
                   {
-                     detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+                     detailedEntry.Background = new SolidColorBrush(Color.FromArgb(245, 191, 191, 191));
                      detailedEntry = entry;
                      detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
                      details = ((MagnifyingGlass)sender).getDetails(entry);
@@ -841,7 +843,7 @@ namespace HabilisX
                }
                else
                {
-                  entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+                  entry.Background = new SolidColorBrush(Color.FromArgb(245, 191, 191, 191));
 
                }
             }
@@ -889,7 +891,7 @@ namespace HabilisX
                {
                   if (Canvas.GetZIndex(entry) > Canvas.GetZIndex(detailedEntry))
                   {
-                     detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+                     detailedEntry.Background = new SolidColorBrush(Color.FromArgb(245, 191, 191, 191));
                      detailedEntry = entry;
                      detailedEntry.Background = new SolidColorBrush(Color.FromArgb(230, 128, 128, 128));
                      details = ((MagnifyingGlass)sender).getDetails(entry);
@@ -897,7 +899,7 @@ namespace HabilisX
                }
                else
                {
-                  entry.Background = new SolidColorBrush(Color.FromArgb(230, 191, 191, 191));
+                  entry.Background = new SolidColorBrush(Color.FromArgb(245, 191, 191, 191));
 
                }
             }
@@ -1154,7 +1156,7 @@ namespace HabilisX
                cur.SetRelativeZIndex(0);
                double offset = cur.ActualWidth / 2 - (clip.ActualWidth / 2);
                cur.Orientation = 0;
-               cur.Center = new Point(clip.Center.X + cur.Width / 2 - offset + 13, clip.Center.Y + cur.Height / 2 - 150 + 20 * listoffset);
+               cur.Center = new Point(clip.Center.X + cur.Width / 2 - offset + 33, clip.Center.Y + cur.Height / 2 - 150 + 20 * listoffset);
 
                //new Point(clip.Center.X + offset + 8, clip.Center.Y - (cur.ActualHeight / 4) + 20 * listoffset);
             }
