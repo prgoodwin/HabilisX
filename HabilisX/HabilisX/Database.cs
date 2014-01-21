@@ -36,8 +36,16 @@ namespace HabilisX
 
         private void parseFromBibtex()
         {
-            string[] text = Utils.NewEmbededTextFile("HabilisX.Resources.bibtexUnrelated.txt");
-            Entry entry = new Entry();
+            string[] text = { "a", "b" };
+            try
+            {
+                text = Utils.NewEmbededTextFile("HabilisX.Resources.dataset1.txt");
+            }
+            catch(Exception e) {
+                Console.WriteLine("EXCEPTION FOUND: " + e);
+
+            }
+                Entry entry = new Entry();
             int entries = 0;
             //foreach (String str in text)
             for(int i=0; i<text.Length; i++)

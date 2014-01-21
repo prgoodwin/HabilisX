@@ -527,6 +527,7 @@
  keywords = {interaction technique, window management},
  abstract = {This note presents several techniques to improve window management with overlapping windows: tabbed windows, turning and peeling back windows, and snapping and zipping windows.}
 } 
+
 @inproceedings{Bauer:2004:CPM:1032665.1034569,
  author = {Bauer, Dan and Fastrez, Pierre and Hollan, Jim},
  title = {Computationally-Enriched 'Piles' for Managing Digital Photo Collections},
@@ -543,6 +544,7 @@
  address = {Washington, DC, USA},
  abstract = {We explore and extend the metaphor of "piles" to include computationally-enriched piles, portable regions of automation in Dynapad, a multiscale workspace. We describe these collection-management tools and how their design was informed by observing people organizing collections of personal digital photographs.}
 } 
+
 @inproceedings{Apitz:2004:CCD:1029632.1029635,
  author = {Apitz, Georg and Guimbreti\`{e}re, Fran\c{c}ois},
  title = {CrossY: a crossing-based drawing application},
@@ -561,6 +563,7 @@
  keywords = {command composition, crossing based interfaces, fluid interaction, pen-computing},
  abstract = {We introduce CrossY, a simple drawing application developed as a benchmark to demonstrate the feasibility of goal-crossing as the basis for a graphical user interface. While crossing was previously identified as a potential substitute for the classic point-and-click interaction, this work is the first to report on the practical aspects of implementing an interface solely based on goal-crossing.}
 } 
+
 @inproceedings{Accot:2002:MDF:503376.503390,
  author = {Accot, Johnny and Zhai, Shumin},
  title = {More than dotting the i's --- foundations for crossing-based interfaces},
@@ -654,7 +657,7 @@ doi={10.1109/VISUAL.2003.1250400},
 
 
 @INPROCEEDINGS{Maarten99thecontribution,
-    author = {Maarten and Mary P. Czerwinski and Maarten Van Dantzich and George Robertson and Hunter Hoffman},
+    author = {Czerwinski, Mary P.;  Van Dantzich,Maarten; Robertson,George; Hoffman,Hunter },
     title = {The Contribution of Thumbnail Image, Mouse-over Text and Spatial Location Memory to Web Page Retrieval in 3D},
     booktitle = {},
     year = {1999},
