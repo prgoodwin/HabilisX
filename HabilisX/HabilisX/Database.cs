@@ -39,7 +39,7 @@ namespace HabilisX
             string[] text = { "a", "b" };
             try
             {
-                text = Utils.NewEmbededTextFile("HabilisX.Resources.dataset1.txt");
+                text = Utils.NewEmbededTextFile("HabilisX.Resources.bibtexRelated.txt");
             }
             catch(Exception e) {
                 Console.WriteLine("EXCEPTION FOUND: " + e);

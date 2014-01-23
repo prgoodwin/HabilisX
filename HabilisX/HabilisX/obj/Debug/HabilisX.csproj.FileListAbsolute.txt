@@ -96,6 +96,5 @@ C:\Users\Surface\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.
 C:\Users\Surface\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.csproj.GenerateResource.Cache
 C:\Users\Surface\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.exe.manifest
 C:\Users\Surface\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.application
-C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\GenerateResource.read.1.tlog
-C:\Users\prairierose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\PrairieRose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.csprojResolveAssemblyReference.cache
+C:\Users\PrairieRose\Documents\GitHub\HabilisX\HabilisX\HabilisX\obj\Debug\HabilisX.csproj.GenerateResource.Cache
