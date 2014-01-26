@@ -17,7 +17,16 @@ namespace HabilisX
             allAttributes = new Dictionary<String, Type>();
             //this.newInit();
             //newInit();
-            parseFromBibtex();
+            parseFromBibtex("HabilisX.Resources.bibtexRelated.txt");
+        }
+
+        public Database(String path) {
+
+            allEntries = new List<Entry>();
+            allAttributes = new Dictionary<String, Type>();
+            //this.newInit();
+            //newInit();
+            parseFromBibtex(path);
         }
 
         public void addEntry(Entry entry)
@@ -34,18 +43,24 @@ namespace HabilisX
         }
 
 
-        private void parseFromBibtex()
+        private void parseFromBibtex(String path)
         {
             string[] text = { "a", "b" };
             try
             {
-                text = Utils.NewEmbededTextFile("HabilisX.Resources.bibtexRelated.txt");
+                text = Utils.NewEmbededTextFile(path);
             }
-            catch(Exception e) {
-                Console.WriteLine("EXCEPTION FOUND: " + e);
-
+            catch(System.ArgumentNullException e) {
+                Console.WriteLine("Embedded file came back null, trying a hard coded path...");
+                try
+                {
+                    text = System.IO.File.ReadAllLines(path);
+                }
+                catch (Exception ex) {
+                    Console.WriteLine("ERROR READING FILE IN DATABASE: " + ex);
+                }
             }
-                Entry entry = new Entry();
+            Entry entry = new Entry();
             int entries = 0;
             //foreach (String str in text)
             for(int i=0; i<text.Length; i++)

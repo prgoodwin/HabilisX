@@ -19,8 +19,8 @@ namespace HabilisX.Tools
       public MagnifyingGlass()
       {
          detailsText.FontSize = 24;
-        this.Background = Brushes.Transparent;
-        this.CanRotate = false;
+         this.Background = Brushes.Transparent;
+         this.CanRotate = false;
          this.Center = new Point(275, 385);
          this.Orientation = 0;
          this.ShowsActivationEffects = false;

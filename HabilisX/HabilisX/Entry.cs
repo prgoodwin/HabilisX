@@ -57,8 +57,14 @@ namespace Microsoft.Surface.Presentation.Controls
 
         public void addAttribute(String key, object value)
         {
-            attributes.Add(key, value);
-            L.Content = this.toString();
+            try
+            {
+                attributes.Add(key, value);
+            }
+            catch {
+                attributes[key] = value;
+            }
+                L.Content = this.toString();
 
         }
 

@@ -72,14 +72,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HabilisX.exe" size="647168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HabilisX.exe" size="745472">
       <assemblyIdentity name="HabilisX" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>n4iA6VmJxadEy56SYVE9XvGYR7c=</dsig:DigestValue>
+        <dsig:DigestValue>AyE9XewNmRs0BWkDR6vguHMpqyM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

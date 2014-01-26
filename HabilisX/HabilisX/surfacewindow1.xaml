@@ -64,6 +64,10 @@
             <s:SurfaceButton Content="Add Note" Height="50" Width="160" Foreground="Black" Click="AddNote_Click" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </s:ScatterViewItem>
 
+        <!-- Note Button -->
+        <s:ScatterViewItem Name="AutoSaveButton" Orientation="0" Center="100,560" Height="50" Width="160" Background="Transparent"  MinHeight="0" CanRotate="False" CanScale="False" CanMove="False">
+            <s:SurfaceButton Content="Load AutoSave" Height="50" Width="160" Foreground="Black" Click="AutoSaveButton_Click_1"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </s:ScatterViewItem>
 
     </s:ScatterView>
 </s:SurfaceWindow>

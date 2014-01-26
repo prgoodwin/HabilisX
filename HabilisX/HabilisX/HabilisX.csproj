@@ -151,6 +151,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Resource Include="Resources\autoSave.txt" />
+    <Resource Include="Resources\saveState.txt" />
     <EmbeddedResource Include="Resources\Dataset2.txt" />
     <EmbeddedResource Include="Resources\Dataset1.txt" />
     <EmbeddedResource Include="Resources\bibtexRelated.txt" />

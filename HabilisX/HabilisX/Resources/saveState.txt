@@ -1,0 +1,644 @@
+Entry{
+author=Baratto, Ricardo A. and Kim, Leonard N. and Nieh, Jason
+title=THINC: a virtual display architecture for thin-client computing
+booktitle=Proceedings of the twentieth ACM symposium on Operating systems principles
+series=SOSP '05
+year=2005
+numpages=14
+keywords=mobility, remote display, thin-client computing, virtualization
+abstract=Rapid improvements in network bandwidth, cost, and ubiquity combined with the security hazards and high total cost of ownership of personal computers have created a growing market for thin-client computing. We introduce THINC, a virtual display architecture for high-performance thin-client computing in both LAN and WAN environments. THINC virtualizes the display at the device driver interface to transparently intercept application display commands and translate them into a few simple low-level commands that can be easily supported by widely used client hardware. THINC's translation mechanism efficiently leverages display semantic information through novel optimizations such as offscreen drawing awareness, native video support, and server-side screen scaling. This is integrated with an update delivery architecture that uses shortest command first scheduling and non-blocking operation. THINC leverages existing display system functionality and works seamlessly with unmodified applications, window systems, and operating systems.We have implemented THINC in an X/Linux environment and compared its performance against widely used commercial approaches, including Citrix MetaFrame, Microsoft RDP, GoToMyPC, X, NX, VNC, and Sun Ray. Our experimental results on web and audio/video applications demonstrate that THINC can provide up to 4.8 times faster web browsing performance and two orders of magnitude better audio/video performance. THINC is the only thin client capable of transparently playing full-screen video and audio at full frame rate in both LAN and WAN environments. Our results also show for the first time that thin clients can even provide good performance using remote clients located in other countries around the world.
+x=620.600036621094
+y=307.199981689453
+orientation=0
+zIndex=1725
+x=758.199981689453
+y=608
+orientation=0
+zIndex=3106
+}
+
+Entry{
+author=Hazzan, Orit
+title=The reflective practitioner perspective in software engineering education
+journal=J. Syst. Softw.
+issue_date=15 September 2002
+volume=63
+number=3
+month=sep
+year=2002
+numpages=11
+abstract=This paper focuses on the application of the reflective practitioner (RP) perspective to the profession of software engineering (SE). The RP perspective guides professional people to rethink their professional creations during and after the accomplishment of the creation process. Analysis of the field of SE supports the adoption of the RP perspective to SE in general and to SE education in particular. The RP perspective emphasizes the studio--the basic training method in architecture schools--as the educational environment for design studies. In such studios students develop projects with a close guidance of a tutor. Analysis of the kind of tasks that architecture students are working on and a comparison of these tasks to the problems that SE students are facing, suggest that the studio may be an appropriate teaching method in SE as well. The paper presents the main ideas of the RP perspective and examines its fitness to SE in general and to SE education in particular. The discussion is based on analysis of the RP perspective and of the SE profession, visits to architecture studios, and conversations with tutors in architecture studios and with computing science practitioners.
+x=620.600036621094
+y=307.199981689453
+orientation=0
+zIndex=1726
+x=758.199981689453
+y=608
+orientation=0
+zIndex=3107
+}
+
+Entry{
+author=Jumisko-Pyykk\" o , Satu and Weitzel, Mandy and Strohmeier, Dominik
+title=Designing for user experience: what to expect from mobile 3d tv and video?
+booktitle=Proceedings of the 1st international conference on Designing interactive user experiences for TV and video
+series=UXTV '08
+year=2008
+numpages=10
+keywords=3d tv, methods, mobile 3d tv, mobile tv, user experience, user requirements
+abstract=A long process has been undertaken to develop the technology of 3D video for consumer products, but studies to determine the needs and expectations of actual users have been disregarded. The object of this study is to examine users' needs, expectations and requirements for mobile 3D television and video. We conducted three user studies applying triangulation methodology of the extensive survey, focus groups and probe studies to identify the requirements. The results are presented in the form of guidelines which highlight the characteristics of users, the system and service required including what content is interesting and the context in which it will be used. Both academia and industry can benefit from knowledge of these requirements when designing the further studies and development work concerning the user experience of 3D television and video.
+x=620.600036621094
+y=357.199981689453
+orientation=0
+zIndex=1727
+x=758.199981689453
+y=658
+orientation=0
+zIndex=3108
+}
+
+Entry{
+author=Kristensson, Per Ola and Arnell, Olof and Bj\" o rk, Annelie and Dahlb\" a ck, Nils and Pennerup, Joackim and Prytz, Erik and Wikman, Johan and \AAstr\" o m, Niclas
+title=InfoTouch: an explorative multi-touch visualization interface for tagged photo collections
+booktitle=Proceedings of the 5th Nordic conference on Human-computer interaction: building bridges
+series=NordiCHI '08
+year=2008
+numpages=4
+keywords=information visualization, interaction surfaces, multi-touch, photo browsing, photo collections, tag clouds, tagging, tags, visualization
+abstract=We report on a design exploration into how a large multi-touch tabletop display can be used for information visualization. We designed an interface where users explored a tagged photo collection by bi-manual manipulation of the collections' tag cloud. User feedback showed that despite the availability of multi-touch most of the actual interactions were single-touch. However, some particular natural actions, such as grabbing the tag cloud and partitioning it into two parts, were often carried with both hands. Thus our user study indicates that multi-touch can act as a useful complementary interaction method in information visualization interfaces.
+x=620.600036621094
+y=407.199981689453
+orientation=0
+zIndex=1728
+x=758.199981689453
+y=708
+orientation=0
+zIndex=3109
+}
+
+Entry{
+author=Lee, Kwang Bok
+title=The design and development of user interfaces for small screen computers
+year=2003
+note=AAI3098862
+abstract=The increasing availability of small size computers, such as Personal Digital Assistants (PDAs), Palm pilots or handheld devices, with the ability to transmit information over wireless networks has enormously enhanced opportunities for researchers. However, these devices have difficulty displaying information because of their hardware constraints, such as small screens, small storage, low speed, and low power. This thesis introduces two methods for solving these problems. First, providing zoomable user interfaces (ZUI) introduces many zooming applications such as a file zoom, a focus zoom, and a search zoom which are based on geometric and semantic zooming methods. The file zooming applications use dynamic zoom-in and zoom-out functions for visualizing large amounts of information on the PDA screen. The focus zooming applications are based on a magnifying glass lens that is a 2D visualization for large rectangular presentations that allows a user to quickly focus on a part of the PDA screen. Finally, the thesis describes the search zooming applications for easy recognition and comparison of the content of files on the screen.  With the proliferation of PDAs, people are using such small devices to access the web; however, the web is not accommodating such access. For small device users, we introduce adaptive user interfaces (AUI) based on an efficient method for extracting readable documents from XML-based files, which will be used for information streams for mobile Internet access. We design a selector for handling information streams to extract the customized information based on the user request for the small devices. The selector's attributes can be adapted from the XML documents, and then works on translating information streams into the new file that will be displayed on the devices. Also, the selector has visual menu interfaces so that users can easily choose each attribute according to their preferences. This is developed to devise an efficient method for the small devices' problems.  Furthermore, we prepare usability testing for the applications in order to find usability problems, and then we offer suggestions for improving the usability of the applications. The prototypes and implementations of these approaches will be also provided in this thesis
+x=620.600036621094
+y=367.199981689453
+orientation=0
+zIndex=1729
+x=758.199981689453
+y=668
+orientation=0
+zIndex=3110
+}
+
+Entry{
+author=Matulic, Fabrice
+title=Touch scan-n-search: a touchscreen interface to retrieve online versions of scanned documents
+booktitle=Proceedings of the 2007 ACM symposium on Document engineering
+series=DocEng '07
+year=2007
+numpages=2
+keywords=GUI, keyword extraction, online news retrieval, scanned document
+abstract=The system described in this paper attempts to tackle the problem of finding online content based on paper documents through an intuitive touchscreen interface designed for modern scanners and multifunction printers. Touch Scan-n-Search allows the user to select elements of a scanned document (e.g. a newspaper article) and to seamlessly connect to common web search services in order to retrieve the online version of the document along with related content. This is achieved by automatically extracting keyphrases from text elements in the document (obtained by OCR) and creating "tappable" GUI widgets to allow the user to control and fine-tune the search requests. The retrieved content can then be printed, sent, or used to compose new documents.
+x=620.600036621094
+y=407.199981689453
+orientation=0
+zIndex=1730
+x=758.199981689453
+y=708
+orientation=0
+zIndex=3111
+}
+
+Entry{
+author=Oehl, Michael and Sutter, Christine and Ziefle, Martina
+title=Considerations on efficient touch interfaces: how display size influences the performance in an applied pointing task
+booktitle=Proceedings of the 2007 conference on Human interface: Part I
+year=2007
+numpages=8
+keywords=display size, pointing performance, small screen device, task difficulty, touch input
+abstract=The limited screen space in small technical devices imposes considerable usability challenges. On the one hand objects displayed on small screens should be big enough to be hit successfully, but also small enough to house several objects on the screen at the same time. However, findings up to now show that single pointing is more effective in a large display compared to a smaller display. In the present experiment this was also confirmed for an applied multidirectional serial pointing task. Especially in more difficult tasks, results point at a shift of the speed-accuracy tradeoff. In large displays a fast and comparably accurate execution is chosen in contrast to a very inaccurate and time-consuming style in small displays. From an ergonomic point of view the outcomes recommend an optimized balance of task difficulty and display size in small screen devices.
+x=620.600036621094
+y=437.199981689453
+orientation=0
+zIndex=1731
+x=758.199981689453
+y=738
+orientation=0
+zIndex=3112
+}
+
+Entry{
+author=Vogt, Florian and Chen, Timothy and Hoskinson, Reynald and Fels, Sidney
+title=A malleable surface touch interface
+booktitle=ACM SIGGRAPH 2004 Sketches
+series=SIGGRAPH '04
+year=2004
+abstract=Many conventional whole-hand input devices capture interaction by means of non-contact methods or through some physical medium. Such physical interfaces often involve contact of the hands and fingers with a hard, unyielding surface. In this sketch, we propose an input device that captures whole-hand input through a malleable medium. Its deformability and inherent feedback characteristics make it suitable for sculpting and molding applications.
+x=620.600036621094
+y=427.199981689453
+orientation=0
+zIndex=1732
+x=758.199981689453
+y=728
+orientation=0
+zIndex=3113
+}
+
+Entry{
+author=Bharath, A. and Madhvanath, Sriganesh
+title=FreePad: a novel handwriting-based text input for pen and touch interfaces
+booktitle=Proceedings of the 13th international conference on Intelligent user interfaces
+series=IUI '08
+year=2008
+numpages=4
+keywords=handwriting recognition, pen and touch interfaces, text input
+abstract=The last decade has seen tremendous growth in mobile devices such as Pocket PCs, mobile phones, Tablet PCs and notebooks. Most of these devices enable interaction through a stylus or touch interface, powered by handwriting recognition (HWR) capability. In this paper, we propose a novel input method that addresses some of the issues that arise due to the constraints posed by these devices in accepting handwriting input. For instance, many of the devices have a small writing area making "continuous" input difficult if not impossible, and the process of handwriting input demands significant user attention. The proposed solution is inspired by touch-typing, and appreciably reduces user's effort in the interaction, and it is especially suited for very small writing areas. The approach has been demonstrated using a prototype system that recognizes handwritten English words, and its accuracy has been evaluated using a standard dataset of handwritten words. A preliminary user study has also been carried out to understand user acceptance of the proposed technique.
+x=607.000030517578
+y=510.000030517578
+orientation=0
+zIndex=3986
+x=599.799987792969
+y=566.800018310547
+orientation=0
+zIndex=3115
+}
+
+Entry{
+author=Bobick, Aaron F. and Intille, Stephen S. and Davis, James W. and Baird, Freedom and Pinhanez, Claudio S. and Campbell, Lee W. and Ivanov, Yuri A. and Sch\" u tte, Arjan and Wilson, Andrew
+title=The KidsRoom: A Perceptually-Based Interactive and Immersive Story Environment
+journal=Presence: Teleoper. Virtual Environ.
+issue_date=August 1999
+volume=8
+number=4
+month=aug
+year=1999
+numpages=25
+abstract=The KidsRoom is a perceptually-based, interactive, narrative playspace for children. Images, music, narration, light, and sound effects are used to transform a normal child's bedroom into a fantasy land where children are guided through a reactive adventure story. The fully automated system was designed with the following goals: (1) to keep the focus of user action and interaction in the physical and not virtual space; (2) to permit multiple, collaborating people to simultaneously engage in an interactive experience combining both real and virtual objects; (3) to use computer-vision algorithms to identify activity in the space without requiring the participants to wear any special clothing or devices; (4) to use narrative to constrain the perceptual recognition, and to use perceptual recognition to allow participants to drive the narrative; and (5) to create a truly immersive and interactive room environment.  We believe the KidsRoom is the first multi-person, fully-automated, interactive, narrative environment ever constructed using non-encumbering sensors. This paper describes the KidsRoom, the technology that makes it work, and the issues that were raised during the system's development.<xref ref-type="fn" rid="fn1">1</xref>  A demonstration of the project, which complements the material presented here and includes videos, images, and sounds from each part of the story is available at somewhere.
+x=607.000030517578
+y=560.000030517578
+orientation=0
+zIndex=3987
+x=599.799987792969
+y=616.800018310547
+orientation=0
+zIndex=3116
+}
+
+Entry{
+author=Burigat, Stefano and Chittaro, Luca and Gabrielli, Silvia
+title=Visualizing locations of off-screen objects on mobile devices: a comparative evaluation of three approaches
+booktitle=Proceedings of the 8th conference on Human-computer interaction with mobile devices and services
+series=MobileHCI '06
+year=2006
+numpages=8
+keywords=maps, mobile devices, off-screen locations, visualization
+abstract=Browsing large information spaces such as maps on the limited screen of mobile devices often requires people to perform panning and zooming operations that move relevant display content off-screen. This makes it difficult to perform spatial tasks such as finding the location of Points Of Interest (POIs) in a city. Visualizing the location of off-screen objects can mitigate this problem: in this paper, we present a user study comparing the Halo [2] approach with two other techniques based on arrows. Halo surrounds off-screen objects with circles that reach the display window, so that users can derive the location and distance of objects by observing the visible portion of the corresponding circles. In the two arrow-based techniques, arrows point at objects and their size and body length, respectively, inform about the distance of objects. Our study involved four tasks requiring users to identify and compare off-screen objects locations, and also investigated the effectiveness of the three techniques with respect to the number of off-screen objects. Arrows allowed users to order off-screen objects faster and more accurately according to their distance, while Halo allowed users to better identify the correct location of off-screen objects. Implications of these results for mobile map-based applications are also discussed.
+x=607.000030517578
+y=580.000030517578
+orientation=0
+zIndex=3988
+x=599.799987792969
+y=636.800018310547
+orientation=0
+zIndex=3117
+}
+
+Entry{
+author=Fallman, Daniel and Kruzeniski, Mike and Andersson, Mattias
+title=Designing for a collaborative industrial environment: the case of the ABB Powerwall
+booktitle=Proceedings of the 2005 conference on Designing for User eXperience
+series=DUX '05
+year=2005
+keywords=collaboration, collaborative work, human-computer interaction, industrial environment, interaction design, mobile devices, prototyping, user experience
+abstract=This paper presents the design of a collaborative interface for highly automated, industrial environments. The resulting system, the ABB Powerwall, consists of large, shared interactive displays and several personal mobile information technology devices. On-site service technicians can seamlessly move information back and forth from their mobile devices to the shared display. The system supports various kinds of collaborative work, including making annotations; browsing for information; and visualizing blueprints and three-dimensional representations of products and torrents.The design vision has been to provide end users with an unobtrusive way of sharing information, discussing problems and issues with others in front of a large collaborative screen, and the chance of socializing and learning from each other. Located strategically in the specific environment for which it has been designed, the ABB Powerwall is intended to become a natural gathering point that increases interaction, afford gathering, discussions, collaboration, small talk, socializing, and community-making.
+x=607.000030517578
+y=580.000030517578
+orientation=0
+zIndex=3989
+x=599.799987792969
+y=636.800018310547
+orientation=0
+zIndex=3118
+}
+
+Entry{
+author=Jin, Zhao Xia and Plocher, Tom and Kiff, Liana
+title=Touch screen user interfaces for older adults: button size and spacing
+booktitle=Proceedings of the 4th international conference on Universal access in human computer interaction: coping with diversity
+series=UAHCI'07
+year=2007
+numpages=9
+keywords=older adults, touch screen, usability, user interface design
+abstract=This study investigated the optimal button size and spacing for touch screen user interfaces intended for use by older adults. Current recommendations in the literature are aimed at general audiences and fail to consider the specific needs of older adults. Three independent variables, button size, button spacing, and manual dexterity were studied in two experiments that measured reaction time, accuracy and user preferences. Design recommendations for touch screen button size and spacing for older adults are stated based on these experiments. The paper also discusses the role of manual dexterity in designing appropriate touch screen interfaces for older adults.
+x=607.000030517578
+y=610.000030517578
+orientation=0
+zIndex=3990
+x=599.799987792969
+y=666.800018310547
+orientation=0
+zIndex=3119
+}
+
+Entry{
+author=Jurmu, Marko and Boring, Sebastian and Riekki, Jukka
+title=ScreenSpot resource discovery for smart spaces and mobilevue media sharing application
+booktitle=Proceedings of the 5th Annual International Conference on Mobile and Ubiquitous Systems: Computing, Networking, and Services
+series=Mobiquitous '08
+year=2008
+numpages=2
+keywords=3D sensor input, media sharing, mobile phones, resource leasing, ubiquitous computing
+abstract=This paper documents the demonstration showcasing the ScreenSpot resource discovery framework and the Mobile-Vue social media sharing application. The key points of the demonstration include: requesting multidimensional resource availability information from a smart space and visualizing this information to the user on a personal device, leasing the selected resource for a distributed application launch and utilizing the leased resource to deploy an application for personal media viewing, manipulating and sharing. This application then allows users a 3D sensor-based interaction between their mobile phone and a large public display.
+x=607.000030517578
+y=640.000030517578
+orientation=0
+zIndex=3991
+x=599.799987792969
+y=696.800018310547
+orientation=0
+zIndex=3120
+}
+
+Entry{
+author=Kuhn, Sarah
+title=The Software Design Studio: An Exploration
+journal=IEEE Softw.
+issue_date=March 1998
+volume=15
+number=2
+month=mar
+year=1998
+numpages=7
+abstract=Some software designers have recently turned to building architecture for inspiration in their efforts to improve professional practice. An attempt to apply the studio method of architectural training to software design education, reported in this article, reveals much about education and practice in both professions. Studio courses provoke creative reflection on how to improve current training practices and could provide a new way to develop software design expertise.
+x=607.000030517578
+y=620.000030517578
+orientation=0
+zIndex=3992
+x=599.799987792969
+y=676.800018310547
+orientation=0
+zIndex=3121
+}
+
+Entry{
+author=Stock, Oliviero and Zancanaro, Massimo and Busetta, Paolo and Callaway, Charles and Kr\" u ger, Antonio and Kruppa, Michael and Kuflik, Tsvi and Not, Elena and Rocchi, Cesare
+title=Adaptive, intelligent presentation of information for the museum visitor in PEACH
+journal=User Modeling and User-Adapted Interaction
+issue_date=July      2007
+volume=17
+number=3
+month=jul
+year=2007
+numpages=48
+keywords=Adaptive mobile guides, Multimodal user interfaces, Personal visit report, Personalized information presentation
+abstract=The study of intelligent user interfaces and user modeling and adaptation is well suited for augmenting educational visits to museums. We have defined a novel integrated framework for museum visits and claim that such a framework is essential in such a vast domain that inherently implies complex interactivity. We found that it requires a significant investment in software and hardware infrastructure, design and implementation of intelligent interfaces, and a systematic and iterative evaluation of the design and functionality of user interfaces, involving actual visitors at every stage. We defined and built a suite of interactive and user-adaptive technologies for museum visitors, which was then evaluated at the Buonconsiglio Castle in Trento, Italy: (1) animated agents that help motivate visitors and focus their attention when necessary, (2) automatically generated, adaptive video documentaries on mobile devices, and (3) automatically generated post-visit summaries that reflect the individual interests of visitors as determined by their behavior and choices during their visit. These components are supported by underlying user modeling and inference mechanisms that allow for adaptivity and personalization. Novel software infrastructure allows for agent connectivity and fusion of multiple positioning data streams in the museum space. We conducted several experiments, focusing on various aspects of PEACH. In one, conducted with 110 visitors, we found evidence that even older users are comfortable interacting with a major component of the system.
+x=607.000030517578
+y=680.000030517578
+orientation=0
+zIndex=3993
+x=599.799987792969
+y=736.800018310547
+orientation=0
+zIndex=3122
+}
+
+Entry{
+author=Chittaro, Luca
+title=Visualizing Information on Mobile Devices
+journal=Computer
+issue_date=March 2006
+volume=39
+number=3
+month=mar
+year=2006
+numpages=6
+keywords=Mobile display technology, Mobile display technology, Mobile visualizations, Mobile visualizations
+abstract=Visualization can make a wide range of mobile applications more intuitive and productive. The mobility context and technical limitations such as small screen size make it impossible to simply port visualization applications from desktop computers to mobile devices, but researchers are starting to address these challenges.
+x=1224
+y=526
+orientation=17
+zIndex=32
+x=841.400024414063
+y=551.600036621094
+orientation=0
+zIndex=6922
+}
+
+Entry{
+author=Datta, Ritendra and Joshi, Dhiraj and Li, Jia and Wang, James Z.
+title=Image retrieval: Ideas, influences, and trends of the new age
+journal=ACM Comput. Surv.
+issue_date=April 2008
+volume=40
+number=2
+month=may
+year=2008
+numpages=60
+keywords=Content-based image retrieval, annotation, learning, modeling, tagging
+abstract=We have witnessed great interest and a wealth of promise in content-based image retrieval as an emerging technology. While the last decade laid foundation to such promise, it also paved the way for a large number of new techniques and systems, got many new people involved, and triggered stronger association of weakly related fields. In this article, we survey almost 300 key theoretical and empirical contributions in the current decade related to image retrieval and automatic image annotation, and in the process discuss the spawning of related subfields. We also discuss significant challenges involved in the adaptation of existing image retrieval techniques to build systems that can be useful in the real world. In retrospect of what has been achieved so far, we also conjecture what the future may hold for image retrieval research.
+x=1240
+y=458
+orientation=48
+zIndex=42
+x=841.400024414063
+y=591.600036621094
+orientation=0
+zIndex=6923
+}
+
+Entry{
+author=Findlater, Leah and McGrenere, Joanna
+title=Impact of screen size on performance, awareness, and user satisfaction with adaptive graphical user interfaces
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '08
+year=2008
+numpages=10
+keywords=adaptive interfaces, interaction techniques, menu design, personalization, small screen devices, user study
+abstract=Adaptive personalization, where the system adapts the interface to a user's needs, has the potential for significant performance benefits on small screen devices. However, research on adaptive interfaces has almost exclusively focused on desktop displays. To explore how well previous findings generalize to small screen devices, we conducted a study with 36 subjects to compare adaptive interfaces for small and desktop-sized screens. Results show that high accuracy adaptive menus have an even larger positive impact on performance and satisfaction when screen real estate is constrained. The drawback of the high accuracy menus, however, is that they reduce the user's awareness of the full set of items in the interface, potentially making it more difficult for users to learn about new features.
+x=1348
+y=460
+orientation=-17
+zIndex=45
+x=841.400024414063
+y=621.600036621094
+orientation=0
+zIndex=6924
+}
+
+Entry{
+author=Krishnan, Aparna and Jones, Steve
+title=TimeSpace: activity-based temporal visualisation of personal information spaces
+journal=Personal Ubiquitous Comput.
+issue_date=January 2005
+volume=9
+number=1
+month=jan
+year=2005
+numpages=20
+keywords=Information management, Personal information spaces, Visualisation
+abstract=Users’ personal information spaces are characterized by their content, organisation, and ongoing user interaction with them. They are fluid entities, evolving over time, and supporting multiple user activities that may require different perspectives of the same underlying information structure. Increasing storage capacity of computing devices and ready access to networked resources puts users at risk of information overload, and presents increasing challenges in organising and accessing their information. The hierarchical model of information organisation currently dominates personal computing, and is realised for the user in interfaces that help to manage and access filestore hierarchies. Such a model provides limited inherent support for what users do—carry out a range of interleaved activities over time. In this paper, we describe the TimeSpace system, which provides perspectives on a user’s information resources based on activities and temporal attributes of the information. TimeSpace can be used alongside, or in place of, existing systems and models (such as the Microsoft Windows hierarchical file model). User interaction with an information space is non-intrusively observed and then represented automatically in TimeSpace. Visualisations provide overviews of user activity on multiple projects and detailed views of activity within particular projects, allowing navigation forward and backward in time. An observational study of use of the system revealed positive user views of the utility of temporal, activity-oriented workspaces in real world contexts alongside existing tools. Participants appreciated being offered a different perspective on their electronic information collection, one that visually shows the composition and development of their information space. They were interested in using the system for current and long-term work as well as for archiving information, as the visualisations provide a context for their work and give an overview of all their work in progress. The ideas embodied by the system and its visualisations show promise and raise a number of issues for further exploration. In future work, these ideas will be adapted and extended to support users in managing their information spaces across multiple personal devices, locations and time.
+x=1291
+y=462
+orientation=18
+zIndex=31
+x=841.400024414063
+y=621.600036621094
+orientation=0
+zIndex=6925
+}
+
+Entry{
+author=Motamedi, Nima
+title=Keep in touch: a tactile-vision intimate interface
+booktitle=Proceedings of the 1st international conference on Tangible and embedded interaction
+series=TEI '07
+year=2007
+numpages=2
+keywords=intimacy, sensorial interfaces, sensory mapping, tactile
+abstract=We present an overview of Keep in Touch, a networked fabric touchscreen designed to support and maintain intimacy for couples in long distance relationships. To achieve this, a novel sensorial interface was created by combining the visual and tactile senses together. Each partner is presented with a blurred digital projection of their lover. When they touch their partner's body, the image comes into focus revealing their features. We describe how this sensory mapping creates an expressive and emotional interface allowing couples to communicate through touch, gestures, and body language.
+x=1279
+y=460
+orientation=34
+zIndex=55
+x=841.400024414063
+y=651.600036621094
+orientation=0
+zIndex=6926
+}
+
+Entry{
+author=Nacenta, Miguel A. and Sallam, Samer and Champoux, Bernard and Subramanian, Sriram and Gutwin, Carl
+title=Perspective cursor: perspective-based interaction for multi-display environments
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '06
+year=2006
+numpages=10
+keywords=direct-manipulation interfaces, laser pointing, multi-display interaction techniques, multi-monitor environments
+abstract=Multi-display environments and smart meeting rooms are now becoming more common. These environments build a shared display space from variety of devices: tablets, projected surfaces, tabletops, and traditional monitors. Since the different display surfaces are usually not organized in a single plane, traditional schemes for stitching the displays together can cause problems for interaction. However, there is a more natural way to compose display space -- using perspective. In this paper, we develop interaction techniques for multi-display environments that are based on the user's perspective on the room. We designed the Perspective Cursor, a mapping of cursor to display space that appears natural and logical from wherever the user is located. We conducted an experiment to compare two perspective-based techniques, the Perspective Cursor and a beam-based technique, with traditional stitched displays. We found that both perspective techniques were significantly faster for targeting tasks than the traditional technique, and that Perspective Cursor was the most preferred method. Our results show that integrating perspective into the design of multi-display environments can substantially improve performance.
+x=1315
+y=568
+orientation=0
+zIndex=44
+x=841.400024414063
+y=691.600036621094
+orientation=0
+zIndex=6927
+}
+
+Entry{
+author=Poupyrev, Ivan and Maruyama, Shigeaki and Rekimoto, Jun
+title=Ambient touch: designing tactile interfaces for handheld devices
+booktitle=Proceedings of the 15th annual ACM symposium on User interface software and technology
+series=UIST '02
+year=2002
+numpages=10
+keywords=mobile devices and interfaces, tactile feedback
+abstract=This paper investigates the sense of touch as a channel for communicating with miniature handheld devices. We embedded a PDA with a TouchEngineTM --- a thin, miniature lower-power tactile actuator that we have designed specifically to use in mobile interfaces (Figure 1). Unlike previous tactile actuators, the TouchEngine is a universal tactile display that can produce a wide variety of tactile feelings from simple clicks to complex vibrotactile patterns. Using the TouchEngine, we began exploring the design space of interactive tactile feedback for handheld computers. Here, we investigated only a subset of this space: using touch as the ambient, background channel of interaction. We proposed a general approach to design such tactile interfaces and described several implemented prototypes. Finally, our user studies demonstrated 22% faster task completion when we enhanced handheld tilting interfaces with tactile feedback.
+x=1199
+y=538
+orientation=-60
+zIndex=51
+x=841.400024414063
+y=711.600036621094
+orientation=0
+zIndex=6928
+}
+
+Entry{
+author=Zhang, Dongsong and Karabatis, George and Chen, Zhiyuan and Adipat, Boonlit and Dai, Liwei and Zhang, Zhenxue and Wang, Yu
+title=Personalization and visualization on handheld devices
+booktitle=Proceedings of the 2006 ACM symposium on Applied computing
+series=SAC '06
+year=2006
+numpages=5
+keywords=PDA, clustering, mobile devices, user profiles, visualization
+abstract=The small screen size of handheld mobile devices poses an inherent problem in visualizing data: very often it is too difficult and unpleasant to navigate through the plethora of presented information. This paper presents a novel approach to personalized and adaptive content presentation for handheld devices, which has been implemented in a mobile financial application system based on a 3-tier architecture. The approach is independent of wireless networks and mobile devices. It utilizes a combination of user profiling, data clustering, and visualization techniques (fisheye and semantic zooming), enhancing the understandability of the data and improving the usability of the device.
+x=1132
+y=396
+orientation=13
+zIndex=30
+x=841.400024414063
+y=731.600036621094
+orientation=0
+zIndex=6929
+}
+
+Entry{
+author=Aaltonen, Antti and Lehikoinen, Juha
+title=Refining visualization reference model for context information
+journal=Personal Ubiquitous Comput.
+issue_date=November 2005
+volume=9
+number=6
+month=nov
+year=2005
+numpages=14
+keywords=Context awareness, Hand-held devices, Information visualization, Mobile phones, Visualization reference model
+abstract=Context-awareness can be used to decrease the need for interaction with a mobile device. This is increasingly important since the functionality of mobile devices and personal digital assistants gets more and more complex while the input and output capabilities remain restricted. An important aspect of context-awareness is to present the current context to the user. We propose a model for visualizing contextual information on the mobile terminal screen. The model is a refinement of a well-known visualization reference model; it takes into account the specific characteristics of mobile use and context information. We present the design of the model in detail, and discuss its applicability for a variety of contexts and tasks by providing a full-fledged use case.
+x=1276
+y=749
+orientation=-26
+zIndex=34
+x=1165.19241634011
+y=497.488304890692
+orientation=0
+zIndex=9648
+}
+
+Entry{
+author=Burigat, Stefano and Chittaro, Luca and Gabrielli, Silvia
+title=Navigation techniques for small-screen devices: An evaluation on maps and web pages
+journal=Int. J. Hum.-Comput. Stud.
+issue_date=February, 2008
+volume=66
+number=2
+month=feb
+year=2008
+numpages=20
+keywords=Mobile interaction, Navigation techniques, Small-screen devices, User study
+abstract=Several techniques have been proposed to support user navigation of large information spaces (e.g., maps or web pages) on small-screen devices such as PDAs and Smartphones. In this paper, we present the results of an evaluation that compared three of these techniques to determine how they might affect performance and satisfaction of users. Two of the techniques are quite common on mobile devices: the first one (DoubleScrollbar) is the standard combination of two scrollbars for separate horizontal and vertical scrolling with zoom buttons to change the scale of the information space, the second one (Grab&Drag) enables users to navigate the information space by directly dragging its currently displayed portion, while zooming is handled through a slider control. The last technique (Zoom-Enhanced Navigator or ZEN) is an extension and adaptation to mobile screens of Overview&Detail approaches, which are based on displaying an overview of the information space together with a detail view of a portion of that space. In these approaches, navigation is usually supported by (i) highlighting in the overview which portion of space is displayed in the detail view, and (ii) allowing users to move the highlight within the overview area to change the corresponding portion of space in the detail area. Our experimental evaluation concerned tasks involving maps as well as web page navigation. The paper analyzes in detail the obtained results in terms of task completion times, number and duration of user interface actions, accuracy of the gained spatial knowledge, and subjective preferences.
+x=1249
+y=557
+orientation=-52
+zIndex=38
+x=1165.19241634011
+y=527.488304890692
+orientation=0
+zIndex=9649
+}
+
+Entry{
+author=Cronholm, Stefan and Bruno, Vince
+title=Do you need general principles or concrete heuristics?: a model for categorizing usability criteria
+booktitle=Proceedings of the 20th Australasian Conference on Computer-Human Interaction: Designing for Habitus and Habitat
+series=OZCHI '08
+year=2008
+numpages=7
+keywords=principles for design, usability criteria, usability guidelines
+abstract=This paper analyses the character of usability criteria found in lists, which are used for interface design and evaluation. In order to understand usability criteria and relations between different criteria, a categorization of six usability criteria lists has been performed. The analysis has shown that the formulations of criteria reside on different abstraction levels. The results consist of two knowledge contribution. The first contribution is a hierarchical categorization model. The role of this multilevel abstraction hierarchy is to support practical problem solving processes by enabling and supporting the explicit articulation of criteria for a given context. The second contribution is a categorization of usability criteria. The aim of this categorization is to support the understanding of how different usability criteria relate (e.g. overlap or complement) to each other and highlight possible gaps.
+x=1262
+y=665
+orientation=59
+zIndex=41
+x=1165.19241634011
+y=567.488304890692
+orientation=0
+zIndex=9650
+}
+
+Entry{
+author=K\" a rkk\" a inen, Lari and Laarni, Jari
+title=Designing for small display screens
+booktitle=Proceedings of the second Nordic conference on Human-computer interaction
+series=NordiCHI '02
+year=2002
+numpages=4
+keywords=guidelines, personal digital assistant, world wide web
+abstract=Wireless access to the Internet via PDAs (personal digital assistants) provides Web type services in the mobile world. What we are lacking are design guidelines for such PDA services. For Web publishing, however, there are many resources to look for guidelines. The guidelines can be classified according to which aspect of the Web media they are related: software/hardware, content and its organization, or aesthetics and layout. In order to be applicable to PDA services, these guidelines have to be modified. In this paper we analyze the main characteristics of PDAs and their influence to the guidelines.
+x=1480
+y=526
+orientation=-55
+zIndex=40
+x=1165.19241634011
+y=567.488304890692
+orientation=0
+zIndex=9651
+}
+
+Entry{
+author=Piattini, Mario G. and Tigr \'e at, Herv \'e
+title=Applying the \“STUDIO\” method to the interface design of an environmental software system
+journal=SIGSOFT Softw. Eng. Notes
+issue_date=July 1997
+volume=22
+number=4
+month=jul
+year=1997
+numpages=3
+keywords=STUDIO, design method, interface-design
+abstract=This paper addresses the application of the STUDIO (STructured User-interface Design for Interaction Optimization) method to the user-interface development of an information system (called "HIMPPA") that allows the simulation of heavy-particle dispersion. This method has been proposed in 1994 by D.P. Browne. We have adapted and integrated it with an object-oriented design technique for the HIMPPA project (an ESPRIT-PASO Special Action).
+x=1250
+y=744
+orientation=-6
+zIndex=47
+x=1165.19241634011
+y=597.488304890692
+orientation=0
+zIndex=9652
+}
+
+Entry{
+author=Shen, Chia
+title=From clicks to touches: enabling face-to-face shared social interface on multi-touch tabletops
+booktitle=Proceedings of the 2nd international conference on Online communities and social computing
+series=OCSC'07
+year=2007
+numpages=7
+abstract=Making the interactions with a digital user interface disappears into and becomes a part of the human to human interaction and conversation is a challenge. Conventional metaphor and underlying interface infrastructure for single-user desktop systems have been traditionally geared towards single mouse and keyboard, click-and-type based, WIMP interface design. On the other hand, people usually meet in social context around a table, facing each other. A table setting provides a large interactive visual and tangible surface. It affords and encourages collaboration, coordination, serendipity, as well as simultaneous and parallel interaction among multiple people. In this paper, we examine and explore the opportunities, challenges, research issues, pitfalls, and plausible approaches for enabling direct touchable, shared social interactions on multi-touch multi-user tabletops.
+x=1270
+y=622
+orientation=50
+zIndex=57
+x=1165.19241634011
+y=627.488304890692
+orientation=0
+zIndex=9653
+}
+
+Entry{
+author=van Tonder, Bradley and Wesson, Janet
+title=Using adaptive interfaces to improve mobile map-based visualisation
+booktitle=Proceedings of the 2008 annual research conference of the South African Institute of Computer Scientists and Information Technologists on IT research in developing countries: riding the wave of technology
+series=SAICSIT '08
+year=2008
+numpages=10
+keywords=adaptive user interfaces, map-based visualisation, mobile visualisation
+abstract=Visualising map-based data on mobile devices presents many challenges. Small displays, comparatively slow hardware and awkward interaction techniques all combine to make mobile map-based visualisations difficult to design and often frustrating to use. Existing mobile visualisation techniques do not adequately address these problems. Adaptive user interfaces, which adapt to the individual characteristics of the user, are proposed as an alternative approach to improve mobile map-based visualisation (MMV) systems. A model is presented which incorporates an adaptive user interface into the design of MMV systems. A prototype MMV system, called MediaMaps, is then described, demonstrating the successful implementation of this model. The results of an evaluation of MediaMaps are then presented, showing its effectiveness in supporting user needs and requirements for MMV using an adaptive user interface.
+x=1435
+y=649
+orientation=-58
+zIndex=39
+x=1165.19241634011
+y=657.488304890692
+orientation=0
+zIndex=9654
+}
+
+Entry{
+author=Yamazaki, Kazuhiko and Furuta, Kazuo
+title=Design tools for user experience design
+booktitle=Proceedings of the 12th international conference on Human-computer interaction: interaction design and usability
+series=HCI'07
+year=2007
+numpages=10
+abstract=The purpose of this study is to develop an approach to artifacts design based on information technology. To make interactive system easy to use, user centered design approach is utilized by many systems. For user centered design, it is important to consider total user experience. But it is not easy to consider total user experience because user experience is including many aspects. To approach total user experience, the author proposes the method of designing for user experience that consist of "User viewpoint", "Environment viewpoint" and "Lifecycle viewpoint". "User viewpoint" is including several user groups from universal design viewpoint, several user characters and several user emotions. "Environment viewpoint" is including hardware product, software, application, space, people who is communicating. "Lifecycle viewpoint" is including pre sales, after sales, support, upgrade, setup product and application.  To help this design approach, user experience design tool named "UED (User Experience Design) Studio" was proposed. Based on proposed three approaches, design tools were developed such as "The definition tool", "The evaluation tool" and "The visualization tool" for user experience design. To define user experience situation easily, "The definition tool" helps designer such selecting user group, selecting environment and input user tasks based on life cycle state. "The evaluation tool" is to evaluate defined user experience easily. And "The visualization tool" is to show the result of evaluation by 3 D graphics easy to understand complicated information.  To evaluate proposed tools, experiment to make prototype was conducted and the results indicate that the proposed approach has possibility to help designer and multi-disciplinary team to consider user experience for user centered design.
+x=1474
+y=370
+orientation=31
+zIndex=49
+x=1165.19241634011
+y=647.488304890692
+orientation=0
+zIndex=9655
+}
+
+Entry{
+author=Qiao, Lin and Feng, Ling and Zhou, Lizhu
+title=Information presentation on mobile devices: techniques and practices
+booktitle=Proceedings of the 10th Asia-Pacific web conference on Progress in WWW research and development
+series=APWeb'08
+year=2008
+numpages=12
+abstract=The popularity of hand-held mobile devices, such as personal digital assistants (PDA) and smart cell phones, is growing. Compared with traditional desktop computers, these mobile devices have distinct limitations, including tiny displays, scarce computing hardware resources, bandwidth fluctuations, ad-hoc communications, voluntary, and involuntary disconnections, etc., presenting new challenges to human-computer interaction on mobile devices. In this paper, we survey research efforts done on mobile device user interface design. Some recently developed techniques for diverse information presentation via visual, audio, and tactile channels are reported. We also brief on our experiences in virtually presenting database query results on PDAs, including both presentation style and presentation content.
+x=1497
+y=493
+orientation=3
+zIndex=27
+x=1163.92881476351
+y=681.151310163716
+orientation=0.180199353728691
+zIndex=9657
+}
+

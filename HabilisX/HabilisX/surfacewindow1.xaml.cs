@@ -151,8 +151,8 @@ namespace HabilisX
 
             #region make entries and display to screen
 
-            List<Entry> listy = dataSet.allEntries.ToList();
-            Console.WriteLine("NUMBER OF PAPERS: " + listy.Count());
+            //List<Entry> listy = dataSet.allEntries.ToList();
+           // Console.WriteLine("NUMBER OF PAPERS: " + listy.Count());
             //For every paper in the database, make a scatterview that shows the details
             foreach (Entry e in dataSet.allEntries)
             {
@@ -164,6 +164,20 @@ namespace HabilisX
 
             #endregion
 
+
+            #region Autosave
+            System.Timers.Timer timer = new System.Timers.Timer(60000);
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(delegate(object delSender, System.Timers.ElapsedEventArgs delE)
+            {
+                this.autoSave("autoSave.txt");
+                timer.Enabled = true;
+            });
+
+            timer.Enabled = true;
+
+
+
+            #endregion
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
@@ -453,38 +467,106 @@ namespace HabilisX
             AddNewTool(note);
         }
 
+        private void autoSave(String fileName) {
+            List<String> bibtexEntries = new List<String>();
+
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                this.entries.Sort(
+                    delegate(Entry p1, Entry p2)
+                    {
+                        if (Canvas.GetZIndex(p1) > Canvas.GetZIndex(p2)) return 1;
+                        else return -1;
+                    });
+
+                foreach (Entry entry in this.entries)
+                {
+                    String bibTex = "Entry{\n";
+                    foreach (KeyValuePair<string, object> pair in entry.attributes)
+                    {
+                        if (!pair.Key.Equals("x") && !pair.Key.Equals("y") && !pair.Key.Equals("orientation"))
+                        {
+                            bibTex += pair.Key + "=" + pair.Value.ToString() + "\n";
+                        }
+                    }
+                    bibTex += "x=" + entry.Center.X + "\n";
+                    bibTex += "y=" + entry.Center.Y + "\n";
+                    bibTex += "orientation=" + entry.Orientation + "\n";
+                    bibTex += "zIndex=" + Canvas.GetZIndex(entry) + "\n";
+                    bibTex += "}\n";
+                    bibtexEntries.Add(bibTex);
+                }
+
+
+                String str = System.IO.Directory.GetCurrentDirectory();
+                str = str.Substring(0, str.LastIndexOf("\\"));
+                str = str.Substring(0, str.LastIndexOf("\\"));
+                str = str + "\\Resources\\" + fileName;
+
+                Console.WriteLine("saving...");
+                System.IO.File.WriteAllLines(str, bibtexEntries.ToArray());
+            }));
+            }
+
         private void save1_Click(object sender, RoutedEventArgs e)
         {
             saveState1 = new List<string>();
+            List<String> bibtexEntries = new List<string>();
 
+            this.entries.Sort(
+                delegate(Entry p1, Entry p2)
+            {
+                if (Canvas.GetZIndex(p1) > Canvas.GetZIndex(p2)) return 1;
+                else return -1; 
+            });
             foreach (Entry entry in this.entries)
             {
-                saveState1.Add(System.Windows.Markup.XamlWriter.Save(entry));
-                saveEntries1.Add(new Entry(entry.attributes));
+                String bibTex = "Entry{\n";
+                foreach(KeyValuePair<string, object> pair in entry.attributes){
+                    bibTex += pair.Key + "=" + pair.Value.ToString() + "\n";
+                }
+                bibTex += "x=" + entry.Center.X + "\n";
+                bibTex += "y=" + entry.Center.Y + "\n";
+                bibTex += "orientation=" + entry.Orientation + "\n";
+                bibTex += "zIndex=" + Canvas.GetZIndex(entry) + "\n";
+                bibTex += "}\n";
+                bibtexEntries.Add(bibTex);
             }
 
+
+            String str = System.IO.Directory.GetCurrentDirectory();
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str + "\\Resources\\saveState.txt";
+
+            System.IO.File.WriteAllLines(str, bibtexEntries.ToArray());
+            
             ((SurfaceButton)(Save1.Content)).Content = "Saved";
         }
         private void load1_Click(object sender, RoutedEventArgs e)
         {
-            if (saveState1.Count == 0)
-            {
-                return;
-            }
             foreach (Entry entry in this.entries)
             {
                 MyScatterView.Items.Remove(entry);
             }
             this.entries = new List<Entry>();
 
-            for (int i = 0; i < saveState1.Count; i++)
+            String str = System.IO.Directory.GetCurrentDirectory();
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str + "\\Resources\\saveState.txt";
+
+            Database loadedData = new Database(str);
+
+            foreach (Entry entry in loadedData.allEntries)
             {
-                String str = saveState1[i];
-                Entry savedEntry = saveEntries1[i];
-                Entry newEntry = (Entry)System.Windows.Markup.XamlReader.Parse(str);
-                newEntry.addAllAttributes(savedEntry.attributes);
-                AddToScreen(newEntry);
+                Double x = Double.Parse(entry.attributes["x"].ToString());
+                Double y = Double.Parse(entry.attributes["y"].ToString()); ;
+                entry.Center = new Point(x,y);
+                entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
+                AddToScreen(entry);
             }
+
             ((SurfaceButton)(Load1.Content)).FontSize = 15;
             ((SurfaceButton)(Load1.Content)).Content = "Loaded";
 
@@ -492,42 +574,92 @@ namespace HabilisX
         private void save2_Click(object sender, RoutedEventArgs e)
         {
             saveState2 = new List<string>();
+            List<String> bibtexEntries = new List<string>();
+
+            this.entries.Sort(
+                delegate(Entry p1, Entry p2)
+                {
+                    if (Canvas.GetZIndex(p1) > Canvas.GetZIndex(p2)) return 1;
+                    else return -1;
+                });
             foreach (Entry entry in this.entries)
             {
-                saveState2.Add(System.Windows.Markup.XamlWriter.Save(entry));
-                saveEntries2.Add(new Entry(entry.attributes));
+                String bibTex = "Entry{\n";
+                foreach (KeyValuePair<string, object> pair in entry.attributes)
+                {
+                    bibTex += pair.Key + "=" + pair.Value.ToString() + "\n";
+                }
+                bibTex += "x=" + entry.Center.X + "\n";
+                bibTex += "y=" + entry.Center.Y + "\n";
+                bibTex += "orientation=" + entry.Orientation + "\n";
+                bibTex += "zIndex=" + Canvas.GetZIndex(entry) + "\n";
+                bibTex += "}\n";
+                bibtexEntries.Add(bibTex);
             }
+
+
+            String str = System.IO.Directory.GetCurrentDirectory();
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str + "\\Resources\\saveState2.txt";
+
+            System.IO.File.WriteAllLines(str, bibtexEntries.ToArray());
 
             ((SurfaceButton)(Save2.Content)).Content = "Saved";
         }
         private void load2_Click(object sender, RoutedEventArgs e)
         {
-
-            if (saveState2.Count == 0)
-            {
-                return;
-            }
             foreach (Entry entry in this.entries)
             {
-                //RemoveFromScreen(entry);
                 MyScatterView.Items.Remove(entry);
             }
             this.entries = new List<Entry>();
 
-            for (int i = 0; i < saveState2.Count; i++)
+            String str = System.IO.Directory.GetCurrentDirectory();
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str + "\\Resources\\saveState2.txt";
+
+            Database loadedData = new Database(str);
+
+            foreach (Entry entry in loadedData.allEntries)
             {
-                String str = saveState2[i];
-                Entry savedEntry = saveEntries2[i];
-                Entry newEntry = (Entry)System.Windows.Markup.XamlReader.Parse(str);
-                newEntry.addAllAttributes(savedEntry.attributes);
-                AddToScreen(newEntry);
-                //MyScatterView.Items.Add(newEntry);
-                //this.entries.Add(newEntry);
+                Double x = Double.Parse(entry.attributes["x"].ToString());
+                Double y = Double.Parse(entry.attributes["y"].ToString()); ;
+                entry.Center = new Point(x, y);
+                entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
+                AddToScreen(entry);
             }
+
             ((SurfaceButton)(Load2.Content)).FontSize = 15;
             ((SurfaceButton)(Load2.Content)).Content = "Loaded";
         }
+        private void AutoSaveButton_Click_1(object sender, RoutedEventArgs e) {
+            foreach (Entry entry in this.entries)
+            {
+                MyScatterView.Items.Remove(entry);
+            }
+            this.entries = new List<Entry>();
 
+            String str = System.IO.Directory.GetCurrentDirectory();
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str.Substring(0, str.LastIndexOf("\\"));
+            str = str + "\\Resources\\autoSave.txt";
+
+            Database loadedData = new Database(str);
+
+            foreach (Entry entry in loadedData.allEntries)
+            {
+                Double x = Double.Parse(entry.attributes["x"].ToString());
+                Double y = Double.Parse(entry.attributes["y"].ToString()); ;
+                entry.Center = new Point(x, y);
+                entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
+                AddToScreen(entry);
+            }
+
+            ((SurfaceButton)(AutoSaveButton.Content)).Content = "Loaded";
+        
+        }
 
         //void ruler_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         //{
