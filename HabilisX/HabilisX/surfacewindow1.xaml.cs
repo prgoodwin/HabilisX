@@ -545,6 +545,14 @@ namespace HabilisX
         }
         private void load1_Click(object sender, RoutedEventArgs e)
         {
+            LoadFromFile("\\Resources\\saveState.txt");
+            ((SurfaceButton)(Load1.Content)).FontSize = 15;
+            ((SurfaceButton)(Load1.Content)).Content = "Loaded";
+
+        }
+
+        private void LoadFromFile(String filePath)
+        {
             foreach (Entry entry in this.entries)
             {
                 MyScatterView.Items.Remove(entry);
@@ -554,7 +562,7 @@ namespace HabilisX
             String str = System.IO.Directory.GetCurrentDirectory();
             str = str.Substring(0, str.LastIndexOf("\\"));
             str = str.Substring(0, str.LastIndexOf("\\"));
-            str = str + "\\Resources\\saveState.txt";
+            str = str + filePath;
 
             Database loadedData = new Database(str);
             Database originalData = new Database();
@@ -596,11 +604,7 @@ namespace HabilisX
                 {
                     AddToScreen(entry);
                 }
-            } 
-
-            ((SurfaceButton)(Load1.Content)).FontSize = 15;
-            ((SurfaceButton)(Load1.Content)).Content = "Loaded";
-
+            }
         }
         private void save2_Click(object sender, RoutedEventArgs e)
         {
@@ -640,82 +644,13 @@ namespace HabilisX
         }
         private void load2_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Entry entry in this.entries)
-            {
-                MyScatterView.Items.Remove(entry);
-            }
-            this.entries = new List<Entry>();
-
-            String str = System.IO.Directory.GetCurrentDirectory();
-            str = str.Substring(0, str.LastIndexOf("\\"));
-            str = str.Substring(0, str.LastIndexOf("\\"));
-            str = str + "\\Resources\\saveState2.txt";
-
-            Database loadedData = new Database(str);
-            Database originalData = new Database();
-
-            foreach (Entry data in originalData.allEntries) {
-                if (!loadedData.Contains(data)) {
-                    
-                    loadedData.addEntry(data);
-                }
-            }
-
-
-            Console.WriteLine("Number of cards in saved data: " +  loadedData.allEntries.Count);
-            foreach (Entry entry in loadedData.allEntries)
-            {
-
-                if (entry.attributes.ContainsKey("x") && entry.attributes.ContainsKey("y") && entry.attributes.ContainsKey("orientation"))
-                {
-                    Double x = Double.Parse(entry.attributes["x"].ToString());
-                    Double y = Double.Parse(entry.attributes["y"].ToString()); ;
-
-                    if (x > 1800)
-                    {
-                        x = 500;
-                    }
-
-                    if (y > 900)
-                    {
-                        y = 500;
-
-                    }
-                    entry.Center = new Point(x, y);
-                    entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
-                    AddToScreen(entry);
-                }
-                else {
-                    AddToScreen(entry);
-                }
-            } 
-
+            LoadFromFile("\\Resources\\saveState2.txt");
             ((SurfaceButton)(Load2.Content)).FontSize = 15;
             ((SurfaceButton)(Load2.Content)).Content = "Loaded";
+
         }
         private void AutoSaveButton_Click_1(object sender, RoutedEventArgs e) {
-            foreach (Entry entry in this.entries)
-            {
-                MyScatterView.Items.Remove(entry);
-            }
-            this.entries = new List<Entry>();
-
-            String str = System.IO.Directory.GetCurrentDirectory();
-            str = str.Substring(0, str.LastIndexOf("\\"));
-            str = str.Substring(0, str.LastIndexOf("\\"));
-            str = str + "\\Resources\\autoSave.txt";
-
-            Database loadedData = new Database(str);
-
-            foreach (Entry entry in loadedData.allEntries)
-            {
-                Double x = Double.Parse(entry.attributes["x"].ToString());
-                Double y = Double.Parse(entry.attributes["y"].ToString()); ;
-                entry.Center = new Point(x, y);
-                entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
-                AddToScreen(entry);
-            }
-
+            LoadFromFile("\\Resources\\autoSave.txt");
             ((SurfaceButton)(AutoSaveButton.Content)).Content = "Loaded";
         
         }
