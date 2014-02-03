@@ -67,7 +67,7 @@ namespace HabilisX
             InitializeComponent();
 
             Double ScreenWidth = MyScatterView.Width;
-
+            Console.WriteLine("WIDTH OF SCREEN" + MyScatterView.Width);
 
             trash = new TrashCan();
             MyScatterView.Items.Add(trash);
@@ -557,15 +557,46 @@ namespace HabilisX
             str = str + "\\Resources\\saveState.txt";
 
             Database loadedData = new Database(str);
+            Database originalData = new Database();
 
+            foreach (Entry data in originalData.allEntries)
+            {
+                if (!loadedData.Contains(data))
+                {
+
+                    loadedData.addEntry(data);
+                }
+            }
+
+
+            Console.WriteLine("Number of cards in saved data: " + loadedData.allEntries.Count);
             foreach (Entry entry in loadedData.allEntries)
             {
-                Double x = Double.Parse(entry.attributes["x"].ToString());
-                Double y = Double.Parse(entry.attributes["y"].ToString()); ;
-                entry.Center = new Point(x,y);
-                entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
-                AddToScreen(entry);
-            }
+
+                if (entry.attributes.ContainsKey("x") && entry.attributes.ContainsKey("y") && entry.attributes.ContainsKey("orientation"))
+                {
+                    Double x = Double.Parse(entry.attributes["x"].ToString());
+                    Double y = Double.Parse(entry.attributes["y"].ToString()); ;
+
+                    if (x > 1800)
+                    {
+                        x = 500;
+                    }
+
+                    if (y > 900)
+                    {
+                        y = 500;
+
+                    }
+                    entry.Center = new Point(x, y);
+                    entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
+                    AddToScreen(entry);
+                }
+                else
+                {
+                    AddToScreen(entry);
+                }
+            } 
 
             ((SurfaceButton)(Load1.Content)).FontSize = 15;
             ((SurfaceButton)(Load1.Content)).Content = "Loaded";
@@ -621,15 +652,43 @@ namespace HabilisX
             str = str + "\\Resources\\saveState2.txt";
 
             Database loadedData = new Database(str);
+            Database originalData = new Database();
 
+            foreach (Entry data in originalData.allEntries) {
+                if (!loadedData.Contains(data)) {
+                    
+                    loadedData.addEntry(data);
+                }
+            }
+
+
+            Console.WriteLine("Number of cards in saved data: " +  loadedData.allEntries.Count);
             foreach (Entry entry in loadedData.allEntries)
             {
-                Double x = Double.Parse(entry.attributes["x"].ToString());
-                Double y = Double.Parse(entry.attributes["y"].ToString()); ;
-                entry.Center = new Point(x, y);
-                entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
-                AddToScreen(entry);
-            }
+
+                if (entry.attributes.ContainsKey("x") && entry.attributes.ContainsKey("y") && entry.attributes.ContainsKey("orientation"))
+                {
+                    Double x = Double.Parse(entry.attributes["x"].ToString());
+                    Double y = Double.Parse(entry.attributes["y"].ToString()); ;
+
+                    if (x > 1800)
+                    {
+                        x = 500;
+                    }
+
+                    if (y > 900)
+                    {
+                        y = 500;
+
+                    }
+                    entry.Center = new Point(x, y);
+                    entry.Orientation = Double.Parse(entry.attributes["orientation"].ToString());
+                    AddToScreen(entry);
+                }
+                else {
+                    AddToScreen(entry);
+                }
+            } 
 
             ((SurfaceButton)(Load2.Content)).FontSize = 15;
             ((SurfaceButton)(Load2.Content)).Content = "Loaded";

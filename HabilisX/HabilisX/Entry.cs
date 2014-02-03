@@ -29,7 +29,7 @@ namespace Microsoft.Surface.Presentation.Controls
             L.FontSize = 14;
             L.Foreground = Brushes.Black;
             //L.FontWeight = FontWeights.Bold;
-           
+
 
 
             Canvas innerView = new Canvas();
@@ -61,10 +61,11 @@ namespace Microsoft.Surface.Presentation.Controls
             {
                 attributes.Add(key, value);
             }
-            catch {
+            catch
+            {
                 attributes[key] = value;
             }
-                L.Content = this.toString();
+            L.Content = this.toString();
 
         }
 
@@ -217,7 +218,8 @@ namespace Microsoft.Surface.Presentation.Controls
             foreach (String attribute in this.attributes.Keys)
             {
                 counter++;
-                if (counter > 4) {
+                if (counter > 4)
+                {
                     break;
                 }
 
@@ -226,9 +228,9 @@ namespace Microsoft.Surface.Presentation.Controls
 
             }
 
-           this.numLines = str.Count(f => f == '\n') + 1;
-           //Console.WriteLine("numLines: " + this.numLines);
-           this.Height = this.numLines * 20;
+            this.numLines = str.Count(f => f == '\n') + 1;
+            //Console.WriteLine("numLines: " + this.numLines);
+            this.Height = this.numLines * 20;
             return str;
 
 
@@ -268,8 +270,9 @@ namespace Microsoft.Surface.Presentation.Controls
         {
             return HabilisX.Utils.nextNum(-60, 60);
         }
-    
-        public void addAnnotation(Note note){
+
+        public void addAnnotation(Note note)
+        {
             //Save the fields of the two text boxes
             String titleString = note.titleText.Text;
             String noteString = note.txt.Text;
@@ -301,7 +304,7 @@ namespace Microsoft.Surface.Presentation.Controls
 
             ((Canvas)this.Content).Children.Add(annotation);
             Canvas.SetRight(annotation, this.Width);
-            Canvas.SetTop(annotation, annotations.IndexOf(annotation) * 50); 
+            Canvas.SetTop(annotation, annotations.IndexOf(annotation) * 50);
 
 
 
@@ -320,7 +323,8 @@ namespace Microsoft.Surface.Presentation.Controls
             fingers++;
             eventHold((ScatterViewItem)sender);
 
-            if (fingers >= 3) {
+            if (fingers >= 3)
+            {
             }
         }
 
@@ -335,7 +339,8 @@ namespace Microsoft.Surface.Presentation.Controls
             eventRelease((ScatterViewItem)sender);
         }
 
-        void eventRelease(ScatterViewItem sender) {
+        void eventRelease(ScatterViewItem sender)
+        {
             String txt = (String)((Label)sender.Content).Content;
             String title = (String)sender.Tag;
 
@@ -346,7 +351,8 @@ namespace Microsoft.Surface.Presentation.Controls
             sender.Width = ((Label)sender.Content).Width;
             sender.Height = ((Label)sender.Content).Height;
         }
-        void eventHold(ScatterViewItem sender) {
+        void eventHold(ScatterViewItem sender)
+        {
             String title = (String)((Label)sender.Content).Content;
             String txt = (String)sender.Tag;
 
@@ -363,5 +369,27 @@ namespace Microsoft.Surface.Presentation.Controls
         {
             eventHold((ScatterViewItem)sender);
         }
+
+        public Boolean Equals(Entry entry)
+        {
+            if (entry.attributes.ContainsKey("title") && this.attributes.ContainsKey("title"))
+            {
+                return (((String)this.attributes["title"]).Equals((String)entry.attributes["title"]));
+            }
+
+            return false;
+            //Dictionary<String, object> entryDict = new Dictionary<string, object>(entry.attributes);
+            //Dictionary<String, object> thisDict = new Dictionary<string, object>(this.attributes);
+
+            //entryDict.Remove("x");
+            //entryDict.Remove("y");
+            //entryDict.Remove("orientation");
+
+            //thisDict.Remove("x");
+            //thisDict.Remove("y");
+            //thisDict.Remove("orientation");
+            //return entryDict.Equals(thisDict);
+        }
+
     }
 }

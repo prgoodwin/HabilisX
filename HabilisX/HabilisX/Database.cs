@@ -42,6 +42,15 @@ namespace HabilisX
             allEntries.Add(entry);
         }
 
+        public Boolean Contains(Entry entry) {
+            foreach (Entry data in this.allEntries) { 
+                if(data.Equals(entry)){
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
         private void parseFromBibtex(String path)
         {
