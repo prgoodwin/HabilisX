@@ -17,7 +17,7 @@ namespace HabilisX
             allAttributes = new Dictionary<String, Type>();
             //this.newInit();
             //newInit();
-            parseFromBibtex("HabilisX.Resources.Dataset2.txt");
+            parseFromBibtex("HabilisX.Resources.Dataset1.txt");
         }
 
         public Database(String path) {
