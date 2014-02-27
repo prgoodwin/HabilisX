@@ -44,57 +44,78 @@ namespace AnalyzeResults
             String StephenRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\StephenRelatedHabilis.bib";
             String TonyRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\TonyRelatedHabilis.bib";
             String WillRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\WillRelatedHabilis.bib";
-            
+
             String[] files = {ThomasRelatedMendeley,ThomasRelatedHabilis, AdamRelatedMendeley, AdamRelatedHabilis, MikeRelatedMendeley, MikeRelatedHabilis, 
                                  StephenRelatedMendeley, StephenRelatedHabilis, TonyRelatedMendeley, TonyRelatedHabilis, WillRelatedHabilis};
-            String[] Names = { "Thomas", "Thomas", "Adam", "Adam", "Mike", "Mike",  "Stephen", "Stephen",  "Tony", "Tony", "Will" };
+            String[] Names = { "Thomas", "Thomas", "Adam", "Adam", "Mike", "Mike", "Stephen", "Stephen", "Tony", "Tony", "Will" };
             Database sources = new Database(0);
             Database distractors = new Database(1);
+            Database dataset1 = new Database(2);
+            Database dataset2 = new Database(3);
 
-            
-            for(int i=0; i<files.Length; i++){
+
+            for (int i = 0; i < files.Length; i++)
+            {
                 String FileName = files[i];
 
 
-            Database results = new Database(FileName);
-            if (i % 2 == 0)
-            {
-                Console.WriteLine(Names[i] + "'s Mendeley Results");
-            }
-            else {
-                Console.WriteLine(Names[i] + "'s Habilis Results");
-            }
-
-            Console.WriteLine("Related Size: " + results.Count());
-
-
-            int truePositive = 0;
-            int trueNegative = 0;
-            int falsePositive = 0;
-            int falseNegative = 0;
-
-            foreach (Entry e in results.allEntries) {
-                if (sources.Contains(e))
-                    truePositive++;
-                if (distractors.Contains(e))
-                    falsePositive++;
-            }
-
-            foreach (Entry e in sources.allEntries) {
-                if (!results.Contains(e)) {
-                    falseNegative++;
+                Database cur;
+                Database results = new Database(FileName);
+                if (dataset1.Contains(results.allEntries[1]))
+                {
+                    cur = dataset1;
                 }
-            }
-
-            foreach (Entry e in distractors.allEntries) {
-                if (!results.Contains(e)) {
-                    trueNegative++;
+                else
+                {
+                    cur = dataset2;
                 }
-            }
 
-            Console.WriteLine("     TRUE || FALSE");
-            Console.WriteLine("POS:   " + truePositive + " || " + falsePositive);
-            Console.WriteLine("NEG:   " + trueNegative + " || " + falseNegative);
+
+
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine(Names[i] + "'s Mendeley Results");
+                }
+                else
+                {
+                    Console.WriteLine(Names[i] + "'s Habilis Results");
+                }
+
+                Console.WriteLine("Related Size: " + results.Count());
+
+
+                int truePositive = 0;
+                int trueNegative = 0;
+                int falsePositive = 0;
+                int falseNegative = 0;
+
+                foreach (Entry e in results.allEntries)
+                {
+                    if (sources.Contains(e))
+                        truePositive++;
+                    if (distractors.Contains(e))
+                        falsePositive++;
+                }
+
+                foreach (Entry e in sources.allEntries)
+                {
+                    if (cur.Contains(e) && !results.Contains(e) )
+                    {
+                        falseNegative++;
+                    }
+                }
+
+                foreach (Entry e in distractors.allEntries)
+                {
+                    if (cur.Contains(e) && !results.Contains(e))
+                    {
+                        trueNegative++;
+                    }
+                }
+
+                Console.WriteLine("     TRUE || FALSE");
+                Console.WriteLine("POS:   " + truePositive + " || " + falsePositive);
+                Console.WriteLine("NEG:   " + trueNegative + " || " + falseNegative);
 
             }
 

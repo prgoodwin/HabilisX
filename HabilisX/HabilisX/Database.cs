@@ -28,8 +28,16 @@ namespace HabilisX
             {
                 parseFromBibtex("HabilisX.Resources.bibtexUnrelated.txt");
             }
-            else {
+            else if(bibtex ==1) {
                 parseFromBibtex("HabilisX.Resources.bibtexRelated.txt");
+            }
+            else if (bibtex == 2)
+            {
+                parseFromBibtex("HabilisX.Resources.Dataset1.txt");
+            }
+            else if (bibtex == 3)
+            {
+                parseFromBibtex("HabilisX.Resources.Dataset2.txt");
             }
         
         }
