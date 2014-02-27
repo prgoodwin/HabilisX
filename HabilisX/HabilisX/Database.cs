@@ -6,7 +6,7 @@ using Microsoft.Surface.Presentation.Controls;
 
 namespace HabilisX
 {
-    class Database
+    public class Database
     {
         public List<Entry> allEntries;
         public Dictionary<String, Type> allAttributes;
@@ -17,7 +17,21 @@ namespace HabilisX
             allAttributes = new Dictionary<String, Type>();
             //this.newInit();
             //newInit();
-            parseFromBibtex("HabilisX.Resources.Dataset1.txt");
+            parseFromBibtex("HabilisX.Resources.bibtexUnrelated.txt");
+        }
+
+        public Database(int bibtex) {
+            allEntries = new List<Entry>();
+            allAttributes = new Dictionary<String, Type>();
+
+            if (bibtex == 0)
+            {
+                parseFromBibtex("HabilisX.Resources.bibtexUnrelated.txt");
+            }
+            else {
+                parseFromBibtex("HabilisX.Resources.bibtexRelated.txt");
+            }
+        
         }
 
         public Database(String path) {
@@ -27,6 +41,10 @@ namespace HabilisX
             //this.newInit();
             //newInit();
             parseFromBibtex(path);
+        }
+
+        public int Count() {
+            return allEntries.Count;
         }
 
         public void addEntry(Entry entry)
@@ -69,6 +87,8 @@ namespace HabilisX
                     Console.WriteLine("ERROR READING FILE IN DATABASE: " + ex);
                 }
             }
+
+            Console.WriteLine("Found file");
             Entry entry = new Entry();
             int entries = 0;
             //foreach (String str in text)
@@ -94,22 +114,27 @@ namespace HabilisX
                    String attValue = cur.Substring(index + 1).Replace('{', ' ').Replace('}', ' ').Trim();
                    if (!ignoreAtts.Contains(attName))
                    {
-                      if (attValue[attValue.Length - 1] == ',')
-                      {
-                         attValue = attValue.Substring(0, attValue.Length - 1).Trim();
-                      }
-                      //Console.WriteLine("\"" + attName + "\"" + " " + "\"" + attValue + "\"");
-                      int number;
-                      bool result = Int32.TryParse(attValue, out number);
-                      if (result)
-                      {
-                         entry.addAttribute(attName, number);
-                      }
-                      else
-                      {
-                         entry.addAttribute(attName, attValue);
-                      }
-                   }
+                       if (attValue.Length < 1)
+                       {
+                           attValue = " ";
+                       }
+                           if (attValue[attValue.Length - 1] == ',')
+                           {
+                               attValue = attValue.Substring(0, attValue.Length - 1).Trim();
+                           }
+                           //Console.WriteLine("\"" + attName + "\"" + " " + "\"" + attValue + "\"");
+                           int number;
+                           bool result = Int32.TryParse(attValue, out number);
+                           if (result)
+                           {
+                               entry.addAttribute(attName, number);
+                           }
+                           else
+                           {
+                               entry.addAttribute(attName, attValue);
+                           }
+                       }
+                   
                 }
             }
 

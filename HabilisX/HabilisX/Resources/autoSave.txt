@@ -1,31 +1,17 @@
 Entry{
-author=Bederson, Benjamin B. and Hollan, James D.
-title=Pad++: a zooming graphical interface for exploring alternate interface physics
-booktitle=Proceedings of the 7th annual ACM symposium on User interface software and technology
-series=UIST '94
-year=1994
-numpages=10
-keywords=authoring, hypertext, information navigation, information physics, information visualization, interactive user interfaces, multiscale interfaces, zooming interfaces
-abstract=We describe the current status of Pad++, a zooming graphical interface that we are exploring as an alternative to traditional window and icon-based approaches to interface design. We discuss the motivation for Pad++, describe the implementation, and present prototype applications. In addition, we introduce an informational physics strategy for interface design and briefly compare it with metaphor-based design strategies.
-x=2102.50006103516
-y=1223.77777099609
-orientation=14.2816743057573
-zIndex=21652
-}
-
-Entry{
-author=Forlines, Clifton and Shen, Chia and Buxton, Bill
-title=Glimpse: a novel input model for multi-level devices
-booktitle=CHI '05 Extended Abstracts on Human Factors in Computing Systems
-series=CHI EA '05
-year=2005
-numpages=4
-keywords=direct manipulation, navigation, pressure sensitive input, stylus, three-state input, touch screens, undo
-abstract=We describe a technique that supports the previewing of navigation, exploration, and editing operations by providing convenient Undo for unsuccessful and/or undesirable actions on multi-level input devices such as touch screens and pen-based computers. By adding a Glimpse state to traditional three-state pressure sensitive input devices, users are able to preview the effects of their editing without committing to them. From this Glimpse state, users can undo their action as easily as they can commit to it, making Glimpse most appropriate for systems in which the user is likely to try out many variations of an edit before finding the right one. Exploration is encouraged as the cumbersome returning to a menu or keyboard to issue an Undo command is eliminated. Glimpse has the added benefits that the negative effects of inconsistencies in the Undo feature within an application are reduced.
-x=2105.94415283203
-y=1211.11114501953
-orientation=14.2816743057573
-zIndex=21654
+author=Fitzmaurice, George and Khan, Azam and Piek \'e , Robert and Buxton, Bill and Kurtenbach, Gordon
+title=Tracking menus
+booktitle=Proceedings of the 16th annual ACM symposium on User interface software and technology
+series=UIST '03
+year=2003
+numpages=9
+keywords=floating palette, graphical user interface, menu system, pen based user interfaces, tablet PC
+abstract=We describe a new type of graphical user interface widget, known as a "tracking menu." A tracking menu consists of a cluster of graphical buttons, and as with traditional menus, the cursor can be moved within the menu to select and interact with items. However, unlike traditional menus, when the cursor hits the edge of the menu, the menu moves to continue tracking the cursor. Thus, the menu always stays under the cursor and close at hand.In this paper we define the behavior of tracking menus, show unique affordances of the widget, present a variety of examples, and discuss design characteristics. We examine one tracking menu design in detail, reporting on usability studies and our experience integrating the technique into a commercial application for the Tablet PC. While user interface issues on the Tablet PC, such as preventing round trips to tool palettes with the pen, inspired tracking menus, the design also works well with a standard mouse and keyboard configuration.
+zIndex=27981
+x=523
+y=769
+orientation=0
+zIndex=69
 }
 
 Entry{
@@ -39,228 +25,11 @@ month=jan
 year=1983
 numpages=14
 abstract=This paper describes a series of interviews focusing on the way professional and clerical office workers organize the information in their desks and offices. A number of implications for designing &quot;natural&quot; and convenient computer-based information systems are discussed. Two principal claims are made: (1) A very important function of desk organization is to remind the user of things to do, not just to help the user find desired information. Failing to support this function may seriously impair the usefulness of electronic office systems, and explicitly facilitating it may provide an important advantage for automated office systems over their nonautomated predecessors. (2) The cognitive difficulty of categorizing information is an important factor in explaining how people organize their desks. Computer-based systems may help with this difficulty by (a) doing as much automatic classification as possible (e.g., based on access dates , and (b) including untitled &quot;piles &quot; of information arranged by physical location as well as explicitly titled and logically arranged &quot;files.&quot; Several other implications for the design of electronic office systems are discussed, and some differences in how people organize their desks are described. Categories and Subject Descriptors: H.1.2 [Models and Principles]: User/Machine Systems--
-x=1815.83331298828
-y=949
-orientation=-83.5656724285909
-zIndex=21658
-}
-
-Entry{
-author=Miller, Lynn
-title=Case Study of Customer Input For a Successful Product
-booktitle=Proceedings of the Agile Development Conference
-series=ADC '05
-year=2005
-numpages=10
-abstract=Both agile development and User Centered Design stress collaboration between customers and product teams, but getting these methodologies to work well together is not easy. This paper describes one company's efforts to merge these processes by creating interconnected parallel design and development tracks. The benefits of this approach are demonstrated by showing how, when and why customer input was incorporated during the release of a successful software product.
-x=2093.05535888672
-y=1260.55548095703
-orientation=14.2816743057573
-zIndex=21660
-}
-
-Entry{
-author=Ramos, Gonzalo and Boulos, Matthew and Balakrishnan, Ravin
-title=Pressure widgets
-booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
-series=CHI '04
-year=2004
-numpages=8
-keywords=isometric input, pen-based interfaces, pressure input, pressure widgets
-abstract=Current user interface widgets typically assume that the input device can only provide x-y position and binary button press information. Other inputs such as the continuous pressure data provided by styluses on tablets are rarely used. We explore the design space of using the continuous pressure sensing capabilities of styluses to operate multi-state widgets. We present the results of a controlled experiment that investigates human ability to perform discrete target selection tasks by varying a stylus' pressure, with full or partial visual feedback. The experiment also considers different techniques for confirming selection once the target is acquired. Based on the experimental results, we discuss implications for the design of pressure sensitive widgets. A taxonomy of pressure widgets is presented, along with a set of initial concept sketches of various pressure widget designs.
-x=2091.49981689453
-y=1261.11108398438
-orientation=14.2816743057573
-zIndex=21662
-}
-
-Entry{
-author=DiGioia, Paul and Dourish, Paul
-title=Social navigation as a model for usable security
-booktitle=Proceedings of the 2005 symposium on Usable privacy and security
-series=SOUPS '05
-year=2005
-numpages=8
-keywords=collaborative interfaces, peer-to-peer filesharing, social navigation, visualization
-abstract=As interest in usable security spreads, the use of visual approaches in which the functioning of a distributed system is made visually available to end users is an approach that a number of researchers have examined. In this paper, we discuss the use of the social navigation paradigm as a way of organizing visual displays of system action. Drawing on a previous study of security in the Kazaa peer to peer system, we present some examples of the ways in which social navigation can be incorporated in support of usable security.
-x=1884.56636287
-y=1574.20256779475
-orientation=39.5182482861205
-zIndex=23205
-}
-
-Entry{
-author=Bauer, Dan and Fastrez, Pierre and Hollan, Jim
-title=Computationally-Enriched 'Piles' for Managing Digital Photo Collections
-booktitle=Proceedings of the 2004 IEEE Symposium on Visual Languages - Human Centric Computing
-series=VLHCC '04
-year=2004
-numpages=3
-abstract=We explore and extend the metaphor of "piles" to include computationally-enriched piles, portable regions of automation in Dynapad, a multiscale workspace. We describe these collection-management tools and how their design was informed by observing people organizing collections of personal digital photographs.
-x=1833.62019557836
-y=1646.90960474384
-orientation=39.5182482861205
-zIndex=23213
-}
-
-Entry{
-author=Herndon, Kenneth P. and Zeleznik, Robert C. and Robbins, Daniel C. and Conner, D. Brookshire and Snibbe, Scott S. and van Dam, Andries
-title=Interactive shadows
-booktitle=Proceedings of the 5th annual ACM symposium on User interface software and technology
-series=UIST '92
-year=1992
-numpages=6
-keywords=3D widgets, direct manipulation, interactive systems
-abstract=It is often difficult in computer graphics applications to understand spatial relationships between objects in a 3D scene or effect changes to those objects without specialized visualization and manipulation techniques. We present a set of three-dimensional tools (widgets) called “shadows” that not only provide valuable perceptual cues about the spatial relationships between objects, but also provide a direct manipulation interface to constrained transformation techniques. These shadow widgets provide two advances over previous techniques. First, they provide high correlation between their own geometric feedback and their effects on the objects they control. Second, unlike some other 3D widgets, they do not obscure the objects they control.
-x=2038.27752685547
-y=1358.88891601563
-orientation=-75.7204550057164
-zIndex=30908
-}
-
-Entry{
-author=Matulic, Fabrice
-title=Touch scan-n-search: a touchscreen interface to retrieve online versions of scanned documents
-booktitle=Proceedings of the 2007 ACM symposium on Document engineering
-series=DocEng '07
-year=2007
-numpages=2
-keywords=GUI, keyword extraction, online news retrieval, scanned document
-abstract=The system described in this paper attempts to tackle the problem of finding online content based on paper documents through an intuitive touchscreen interface designed for modern scanners and multifunction printers. Touch Scan-n-Search allows the user to select elements of a scanned document (e.g. a newspaper article) and to seamlessly connect to common web search services in order to retrieve the online version of the document along with related content. This is achieved by automatically extracting keyphrases from text elements in the document (obtained by OCR) and creating "tappable" GUI widgets to allow the user to control and fine-tune the search requests. The retrieved content can then be printed, sent, or used to compose new documents.
-x=2048.69986118871
-y=1332.82153721055
-orientation=14.2816743057573
-zIndex=38749
-}
-
-Entry{
-author=Robertson, George and van Dantzich, Maarten and Robbins, Daniel and Czerwinski, Mary and Hinckley, Ken and Risden, Kirsten and Thiel, David and Gorokhovsky, Vadim
-title=The Task Gallery: a 3D window manager
-booktitle=Proceedings of the SIGCHI conference on Human Factors in Computing Systems
-series=CHI '00
-year=2000
-numpages=8
-keywords=3D user interfaces, spatial cognition, spatial memory, window managers
-abstract=The Task Gallery is a window manager that uses interactive 3D graphics to provide direct support for task management and document comparison, lacking from many systems implementing the desktop metaphor. User tasks appear as artwork hung on the walls of a virtual art gallery, with the selected task on a stage. Multiple documents can be selected and displayed side-by-side using 3D space to provide uniform and intuitive scaling. The Task Gallery hosts any Windows application, using a novel redirection mechanism that routes input and output between the 3D environment and unmodified 2D Windows applications. User studies suggest that the Task Gallery helps with task management, is enjoyable to use, and that the 3D metaphor evokes spatial memory and cognition.
-x=1706.96792772196
-y=960.72837451282
-orientation=96.4343275714091
-zIndex=39812
-}
-
-Entry{
-author=Oehl, Michael and Sutter, Christine and Ziefle, Martina
-title=Considerations on efficient touch interfaces: how display size influences the performance in an applied pointing task
-booktitle=Proceedings of the 2007 conference on Human interface: Part I
-year=2007
-numpages=8
-keywords=display size, pointing performance, small screen device, task difficulty, touch input
-abstract=The limited screen space in small technical devices imposes considerable usability challenges. On the one hand objects displayed on small screens should be big enough to be hit successfully, but also small enough to house several objects on the screen at the same time. However, findings up to now show that single pointing is more effective in a large display compared to a smaller display. In the present experiment this was also confirmed for an applied multidirectional serial pointing task. Especially in more difficult tasks, results point at a shift of the speed-accuracy tradeoff. In large displays a fast and comparably accurate execution is chosen in contrast to a very inaccurate and time-consuming style in small displays. From an ergonomic point of view the outcomes recommend an optimized balance of task difficulty and display size in small screen devices.
-x=2004.44458242512
-y=1456.01434549652
-orientation=14.2816743057573
-zIndex=40128
-}
-
-Entry{
-author=Fitzmaurice, George and Khan, Azam and Piek \'e , Robert and Buxton, Bill and Kurtenbach, Gordon
-title=Tracking menus
-booktitle=Proceedings of the 16th annual ACM symposium on User interface software and technology
-series=UIST '03
-year=2003
-numpages=9
-keywords=floating palette, graphical user interface, menu system, pen based user interfaces, tablet PC
-abstract=We describe a new type of graphical user interface widget, known as a "tracking menu." A tracking menu consists of a cluster of graphical buttons, and as with traditional menus, the cursor can be moved within the menu to select and interact with items. However, unlike traditional menus, when the cursor hits the edge of the menu, the menu moves to continue tracking the cursor. Thus, the menu always stays under the cursor and close at hand.In this paper we define the behavior of tracking menus, show unique affordances of the widget, present a variety of examples, and discuss design characteristics. We examine one tracking menu design in detail, reporting on usability studies and our experience integrating the technique into a commercial application for the Tablet PC. While user interface issues on the Tablet PC, such as preventing round trips to tool palettes with the pen, inspired tracking menus, the design also works well with a standard mouse and keyboard configuration.
-x=2166.03972749421
-y=1225.27016199978
-orientation=14.2727284654919
-zIndex=40983
-}
-
-Entry{
-author=Kurtenbach, Gordon and Buxton, William
-title=Issues in combining marking and direct manipulation techniques
-booktitle=Proceedings of the 4th annual ACM symposium on User interface software and technology
-series=UIST '91
-year=1991
-numpages=8
-abstract=The direct manipulation paradigm has been effective in helping designers create easy to use mouse and keyboard based interfaces. The development of flat display surfaces and transparent tablets are now making possible interfaces where a user can write directly on the screen using a special stylus. The intention of these types of interfaces is to exploit user’s existing handwriting, mark-up and drawing skills while also providing the benefits of direct manipulation. This paper reports on a test bed program which we are using for exploring hand-marking types of interactions and their integration with direct manipulation interactions.
-x=1791.83331298828
-y=925
-orientation=6.43432757140909
-zIndex=41295
-}
-
-Entry{
-author=Sellen, Abigail J. and Harper, Richard H.R.
-title=The Myth of the Paperless Office
-year=2003
-x=1582.9717607646
-y=790.749759011965
-orientation=0.728329374555498
-zIndex=42027
-}
-
-Entry{
-author=Bell, Blaine and Feiner, Steven and H\" o llerer, Tobias
-title=View management for virtual and augmented reality
-booktitle=Proceedings of the 14th annual ACM symposium on User interface software and technology
-series=UIST '01
-year=2001
-numpages=10
-keywords=annotation, augmented reality, environment management, labeling, view management, virtual environments, wearable computing
-abstract=We describe a view-management component for interactive 3D user interfaces. By view management, we mean maintaining visual constraints on the projections of objects on the view plane, such as locating related objects near each other, or preventing objects from occluding each other. Our view-management component accomplishes this by modifying selected object properties, including position, size, and transparency, which are tagged to indicate their constraints. For example, some objects may have geometric properties that are determined entirely by a physical simulation and which cannot be modified, while other objects may be annotations whose position and size are flexible.We introduce algorithms that use upright rectangular extents to represent on the view plane a dynamic and efficient approximation of the occupied space containing the projections of visible portions of 3D objects, as well as the unoccupied space in which objects can be placed to avoid occlusion. Layout decisions from previous frames are taken into account to reduce visual discontinuities. We present augmented reality and virtual reality examples to which we have applied our approach, including a dynamically labeled and annotated environment.
-x=2482.66787411253
-y=672.031640941687
-orientation=-22.3783466650141
-zIndex=43351
-}
-
-Entry{
-author=Hinckley, Ken and Baudisch, Patrick and Ramos, Gonzalo and Guimbretiere, Francois
-title=Design and analysis of delimiters for selection-action pen gesture phrases in scriboli
-booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
-series=CHI '05
-year=2005
-numpages=10
-keywords=delimiters, gestures, marking, pen input, tablets
-abstract=We present a quantitative analysis of delimiters for pen gestures. A delimiter is "something different" in the input stream that a computer can use to determine the structure of input phrases. We study four techniques for delimiting a selection-action gesture phrase consisting of lasso selection plus marking-menu-based command activation. Pigtail is a new technique that uses a small loop to delimit lasso selection from marking (Fig. 1). Handle adds a box to the end of the lasso, from which the user makes a second stroke for marking. Timeout uses dwelling with the pen to delimit the lasso from the mark. Button uses a button press to signal when to delimit the gesture. We describe the role of delimiters in our Scriboli pen interaction testbed, and show how Pigtail supports scope selection, command activation, and direct manipulation all in a single fluid pen gesture.
-x=2052.16638333214
-y=1199.77775448767
-orientation=104.281674305757
-zIndex=44392
-}
-
-Entry{
-author=Bharath, A. and Madhvanath, Sriganesh
-title=FreePad: a novel handwriting-based text input for pen and touch interfaces
-booktitle=Proceedings of the 13th international conference on Intelligent user interfaces
-series=IUI '08
-year=2008
-numpages=4
-keywords=handwriting recognition, pen and touch interfaces, text input
-abstract=The last decade has seen tremendous growth in mobile devices such as Pocket PCs, mobile phones, Tablet PCs and notebooks. Most of these devices enable interaction through a stylus or touch interface, powered by handwriting recognition (HWR) capability. In this paper, we propose a novel input method that addresses some of the issues that arise due to the constraints posed by these devices in accepting handwriting input. For instance, many of the devices have a small writing area making "continuous" input difficult if not impossible, and the process of handwriting input demands significant user attention. The proposed solution is inspired by touch-typing, and appreciably reduces user's effort in the interaction, and it is especially suited for very small writing areas. The approach has been demonstrated using a prototype system that recognizes handwritten English words, and its accuracy has been evaluated using a standard dataset of handwritten words. A preliminary user study has also been carried out to understand user acceptance of the proposed technique.
-x=2039.77413108532
-y=1492.30215763537
-orientation=14.2727284654919
-zIndex=44401
-}
-
-Entry{
-author=Hazzan, Orit
-title=The reflective practitioner perspective in software engineering education
-journal=J. Syst. Softw.
-issue_date=15 September 2002
-volume=63
-number=3
-month=sep
-year=2002
-numpages=11
-abstract=This paper focuses on the application of the reflective practitioner (RP) perspective to the profession of software engineering (SE). The RP perspective guides professional people to rethink their professional creations during and after the accomplishment of the creation process. Analysis of the field of SE supports the adoption of the RP perspective to SE in general and to SE education in particular. The RP perspective emphasizes the studio--the basic training method in architecture schools--as the educational environment for design studies. In such studios students develop projects with a close guidance of a tutor. Analysis of the kind of tasks that architecture students are working on and a comparison of these tasks to the problems that SE students are facing, suggest that the studio may be an appropriate teaching method in SE as well. The paper presents the main ideas of the RP perspective and examines its fitness to SE in general and to SE education in particular. The discussion is based on analysis of the RP perspective and of the SE profession, visits to architecture studios, and conversations with tutors in architecture studios and with computing science practitioners.
-x=1567.24015874616
-y=864.305202277126
-orientation=-2.72336997012599
-zIndex=45244
+zIndex=27982
+x=523
+y=769
+orientation=0
+zIndex=70
 }
 
 Entry{
@@ -272,24 +41,488 @@ year=1998
 numpages=10
 keywords=3D user interfaces, desktop VR, document mangement, information visualization, spatial cognition, spatial memory
 abstract=Effective management of documents on computers has been a central user interface problem for many years.  One common approach involves using 2D spatial layouts of icons representing the documents, particularly for information workspace tasks. This approach takes advantage of human 2D spatial cognition. More recently, several 3D spatial layouts have engaged 3D spatial cognition capabilities. Some have attempted to use spatial memory in 3D virtual environments. However, there has been no proof to date that spatial memory works the same way in 3D virtual environments as it does in the real world. We describe a new technique for document management called the Data Mountain, which allows users to place documents at arbitrary positions on an inclined plane in a 3D desktop virtual environment using a simple 2D interaction technique. We discuss how the design evolved in response to user feedback. We also describe a user study that shows that the Data Mountain does take advantage of spatial memory. Our study shows that the Data Mountain has statistically reliable advantages over the Microsoft Internet Explorer Favorites mechanism for managing documents of interest in an information workspace.
-x=1027.54850381002
-y=1489.67417517951
-orientation=-67.00616407919
-zIndex=48118
+zIndex=27983
+x=523
+y=819
+orientation=0
+zIndex=71
 }
 
 Entry{
-author=Yamazaki, Kazuhiko and Furuta, Kazuo
-title=Design tools for user experience design
-booktitle=Proceedings of the 12th international conference on Human-computer interaction: interaction design and usability
-series=HCI'07
-year=2007
+author=Robertson, George and van Dantzich, Maarten and Robbins, Daniel and Czerwinski, Mary and Hinckley, Ken and Risden, Kirsten and Thiel, David and Gorokhovsky, Vadim
+title=The Task Gallery: a 3D window manager
+booktitle=Proceedings of the SIGCHI conference on Human Factors in Computing Systems
+series=CHI '00
+year=2000
+numpages=8
+keywords=3D user interfaces, spatial cognition, spatial memory, window managers
+abstract=The Task Gallery is a window manager that uses interactive 3D graphics to provide direct support for task management and document comparison, lacking from many systems implementing the desktop metaphor. User tasks appear as artwork hung on the walls of a virtual art gallery, with the selected task on a stage. Multiple documents can be selected and displayed side-by-side using 3D space to provide uniform and intuitive scaling. The Task Gallery hosts any Windows application, using a novel redirection mechanism that routes input and output between the 3D environment and unmodified 2D Windows applications. User studies suggest that the Task Gallery helps with task management, is enjoyable to use, and that the 3D metaphor evokes spatial memory and cognition.
+zIndex=27984
+x=523
+y=829
+orientation=0
+zIndex=72
+}
+
+Entry{
+author=Robertson, George G. and Mackinlay, Jock D. and Card, Stuart K.
+title=Cone Trees: animated 3D visualizations of hierarchical information
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '91
+year=1991
+numpages=6
+abstract=The task of managing and accessing large information spaces is a problem in large scale cognition.  Emerging technologies for 3D visualization and interactive animation offer potential solutions to this problem, especially when the structure of the information can be visualized.  We describe one of tehse Information Visualization techniques, called the Cone Tree, which is used for visualizing hierarchical information structures.  The hierarchy is preseneted in 3D to meximize effective use of available screen space and enable visualization of the whole structure.  Interactive animation is used to shift some of the user's cognitive load to the human perceptual system.
+zIndex=27985
+x=523
+y=839
+orientation=0
+zIndex=73
+}
+
+Entry{
+author=Streitz, Norbert A. and Gei\ssler, J\" o rg and Holmer, Torsten and Konomi, Shin'ichi and M\" u ller-Tomfelde, Christian and Reischl, Wolfgang and Rexroth, Petra and Seitz, Peter and Steinmetz, Ralf
+title=i-LAND: an interactive landscape for creativity and innovation
+booktitle=Proceedings of the SIGCHI conference on Human Factors in Computing Systems
+series=CHI '99
+year=1999
+numpages=8
+keywords=CSCW, architectural space, augmented reality, cooperative rooms, creativity support, dynmic team work, integrated design, interactive landscape, roomware, ubiquitous computing, virtual information space, workspaces of the future
+abstract=We describe the i-LAND environment which constitutes an example of our vision of the workspaces of the future, in this case supporting cooperative work of dynamic teams with changing needs. i-LAND requires and provides new forms of human-computer interaction and new forms of computer-supported cooperative work. Its design is based on an integration of information and architectural spaces, implications of new work practices and an empirical requirements study informing our design. i-LAND consists of several roomware components, i.e. computer-aug- mented objects integrating room elements with information technology. We present the current realization of i-LAND in terms of an interactive electronic wall, an interactive table, two computer-enhanced chairs, and two bridges for the Passage-mechanism. This is complemented by the description of the creativity support application and the technological infrastructure. The paper is accompanied by a video figure in the CHI99 video program.
+zIndex=27986
+x=523
+y=889
+orientation=0
+zIndex=74
+}
+
+Entry{
+author=Accot, Johnny and Zhai, Shumin
+title=More than dotting the i's --- foundations for crossing-based interfaces
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '02
+year=2002
+numpages=8
+keywords=Fitts' law, events, goal crossing, goal passing, graphical user interfaces, input, input performance, interaction techniques, pointing, widgets
+abstract=Today's graphical interactive systems largely depend upon pointing actions, i.e. entering an object and selecting it. In this paper we explore whether an alternate paradigm --- crossing boundaries --- may substitute or complement pointing as another fundamental interaction method. We describe an experiment in which we systematically evaluate two target-pointing tasks and four goal-crossing tasks, which differ by the direction of the movement variability constraint (collinear vs. orthogonal) and by the nature of the action (pointing vs. crossing, discrete vs. continuous). We found that participants' temporal performance in each of the six tasks was dependent on the index of difficulty formulated in the same way as in Fitts' law, but that the parameters differ by task. We also found that goal crossing completion time was shorter or no longer than pointing performance under the same index of difficulty. These regularities, as well as qualitative characterizations of crossing actions and their application in HCI, lay the foundation for designing crossing-based user interfaces.
+zIndex=62285
+x=1692
+y=207
+orientation=0
+zIndex=75
+}
+
+Entry{
+author=Apitz, Georg and Guimbreti\` e re, Fran\c c ois
+title=CrossY: a crossing-based drawing application
+booktitle=Proceedings of the 17th annual ACM symposium on User interface software and technology
+series=UIST '04
+year=2004
 numpages=10
-abstract=The purpose of this study is to develop an approach to artifacts design based on information technology. To make interactive system easy to use, user centered design approach is utilized by many systems. For user centered design, it is important to consider total user experience. But it is not easy to consider total user experience because user experience is including many aspects. To approach total user experience, the author proposes the method of designing for user experience that consist of "User viewpoint", "Environment viewpoint" and "Lifecycle viewpoint". "User viewpoint" is including several user groups from universal design viewpoint, several user characters and several user emotions. "Environment viewpoint" is including hardware product, software, application, space, people who is communicating. "Lifecycle viewpoint" is including pre sales, after sales, support, upgrade, setup product and application.  To help this design approach, user experience design tool named "UED (User Experience Design) Studio" was proposed. Based on proposed three approaches, design tools were developed such as "The definition tool", "The evaluation tool" and "The visualization tool" for user experience design. To define user experience situation easily, "The definition tool" helps designer such selecting user group, selecting environment and input user tasks based on life cycle state. "The evaluation tool" is to evaluate defined user experience easily. And "The visualization tool" is to show the result of evaluation by 3 D graphics easy to understand complicated information.  To evaluate proposed tools, experiment to make prototype was conducted and the results indicate that the proposed approach has possibility to help designer and multi-disciplinary team to consider user experience for user centered design.
-x=1582.10111595364
-y=325.101781930402
-orientation=2.58831180705122
-zIndex=58996
+keywords=command composition, crossing based interfaces, fluid interaction, pen-computing
+abstract=We introduce CrossY, a simple drawing application developed as a benchmark to demonstrate the feasibility of goal-crossing as the basis for a graphical user interface. While crossing was previously identified as a potential substitute for the classic point-and-click interaction, this work is the first to report on the practical aspects of implementing an interface solely based on goal-crossing.
+zIndex=62286
+x=1692
+y=247
+orientation=0
+zIndex=76
+}
+
+Entry{
+author=Baraff, D., Witkin, A., Kass, M.
+title=An introduction to physically based modeling: particle system dynamics
+booktitle=SIGGRAPH Course Notes
+series=SIGGRAPH Course Notes '97
+year=1997
+abstract=Physically based modeling has become an important new approach to computer animation and computer graphics modeling. Although physically based modeling is inherently a mathematical subject, the math involved needn’t be any more difficult nor esoteric than the math that underlies many other areas of computer graphics, such as ray tracing or surface modeling. Many papers on the subject have presupposed a specialized mathematical background that many members of the computer graphics community lack. Consequently, many capable computer graphics practitioners, despite their interest in the subject, have simply been put off by the density of the math. This course addresses the need to make the principles and methods of physically based modeling accessible to a broader computer graphics audience—those who are familiar with mainstream computer graphics and have the usual basic computer graphics math, such as vector/matrix manipulations, but whose first year calculus course may be only dimly remem-bered. Course topics include modeling the dynamics of particle systems and rigid bodies, basic numerical methods for differential equations, simulation of deformable surfaces, collision detection, modeling energy functions and hard constraints, and the dynamics of collision and contact.
+zIndex=62287
+x=1692
+y=237
+orientation=0
+zIndex=77
+}
+
+Entry{
+author=Bartram, L.
+booktitle=Systems, Man, and Cybernetics, 1997. Computational Cybernetics and Simulation., 1997 IEEE International Conference on
+title=Can motion increase user interface bandwidth in complex systems?
+year=1997
+volume=2
+abstract=Current user interfaces to complex systems suffer from data displays which are increasingly cumbersome since the representation techniques exceed the human's perceptual capacity to efficiently interpret them. New display dimensions are required to support the user in integrating and relating information across displays and representations. Advances in technology have made animation a viable alternative. Motion holds promise as a perceptually rich and efficient display dimension but little is known about its properties for information display. We summarize types of movement characterization from diverse disciplines and proposes an initial taxonomy of motion properties and application to serve as a framework for further empirical investigation into motion as a useful display dimension
+keywords=computer animation;graphical user interfaces;human factors;animation;complex systems;data displays;display dimensions;information display;motion;movement characterization;perceptual capacity;user interface bandwidth;Animation;Bandwidth;Computer displays;Data visualization;Graphics;Laboratories;Large screen displays;Multimedia systems;Taxonomy;User interfaces
+ISSN=1062-922X
+zIndex=62288
+x=1692
+y=277
+orientation=0
+zIndex=78
+}
+
+Entry{
+author=Bauer, Dan and Fastrez, Pierre and Hollan, Jim
+title=Computationally-Enriched 'Piles' for Managing Digital Photo Collections
+booktitle=Proceedings of the 2004 IEEE Symposium on Visual Languages - Human Centric Computing
+series=VLHCC '04
+year=2004
+numpages=3
+abstract=We explore and extend the metaphor of "piles" to include computationally-enriched piles, portable regions of automation in Dynapad, a multiscale workspace. We describe these collection-management tools and how their design was informed by observing people organizing collections of personal digital photographs.
+zIndex=62289
+x=1692
+y=307
+orientation=0
+zIndex=79
+}
+
+Entry{
+author=Beaudouin-Lafon, Michel
+title=Novel interaction techniques for overlapping windows
+booktitle=Proceedings of the 14th annual ACM symposium on User interface software and technology
+series=UIST '01
+year=2001
+numpages=2
+keywords=interaction technique, window management
+abstract=This note presents several techniques to improve window management with overlapping windows: tabbed windows, turning and peeling back windows, and snapping and zipping windows.
+zIndex=62290
+x=1692
+y=317
+orientation=0
+zIndex=80
+}
+
+Entry{
+author=Bederson, Benjamin B. and Hollan, James D.
+title=Pad++: a zooming graphical interface for exploring alternate interface physics
+booktitle=Proceedings of the 7th annual ACM symposium on User interface software and technology
+series=UIST '94
+year=1994
+numpages=10
+keywords=authoring, hypertext, information navigation, information physics, information visualization, interactive user interfaces, multiscale interfaces, zooming interfaces
+abstract=We describe the current status of Pad++, a zooming graphical interface that we are exploring as an alternative to traditional window and icon-based approaches to interface design. We discuss the motivation for Pad++, describe the implementation, and present prototype applications. In addition, we introduce an informational physics strategy for interface design and briefly compare it with metaphor-based design strategies.
+zIndex=62291
+x=1692
+y=347
+orientation=0
+zIndex=81
+}
+
+Entry{
+author=Bell, Blaine and Feiner, Steven and H\" o llerer, Tobias
+title=View management for virtual and augmented reality
+booktitle=Proceedings of the 14th annual ACM symposium on User interface software and technology
+series=UIST '01
+year=2001
+numpages=10
+keywords=annotation, augmented reality, environment management, labeling, view management, virtual environments, wearable computing
+abstract=We describe a view-management component for interactive 3D user interfaces. By view management, we mean maintaining visual constraints on the projections of objects on the view plane, such as locating related objects near each other, or preventing objects from occluding each other. Our view-management component accomplishes this by modifying selected object properties, including position, size, and transparency, which are tagged to indicate their constraints. For example, some objects may have geometric properties that are determined entirely by a physical simulation and which cannot be modified, while other objects may be annotations whose position and size are flexible.We introduce algorithms that use upright rectangular extents to represent on the view plane a dynamic and efficient approximation of the occupied space containing the projections of visible portions of 3D objects, as well as the unoccupied space in which objects can be placed to avoid occlusion. Layout decisions from previous frames are taken into account to reduce visual discontinuities. We present augmented reality and virtual reality examples to which we have applied our approach, including a dynamically labeled and annotated environment.
+zIndex=62292
+x=1692
+y=367
+orientation=0
+zIndex=82
+}
+
+Entry{
+author=Gonzalez, Cleotilde
+title=Does animation in user interfaces improve decision making?
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '96
+year=1996
+numpages=8
+keywords=animation, decision making
+abstract=This paper reports a laboratory experiment that investigated the relative effects of images, transitions, and interactivity styles used in animated interfaces in two decision making domains. Interfaces used either realistic or abstract images, smooth or abrupt transitions, and parallel or sequential interactivity. Results suggest that decision making performance is influenced by the task domain, the user experience, the image, transition, and interactivity styles used in animated interfaces. Subjects performed better with animated interfaces based on realistic rather than abstract images. Subjects were more accurate with smooth rather than abrupt animation. Subjects were more accurate and enjoyed more the animation with parallel rather than sequential interactivity. Implications on the design of animated interfaces for decision making are provided.
+zIndex=65390
+x=1207
+y=235
+orientation=0
+zIndex=83
+}
+
+Entry{
+author=Herndon, Kenneth P. and Zeleznik, Robert C. and Robbins, Daniel C. and Conner, D. Brookshire and Snibbe, Scott S. and van Dam, Andries
+title=Interactive shadows
+booktitle=Proceedings of the 5th annual ACM symposium on User interface software and technology
+series=UIST '92
+year=1992
+numpages=6
+keywords=3D widgets, direct manipulation, interactive systems
+abstract=It is often difficult in computer graphics applications to understand spatial relationships between objects in a 3D scene or effect changes to those objects without specialized visualization and manipulation techniques. We present a set of three-dimensional tools (widgets) called “shadows” that not only provide valuable perceptual cues about the spatial relationships between objects, but also provide a direct manipulation interface to constrained transformation techniques. These shadow widgets provide two advances over previous techniques. First, they provide high correlation between their own geometric feedback and their effects on the objects they control. Second, unlike some other 3D widgets, they do not obscure the objects they control.
+zIndex=65391
+x=1207
+y=285
+orientation=0
+zIndex=84
+}
+
+Entry{
+author=Hinckley, Ken and Baudisch, Patrick and Ramos, Gonzalo and Guimbretiere, Francois
+title=Design and analysis of delimiters for selection-action pen gesture phrases in scriboli
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '05
+year=2005
+numpages=10
+keywords=delimiters, gestures, marking, pen input, tablets
+abstract=We present a quantitative analysis of delimiters for pen gestures. A delimiter is "something different" in the input stream that a computer can use to determine the structure of input phrases. We study four techniques for delimiting a selection-action gesture phrase consisting of lasso selection plus marking-menu-based command activation. Pigtail is a new technique that uses a small loop to delimit lasso selection from marking (Fig. 1). Handle adds a box to the end of the lasso, from which the user makes a second stroke for marking. Timeout uses dwelling with the pen to delimit the lasso from the mark. Button uses a button press to signal when to delimit the gesture. We describe the role of delimiters in our Scriboli pen interaction testbed, and show how Pigtail supports scope selection, command activation, and direct manipulation all in a single fluid pen gesture.
+zIndex=65392
+x=1207
+y=285
+orientation=0
+zIndex=85
+}
+
+Entry{
+author=M. S. T. Carpendale and D.J. Cowperthwaite and M. Tigges and A. Fall and F. D. Fracchia
+title=The Tardis: A Visual Exploration Environment for Landscape Dynamics
+year=1999
+keywords=Multi-scale Views, Detail-in-Context, Viewing Algorithms, Information Visualization, Multi-dimensional Data
+abstract=This paper presents the creation of a a visual environment for exploring landscape patterns and changes to such patterns over time. Dynamic landscape patterns can involve both spatial and temporal complexity. Exploration of spatio-temporal landscape patterns should provide the ability to view information at dierent scales to permit navigation of a vast amount of information in a manner that facilitates comprehension rather than confusion. One way of achieving this goal is to support selection, navigation and comparison of progressively rened segments of time and space. We have entitled this system Tardis after the time machine of Dr. Who, to emphasize the exploration of time dependent data and because our use of elastic presentation has the eect of providing more internal space than the external volume suggests. Of special concern in this research is the extent of the data and its inter-relationships that need to be understood over multiple scales, and the challenge inherent in implementing viewing methods to facilitate understanding
+zIndex=65393
+x=1207
+y=325
+orientation=0
+zIndex=86
+}
+
+Entry{
+author=Mander, Richard and Salomon, Gitta and Wong, Yin Yin
+title=A \“pile\” metaphor for supporting casual organization of information
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '92
+year=1992
+numpages=8
+keywords=design process, desktop metaphor, end-user programming, information organization, information visualization, interactive systems, interface design, interface metaphors, pile metaphor, user observation
+abstract=A user study was conducted to investigate how people deal with the flow of information in their workspaces. Subjects reported that, in an attempt to quickly and informally manage their information, they created piles of documents. Piles were seen as complementary to the folder filing system, which was used for more formal archiving. A new desktop interface element–the pile– was developed and prototyped through an iterative process. The design includes direct manipulation techniques and support for browsing, and goes beyond physical world functionality by providing system assistance for automatic pile construction and reorganization. Preliminary user tests indicate the design is promising and raise issues that will be addressed in future work.
+zIndex=65394
+x=1207
+y=325
+orientation=0
+zIndex=87
+}
+
+Entry{
+author=Michael Mcguffin and Nicolas Burtnyk and Gordon Kurtenbach and King Street
+title=FaST Sliders: Integrating marking menus and the adjustment of continuous values. Graphics Interface
+booktitle=GI 2002 Conference Proceedings
+year=2002
+abstract=We propose a technique, called FaST Sliders, for selecting and adjusting continuous values using a fast, transient interaction much like pop-up menus. FaST Sliders combine marking menus and graphical sliders in a design that allows operation with quick ballistic movements for selection and coarse adjustment. Furthermore, additional controls can be displayed within the same interaction, for fine adjustments or other functions. We describe the design of FaST Sliders and a user study comparing FaST Sliders to other transient techniques. The results of our user study indicate that FaST Sliders hold potential. We observed that users found FaST Slider easy to learn and made use of and preferred its affordances for ballistic movement and additional controls.
+zIndex=65395
+x=1207
+y=345
+orientation=0
+zIndex=88
+}
+
+Entry{
+author=Sellen, Abigail J. and Harper, Richard H.R.
+title=The Myth of the Paperless Office
+year=2003
+zIndex=65396
+x=1207
+y=325
+orientation=0
+zIndex=89
+}
+
+Entry{
+author=Sonnet, Henry and Carpendale, Sheelagh and Strothotte, Thomas
+title=Integrating expanding annotations with a 3D explosion probe
+booktitle=Proceedings of the working conference on Advanced visual interfaces
+series=AVI '04
+year=2004
+numpages=8
+keywords=3D model exploration, expanding annotations, explosion diagram, interaction design
+abstract=Understanding complex 3D virtual models can be difficult, especially when the model has interior components not initially visible and ancillary text. We describe new techniques for the interactive exploration of 3D models. Specifically, in addition to traditional viewing operations, we present new text extrusion techniques combined with techniques that create an interactive explosion diagram. In our approach, scrollable text annotations that are associated with the various parts of the model can be revealed dynamically, either in part or in full, by moving the mouse cursor within annotation trigger areas. Strong visual connections between model parts and the associated text are included in order to aid comprehension. Furthermore, the model parts can be separated, creating interactive explosion diagrams. Using a 3D probe, occluding objects can be interactively moved apart and then returned to their initial locations. Displayed annotations are kept readable despite model manipulations. Hence, our techniques provide textual context within the spatial context of the 3D model.
+zIndex=65397
+x=1207
+y=385
+orientation=0
+zIndex=90
+}
+
+Entry{
+author=Woods, David D.
+title=Visual momentum:  a concept to improve the cognitive coupling of person and computer
+journal=Int. J. Man-Mach. Stud.
+issue_date=Sept. 1984
+volume=21
+number=3
+month=sep
+year=1984
+numpages=16
+abstract=Computer display system users must integrate data across successive displays. This problem of across-display processing is analogous to the question of how the visual system combines data across successive glances (fixations). Research from cognitive psychology on the latter question is used in order to formulate guidelines for the display designer. The result is a new principle of person-computer interaction, visual momentum, which captures knowledge about the mechanisms that support the identification of “relevant” data in human perception so that display system design can support an effective distribution of user attention. The negative consequences of low visual momentum on user performance are described, and display design techniques are presented to improve user across-display information extraction.
+zIndex=72684
+x=906
+y=841
+orientation=0
+zIndex=91
+}
+
+Entry{
+author=Yatani, Koji and Tamura, Koiti and Hiroki, Keiichi and Sugimoto, Masanori and Hashizume, Hiromichi
+title=Toss-it: intuitive information transfer techniques for mobile devices
+booktitle=CHI '05 Extended Abstracts on Human Factors in Computing Systems
+series=CHI EA '05
+year=2005
+numpages=4
+keywords=gesture recognition, information transfer, location recognition, mobile devices
+abstract=In recent years, mobile devices have rapidly penetrated into our daily lives. However, several drawbacks of mobile devices have been mentioned so far. The proposed system called Toss-It provides intuitive information transfer techniques for mobile devices, by fully utilizing their mobility. A user of Toss-It can send information from the user's PDA to other electronic devices with a toss or swing action, as the user would toss a ball or deal cards to others. This paper describes the current implementation of Toss-It and its user studies.
+zIndex=72685
+x=906
+y=891
+orientation=0
+zIndex=92
+}
+
+Entry{
+author=Grossman, Tovi and Balakrishnan, Ravin and Kurtenbach, Gordon and Fitzmaurice, George and Khan, Azam and Buxton, Bill
+title=Interaction techniques for 3D modeling on large displays
+booktitle=Proceedings of the 2001 symposium on Interactive 3D graphics
+series=I3D '01
+year=2001
+numpages=7
+keywords=3D modeling, interaction techniques, large scale displays, tape drawing, two-handed input
+abstract=We present an alternate interface for 3D modeling for use on large scale displays. The interface integrates several concepts specifically selected and enhanced for large scale interaction. These include 2D construction planes spatially integrated in a 3D volume, enhanced orthographic views, smooth transitions between 2D and 3D views, tape drawing as the primary curve and line creation technique, visual viewpoint markers, and continuous twohanded interaction.
+zIndex=88623
+x=1686
+y=786
+orientation=0
+zIndex=93
+}
+
+Entry{
+author=Miller, Lynn
+title=Case Study of Customer Input For a Successful Product
+booktitle=Proceedings of the Agile Development Conference
+series=ADC '05
+year=2005
+numpages=10
+abstract=Both agile development and User Centered Design stress collaboration between customers and product teams, but getting these methodologies to work well together is not easy. This paper describes one company's efforts to merge these processes by creating interconnected parallel design and development tracks. The benefits of this approach are demonstrated by showing how, when and why customer input was incorporated during the release of a successful software product.
+zIndex=88624
+x=1686
+y=786
+orientation=0
+zIndex=94
+}
+
+Entry{
+author=Thorne, Matthew and Burke, David and van de Panne, Michiel
+title=Motion doodles: an interface for sketching character motion
+booktitle=ACM SIGGRAPH 2004 Papers
+series=SIGGRAPH '04
+year=2004
+numpages=8
+keywords=Animation, Computer Puppetry, Gestural Interfaces, Sketching
+abstract=In this paper we present a novel system for sketching the motion of a character. The process begins by sketching a character to be animated. An animated motion is then created for the character by drawing a continuous sequence of lines, arcs, and loops. These are parsed and mapped to a parameterized set of output motions that further reflect the location and timing of the input sketch. The current system supports a repertoire of 18 different types of motions in 2D and a subset of these in 3D. The system is unique in its use of a cursive motion specification, its ability to allow for fast experimentation, and its ease of use for non-experts.
+zIndex=88625
+x=1686
+y=806
+orientation=0
+zIndex=95
+}
+
+Entry{
+author=C. Tristram
+title=The Next Computer Interface
+journal=MIT Technology Review Magazine
+year=2001
+month=dec
+abstract=“The desktop is dead,” declares David Gelernter. Gelernter is referring to the “desktop metaphor”-the term frequently used for the hierarchical system of files, folders and icons that we use to manage information stored on our home or office computers. At the annual gathering of technophiles at TechXNY/PC Expo 2001 in New York last June, he told the rapt crowd attending his keynote speech that the desktop metaphor is nothing more than virtual Tupperware. “Our electronic documents are scattered by the thousands in all sorts of little containers all over the place,” he said. “The more information and the more computers in our lives, the more of a nuisance this system becomes.”
+zIndex=91651
+x=1312
+y=726
+orientation=0
+zIndex=96
+}
+
+Entry{
+author=Forlines, Clifton and Shen, Chia and Buxton, Bill
+title=Glimpse: a novel input model for multi-level devices
+booktitle=CHI '05 Extended Abstracts on Human Factors in Computing Systems
+series=CHI EA '05
+year=2005
+numpages=4
+keywords=direct manipulation, navigation, pressure sensitive input, stylus, three-state input, touch screens, undo
+abstract=We describe a technique that supports the previewing of navigation, exploration, and editing operations by providing convenient Undo for unsuccessful and/or undesirable actions on multi-level input devices such as touch screens and pen-based computers. By adding a Glimpse state to traditional three-state pressure sensitive input devices, users are able to preview the effects of their editing without committing to them. From this Glimpse state, users can undo their action as easily as they can commit to it, making Glimpse most appropriate for systems in which the user is likely to try out many variations of an edit before finding the right one. Exploration is encouraged as the cumbersome returning to a menu or keyboard to issue an Undo command is eliminated. Glimpse has the added benefits that the negative effects of inconsistencies in the Undo feature within an application are reduced.
+zIndex=91652
+x=1312
+y=776
+orientation=0
+zIndex=97
+}
+
+Entry{
+author=Kurtenbach, Gordon and Buxton, William
+title=The limits of expert performance using hierarchic marking menus
+booktitle=Proceedings of the INTERACT '93 and CHI '93 Conference on Human Factors in Computing Systems
+series=CHI '93
+year=1993
+numpages=6
+keywords=accelerators, gestures, input devices, marking menus, pen based input, pie menus
+abstract=A marking menu allows a user to perform a menu selection by either popping-up a radial (or pie) menu, or by making a straight mark in the direction of the desired menu item without popping-up the menu. A hierarchic marking menu uses hierarchic radial menus and “zig-zag” marks to select from the hierarchy. This paper experimentally investigates the bounds on how many items can be in each level, and how deep the hierarchy can be, before using a marking to select an item becomes too slow or prone to errors.
+zIndex=91653
+x=1312
+y=796
+orientation=0
+zIndex=98
+}
+
+Entry{
+author=Kurtenbach, Gordon and Buxton, William
+title=Issues in combining marking and direct manipulation techniques
+booktitle=Proceedings of the 4th annual ACM symposium on User interface software and technology
+series=UIST '91
+year=1991
+numpages=8
+abstract=The direct manipulation paradigm has been effective in helping designers create easy to use mouse and keyboard based interfaces. The development of flat display surfaces and transparent tablets are now making possible interfaces where a user can write directly on the screen using a special stylus. The intention of these types of interfaces is to exploit user’s existing handwriting, mark-up and drawing skills while also providing the benefits of direct manipulation. This paper reports on a test bed program which we are using for exploring hand-marking types of interactions and their integration with direct manipulation interactions.
+zIndex=91654
+x=1312
+y=816
+orientation=0
+zIndex=99
+}
+
+Entry{
+author=McGuffin, M.J. and Tancau, L. and Balakrishnan, R.
+booktitle=Visualization, 2003. VIS 2003. IEEE
+title=Using deformations for browsing volumetric data
+year=2003
+abstract=Many traditional techniques for "looking inside" volumetric data involve removing portions of the data, for example using various cutting tools, to reveal the interior. This allows the user to see hidden parts of the data, but has the disadvantage of removing potentially important surrounding contextual information. We explore an alternate strategy for browsing that uses deformations, where the user can cut into and open up, spread apart, or peel away parts of the volume in real time, making the interior visible while still retaining surrounding context. We consider various deformation strategies and present a number of interaction techniques based on different metaphors. Our designs pay special attention to the semantic layers that might compose a volume (e.g. the skin, muscle, bone in a scan of a human). Users can apply deformations to only selected layers, or apply a given deformation to a different degree to each layer, making browsing more flexible and facilitating the visualization of relationships between layers. Our interaction techniques are controlled with direct, "in place" manipulation, using pop-up menus and 3D widgets, to avoid the divided attention and awkwardness that would come with panels of traditional widgets. Initial user feedback indicates that our techniques are valuable, especially for showing portions of the data spatially situated in context with surrounding data.
+keywords=data visualisation;graphical user interfaces;rendering (computer graphics);solid modelling;3D widgets;image deformation;interaction techniques;pop-up menu;semantic layers;spatial data;volumetric data browsing;Bones;Chromium;Computer graphics;Computer science;Cutting tools;Data visualization;Feedback;Humans;Muscles;Skin
+zIndex=91655
+x=1312
+y=826
+orientation=0
+zIndex=100
+}
+
+Entry{
+author=Pook, Stuart and Lecolinet, Eric and Vaysseix, Guy and Barillot, Emmanuel
+title=Control menus: excecution and control in a single interactor
+booktitle=CHI '00 Extended Abstracts on Human Factors in Computing Systems
+series=CHI EA '00
+year=2000
+numpages=2
+keywords=gestures, interaction, interactors, marking menus, menu access, user interface design, zoomable user interfaces
+abstract=We propose a new type of contextual pop-up menu called a control menu. These menus combine the selection of an operation and the control of this operation. They integrate up to two scroll bars or spin-boxes and thus allow users to keep their attention focused on the menu during the operation. Control menus can have sub-menus, and also retain the novice and expert modes of use found in marking menus. We describe control menus and how they are useful in different types of user interfaces. A program incorporating our control menus can be tested at http://www.infobiogen.fr/services/zomit/.
+zIndex=91656
+x=1312
+y=856
+orientation=0
+zIndex=101
+}
+
+Entry{
+author=Ramos, Gonzalo and Boulos, Matthew and Balakrishnan, Ravin
+title=Pressure widgets
+booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+series=CHI '04
+year=2004
+numpages=8
+keywords=isometric input, pen-based interfaces, pressure input, pressure widgets
+abstract=Current user interface widgets typically assume that the input device can only provide x-y position and binary button press information. Other inputs such as the continuous pressure data provided by styluses on tablets are rarely used. We explore the design space of using the continuous pressure sensing capabilities of styluses to operate multi-state widgets. We present the results of a controlled experiment that investigates human ability to perform discrete target selection tasks by varying a stylus' pressure, with full or partial visual feedback. The experiment also considers different techniques for confirming selection once the target is acquired. Based on the experimental results, we discuss implications for the design of pressure sensitive widgets. A taxonomy of pressure widgets is presented, along with a set of initial concept sketches of various pressure widget designs.
+zIndex=91657
+x=1312
+y=866
+orientation=0
+zIndex=102
 }
 
 Entry{
@@ -304,189 +537,103 @@ year=2001
 numpages=21
 keywords=archiving, document management, filing, information retrieval, paper, personal information management
 abstract=We explored general issues concerning personal information management by investigating the characteristics of office workers' paper-based information, in an industrial research environment. we examined the reasons people collect paper, types of data they collect, problems encountered in handling paper, and strategies used for processing it. We tested three specific hypotheses in the course of an office move. The greater availability of public digital data along with changes in people's jobs or interests should lead to wholescale discarding of paper data, while preparing for the move. Instead we found workers kept large, highly valued papar archives. We also expected that the major part of people's personal archives would be unique documents. However, only 49% of people's archives were unique documents, the remainder being copies of publicly available data and unread information, and we explore reasons for this. We examined the effects of paper-processing strategies on archive structure. We discovered different paper-processing strategies (filing and piling)that were relatively independent of job type. We predicated that filers' attempted to evaluate and catergorize incoming documents would produce smaller archives that were accessed frequently. Contrary to our predictions, filers amassed more information, and accessed it less frequently than pilers. We argue that filers may engage in premature filing: to clear their workspace, they archives information that later turns out to be of low value. Given the effort involved in organzing data, they are also loath to discard filed information, even when its value is uncertain. We discuss the implications of this research for digital personal information management.
-x=446.354766337823
-y=313.825398480097
-orientation=308.483721108981
-zIndex=64113
-}
-
-Entry{
-author=Vogt, Florian and Chen, Timothy and Hoskinson, Reynald and Fels, Sidney
-title=A malleable surface touch interface
-booktitle=ACM SIGGRAPH 2004 Sketches
-series=SIGGRAPH '04
-year=2004
-abstract=Many conventional whole-hand input devices capture interaction by means of non-contact methods or through some physical medium. Such physical interfaces often involve contact of the hands and fingers with a hard, unyielding surface. In this sketch, we propose an input device that captures whole-hand input through a malleable medium. Its deformability and inherent feedback characteristics make it suitable for sculpting and molding applications.
-x=1100.54052275419
-y=413.828633811325
+zIndex=91658
+x=1312
+y=876
 orientation=0
-zIndex=71232
+zIndex=103
 }
 
 Entry{
-author=Accot, Johnny and Zhai, Shumin
-title=More than dotting the i's --- foundations for crossing-based interfaces
-booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
-series=CHI '02
-year=2002
-numpages=8
-keywords=Fitts' law, events, goal crossing, goal passing, graphical user interfaces, input, input performance, interaction techniques, pointing, widgets
-abstract=Today's graphical interactive systems largely depend upon pointing actions, i.e. entering an object and selecting it. In this paper we explore whether an alternate paradigm --- crossing boundaries --- may substitute or complement pointing as another fundamental interaction method. We describe an experiment in which we systematically evaluate two target-pointing tasks and four goal-crossing tasks, which differ by the direction of the movement variability constraint (collinear vs. orthogonal) and by the nature of the action (pointing vs. crossing, discrete vs. continuous). We found that participants' temporal performance in each of the six tasks was dependent on the index of difficulty formulated in the same way as in Fitts' law, but that the parameters differ by task. We also found that goal crossing completion time was shorter or no longer than pointing performance under the same index of difficulty. These regularities, as well as qualitative characterizations of crossing actions and their application in HCI, lay the foundation for designing crossing-based user interfaces.
-x=946.540766894817
-y=300.828633811325
-orientation=0
-zIndex=72890
-}
-
-Entry{
-author=Findlater, Leah and McGrenere, Joanna
-title=Impact of screen size on performance, awareness, and user satisfaction with adaptive graphical user interfaces
-booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
-series=CHI '08
-year=2008
+author=Carpendale, M. S. T. and Montagnese, Catherine
+title=A framework for unifying presentation space
+booktitle=Proceedings of the 14th annual ACM symposium on User interface software and technology
+series=UIST '01
+year=2001
 numpages=10
-keywords=adaptive interfaces, interaction techniques, menu design, personalization, small screen devices, user study
-abstract=Adaptive personalization, where the system adapts the interface to a user's needs, has the potential for significant performance benefits on small screen devices. However, research on adaptive interfaces has almost exclusively focused on desktop displays. To explore how well previous findings generalize to small screen devices, we conducted a study with 36 subjects to compare adaptive interfaces for small and desktop-sized screens. Results show that high accuracy adaptive menus have an even larger positive impact on performance and satisfaction when screen real estate is constrained. The drawback of the high accuracy menus, however, is that they reduce the user's awareness of the full set of items in the interface, potentially making it more difficult for users to learn about new features.
-x=946.540766894817
-y=330.828633811325
+keywords=3D interactions, Distortion viewing, information visualization, interface design issues, interface metaphors, screen layout
+abstract=Making effective use of the available display space has long been a fundamental issue in user interface design. We live in a time of rapid advances in available CPU power and memory. However, the common sizes of our computational display spaces have only minimally increased or in some cases, such as hand held devices, actually decreased. In addition, the size and scope of the information spaces we wish to explore are also expanding. Representing vast amounts of information on our relatively small screens has become increasingly problematic and has been associated with problems in navigation, interpretation and recognition. User interface research has proposed several differing presentation approaches to address these problems. These methods create displays that vary considerably, visually and algorithmically. We present a unified framework that provides a way of relating seemingly distinct methods, facilitating the inclusion of more than one presentation method in a single interface. Furthermore, it supports extrapolation between the presentation methods it describes. Of particular interest are the presentation possibilities that exist in the ranges between various distortion presentations, magnified insets and detail-in-context presentations, and between detail-in-context presentations and a full-zooming environment. This unified framework offers a geometric presentation library in which presentation variations are available independently of the mode of graphic representation. The intention is to promote the ease of exploration and experimentation into the use of varied presentation combinations.
+zIndex=94337
+x=800
+y=259
 orientation=0
-zIndex=72891
+zIndex=104
 }
 
 Entry{
-author=Jin, Zhao Xia and Plocher, Tom and Kiff, Liana
-title=Touch screen user interfaces for older adults: button size and spacing
-booktitle=Proceedings of the 4th international conference on Universal access in human computer interaction: coping with diversity
-series=UAHCI'07
-year=2007
-numpages=9
-keywords=older adults, touch screen, usability, user interface design
-abstract=This study investigated the optimal button size and spacing for touch screen user interfaces intended for use by older adults. Current recommendations in the literature are aimed at general audiences and fail to consider the specific needs of older adults. Three independent variables, button size, button spacing, and manual dexterity were studied in two experiments that measured reaction time, accuracy and user preferences. Design recommendations for touch screen button size and spacing for older adults are stated based on these experiments. The paper also discusses the role of manual dexterity in designing appropriate touch screen interfaces for older adults.
-x=946.540766894817
-y=360.828633811325
+author=Chang, Bay-Wei and Ungar, David
+title=Animation: from cartoons to the user interface
+booktitle=Proceedings of the 6th annual ACM symposium on User interface software and technology
+series=UIST '93
+year=1993
+numpages=11
+keywords=Self, animation, cartoons, motion blur, user interfaces
+abstract=User interfaces are often based on static presentations, a model ill suited for conveying change. Consequently, events on the screen frequently startle and confuse users. Cartoon animation, in contrast, is exceedingly successful at engaging its audience; even the most bizarre events are easily comprehended. The Self user interface has served as a testbed for the application of cartoon animation techniques as a means of making the interface easier to understand and more pleasant to use. Attention to timing and transient detail allows Self objects to move solidly. Use of cartoon-style motion blur allows Self objects to move quickly and still maintain their comprehensibility. Self objects arrive and depart smoothly, without sudden materializations and disappearances, and they rise to the front of overlapping objects smoothly through the use of dissolve. Anticipating motion with a small contrary motion and pacing the middle of transitions faster than the endpoints results in smoother and clearer movements. Despite the differences between user interfaces and cartoons --cartoons are frivolous, passive entertainment and user interfaces are serious, interactive tools -- cartoon animation has much to lend to user interfaces to realize both affective and cognitive benefits. *This work was originally supported by Sun Microsystems Laboratories, an NSF Graduate Fellowship, National Science Foundation Presidential Young Investigator Grant #CCR-8657631, IBM Powell Foundation, Apple Computer, Inc., Cray Laboratories, Tandem, NCR Corporation, Texas Instruments, Inc., and Digital Equipment Corporation.
+zIndex=94338
+x=800
+y=269
 orientation=0
-zIndex=72892
+zIndex=105
 }
 
 Entry{
-author=Kristensson, Per Ola and Arnell, Olof and Bj\" o rk, Annelie and Dahlb\" a ck, Nils and Pennerup, Joackim and Prytz, Erik and Wikman, Johan and \AAstr\" o m, Niclas
-title=InfoTouch: an explorative multi-touch visualization interface for tagged photo collections
-booktitle=Proceedings of the 5th Nordic conference on Human-computer interaction: building bridges
-series=NordiCHI '08
-year=2008
+author=Czerwinski, Mary P.;  Van Dantzich,Maarten; Robertson,George; Hoffman,Hunter
+title=The Contribution of Thumbnail Image, Mouse-over Text and Spatial Location Memory to Web Page Retrieval in 3D
+booktitle= 
+year=1999
+abstract=We present an empirical evaluation of the contribution of pictorial image and spatial location information on the retrieval of previously stored web pages. Subjects were given 100 snapshots of web pages that they stored in spatial locations on an inclined plane in a desktop 3D environment (Data Mountain). We had them return and try to retrieve their pages again, using a variety of retrieval cues. Even though users had not seen their web page layout for several months, their retrieval times were not significantly slower. In addition, on half of the trials, stored pages were not presented as thumbnail images of the web pages but as blank icons. Taking the pictorial thumbnail images away initially led to a significant drop in subjects’ ability to find the pages, although within a short period of time subjects were able to find the pages equally fast without the thumbnail information. These results indicate that the use of 3D visualization techniques such as those described in this paper can lead to improved user memory for where favorite or frequently used information is stored in an electronic environment.
+zIndex=94339
+x=800
+y=299
+orientation=0
+zIndex=106
+}
+
+Entry{
+author=Denoue, Laurent and Nelson, Les and Churchill, Elizabeth
+title=A fast, interactive 3D paper-flier metaphor for digital bulletin boards
+booktitle=Proceedings of the 16th annual ACM symposium on User interface software and technology
+series=UIST '03
+year=2003
 numpages=4
-keywords=information visualization, interaction surfaces, multi-touch, photo browsing, photo collections, tag clouds, tagging, tags, visualization
-abstract=We report on a design exploration into how a large multi-touch tabletop display can be used for information visualization. We designed an interface where users explored a tagged photo collection by bi-manual manipulation of the collections' tag cloud. User feedback showed that despite the availability of multi-touch most of the actual interactions were single-touch. However, some particular natural actions, such as grabbing the tag cloud and partitioning it into two parts, were often carried with both hands. Thus our user study indicates that multi-touch can act as a useful complementary interaction method in information visualization interfaces.
-x=946.540766894817
-y=410.828633811325
+keywords=real-time animated user interfaces, 3D simulation of paper fliers, digital bulletin boards
+abstract=We describe a novel interface for presenting interactive content on public digital bulletin boards.  Inspired by paper fliers on physical bulletin boards, bosted content is displayed using 3D virtual fliers attached to a virtual corkboard by virtual corkboard by virtual pushpins.  Fliers appear in different orientations, creating an attractive informal look, and have autonomous behaviours like fluttering in the wind.  Passers-by can rotate, move and fold fliers; they can also interact with fliers' live content.  Flier content is streamed from a server and represented by the system on large screen displays using a real-time cloth simulation algorithm.  We describe our prototype and offer the results of an initial evaluative user study.
+zIndex=94340
+x=800
+y=319
 orientation=0
-zIndex=72893
+zIndex=107
 }
 
 Entry{
-author=Motamedi, Nima
-title=Keep in touch: a tactile-vision intimate interface
-booktitle=Proceedings of the 1st international conference on Tangible and embedded interaction
-series=TEI '07
-year=2007
-numpages=2
-keywords=intimacy, sensorial interfaces, sensory mapping, tactile
-abstract=We present an overview of Keep in Touch, a networked fabric touchscreen designed to support and maintain intimacy for couples in long distance relationships. To achieve this, a novel sensorial interface was created by combining the visual and tactile senses together. Each partner is presented with a blurred digital projection of their lover. When they touch their partner's body, the image comes into focus revealing their features. We describe how this sensory mapping creates an expressive and emotional interface allowing couples to communicate through touch, gestures, and body language.
-x=946.540766894817
-y=380.828633811325
-orientation=0
-zIndex=72894
-}
-
-Entry{
-author=Piattini, Mario G. and Tigr \'e at, Herv \'e
-title=Applying the \“STUDIO\” method to the interface design of an environmental software system
-journal=SIGSOFT Softw. Eng. Notes
-issue_date=July 1997
-volume=22
-number=4
-month=jul
-year=1997
-numpages=3
-keywords=STUDIO, design method, interface-design
-abstract=This paper addresses the application of the STUDIO (STructured User-interface Design for Interaction Optimization) method to the user-interface development of an information system (called "HIMPPA") that allows the simulation of heavy-particle dispersion. This method has been proposed in 1994 by D.P. Browne. We have adapted and integrated it with an object-oriented design technique for the HIMPPA project (an ESPRIT-PASO Special Action).
-x=946.540766894817
-y=410.828633811325
-orientation=0
-zIndex=72895
-}
-
-Entry{
-author=Nacenta, Miguel A. and Sallam, Samer and Champoux, Bernard and Subramanian, Sriram and Gutwin, Carl
-title=Perspective cursor: perspective-based interaction for multi-display environments
-booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
-series=CHI '06
-year=2006
-numpages=10
-keywords=direct-manipulation interfaces, laser pointing, multi-display interaction techniques, multi-monitor environments
-abstract=Multi-display environments and smart meeting rooms are now becoming more common. These environments build a shared display space from variety of devices: tablets, projected surfaces, tabletops, and traditional monitors. Since the different display surfaces are usually not organized in a single plane, traditional schemes for stitching the displays together can cause problems for interaction. However, there is a more natural way to compose display space -- using perspective. In this paper, we develop interaction techniques for multi-display environments that are based on the user's perspective on the room. We designed the Perspective Cursor, a mapping of cursor to display space that appears natural and logical from wherever the user is located. We conducted an experiment to compare two perspective-based techniques, the Perspective Cursor and a beam-based technique, with traditional stitched displays. We found that both perspective techniques were significantly faster for targeting tasks than the traditional technique, and that Perspective Cursor was the most preferred method. Our results show that integrating perspective into the design of multi-display environments can substantially improve performance.
-x=1638.60163124645
-y=343.653896512311
-orientation=1.79338706474268
-zIndex=73270
-}
-
-Entry{
-author=Mander, Richard and Salomon, Gitta and Wong, Yin Yin
-title=A “pile” metaphor for supporting casual organization of information
-booktitle=Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
-series=CHI '92
-year=1992
+author=DiGioia, Paul and Dourish, Paul
+title=Social navigation as a model for usable security
+booktitle=Proceedings of the 2005 symposium on Usable privacy and security
+series=SOUPS '05
+year=2005
 numpages=8
-keywords=design process, desktop metaphor, end-user programming, information organization, information visualization, interactive systems, interface design, interface metaphors, pile metaphor, user observation
-abstract=A user study was conducted to investigate how people deal with the flow of information in their workspaces. Subjects reported that, in an attempt to quickly and informally manage their information, they created piles of documents. Piles were seen as complementary to the folder filing system, which was used for more formal archiving. A new desktop interface element–the pile– was developed and prototyped through an iterative process. The design includes direct manipulation techniques and support for browsing, and goes beyond physical world functionality by providing system assistance for automatic pile construction and reorganization. Preliminary user tests indicate the design is promising and raise issues that will be addressed in future work.
-x=1630.09520930328
-y=415.971855556045
-orientation=0.138245791892723
-zIndex=73271
+keywords=collaborative interfaces, peer-to-peer filesharing, social navigation, visualization
+abstract=As interest in usable security spreads, the use of visual approaches in which the functioning of a distributed system is made visually available to end users is an approach that a number of researchers have examined. In this paper, we discuss the use of the social navigation paradigm as a way of organizing visual displays of system action. Drawing on a previous study of security in the Kazaa peer to peer system, we present some examples of the ways in which social navigation can be incorporated in support of usable security.
+zIndex=94341
+x=800
+y=319
+orientation=0
+zIndex=108
 }
 
 Entry{
-author=Thorne, Matthew and Burke, David and van de Panne, Michiel
-title=Motion doodles: an interface for sketching character motion
-booktitle=ACM SIGGRAPH 2004 Papers
-series=SIGGRAPH '04
+author=Dragicevic, Pierre
+title=Combining crossing-based and paper-based interaction paradigms for dragging and dropping between overlapping windows
+booktitle=Proceedings of the 17th annual ACM symposium on User interface software and technology
+series=UIST '04
 year=2004
-numpages=8
-keywords=Animation, Computer Puppetry, Gestural Interfaces, Sketching
-abstract=In this paper we present a novel system for sketching the motion of a character. The process begins by sketching a character to be animated. An animated motion is then created for the character by drawing a continuous sequence of lines, arcs, and loops. These are parsed and mapped to a parameterized set of output motions that further reflect the location and timing of the input sketch. The current system supports a repertoire of 18 different types of motions in 2D and a subset of these in 3D. The system is unique in its use of a cursive motion specification, its ability to allow for fast experimentation, and its ease of use for non-experts.
-x=946.540766894817
-y=440.828633811325
+numpages=4
+keywords=crossing-based interfaces, drag-and-drop, gestural interaction, paper-based metaphors
+abstract=Despite novel interaction techniques proposed for virtual desktops, common yet challenging tasks remain to be investigated. Dragging and dropping between overlapping windows is one of them. The fold-and-drop technique presented here offers a natural and efficient way of performing those tasks. We show how this technique successfully builds upon several interaction paradigms previously described, while shedding new light on them.
+zIndex=94342
+x=800
+y=359
 orientation=0
-zIndex=73272
-}
-
-Entry{
-author=Shen, Chia
-title=From clicks to touches: enabling face-to-face shared social interface on multi-touch tabletops
-booktitle=Proceedings of the 2nd international conference on Online communities and social computing
-series=OCSC'07
-year=2007
-numpages=7
-abstract=Making the interactions with a digital user interface disappears into and becomes a part of the human to human interaction and conversation is a challenge. Conventional metaphor and underlying interface infrastructure for single-user desktop systems have been traditionally geared towards single mouse and keyboard, click-and-type based, WIMP interface design. On the other hand, people usually meet in social context around a table, facing each other. A table setting provides a large interactive visual and tangible surface. It affords and encourages collaboration, coordination, serendipity, as well as simultaneous and parallel interaction among multiple people. In this paper, we examine and explore the opportunities, challenges, research issues, pitfalls, and plausible approaches for enabling direct touchable, shared social interactions on multi-touch multi-user tabletops.
-x=946.540766894817
-y=440.828633811325
-orientation=0
-zIndex=73273
-}
-
-Entry{
-author=Poupyrev, Ivan and Maruyama, Shigeaki and Rekimoto, Jun
-title=Ambient touch: designing tactile interfaces for handheld devices
-booktitle=Proceedings of the 15th annual ACM symposium on User interface software and technology
-series=UIST '02
-year=2002
-numpages=10
-keywords=mobile devices and interfaces, tactile feedback
-abstract=This paper investigates the sense of touch as a channel for communicating with miniature handheld devices. We embedded a PDA with a TouchEngineTM --- a thin, miniature lower-power tactile actuator that we have designed specifically to use in mobile interfaces (Figure 1). Unlike previous tactile actuators, the TouchEngine is a universal tactile display that can produce a wide variety of tactile feelings from simple clicks to complex vibrotactile patterns. Using the TouchEngine, we began exploring the design space of interactive tactile feedback for handheld computers. Here, we investigated only a subset of this space: using touch as the ambient, background channel of interaction. We proposed a general approach to design such tactile interfaces and described several implemented prototypes. Finally, our user studies demonstrated 22% faster task completion when we enhanced handheld tilting interfaces with tactile feedback.
-x=1678.83331298828
-y=919
-orientation=6.43432757140909
-zIndex=73280
+zIndex=109
 }
 
