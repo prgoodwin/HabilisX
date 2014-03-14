@@ -86,7 +86,7 @@ namespace HabilisX
                 text = Utils.NewEmbededTextFile(path);
             }
             catch(System.ArgumentNullException e) {
-                Console.WriteLine("Embedded file came back null, trying a hard coded path...");
+                //Console.WriteLine("Embedded file came back null, trying a hard coded path...");
                 try
                 {
                     text = System.IO.File.ReadAllLines(path);
@@ -96,7 +96,7 @@ namespace HabilisX
                 }
             }
 
-            Console.WriteLine("Found file");
+            //Console.WriteLine("Found file");
             Entry entry = new Entry();
             int entries = 0;
             //foreach (String str in text)

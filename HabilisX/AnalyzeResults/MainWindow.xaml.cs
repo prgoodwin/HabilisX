@@ -64,10 +64,12 @@ namespace AnalyzeResults
                 if (dataset1.Contains(results.allEntries[1]))
                 {
                     cur = dataset1;
+                    Console.WriteLine("Dataset 1");
                 }
                 else
                 {
                     cur = dataset2;
+                    Console.WriteLine("Dataset 2");
                 }
 
 
