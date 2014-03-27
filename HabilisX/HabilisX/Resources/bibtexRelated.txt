@@ -360,7 +360,7 @@
 
 @article{Piattini:1997:ALM:263244.263268,
  author = {Piattini, Mario G. and Tigr{\'e}at, Herv{\'e}},
- title = {Applying the \“STUDIO\” method to the interface design of an environmental software system},
+ title = {Applying the 'STUDIO' method to the interface design of an environmental software system},
  journal = {SIGSOFT Softw. Eng. Notes},
  issue_date = {July 1997},
  volume = {22},

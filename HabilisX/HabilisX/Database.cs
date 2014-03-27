@@ -17,7 +17,7 @@ namespace HabilisX
             allAttributes = new Dictionary<String, Type>();
             //this.newInit();
             //newInit();
-            parseFromBibtex("HabilisX.Resources.bibtexUnrelated.txt");
+            parseFromBibtex("HabilisX.Resources.Dataset1.txt");
         }
 
         public Database(int bibtex) {
@@ -85,7 +85,7 @@ namespace HabilisX
             {
                 text = Utils.NewEmbededTextFile(path);
             }
-            catch(System.ArgumentNullException e) {
+            catch(System.ArgumentNullException) {
                 //Console.WriteLine("Embedded file came back null, trying a hard coded path...");
                 try
                 {

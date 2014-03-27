@@ -19,7 +19,7 @@
 } 
 @article{Woods:1984:VMC:2292.2296,
  author = {Woods, David D.},
- title = {Visual momentum:  a concept to improve the cognitive coupling of person and computer},
+ title = {Visual momentum: a concept to improve the cognitive coupling of person and computer},
  journal = {Int. J. Man-Mach. Stud.},
  issue_date = {Sept. 1984},
  volume = {21},
@@ -224,7 +224,7 @@
 } 
 @inproceedings{Mander:1992:LMS:142750.143055,
  author = {Mander, Richard and Salomon, Gitta and Wong, Yin Yin},
- title = {A \“pile\” metaphor for supporting casual organization of information},
+ title = {A 'pile' metaphor for supporting casual organization of information},
  booktitle = {Proceedings of the SIGCHI Conference on Human Factors in Computing Systems},
  series = {CHI '92},
  year = {1992},

@@ -98,6 +98,10 @@
     <AppDesigner Include="Properties\" />
     <None Include="Results\AdamRelatedHabilis.bib" />
     <None Include="Results\AdamRelatedMendeley.bib" />
+    <None Include="Results\ChrisRelatedHabilis.bib" />
+    <None Include="Results\ChrisRelatedMendeley.bib" />
+    <None Include="Results\JimRelatedHabilis.bib" />
+    <None Include="Results\JimRelatedMendeley.bib" />
     <None Include="Results\MikeRelatedHabilis.bib" />
     <None Include="Results\MikeRelatedMendeley.bib" />
     <None Include="Results\StephenRelatedHabilis.bib" />
@@ -107,6 +111,7 @@
     <None Include="Results\TonyRelatedHabilis.bib" />
     <None Include="Results\TonyRelatedMendeley.bib" />
     <None Include="Results\WillRelatedHabilis.bib" />
+    <None Include="Results\WillRelatedMendeley.bib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HabilisX\HabilisX.csproj">

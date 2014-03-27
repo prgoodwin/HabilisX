@@ -289,7 +289,7 @@ doi={10.1109/VISUAL.2003.1250400},
 
 @article{Woods:1984:VMC:2292.2296,
  author = {Woods, David D.},
- title = {Visual momentum:  a concept to improve the cognitive coupling of person and computer},
+ title = {Visual momentum: a concept to improve the cognitive coupling of person and computer},
  journal = {Int. J. Man-Mach. Stud.},
  issue_date = {Sept. 1984},
  volume = {21},

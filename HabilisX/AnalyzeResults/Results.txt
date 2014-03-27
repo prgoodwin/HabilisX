@@ -1,0 +1,122 @@
+Thomas's Mendeley Results
+Dataset 2
+Related Size: 26
+     TRUE || FALSE
+POS:   16 || 10
+NEG:    7 || 4
+
+Thomas's Habilis Results
+Dataset 1
+Related Size: 27
+     TRUE || FALSE
+POS:   14 || 13
+NEG:    3 || 7
+_________________________
+
+Adam's Mendeley Results
+Dataset 2
+Related Size: 16
+     TRUE || FALSE
+POS:   15 || 1
+NEG:   16 || 5
+
+Adam's Habilis Results
+Dataset 1
+Related Size: 24
+     TRUE || FALSE
+POS:   12 || 12
+NEG:    4 || 9
+_________________________
+
+Mike's Mendeley Results
+Dataset 1
+Related Size: 14
+     TRUE || FALSE
+POS:   12 || 2
+NEG:   14 || 9
+
+Mike's Habilis Results
+Dataset 2
+Related Size: 27
+     TRUE || FALSE
+POS:   16 || 11
+NEG:    6 || 4
+_________________________
+
+Stephen's Mendeley Results
+Dataset 1
+Related Size: 15
+     TRUE || FALSE
+POS:   15 || 0
+NEG:   16 || 6
+
+Stephen's Habilis Results
+Dataset 2
+Related Size: 14
+     TRUE || FALSE
+POS:   10 || 4
+NEG:   13 || 10
+_________________________
+
+
+Tony's Mendeley Results
+Dataset 1
+Related Size: 25
+     TRUE || FALSE
+POS:   17 || 8
+NEG:    8 || 4
+
+Tony's Habilis Results
+Dataset 2
+Related Size: 22
+     TRUE || FALSE
+POS:   15 || 7
+NEG:   10 || 5
+_________________________
+
+Will's Mendeley Results
+Dataset 2
+Related Size: 19
+     TRUE || FALSE
+POS:   11 || 8
+NEG:    9 || 9
+
+Will's Habilis Results
+Dataset 1
+Related Size: 18
+     TRUE || FALSE
+POS:   12 || 6
+NEG:   10 || 9
+_________________________
+
+Jim's Mendeley Results
+Dataset 2
+Related Size: 20
+     TRUE || FALSE
+POS:   15 || 5
+NEG:   12 || 5
+
+Jim's Habilis Results
+Dataset 1
+Related Size: 28
+     TRUE || FALSE
+POS:   17 || 11
+NEG:    5 || 4
+_________________________
+
+Chris's Mendeley Results
+Dataset 2
+Related Size: 22
+     TRUE || FALSE
+POS:   15 || 7
+NEG:   10 || 5
+
+Chris's Habilis Results
+Dataset 1
+Related Size: 19
+     TRUE || FALSE
+POS:   14 || 5
+NEG:   11 || 7
+_________________________
+
+

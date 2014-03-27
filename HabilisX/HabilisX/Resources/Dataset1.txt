@@ -236,7 +236,7 @@
 
 @inproceedings{Mander:1992:LMS:142750.143055,
  author = {Mander, Richard and Salomon, Gitta and Wong, Yin Yin},
- title = {A “pile” metaphor for supporting casual organization of information},
+ title = {A 'pile' metaphor for supporting casual organization of information},
  booktitle = {Proceedings of the SIGCHI Conference on Human Factors in Computing Systems},
  series = {CHI '92},
  year = {1992},
@@ -448,7 +448,7 @@
 
 @article{Piattini:1997:ALM:263244.263268,
  author = {Piattini, Mario G. and Tigr{\'e}at, Herv{\'e}},
- title = {Applying the \“STUDIO\” method to the interface design of an environmental software system},
+ title = {Applying the 'STUDIO' method to the interface design of an environmental software system},
  journal = {SIGSOFT Softw. Eng. Notes},
  issue_date = {July 1997},
  volume = {22},

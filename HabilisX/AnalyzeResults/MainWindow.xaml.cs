@@ -32,36 +32,48 @@ namespace AnalyzeResults
         public MainWindow()
         {
             InitializeComponent();
-            String ThomasRelatedMendeley = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\ThomasRelatedMendeley.bib";
-            String AdamRelatedMendeley = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\AdamRelatedMendeley.bib";
-            String MikeRelatedMendeley = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\MikeRelatedMendeley.bib";
-            String StephenRelatedMendeley = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\StephenRelatedMendeley.bib";
-            String TonyRelatedMendeley = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\TonyRelatedMendeley.bib";
+            String Path = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\";
 
-            String ThomasRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\ThomasRelatedHabilis.bib";
-            String AdamRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\AdamRelatedHabilis.bib";
-            String MikeRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\MikeRelatedHabilis.bib";
-            String StephenRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\StephenRelatedHabilis.bib";
-            String TonyRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\TonyRelatedHabilis.bib";
-            String WillRelatedHabilis = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\WillRelatedHabilis.bib";
 
-            String[] files = {ThomasRelatedMendeley,ThomasRelatedHabilis, AdamRelatedMendeley, AdamRelatedHabilis, MikeRelatedMendeley, MikeRelatedHabilis, 
-                                 StephenRelatedMendeley, StephenRelatedHabilis, TonyRelatedMendeley, TonyRelatedHabilis, WillRelatedHabilis};
-            String[] Names = { "Thomas", "Thomas", "Adam", "Adam", "Mike", "Mike", "Stephen", "Stephen", "Tony", "Tony", "Will" };
+            String[] files = {
+            "ThomasRelatedMendeley.bib",
+            "ThomasRelatedHabilis.bib",
+            "AdamRelatedMendeley.bib",
+            "AdamRelatedHabilis.bib",
+            "MikeRelatedMendeley.bib",
+            "MikeRelatedHabilis.bib",
+            "StephenRelatedMendeley.bib",
+            "StephenRelatedHabilis.bib",
+            "TonyRelatedMendeley.bib",
+            "TonyRelatedHabilis.bib",
+            "WillRelatedMendeley.bib",
+            "WillRelatedHabilis.bib",
+            "JimRelatedMendeley.bib",
+            "JimRelatedHabilis.bib",
+            "ChrisRelatedMendeley.bib",
+            "ChrisRelatedHabilis.bib",
+
+                             };
             Database sources = new Database(0);
             Database distractors = new Database(1);
             Database dataset1 = new Database(2);
             Database dataset2 = new Database(3);
 
+            String TabDeliniatedOutput = "MTP\tMFP\tMTN\tMFN\tHTP\tHFP\tHTN\tHFN\n";
+
+
 
             for (int i = 0; i < files.Length; i++)
             {
                 String FileName = files[i];
-
+                int end = FileName.LastIndexOf("Related");
+                int period = FileName.LastIndexOf(".");
+                String Name = FileName.Substring(0, end);
+                Console.WriteLine(Name + "'s " + FileName.Substring(end + 7, (period - (end + 7))) + " Results");
 
                 Database cur;
-                Database results = new Database(FileName);
-                if (dataset1.Contains(results.allEntries[1]))
+                Database results = new Database(Path + FileName);
+                if (dataset1.Contains(results.allEntries[0]))
                 {
                     cur = dataset1;
                     Console.WriteLine("Dataset 1");
@@ -72,17 +84,6 @@ namespace AnalyzeResults
                     Console.WriteLine("Dataset 2");
                 }
 
-
-
-                if (i % 2 == 0)
-                {
-                    Console.WriteLine(Names[i] + "'s Mendeley Results");
-                }
-                else
-                {
-                    Console.WriteLine(Names[i] + "'s Habilis Results");
-                }
-
                 Console.WriteLine("Related Size: " + results.Count());
 
 
@@ -91,35 +92,64 @@ namespace AnalyzeResults
                 int falsePositive = 0;
                 int falseNegative = 0;
 
-                foreach (Entry e in results.allEntries)
-                {
-                    if (sources.Contains(e))
+                foreach(Entry e in cur.allEntries){
+                    if (results.Contains(e) && sources.Contains(e)) {
                         truePositive++;
-                    if (distractors.Contains(e))
+                    } else if(results.Contains(e) && distractors.Contains(e)){
                         falsePositive++;
-                }
-
-                foreach (Entry e in sources.allEntries)
-                {
-                    if (cur.Contains(e) && !results.Contains(e) )
-                    {
+                    }
+                    else if (sources.Contains(e) && !results.Contains(e)) {
                         falseNegative++;
                     }
-                }
-
-                foreach (Entry e in distractors.allEntries)
-                {
-                    if (cur.Contains(e) && !results.Contains(e))
+                    else if (distractors.Contains(e) && !results.Contains(e))
                     {
                         trueNegative++;
                     }
+                    else {
+                        Console.WriteLine("found something uncategorizable: " + e.printAttribute("title"));
+                    }
                 }
 
+
+
+
                 Console.WriteLine("     TRUE || FALSE");
-                Console.WriteLine("POS:   " + truePositive + " || " + falsePositive);
-                Console.WriteLine("NEG:   " + trueNegative + " || " + falseNegative);
+                if (truePositive > 9)
+                {
+                    Console.WriteLine("POS:   " + truePositive + " || " + falsePositive);
+                }
+                else
+                {
+                    Console.WriteLine("POS:    " + truePositive + " || " + falsePositive);
+                }
+
+                if (trueNegative > 9)
+                {
+                    Console.WriteLine("NEG:   " + trueNegative + " || " + falseNegative);
+                }
+                else
+                {
+                    Console.WriteLine("NEG:    " + trueNegative + " || " + falseNegative);
+                }
+
+                if (trueNegative + truePositive + falseNegative + falsePositive != 37)
+                {
+                    Console.WriteLine("There may be a problem here: " + (trueNegative + truePositive + falseNegative + falsePositive));
+                    if (truePositive + falsePositive != results.allEntries.Count) Console.WriteLine("problem with positive");
+                }
+
+
+                TabDeliniatedOutput += Name + "\t" + truePositive + "\t" + falsePositive + "\t" + trueNegative + "\t" + falseNegative + "\t";
+
+                if (i % 2 != 0) {
+                    TabDeliniatedOutput += "\n";
+                    Console.WriteLine("_________________________");
+                }
+                Console.WriteLine();
 
             }
+
+            Console.WriteLine(TabDeliniatedOutput);
 
         }
     }
