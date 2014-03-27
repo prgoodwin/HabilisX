@@ -9,29 +9,6 @@ Anand Agarawala and Ravin Balakrishnan.
   Conference on Human Factors in Computing Systems (CHI 2006)}, pages
   1283--1292, Montreal, Canada, April 2006. ACM Press.
 
-\bibitem{Ball2007}
-Robert Ball and Chris North.
-\newblock Visual analytics: Realizing embodied interaction for visual analytics
-  through large displays.
-\newblock {\em Comput. Graph.}, 31(3):380--400, June 2007.
-
-\bibitem{Bier2005}
-Eric~A. Bier and Adam Perer.
-\newblock Icon abacus: Positional display of document attributes.
-\newblock In {\em Proceedings of the 5th ACM/IEEE-CS Joint Conference on
-  Digital Libraries}, JCDL '05, pages 289--290, New York, NY, USA, 2005. ACM.
-
-\bibitem{Czerwinski2003}
-Mary Czerwinski, Greg Smith, Tim Regan, Brian Meyers, and Gary Starkweather.
-\newblock Toward characterizing the productivity benefits of very large
-  displays.
-\newblock In {\em Proc. Interact}, pages 9--16. Press, 2003.
-
-\bibitem{Darken1996}
-Rudolph~P. Darken and John~L. Sibert.
-\newblock Navigating large virtual spaces.
-\newblock {\em Int. J. Hum.-Comput. Interact.}, 8(1):49--71, January 1996.
-
 \bibitem{Fischer1994}
 Gerhard Fischer.
 \newblock Turning breakdowns into opportunities for creativity.
@@ -43,6 +20,13 @@ Schubert Foo and Douglas Hendry.
 \newblock In {\em Proceedings of the 10th International Conference on Asian
   Digital Libraries: Looking Back 10 Years and Forging New Frontiers},
   ICADL'07, pages 372--382, Berlin, Heidelberg, 2007. Springer-Verlag.
+
+\bibitem{Foo2007:ECDL}
+Schubert Foo and Douglas Hendry.
+\newblock Evaluation of visual aid suite for desktop searching.
+\newblock In {\em Proceedings of the 11th European Conference on Research and
+  Advanced Technology for Digital Libraries}, ECDL'07, pages 333--344, Berlin,
+  Heidelberg, 2007. Springer-Verlag.
 
 \bibitem{Forlines2007}
 Clifton Forlines, Daniel Wigdor, Chia Shen, and Ravin Balakrishnan.
@@ -87,20 +71,6 @@ Angelo Maravita and Atsushi Iriki.
 \newblock Tools for the body (schema).
 \newblock {\em Trends in Cognitive Sciences}, 8(2):79 -- 86, 2004.
 
-\bibitem{Mothe1998}
-Josiane Mothe and Taoufiq Dkaki.
-\newblock Interactive multidimensional document visualization.
-\newblock In {\em Proceedings of the 21st Annual International ACM SIGIR
-  Conference on Research and Development in Information Retrieval}, SIGIR '98,
-  pages 363--364, New York, NY, USA, 1998. ACM.
-
-\bibitem{Newman2010}
-David Newman, Timothy Baldwin, Lawrence Cavedon, Eric Huang, Sarvnaz Karimi,
-  David Martinez, Falk Scholer, and Justin Zobel.
-\newblock Invited paper: Visualizing search results and document collections
-  using topic maps.
-\newblock {\em Web Semant.}, 8(2-3):169--175, July 2010.
-
 \bibitem{Norman1991}
 Donald~A. Norman.
 \newblock Designing interaction.
@@ -121,15 +91,6 @@ Chris North, Tim Dwyer, Bongshin Lee, Danyel Fisher, Petra Isenberg, George
   Human-Computer Interaction – INTERACT 2009}, volume 5727 of {\em Lecture
   Notes in Computer Science}, pages 236--249. Springer Berlin Heidelberg, 2009.
 
-\bibitem{Nowell1996}
-Lucy~Terry Nowell, Robert~K. France, Deborah Hix, Lenwood~S. Heath, and
-  Edward~A. Fox.
-\newblock Visualizing search results: Some alternatives to query-document
-  similarity.
-\newblock In {\em Proceedings of the 19th Annual International ACM SIGIR
-  Conference on Research and Development in Information Retrieval}, SIGIR '96,
-  pages 67--75, New York, NY, USA, 1996. ACM.
-
 \bibitem{Robertson1998}
 George Robertson, Mary Czerwinski, Kevin Larson, Daniel~C. Robbins, David
   Thiel, and Maarten van Dantzich.
@@ -137,14 +98,6 @@ George Robertson, Mary Czerwinski, Kevin Larson, Daniel~C. Robbins, David
 \newblock In {\em Proceedings of the 11th Annual ACM Symposium on User
   Interface Software and Technology}, UIST '98, pages 153--162, New York, NY,
   USA, 1998. ACM.
-
-\bibitem{schraefel2002}
-M.~C. Schraefel, Yuxiang Zhu, David Modjeska, Daniel Wigdor, and Shengdong
-  Zhao.
-\newblock Hunter gatherer: Interaction support for the creation and management
-  of within-web-page collections.
-\newblock In {\em Proceedings of the 11th International Conference on World
-  Wide Web}, WWW '02, pages 172--181, New York, NY, USA, 2002. ACM.
 
 \bibitem{Sebrechts1999}
 Marc~M. Sebrechts, John~V. Cugini, Sharon~J. Laskowski, Joanna Vasilakis, and
@@ -154,13 +107,6 @@ Marc~M. Sebrechts, John~V. Cugini, Sharon~J. Laskowski, Joanna Vasilakis, and
 \newblock In {\em Proceedings of the 22Nd Annual International ACM SIGIR
   Conference on Research and Development in Information Retrieval}, SIGIR '99,
   pages 3--10, New York, NY, USA, 1999. ACM.
-
-\bibitem{Shneiderman2000}
-Ben Shneiderman, David Feldman, Anne Rose, and Xavier~Ferre Grau.
-\newblock Visualizing digital library search results with categorical and
-  hierarchical axes.
-\newblock In {\em Proceedings of the Fifth ACM Conference on Digital
-  Libraries}, DL '00, pages 57--66, New York, NY, USA, 2000. ACM.
 
 \bibitem{Shneiderman1992}
 Ben Shneiderman and Catherine Plaisant.
@@ -173,11 +119,5 @@ Desney~S. Tan, Randy Pausch, Jeanine~K. Stefanucci, and Dennis~R. Proffitt.
 \newblock Kinesthetic cues aid spatial memory.
 \newblock In {\em CHI '02 Extended Abstracts on Human Factors in Computing
   Systems}, CHI EA '02, pages 806--807, New York, NY, USA, 2002. ACM.
-
-\bibitem{Yost2006}
-B.~Yost and C.~North.
-\newblock The perceptual scalability of visualization.
-\newblock {\em Visualization and Computer Graphics, IEEE Transactions on},
-  12(5):837--844, Sept 2006.
 
 \end{thebibliography}
