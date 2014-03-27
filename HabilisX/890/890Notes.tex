@@ -225,15 +225,45 @@ Unfortunately, the novel IR technology that this table did not work as well as w
 
 Once we got the table into a windowless room, we were able to improve many of the problems programmatically within Habilis, but the on screen keyboard continued to be a major problem.  5 of the 8 participants mentioned that they had shied away from using the tools because the keyboard was so hard to use.  Occasionally, a ghost event would make something fly across the screen which would break the user's concentration.  There is no question that the hardware failures contributed to the results of the user study.      
 \subsection*{Performance Time}
+Despite the advantages of the GUI system, the performance time was slower than Mendeley.  This can be explained by a few things.  First, 2 users did not utilize the tools at all and instead just read the attributes off of the card.  Second, the hardware event misfires as described above had a tendency to break the user's train of thought, and they had to compensate by taking time to get back to where they were before the event fire.  Third, none of the users had any familiarity with Habilis before the trials.  Since they were learning the system while using it, there is the possibility that performance time would improve over time. 
+
+An single factor analysis of variance (ANOVA) was performed on the performance time of the data grouped within subject. Mendeley takes less time to complete the task than Habilis with $F=3.25$ and $p = 0.06$.  Doing a t-test on the same data found $t=-3.18$ and $p<0.01$. 
+
+
+\begin{figure}[h!]
+\centering
+\scalebox{1}
+{\includegraphics{AverageTime.png}}
+\caption{Average Time for completion}
+\label{Fig:timeChart}
+\end{figure}
+
+
 \subsection*{Number of Incorrect Categorizations}
-\subsection*{Questionnaire}
-%%RESULTS
-%Reaction Time. The main finding in the reaction time data was that the Data Mountain reliably facilitated speedy retrieval of web pages when compared to IE4, allowing users to leverage visual as well as textual cues in finding document locations in 3D space.  Also, the two applications supported different retrieval behaviors.  IE4 leveraged the available textual, title information—any other or additional kind of information that was presented as a retrieval cue had a deleterious effect on performance. For both groups of Data Mountain users, the All cue enabled users to retrieve pages faster than using just a title, indicating that the Data Mountain prototype lets users utilize additional information modalities for improved spatial location memory. Figure 6 shows the results.  Figures 6-8 include error bars showing plus or minus one standard error from the mean. Statistical tests that support these findings are presented next.
-%A 3x4 (Application x Cue Condition) analysis of variance (ANOVA) with repeated measures was performed on the reaction time data.  The analysis revealed a statistically reliable main effect of application, F(2,18) =  4.84, p < .02, a statistically reliable effect of cueing condition, F(3,27) = 5.7, p < .01 and a statistically reliable interaction between application and cueing condition, F(6,54) = 3.32, p < .01.  Post hoc analyses (Scheffe tests) revealed that in IE4 the title was the retrieval cue that resulted in the fastest reaction times, reliably faster than either the thumbnail or summary cues (but not reliably faster than the All cue, though this was close to being reliably different).  In the two Data Mountain groups the pattern of results were very different.  Participants were reliably faster, on average, using the Data Mountain, especially in the thumbnail and All cueing conditions.  The only condition in which the first Data Mountain group was slower than the IE4 group was the title cueing condition.  The second Data Mountain group was as fast or faster than the first Data Mountain group and IE4 group in all cueing conditions.
-%Number of Incorrect Retrievals. In essence, users performed more accurately with the second Data Mountain. These results are shown in Figure 7.  Statistical analyses supporting these findings are presented next.
+
+Users did not more accurately categorize the data with Habilis than Mendeley as we had hoped.  We think that this was a combination of an unfamiliar system combined with a lack of adoption of the tools available.  No one used the sticky note, 6 did not use the ruler, and some tools were used once and then never again.  Most interactions were with the paperclip, push pin, and magic lens.    
+
+Mendeley and Habilis performed equally twice, but otherwise Mendeley provided better results.  A Single Factor ANOVA was performed on the number of correctly categorized papers with $F=6.4$ and $p<0.03$
+
+\begin{figure}[h!]
+\centering
+\scalebox{1}
+{\includegraphics{BarChartSquare.png}}
+\caption{SUR40 Touchscreen Table}
+\label{Fig:barChart}
+\end{figure}
+
+
 %A 3x4 (Application x Cue Condition) ANOVA with repeated measures revealed a statistically reliable main effect of application for number of incorrect pages retrieved, F(2,18) = 4.48, p < .03, as well as a reliable effect of cue, F(3,27) = 7.62, p < .001.  There was also a reliable interaction between application and cueing condition, F(6,54) = 2.4, p < .04.  For the IE4 group incorrect pages were most often visited when the cue was a thumbnail or a summary, while the two Data Mountain groups were only reliably more likely to visit an incorrect page when a summary cue was provided.  Reliably fewer incorrect pages were retrieved in the second Data Mountain group than the other two groups.
 %Failed Trials. The two Data Mountain groups were reliably more likely to retrieve a web page within the time limit than the IE4 group.  The IE4 group was more likely to fail trials in either the summary or thumbnail condition, while the Data Mountain groups were more likely to fail trials in the summary condition. This data is shown in Figure 8, with statistical support presented below.
 %A 3x4 (Application x Cue Condition) ANOVA with repeated measures revealed reliable main effects of application for the number of trials where the user could not retrieve the page before the two minute deadline, F(2,18) = 8.3, p < .01, as well as a reliable effect of cueing condition, F(3,27) = 46.9, p < .001, and the interaction between application and cue condition, F(6,53) = 19.51, p < .001.
+
+\subsection*{Questionnaire}
+%%RESULTS
+
+
+
+
 %Subjective Ratings. After completing the retrieval tasks, the participants answered questions about their satisfaction with the application they used in the study.  Table 2 shows the average and standard deviation scores on a five-point scale (1=disagree, 5=agree) for participants’ responses to a number of ease of use and likability ratings.  A one-way analysis of variance was run on each measure to test for differences between the groups.  No reliable main effect was found for any of the ratings.
 %One final question was presented for both Data Mountain groups, inquiring whether they would prefer to use IE4 or the Data Mountain software. There was a reliable preference for IE4 in the first Data Mountain group, and eight out of eleven of the second Data Mountain group said they would prefer to use the Data Mountain over IE4 (one participant in the second Data Mountain group failed to answer this question).  This is a statistically reliable preference for the second Data Mountain using a binomial test, and clearly provides converging evidence, beyond the performance data, that iterative testing with end users has improved the user interface of the Data Mountain.
 
