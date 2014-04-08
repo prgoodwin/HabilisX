@@ -1,0 +1,12 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: HabilisX.aux
+The style file: plain.bst
+Database file #1: 890.bib
+Repeated entry---line 539 of file 890.bib
+ : @inproceedings{North2009
+ :                         ,
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "Agarawala2006"
+refers to entry "chi2006", which doesn't exist
+Warning--I didn't find a database entry for "chi2006"
+Warning--empty booktitle in Norman1991
+(There were 2 error messages)

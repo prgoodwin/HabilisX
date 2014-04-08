@@ -29,7 +29,22 @@ In addition to a tool metaphor, HabilisX draws on many strengths of the desktop 
 
 In this paper, we describe the technology that we chose to use for this project (SUR40), the tool metaphor and how a user would utilize the tools, and the user study that we did to compare it to Mendeley.  We conclude with some discussion of why we felt our user trials did not yield positive results, and future work that we plan on doing for the next iteration of HabilisX.
 
+\section{Research Question}
 
+The goal of this project was to create a graphical user interface that would transform database searches into a visual experience that leverages many of the cognitive benefits of tool use.
+
+Our experiment was designed to test if a user could gain some understanding of the content of their dataset without ever having seen it before.  We hypothesized that our system would allow users to more accurately determine the relatedness of an entry to a given subject, and that the user could do it faster than a traditional list interface that are common today.  
+
+To do this we created a program that leveraged several different interactions that have shown to be beneficial to user performance:
+\begin{itemize}
+\item{Tools: Affordances of tools have been shown to shape the users approach to problems put before them}
+\item{Metaphors: Have the ability to simplify problems by framing them in a familiar context}
+\item{Data visualizations: Provide context of patterns within the dataset as a whole}
+\item{Visual memory: improves recall of items}
+\end{itemize}
+
+
+This paper outlines our motivations behind our design, our user study that we undertook, the results, and some reasons for the outcome. 
 \section{Related Work} 
 \subsection{Tool Metaphor}
 
@@ -232,8 +247,7 @@ Once we got the table into a windowless room, we were able to improve many of th
 Despite the advantages of the GUI system, the performance time was slower than Mendeley.  This can be explained by a few things.  First, 2 users did not utilize the tools at all and instead just read the attributes off of the card.  Second, the hardware event misfires as described above had a tendency to break the user's train of thought, and they had to compensate by taking time to get back to where they were before the event fire.  Third, none of the users had any familiarity with HabilisX before the trials.  Since they were learning the system while using it, there is the possibility that performance time would improve over time. 
 
 
-Robertson et al.\cite{Robertson1998} also looked at this metric.  The effect sizes are in graphical form.  The mean completion time for the IE~4 condition is approximately 17.5~s (with a
-standard error of 2), for the DM~2 condition about 10.5~s (with a standard error of 1). The completion times are used directly in their analysis of variance, without adjustments for non-normality.  Therefore, we also assume normal distribution.
+Robertson et al.\cite{Robertson1998} also looked at this metric.  The effect sizes are in graphical form.  The completion times are used directly in their analysis of variance, without adjustments for non-normality.  Therefore, we also assume a normal distribution for performance time.
 
 
 An single factor analysis of variance (ANOVA) was performed on the performance time of the data grouped within subject. Mendeley takes less time to complete the task than HabilisX with $F=3.25$ and $p = 0.06$.  Doing a t-test on the same data found $t=-3.18$ and $p<0.01$. 
