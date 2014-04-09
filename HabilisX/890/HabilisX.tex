@@ -2,7 +2,7 @@
 \documentclass{article}
 
 
-
+\usepackage{courier}
 \usepackage{graphics} % for EPS, load graphicx instead
 \begin{document}
 
@@ -12,67 +12,68 @@
 \date{}
 \maketitle
 \begin{abstract}
-This project explores a new touch screen interface for interacting with data sets through a digital tool metaphor.  Research in psychology has shown that when we hold a tool, such as a hammer, our minds frame potential solutions around the affordances of the tool.  Additionally, metaphors have proven to be a powerful way to positively affect user experience, in part because the user has expectations about how different objects behave.  Our system attempts to recreate the experience of using physical tools. Touch screens provide the ideal interaction style for this metaphor because they allow the user to be more physically engaged than a traditional point-and-click interaction. With the support of the James B. Hunt Library, we have created a work environment with life-size tools using a 40-inch PixelSense 2.0 touch screen table.  Our interface consists of two and a half dimensional representations of paperclips, pushpins, rulers, magnifying glasses, "magic lenses", and sticky notes that can be used to manipulate database entries that appear as index cards scattered randomly on the table.  All objects on the screen have physical properties like center of mass, momentum, and friction to mimic the behavior of real objects on a table.  The tools are designed to let the user search and organize the data efficiently by taking advantage of spatial cognition and information visualizations.  Moreover, the user can leverage basic filtering queries by attaching "filter tiles" to the tools that dictate the entries with which the tools will interact.  Our goal is to show that our system is user-friendly and allows users to categorize data faster and more accurately than a comparable tabular interface.
+This project explores a new touch screen interface for interacting with data sets through a digital tool metaphor.  Research in psychology has shown that when we hold a tool, such as a hammer, our minds frame potential solutions around the affordances of the tool.  Additionally, metaphors have proven to be a powerful way to positively affect user experience, giving the user some expectations about how different objects behave.  Our system attempts to recreate the experience of using physical tools. Touch screens provide the ideal interaction style for this metaphor because they allow the user to be more physically engaged than a traditional point-and-click interaction. With the support of the James B. Hunt Library, we have created a work environment with life-size tools using a 40-inch PixelSense 2.0 touch screen table.  Our interface consists of two and a half dimensional representations of paperclips, pushpins, rulers, magnifying glasses, ``magic lenses", and sticky notes that can be used to manipulate database entries that appear as index cards scattered randomly on the table.  All objects on the screen have physical properties like center of mass, momentum, and friction to mimic the behavior of real objects on a table.  The tools are designed to let the user search and organize the data efficiently by taking advantage of spatial cognition and information visualizations.  Moreover, the user can leverage basic filtering queries by attaching ``filter tiles" to the tools that dictate the entries with which the tools will interact.  Our goal is to show that our system allows users to categorize data faster and more accurately than a comparable tabular interface.
 \end{abstract}
 \section{keywords}
 Information Visualization, Spatial Cognition, Spatial Memory, Document Management, Database Interface
 
 \section{Introduction}	
 
-Databases store vast amounts of data that people interact with every day.  However, the interfaces that control databases have not changed significantly in the last 30 years.  Most are still command line-like  interfaces with a list of results that match the user's query.  Good interfaces will have a bar on the side to let you add additional filters to your search results.  There is no way to easily compare queries side by side, and it can be impossible to see trends within the list of results.
+Databases store vast amounts of data that people must interact with every day.  However, the interfaces that control databases have not changed significantly in the last 30 years.  Most are still command line-like  interfaces with a list of results that match the user's query.  Good interfaces will have a bar on the side to let you add additional filters to your search results.  There is no way to easily compare queries side by side, and it can be impossible to see trends within the list of results.
 
-Desktop document management on the other hand has evolved considerably in the same amount of time.  Instead of working with a command line, users now have files, folders, desktops, icons, thumbnails, shortcuts, and a myriad of other metaphors that improve usability and performance.   HabilisX is a comprehensive graphical user interface for databases that pulls from many of the strengths of a desktop GUI. Instead of a desktop metaphor, HabilisX uses a digital tool metaphor.
+Desktop document management on the other hand has evolved considerably in the same amount of time.  Instead of working with a command line as seen in computers from the 70's and 80's, users now have files, folders, desktops, icons, thumbnails, shortcuts, and a myriad of other metaphors that improve usability and performance.   HabilisX is a comprehensive graphical user interface for databases that pulls from many of the strengths of a desktop user interface. Instead of a desktop metaphor, HabilisX uses a digital tool metaphor.
 
-Tools are an integral piece of how humans interact with their physical environment.  When the analogy has been translated into a metaphor for software interfaces, it has been shown to have good usability, and users have adopted these tools.  However, these metaphors are only shallow representations of the full experience of using a physical tool.  Our program tries to incorporate as many aspects of tool use as possible.  We have chosen a technology that allows full movement of arms with a touch screen interface, and our digital representations of objects have naive physics that more closely follow real world interactions.
+Tools are an integral piece of how humans interact with their physical environment.  When the analogy has been translated into a metaphor for software interfaces, it has been shown to have good usability, and users have adopted the metaphor with little difficulty.  However, these metaphors are only shallow representations of the full experience of using a physical tool.  Our program tries to incorporate as many aspects of tool use as possible.  We have chosen a technology that allows full movement of arms with a touch screen interface, and our digital representations of objects have naive physics that more closely mimic real world interactions.
 
-In addition to a tool metaphor, HabilisX draws on many strengths of the desktop user interface, such as using spatial memory to improve recall and organizational practices.  Databases are read dynamically into HabilisX where the entries are translated into life size index cards that can then be moved around the screen.  The two and a half dimensional interface allows things to be focused, piled, pinned, and grouped.  Multitouch interactions are supported letting users zoom, drag, and rotate as appropriate for the objects in the interface. 
+In addition to a tool metaphor, HabilisX draws on many strengths of the desktop user interface, such as using spatial memory to improve recall and organizational practices.  Databases are read dynamically into HabilisX where the entries are translated into life size index cards that can then be moved around the screen.  The two and a half dimensional interface allows things to be focused, piled, pinned, and grouped.  Multitouch interactions allow users to zoom, drag, and rotate as appropriate for the objects in the interface. 
 
-In this paper, we describe the technology that we chose to use for this project (SUR40), the tool metaphor and how a user would utilize the tools, and the user study that we did to compare it to Mendeley.  We conclude with some discussion of why we felt our user trials did not yield positive results, and future work that we plan on doing for the next iteration of HabilisX.
-
-\section{Research Question}
 
 The goal of this project was to create a graphical user interface that would transform database searches into a visual experience that leverages many of the cognitive benefits of tool use.
 
-Our experiment was designed to test if a user could gain some understanding of the content of their dataset without ever having seen it before.  We hypothesized that our system would allow users to more accurately determine the relatedness of an entry to a given subject, and that the user could do it faster than a traditional list interface that are common today.  
+Our experiment was designed to test if a user could gain some understanding of the content of their dataset without ever having seen it before.  We hypothesized that our system would allow users to more accurately determine the relatedness of an entry to a given subject, and that the user could do it faster than a traditional list-based interfaces that are common today.  
 
 To do this we created a program that leveraged several different interactions that have shown to be beneficial to user performance:
 \begin{itemize}
-\item{Tools: Affordances of tools have been shown to shape the users approach to problems put before them}
-\item{Metaphors: Have the ability to simplify problems by framing them in a familiar context}
-\item{Data visualizations: Provide context of patterns within the dataset as a whole}
+\item{Tools: Affordances of tools shape the users approach to problems put before them}
+\item{Metaphors: simplify problems by framing them in a familiar context}
+\item{Data visualizations: Provide context and can show patterns within the dataset as a whole}
 \item{Visual memory: improves recall of items}
 \end{itemize}
 
+In this paper, we describe the technology that we chose to use for this project (SUR40), the tool metaphor and how a user would utilize the tools, and the user study that we did to compare it to Mendeley.  We conclude with some discussion of why we felt our user trials did not yield positive results, and future work that we plan on doing for the next iteration of HabilisX.
 
-This paper outlines our motivations behind our design, our user study that we undertook, the results, and some reasons for the outcome. 
+
 \section{Related Work} 
 \subsection{Tool Metaphor}
 
-GUI Metaphors became popular because of their ability to reduce a complicated task into a simpler structure.  As cognitive tools defined by Hutchins \cite{Hutchins1995} and Norman \cite{Norman1991}, they have shown that they can be extremely powerful aids.  Since the introduction of the desktop metaphor by Xerox in the '70's  it has become ubiquitous for personal computers.  Command line usability is notoriously difficult for beginners and non-technical users, whereas being able to interact with visual icons gives users an underlying model of what their actions are doing.  Giving users this mental mapping opened up computing to a whole new demographic of people, and subsequently the adoption of home computers skyrocketed.  
+GUI Metaphors became popular because of their ability to reduce complicated tasks to a simpler structure.  As cognitive tools defined by Hutchins \cite{Hutchins1995} and Norman \cite{Norman1991}, they have shown that they can be extremely powerful aids.  The desktop metaphor, originally introduced by Xerox in the '70's, has become ubiquitous for personal computers.  Command line usability is notoriously difficult for beginners and non-technical users.  On the other hand, being able to interact with visual icons gives users an underlying model of the effect of their actions.  Giving users this mental mapping opened up computing to an entirely new demographic of people, and subsequently, the adoption of home computers skyrocketed.  
 
-This project explores a novel user interface with a tool metaphor for database searches.  A few tool metaphors have been introduced in some conventional software environments.  Most notably visual programs like photoshop or paint have a tools that have analogs to real world objects like paint brushes and erasers.  However, the metaphor is usually quite shallow, and beyond icon and task, bear little resemblance to the experience of using that tool.  This is important because there is a cognitive shift that occurs when using a physical tool in which the user starts to think of the tool as an extension of his or her body.  \cite{Maravita2004}  When we factor in the affordance of a tool, we realized that tool metaphors have the ability to remold the experience into something familiar.  
+We explore a novel user interface with a tool metaphor for database searches.  Tool metaphors already exist in some conventional software environments.  Most notably, visual editing programs like photoshop and paint use analogs to real world objects like paint brushes and erasers to communicate functionality.  However, the metaphor is usually quite shallow, and beyond icon and task, bear little resemblance to the experience of using that tool.  This is important because there is a cognitive shift that occurs when using a physical tool in which the user starts to think of the tool as an extension of his or her body.  \cite{Maravita2004}  When we factor in the affordance of a tool, we realized that tool metaphors may have the ability to positively impact usability in ways that other metaphors may not.  
 
 Direct manipulation interfaces provide a good environment to explore affordances in software \cite{Gaver1991}, \cite{Norman1991}.  Users interact directly with objects on the screen instead of with menus or commands \cite{Hutchins1989} \cite{Shneiderman1992}, which are continuously represented with animation instead of appearing and disappearing as needed.\cite{Shneiderman1992}  Getner argued that deeper metaphors that are more consistent with the physical world can improve learnability and usability of the system \cite{Gentner1996} and can be a good opportunity for the user to become familiar with the system \cite{Fischer1994}.  
 
 
 \subsection{Spatial Cognition}
-There is a large body of work that has shown the cognitive benefits of being able to organize items spatially. \cite{Agarawala2006} \cite{Robertson1998} Robertson et al. made a 2½-D interface for bookmarking website that showed dramatic improvement in efficiency and error over the built in text-based system.  
+There is a large body of work that has shown the cognitive benefits of being able to organize items spatially. \cite{Agarawala2006} \cite{Robertson1998} Robertson et. al made a two and a half dimensional interface called DataMountain for bookmarking website that showed dramatic improvement in efficiency and error over the built in text-based system.  DataMountain's design is very similar to ours so we will discuss this paper in depth throughout the paper.    
 	
-	Most work has been done between a graphical environment versus a textual environment, but Sebrechts et al took this concept one step further and did a formal evaluation of a text-based, 2-D, and 3-D interfaces.\cite{Sebrechts1999}  They found that the 2-D interface had the best performance in both user satisfaction and performance.  Additionally, they tried multiple input devices, which made a significant impact on the usability of the interface. 
+	Numerous studies have compared graphical environment and textual environments.  Sebrechts et. al most notably did a formal evaluation of a text-based, 2-D, and 3-D interfaces.\cite{Sebrechts1999}  They found that the 2-D interface had the best performance in both user satisfaction and performance with modern input devices.  They varied the input devices, and found that they made a significant impact on the usability of the interface. The more closely the input method matched the visualization on the screen, the more usable the system.  This result lends support that touch may be the best interaction technique for direct manipulation interfaces such as ours.  
 
 \subsection{Touch}
-Touch screens have become popular in recent years, but many feel that they are a step backwards in usability \cite{Norman2010}.  Gestures have many of the drawbacks of a command line interface: commands can be hard to remember, impossible to explore, and hard to debug.  There are no visual cues for what gestures the system will recognize, and there is not a standard set of gestures for all functionality.   Some work has been done to standardize gestures to make them more intuitive \cite{North2009}, but adoption of standards continues to be a problem with a few exceptions like pinch to zoom.  
+Touch screens have become popular in recent years, but many feel that they are a step backwards in usability \cite{Norman2010}.  Gesture-based interfaces have many of the drawbacks of a command line interface: commands can be hard to remember, impossible to explore, and hard to debug.  There are no visual cues for what gestures the system will recognize, and there is not a standard set of gestures for all functionality.   Some work has been done to standardize gestures to make them more intuitive \cite{North2009}, but adoption of standards continues to be a problem with few exceptions like pinch to zoom.  
 
-	New work suggests that multi-touch interfaces may also have a usability gain for expert users when used appropriately. \cite{Forlines2007} \cite{Tan2002}\cite{North2009}.  It has less chance of causing carpal tunnel, and is more efficient in the amount of time to select targets than the mouse, which is the majority of screen interaction \cite{Forlines2007}.  Tabletop touch screen interactions showed that users benefited from direct touch input over mouse.  However, for traditional computers, some tasks were more efficiently done with a mouse. \cite{Kristensson2008}.  Moreover, using a table is a more active form or interaction because of the larger amount of movement required to reach the entire screen. This  full embodied interaction has shown  even more cognitive benefits. Kinesthetic signals (muscle memory) has been shown to improve spatial recall by 19\% in an experiment document retrieval setting.\cite{Tan2002} 
+	Other work suggests that multi-touch interfaces may have usability gains similar to command-line interfaces for expert users. \cite{Forlines2007} \cite{Tan2002}\cite{North2009}. The biggest efficiency gain comes in target selection which is the majority of screen interaction \cite{Forlines2007}.  Like Chinese characters, the nearly unlimited number of available gestures allows a lot more to be done in a smaller amount of space and time.  
+	
+	Tabletop touch screens have a significantly different interaction experience than smaller screens.  Subsequently, Some of the conventions used on other devices have not translated well.  On larger touch screens, users benefited from direct touch input over mouse which is a more active experience\cite{Kristensson2008}.  This may seem counter intuitive because of the larger amount of movement required to reach the entire screen. However, the Kinesthetic signals (muscle memory) that are associated with embodied movements have been shown to improve spatial recall by 19\% in an experiment in document retrieval.\cite{Tan2002} This may also have impacts on overall the overall usability of large screens.
 
 
 \subsection{Document Management}
 
-So much of what we do with computers is dependent on being able to find pertinent information.  Many systems have focused on how to keep personal documents organized in a desktop interface for quick retrieval with positive results \cite{Agarawala2006} \cite{Foo2007:ECDL} \cite{Foo2007:ICADL}. However scaling the interfaces to be able to handle large amounts of data continues to be an unsolved problem. \cite{Whittaker2001} 
+So much of what we do with computers is dependent on being able to find pertinent information.  Many systems have focused on how to keep personal documents organized in a desktop interface for quick retrieval with positive results \cite{Agarawala2006} \cite{Foo2007:ECDL} \cite{Foo2007:ICADL}. However scaling the interfaces to be able to handle large amounts of data continues to be an unsolved problem \cite{Whittaker2001}.
 
-Some interfaces have tried different visualizations to put as much information on the screen as possible \cite{Newman2010} \cite{Nowell1996} \cite{Shneiderman2000} \cite{Yost2006}.  These types of interfaces try to find some way to group things together into topics \cite{Newman2010}, but a lot of information is lost when this is done.\cite{Nowell1996}  Because our understanding of natural language processing is imperfect, the algorithms doing the modeling can make imperfect decisions.  This leads to documents being miscategorized (and therefore overlooked), or making decisions that are not obvious to the user.  The benefits of using a GUI break down if the user no longer has an underlying understanding of what the computer is doing.  
+Some interfaces have tried different visualizations to put as much information on the screen as possible \cite{Newman2010} \cite{Nowell1996} \cite{Shneiderman2000} \cite{Yost2006}.  These types of interfaces try to find some way to group things together into topics \cite{Newman2010}, but a lot of information is lost when this is done\cite{Nowell1996}.  Because our understanding of natural language processing is imperfect, the algorithms doing the modeling can make imperfect decisions.  This leads to documents being miscategorized (and therefore overlooked), or making decisions that are not obvious to the user.  The benefits of using a GUI break down if the user no longer has an underlying understanding of what the computer is doing.  
 
-Trying to use spatial relationships to display different kinds of information seems to be a better solution.   Bier et. al used the x,y position of a document to display different attributes, allowing multiple metadata to be easily seen at the same time \cite{Bier2005}.  Foo et. al, took several different graphical visualizations (e.g. List view, tree view, map view, etc.) and compared them to see which one users preferred. \cite{Foo2007:ECDL}  INQUERY was a system that grouped results into row and column clusters \cite{Mothe1998}.  Ultimately though, all of these are still query interfaces.  You enter in an initial search to the system, and it provides different ways to look at your results.  None of them allow you to go a step further to explore different aspects of the data.  This is where HabilisX provides users a way to look deeper into their dataset.  
+Trying to use spatial relationships to display different kinds of information seems to be a better solution\cite{Bier2005}\cite{Foo2007:ECDL}\cite{Foo2007:ICADL}\cite{Mothe1998}.   Bier et. al used the x,y position of a document to communicate the value different attributes, allowing multiple metadata to be easily seen at the same time \cite{Bier2005}.  %Foo et. al, took several different graphical visualizations (e.g. List view, tree view, map view, etc.) and compared them to see which one users preferred. \cite{Foo2007:ECDL} 
+Similarly, INQUERY was a system that grouped results into row and column clusters based on related data \cite{Mothe1998}.  Ultimately, all of these still only provide surface level information.  This can make it more difficult to look at different aspects of the data, since these interfaces cannot be modified to organize based on search criteria.
  
 %\cite{Newman2010}
 %This paper explores visualizations of document collections, which we call topic maps. Our topic maps are based on a topic model of the document collection, where the topic model is used to determine the semantic content of each document. Using two collections of search results, we show how topic maps reveal the semantic structure of a collection and visually communicate the diversity of content in the collection. We describe techniques for assessing the validity and accuracy of topic maps, and discuss the challenge of producing useful two-dimensional maps of documents.
@@ -101,77 +102,66 @@ Trying to use spatial relationships to display different kinds of information se
 %Digital library search results are usually shown as a textual list, with 10-20 items per page. Viewing several thousand search results at once on a two-dimensional display with continuous variables is a promising alternative. Since these displays can overwhelm some users, we created a simplified two-dimensional display that uses categorical and hierarchical axes, called hieraxes. Users appreciate the meaningful and limited number of terms on each hieraxis. At each grid point of the display we show a cluster of color-coded dots or a bar chart. Users see the entire result set and can then click on labels to move down a level in the hierarchy. Handling broad hierarchies and arranging for imposed hierarchies led to additional design innovations. We applied hieraxes to a digital video library of science topics used by middle school teachers, a legal information system, and a technical library using the ACM Computing Classification System. Feedback from usability testing with 32 subjects revealed strengths and weaknesses.
 %\cite{Yost2006}
 %Larger, higher resolution displays can be used to increase the scalability of information visualizations. But just how much can scalability increase using larger displays before hitting human perceptual or cognitive limits? Are the same visualization techniques that are good on a single monitor also the techniques that are best when they are scaled up using large, high-resolution displays? To answer these questions we performed a controlled experiment on user performance time, accuracy, and subjective workload when scaling up data quantity with different space-time-attribute visualizations using a large, tiled display. Twelve college students used small multiples, embedded bar matrices, and embedded time-series graphs either on a 2 megapixel (Mp) display or with data scaled up using a 32 Mp tiled display. Participants performed various overview and detail tasks on geospatially-referenced multidimensional time-series data. Results showed that current designs are perceptually scalable because they result in a decrease in task completion time when normalized per number of data attributes along with no decrease in accuracy. It appears that, for the visualizations selected for this study, the relative comparison between designs is generally consistent between display sizes. However, results also suggest that encoding is more important on a smaller display while spatial grouping is more important on a larger display. Some suggestions for designers are provided based on our experience designing visualizations for large displays. Index Terms—Information visualization, large displays, empirical evaluation.
-\section{Habilis}
+\section{HabilisX}
 
+We propose a novel way to display and organize information visually through the metaphor of physical tools. Tool-use in the physical world generally includes an object in the operator's hand and broad motions to perform an action. We have extended these concepts to digital tools by implementing a program on the Microsoft Pixelsense 2.0 that lets the user select (pick-up) tools on the screen and perform motions that mimic physical tool usage. Users interact with objects on the screen by direct manipulation with an established set of interaction mechanism.  
 
-Our system has a well established set of interaction mechanisms, and clear parallels to physical tools in the real world.
+This program would be used to search and organize information stored in a database.  After getting an initial body of entries to search, each entry will appear as individual tiles with properties of naive physics that can be moved around the screen by touch. 
 
-We propose a novel way to display and organize information visually through the metaphor of physical tools. Tool-use in the physical world generally includes an object in the operator's hand and broad motions to perform an action. We propose to extend these concepts to digital tools by implementing a program on the Microsoft Pixelsense 2.0 that lets the user select (pick-up) tools on the screen and perform motions that mimic physical tool usage. 
-Program description:
 
 \begin{figure}[t!]
 \centering
 \scalebox{.239}
 {\includegraphics{HabilisScreenShot.png}}
-\caption{Screenshot of HabilisX after having used all tools.}
+\caption{Screenshot of HabilisX using various tools.}
 \label{Fig:screenshot}
 \end{figure}
 
 
-
-This program would be used to search and organize information stored in a database.  After getting an initial body of entries to search, each entry will appear as individual tiles with properties of naive physics that can be moved around the screen by touch. 
-
-
-
-
-
-
 \subsection{Save States}
-HabilisX included two save states.  You can switch between two configurations of data for comparative purposes.  The tools do not change when a save state is loaded.  This is in part to maintain object permanence, but also so that the same queries can be used on either configuration.  
+HabilisX includes two save states.  You can switch between two configurations of data for comparative purposes.  The tools do not change when a save state is loaded.  This is done to maintain object permanence and to facilitate using the same queries on either configuration.  
 
 \subsection{Filter Tiles}
-The name of each attribute or column header is shown on buttons that generate a label when pressed. These labels specify search criteria and can be attached to the tools to determine the items with which the tool will interact. For example, if the attribute is a string, the user should be able to specify a particular string to search for. If the attribute is an int, the user should be able to use any of the compare functions available such as greater than, less than, etc. 
+The name of each attribute or column header is shown on buttons that generate a label when pressed. These labels specify search criteria and can be attached to the tools to determine the items with which the tool will interact. For example, if the attribute is a string, the user can specify a query string that will be used in a ``contains" search within that attribute. If the attribute is an int, the user can use any of the compare functions available such as greater than, less than, etc. 
 
-Example: Let's say that your data set is a collection of research papers with the attributes: 
+Example: Assume that your dataset is a collection of research papers with the attributes: 
+\begin{itemize}
+\item{(String) Title }
+\item{(String) Author }
+\item{(Date) DatePublished}
+\item{(List$<$String$>$) Keywords}
+\item{(int) pages}
 
-(String) Title
-(String) Author
-(Date object) DatePublished
-(List<String>) Keywords
-(int) pages
+\end{itemize}
 
 If you are looking for a paper on computer vision published in the last 5 years that is between 5 and 10 pages, you could create the query labels:
 \begin{itemize}
 \item Pages: $>$ 5
 \item Pages: $<$ 10
-\item Date: $<$ 2000
+\item Date: $>$ 2009
 \item Keywords: "Computer Vision"
-
 \end{itemize}
 
-A single tool that has all of these queries would match to a paper that is 5-10 pages long, published before the year 2000, with the author- supplied keyword "Computer Vision".
+Once created, the filter tile can be attached to tools by intersecting the two objects.  To detach, a long touch will remove the filter tile from the screen.
 
-
-Once created, you can attach and detach the query labels to tools by intersecting the two objects to quickly interact with your data.
-
-\subsection*{Sticky Note}
-Sticky Notes attach directly to entries and look similar to a filter with a different background color.  Once attached, the note will display the title, but tap it once to switch to the body of the note, and again to see the title again.
 \subsection{HabilisX Tools}
-Not all tools can accept filters.  The focus of this project was searching, so the tools that were useful for that task cab accept filters. However, for other tasks, we found it was more useful to have tools that were consistent for all entries.  These tools were used for modifying entries based on their location rather than their content.   	
+The focus of this project was searching, so the tools that were useful for that task can accept filters. However, for other tasks, we found it was more useful to have tools that were consistent for all entries.  These tools were used for modifying entries based on their location rather than their content.  Therefore, filters were disabled for the following tools.
 \subsection*{Push Pin}
-The pushpin is used to "save" entries.  Once pinned, the entry is immobilized and no other tool can modify that entry.  Entries can be thrown under a pin to create a messy pile.  
+The pushpin is used to "save" entries.  Once pinned, the entry is immobilized and no other tool can modify that entry.  Entries can be thrown under a pin to create a messy pile with casual organization.  
 \subsection*{Ruler}
 The ruler can push entries around the screen and organize them visually by aligning them horizontally or vertically.  This state is somewhere in between a tidy pile and a messy pile as it does not afford browsing.  However, it unmistakably shows you entries that are categorized together.  
+\subsection*{Sticky Note}
+Sticky Notes attach directly to entries and look similar to a filter with a different background color.  Once attached, the note will display the title, but tap it once to switch to the body and title of the note.
 \subsection*{Trash Can}
 The trashcan removes any unwanted entries or tools.  Just like in a Desktop GUI, just drag the item to the trash can, and it will disappear from the screen.  
 \subsection{HabilisX Filter Tools}
 The following tools can be modified by attaching filter tiles.  Once attached, the tool will only interact with the entries that match the tile's query.  
 \subsection*{Magic Lens}
-The magic lens is a window that highlights entries that match your query.  Additionally, the lens will pop the results to the front of the interface so that no result is hidden.  
+The magic lens is a window that highlights entries that match your query.  Additionally, the lens will pop the results to the front of the interface so that no results are hidden.  The main functionality lets you see the results of queries without modifying the entries.  As a result, you can explore several queries side by side or consecutively before making decisions about your next action.    
 \subsection*{Magnifier}
-The magnifier lets you view any attribute of an entry.  Simply drag the filter tile to the magnifier and instead of creating a query, the corresponding data of that attribute will be displayed in a pop-up next to the tool.  Drag any number of filter tiles, and the attribute will be displayed below the last one.  
+The magnifier lets you view any attribute of an entry.  Simply drag the filter tile to the magnifier and instead of creating a query, the corresponding data of that attribute will be displayed in a pop-up next to the magnifier.  Drag any number of filter tiles, and the attribute will be displayed below the last one.  
 \subsection*{Paper Clip}
-Paper clips are used to create organized piles, or "tidy piles".  If no filters are attached, the paper clip will pick up everything.  If a filter tile is added, it will drop any entries that do not mach the query. 
+Paper clips create organized piles, or ``tidy piles".  If no filters are attached, the paper clip will pick up everything.  If a filter tile is added, it will drop any entries that do not mach the query.   With this tool, the user can easily separate the entries in which you are interested from those that you are not.
 
 \begin{figure}[t]
 \centering
@@ -182,11 +172,9 @@ Paper clips are used to create organized piles, or "tidy piles".  If no filters 
 
 
 \subsection{HabilisX Interaction Design}
-The buttons that were initially placed on the screen to populate the tools are not movable, scalable, or rotatable.  They can be activated by a quick or long touch and have no other interactions.  
+The buttons that are initially placed on the screen to populate the tools are not movable, scalable, or rotatable.  They can be activated by a quick or long touch and have no other interactions.  
 
-All other UI Elements were sub-classed from a ScatterViewItem and have the same interaction properties.  All elements have have physical properties like center of mass, momentum, and friction to mimic the behavior of real objects on a table.  You can drag them around using one finger, but having two fingers on the tool disabled its use so that you could drag it around the screen without interactions with other UI elements.  
-
-Once a filter tile or note has been attached to its target, it can be removed with a long touch (1.5 seconds).  
+The other UI Elements are sub-classed from a ScatterViewItem, a PixelSense 2.0 specific object class, and all have the same interaction properties.  All elements have have physical properties like center of mass, momentum, and friction to mimic the behavior of real objects on a table.  You can drag them around using one finger, but dragging with two fingers  disables the tool's interactions so that you could drag it to where you would like to use it.  Additionally, you can do a two finger rotation as you would expect, and a one finger rotation around the center of mass.  Objects can be flicked across the screen, bouncing when it reaches the edge of the screen (a fullscreen ScatterView object).  All objects, including filter tiles and notes, are activated by intersecting the borders of the items.  Once a filter tile or note has been attached to its target, it can be removed with a long touch (1.5 seconds).  
 
 \subsection{Hardware and Developer Tools}
 
@@ -198,22 +186,29 @@ Once a filter tile or note has been attached to its target, it can be removed wi
 \label{Fig:table}
 \end{figure}
 
-The Pixelsense 2.0 developer packages for the SUR40 had a lot of positives that made it attractive for this project.    The developer tools had a parent classes (ScatterView) and (ScatterViewItem) that gave objects physical properties.  When touched, a shadow was activated to give the illusion of the item being picked up.  ScatterViewItems have built in multi-touch gestures, such as pinch to scale, dragging, and rotations. Additionally, they had inertia, momentum, and a center of mass that allows users to do a one finger rotation as well.  The ScatterView is optimized for ScatterViewItems creating an environment in which they can exist.  ScatterViews have well defined edges that ScatterViewItems cannot cross, instead bouncing off the edge when thrown.  When a ScatterViewItem is places on it, it's rotation and placement is random as to encourage users to stand on any side of the table.  These objects, combined with the C\# wpf framework, minimized the amount of physics that we had to program by hand.
+The Pixelsense 2.0 developer packages for the SUR40 have a lot of positives that made it attractive for this project.  The developer tools have parent classes \texttt{ScatterView} and \texttt{ScatterViewItem} that gave objects physical properties.  When touched, a shadow was activated to give the illusion of the item being picked up.  ScatterViewItems have built in multi-touch gestures, such as pinch to scale, dragging, and rotations. Additionally, they had inertia, momentum, and a center of mass that allows users to do a one finger rotation as well.  The ScatterView is optimized for ScatterViewItems creating an environment in which they can exist.  ScatterViews have well defined edges that ScatterViewItems cannot cross, instead bouncing off the edge when thrown.  When a ScatterViewItem is places on it, it's rotation and placement is random as to encourage users to stand on any side of the table.  These objects, combined with the C\# wpf framework, minimized the amount of physics that we had to program by hand.
 
-As a stand alone touch screen table, it was designed in such a way as to allow a single user could reach any part of the screen without moving, while still allowing for multiple users simultaneously.  The touchscreen is not capacitive.  Each pixel has an IR Sensor, an RGB Sensor, as well as the pixel.  The table relies on the distance of your hand from the screen as read by the IR sensor to determine whether or not you are touching it.  Additionally, the RGB sensor allows the table can recognize "Microsoft Tags" which are simpler QR codes that can be used for object recognition.  
+The touch screen table was designed in a way that allows a single user could reach any part of the screen without barring access to multiple users simultaneously.  The touchscreen is not capacitive.  Each pixel also contains an IR Sensor and an RGB Sensor.  The table relies on the distance of your hand from the screen as read by the IR sensor to determine whether or not you are touching it.  Additionally, the RGB sensor allows the table can recognize ``Microsoft Tags" which are simpler QR codes that can be used for object recognition.  
 
-The fact that the table uses IR sensors expands the realm of interactions.  For example, digital art could be painted with an actual paint brush.  For traditional computing, it gives the user the "hover" state, where the user targets a UI element without activating it, for a 3rd interaction state.  
+The fact that the table uses IR sensors expands the realm of interactions.  For example, digital art could be painted with an actual paint brush.  For traditional computing, it gives the user the "hover" state, where the user targets a UI element without activating it, for a 3rd interaction state.  However, it also reduces its usability since the IR sensor has a lot more noise than a capacitive touch screen.  
 
 \section{User Study}
 
 Our work with HabilisX pulls heavily from the concepts established in Robertson et. al \cite{Robertson1998}.  Their system, Data Mountain, focuses on organizing bookmarks from the world wide web instead of database entries, but the tasks are similar enough cognitively that we decided to structure our user study similarly to theirs.  
 
-Robertson used a between users study where each participant was one of 3 groups.  Everyone in each group used either Internet Explorer 4 (IE4), Data Mountain 1, or Data Mountain 2 (a revised version of Data Mountain 1).  Participants were given 100 web pages to store in whatever organizational structure that they wanted.  In the second half of the experiment they had to retrieve the web pages within a given amount of time.  They measured 4 variables, retrieval time, incorrect retrievals before finding the correct page, failed trials, and a user evaluation.  
+Robertson used a between users study where each participant was placed in one of 3 groups.  Everyone in each group used either Internet Explorer 4 (IE4), Data Mountain 1, or Data Mountain 2 (a revised version of Data Mountain 1 based on user feedback).  Participants were given 100 web pages to store in whatever organizational structure that they wanted.  In the second half of the experiment they had to retrieve the web pages within a given amount of time.  They measured 4 variables, retrieval time, incorrect retrievals before finding the correct page, failed trials, and a user evaluation.  
 
 We decided that we could do a similar study to evaluate HabilisX.  Both programs use spatial cognition to organize a data set and both programs are designed to give users an understanding of content based on attributes.  Instead of simply retrieving a given entry, we asked users to make objective categorizations to test if they actually understood what the data set contained.  Although there are many similarities between Data Mountain and HabilisX, there are some significant differences between our user studies that are more suited to our domain tasks.   
 
+The goal of our experiment was to see if a user could gain some understanding of the content of their dataset without ever having seen it before.  We designed our experiment to test two hypotheses:  
 
+\begin{enumerate}
+\item{Users will be able to more accurately determine relatedness of an entry to a given subject using HabilisX than with Mendeley}
+\item{Performance time using HabilisX will be lower than the performance time of using Mendeley.}
+\end{enumerate}
 
+	We were originally planning for 15-20 participants, but our preliminary feedback showed definitively negative results.  As a result, we decided to cut the user trials short at 8 participants.  If we had gone forward, we would have completed a full power analysis to ensure that we had enough participants for an effective sample size \cite{Lenth2001}.  
+	
 
 %HabilisX went through several iterations with pilot studies to determine the usability of new features.  
 
@@ -231,28 +226,18 @@ We decided that we could do a similar study to evaluate HabilisX.  Both programs
 	This experiment was a comparative study between HabilisX and Mendeley.  To test which system was better for organizing documents into categories, users were asked to identify citations of a source paper.  We chose to use Bumptop \cite{Agarawala2006}
 	as our source paper because it has many sources that neatly divide into several subjects.  The authors also released a seven minute video that gives a detailed overview of all of the features and novel designs without mentioning their sources.   
 	
-	Bumptop had forty-one sources that encompassed six subjects: advantages of a pile metaphor, stylus interactions, spacial organization, realism, browsing techniques, naive physics, and animation.  Dataset 1 encompassed twenty-one papers covering pile metaphors, stylus interactions, and spacial organization.  The remaining twenty papers went into dataset 2.  Distractor papers were added from mobile and touchscreen research until each dataset had a total of thirty-seven papers.  The subjects were then asked to identify which papers were related to bumptop.  The datasets were alternated between HabilisX and Mendeley to overcome any performance bias of the data.  The trials were timed, and at the end they were asked 3 questions:
-	\begin{enumerate}
-	\item Which system did you prefer? why?
-	\item Did you see any topic clusters?  If so, what topics?
-	\item What features were you looking for but didn't see in Habilis?
-	\end{enumerate}
+	Bumptop has forty-one sources that encompass six subjects: advantages of a pile metaphor, stylus interactions, spacial organization, realism, browsing techniques, naive physics, and animation.  Dataset 1 encompassed twenty-one papers covering pile metaphors, stylus interactions, and spacial organization.  The remaining twenty papers went into dataset 2.  Distractor papers were added from mobile and touchscreen research until each dataset had a total of thirty-seven papers.  The subjects were then asked to identify which papers were related to bumptop.  The datasets were alternated between HabilisX and Mendeley to overcome any performance bias of the data.  The trials were timed, and at the end they were asked to answer a short survey.  
+	
 \section{Results}
 \subsection*{Hardware Problems}
-Unfortunately, the novel IR technology that this table did not work as well as we had hoped.  In fact, this model was discontinued within a year and a half of it being released because of significant hardware problems.  When sitting in front of the table, it was as likely to read the users wrist as a touch as his or her finger.  When it recognized a "blob" where your palm could be seen, it would register circa 50 events in and around that area.  If there were significant smudges on the table, that could throw off what was happening where your had was.  The most significant problem however, was that the calibration was so sensitive that if the lighting changed at all from when you calibrated it, the table would not function correctly.  This meant that it could not be placed in any room with natural light.  It took us several months to figure out this problem, not realizing that the time of day or the weather could have such a significant impact on the table's usability.  
+Unfortunately, the IR technology that this table used to determine touch did not work as well as we had hoped.  In fact, this model was discontinued within a year and a half of its release because of significant hardware performance problems.  When sitting in front of the table, it is as likely to read the users wrist as a touch as his or her finger.  When it recognized a ``blob" where your palm could be seen, it would register circa 50 events in and around that area.  If there were significant smudges on the table, that could throw off what was happening where your had was.  The most significant problem however, was that the calibration was so sensitive that if the lighting changed at all from when you calibrated it, the table would not function correctly.  This meant that it could not be placed in any room with natural light.  It took us several months to figure out this problem, not realizing that the time of day or the weather could have such a significant impact on the table's usability.  
 
-Once we got the table into a windowless room, we were able to improve many of the problems programmatically within Habilis, but the on screen keyboard continued to be a major problem.  5 of the 8 participants mentioned that they had shied away from using the tools because the keyboard was so hard to use.  Occasionally, a ghost event would make something fly across the screen which would break the user's concentration.  There is no question that the hardware failures contributed to the results of the user study.      
+Once we got the table into a windowless room, we were able to improve many of the problems programmatically within HabilisX, but the on screen keyboard continued to be a major source of frustration for the users.  Five of the eight participants mentioned that they had shied away from using the tools because the keyboard registered so many incorrect events, making it impossible to type.  Beyond the keyboard, sometimes an event triggered by a wrist would make something fly across the screen which would break the user's concentration.  The hardware faults caused the usability of HabilisX to suffer greatly, but the magnitude of the problem was not apparent until user trials had begun.  
+      
 \subsection*{Performance Time}
 
-Despite the advantages of the GUI system, the performance time was slower than Mendeley.  This can be explained by a few things.  First, 2 users did not utilize the tools at all and instead just read the attributes off of the card.  Second, the hardware event misfires as described above had a tendency to break the user's train of thought, and they had to compensate by taking time to get back to where they were before the event fire.  Third, none of the users had any familiarity with HabilisX before the trials.  Since they were learning the system while using it, there is the possibility that performance time would improve over time. 
 
-
-Robertson et al.\cite{Robertson1998} also looked at this metric.  The effect sizes are in graphical form.  The completion times are used directly in their analysis of variance, without adjustments for non-normality.  Therefore, we also assume a normal distribution for performance time.
-
-
-An single factor analysis of variance (ANOVA) was performed on the performance time of the data grouped within subject. Mendeley takes less time to complete the task than HabilisX with $F=3.25$ and $p = 0.06$.  Doing a t-test on the same data found $t=-3.18$ and $p<0.01$. 
-
-\begin{figure}[h!]
+\begin{figure}[b!]
 \centering
 \scalebox{1}
 {\includegraphics{AverageTime.png}}
@@ -260,11 +245,20 @@ An single factor analysis of variance (ANOVA) was performed on the performance t
 \label{Fig:timeChart}
 \end{figure}
 
+The performance time of HabilisX ended up being slower than Mendeley.  This can be explained by a few things.  First, 2 users did not utilize the tools at all and instead just read the attributes off of the card.  Second, the hardware event misfires as described above had a tendency to break the user's train of thought, and they had to compensate by taking time to get back to where they were before the event had fired.  Third, none of the users had any familiarity with HabilisX before the trials.  Since they were learning the system while using it, there is the possibility that performance time would improve over time. 
+
+
+Robertson et. al  \cite{Robertson1998} also looked at this metric.  The completion times are used directly in their analysis of variance, without adjustments for non-normality.  Therefore, we also assume a normal distribution for performance time.
+
+
+An single factor analysis of variance (ANOVA) was performed on the performance time of the data grouped within subject. Mendeley takes less time to complete the task than HabilisX with $F=3.25$ and $p < 0.06$.  Doing a t-test on the same data found $t=-3.18$ and $p<0.01$. 
+
+
 
 
 \subsection*{Number of Incorrect Categorizations}
 
-Users did not more accurately categorize the data with HabilisX than Mendeley as we had hoped.  We think that this was a combination of an unfamiliar system combined with a lack of adoption of the tools available.  No one used the sticky note, 6 did not use the ruler, and some tools were used once and then never again.  Most interactions were with the paperclip, push pin, and magic lens.    
+We had hypothesized that users could more accurately categorize the data with HabilisX than with Mendeley.  However, our trials showed that the opposite was true.  We think that this was a combination of an unfamiliar system combined with an under utilization of the tools available.  No one used the sticky note, 6 did not use the ruler, and some tools were used once and then never again.  Most interactions were with the paperclip, push pin, and magic lens.    
 
 Mendeley and HabilisX performed equally twice, but otherwise Mendeley provided better results.  A Single Factor ANOVA was performed on the number of correctly categorized papers with a statistically reliable main effect where $F=6.4$ and $p<0.03$
 
@@ -279,7 +273,7 @@ Mendeley and HabilisX performed equally twice, but otherwise Mendeley provided b
 
 
 \subsection*{Questionnaire}
-Once finished, all the users answered 3 questions about their experience.  
+Once finished, the users answered 3 questions about their experience.  
 %%RESULTS
 	\begin{enumerate}
 	\item Which system did you prefer? why?
@@ -287,23 +281,23 @@ Once finished, all the users answered 3 questions about their experience.
 	\item What features were you looking for but didn't see in Habilis?
 	\end{enumerate}
 
-The first question asks about user preference, the second asks about cognitive benefits, and the third is not just about usability, but also feature visibility.  
+The first question asks about user preference, the second asks about cognitive benefits, and the third is  about usability and feature visibility.  
 
 	3 users said that they preferred HabilisX to Mendeley, and a 4th said that he would if the ghost events of the table could be fixed.  With nearly half enjoying the experience despite the system bugs, there is potential to raise this number if all of the hardware problems can be fixed.  
 	
 	Many of the design principles that went into this project were to help visualize overall trends in the data.  All of the users identified a mobile theme in dataset 2, while 2 users identified touch based themes while on the table for dataset 1.    These are the distractor themes.  6 of the 8 users identified a physics theme, but the rest of the subjects that were recorded were not listed by more than one user.  
 	
-	The last question yielded the most interesting results.  By asking this question, we were able to determine which features were not immediately visible to the user.  For example, 3 users said that they would have liked a way to read the abstract of the papers.  The magnifier will pop out the abstract for just this purpose, but these individuals never found this functionality, even those they had used the magnifier for other purposes.  Another person mentioned that they wished that there was a way to organize the entries into a sorted list.  All paperclips automatically alphabetize the pile based on the first attribute, in this case author.  The other suggestions were minor: have the papers snap to the middle of the push pin; change the active area of an entry; cut down on the clutter of the buttons at the top.  These suggestions imply that the users are already thinking around the affordances of the interface.  No one asked for anything that would be outside the realm of possibility of extending the system after spending only a small amount of time with it.   Given a little bit more time, HabilisX could become a familiar computing environment, becoming the cognitive tool we were trying to create.  
+	The last question yielded the most interesting results.  By asking this question, we were able to determine which features were not immediately visible to the user.  For example, 3 users said that they would have liked a way to read the abstract of the papers.  The magnifier will bring up the abstract to read for just this purpose, but these individuals never found this functionality, even if they had used the magnifier for other purposes.  Another person mentioned that they wished that there was a way to organize the entries into a sorted list.  All paperclips automatically alphabetize the pile based on the first attribute, in this case author.  The other suggestions were minor: have the papers snap to the middle of the push pin; change the active area of an entry; cut down on the clutter of the buttons at the top.  These suggestions imply that the users are already thinking around the affordances of the interface.  After only a small amount of time with HabilisX, no one asked for anything that would be difficult to integrate into the existing interface.  
 
 
 \section{Discussion \& Future Work}
 Unfortunately, our user study did not demonstrate that HabilisX was an effective alternative to Mendeley.  We felt that this result was due in large part to the hardware rather than the design.  A more accurate touch screen would decrease user frustration and may encourage users to explore the interface more.  
 
-One of the most common feedback that we received was that the "messy" initial state was a little overwhelming.  If we could some how group the papers to begin with, it would give the user some place to start.  To this end, the next iteration of this program will use intelligent topic modeling (Latent Dirichlet Allocation) to provide the user with piles at start up.  There will be a simple interface that will allow the user to decide which attributes they want to use for the modeling, and to vary the parameters to their needs.  
+One of the most common feedback that we received was that the ``messy" initial state was a little overwhelming.  If we could some how group the papers to begin with, it would give the user some place to start.  The next iteration of this program will use intelligent topic modeling (Latent Dirichlet Allocation) to provide the user with piles at start up.  There will be a simple interface that will allow the user to decide which attributes they want to use for the topic modeling and to vary the parameters to their needs.  
 
-Another point of improvements will be on the scalability of the interface.  Like most GUI's there is a tradeoff of visual benefits vs screen space.  Although performance doesn't degrade very quickly, after about 200 entries, HabilisX becomes unwieldy simply because there is not enough space to work with the entries efficiently.  
+Another point of improvements will be on the scalability of the interface.  Like most GUI's there is a tradeoff of visual benefits vs screen space.  Although performance doesn't degrade very quickly, after about 200 entries, HabilisX becomes unwieldy simply because there is not enough space in which to work with the entries efficiently.  
 
-In summary, we have created a novel touch screen database interface for exploring datasets visually through a tool metaphor.  Our contribution derives from utilizing novel technology to create an interface that has benefits over tradition computing.  We believe that HabilisX has been a successful cognitive tool that reduces large problems into a simpler task, and with some more fine tuning, we are confident that it will show concrete benefits over list based interfaces.  
+In summary, we have created a novel touch screen database interface for exploring datasets visually through a tool metaphor.  Our contribution derives from utilizing technology to create an interface that has benefits over traditional computing.  We believe that HabilisX has been a successful cognitive tool that reduces large problems into a simpler task, and with some more fine tuning, we are confident that it will show concrete benefits over list based interfaces.  
 
 
 
