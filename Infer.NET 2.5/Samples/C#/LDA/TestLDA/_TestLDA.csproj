@@ -100,7 +100,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="890.bib" />
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="890Histobram.txt" />
+    <Content Include="890Vocab.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

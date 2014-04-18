@@ -1,4 +1,7 @@
-﻿using System;
+﻿//#define histogram
+//#define vocab
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,9 +32,52 @@ namespace AnalyzeResults
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public void getHistogram(String filePath){
+            String text = System.IO.File.ReadAllText(filePath);
+            text = text.ToLower();
+            text.Replace("\n", "");
+            Dictionary<String, int> hist = new Dictionary<String, int>();
+            string[] split = text.Split(' ', ':', '=', '@', '{', '}', ',', '.','-','/','\\','\"', '\'', '(', ')', '+', '&','[', ']');
+            foreach (String s in split) {
+                if (hist.ContainsKey(s))
+                {
+                    hist[s]++;
+                }
+                else if(!s.Contains("1") && !s.Contains("2") && !s.Contains("3") && !s.Contains("4") && !s.Contains("5") && !s.Contains("6") && !s.Contains('7') && !s.Contains('8') && !s.Contains('9') && !s.Contains('0')) {
+                    hist.Add(s, 1);
+                }
+             }
+
+
+
+            
+//            List<KeyValuePair<String,int>> alphabet = hist.ToList();
+            List<String> Keys = hist.Keys.ToList<String>();
+            String[] toWrite = new String[Keys.Count()];
+            Keys.Sort();
+            for(int i=0; i<Keys.Count(); i++){
+                toWrite[i] = "" + (i+1) + ":" + hist[Keys[i]];
+            }
+
+            foreach (String s in toWrite) {
+                Console.WriteLine(s);
+            }
+            System.IO.File.WriteAllLines("C:\\Users\\PrairieRose\\Documents\\GitHub\\HabilisX\\Infer.NET 2.5\\Samples\\C#\\LDA\\TestLDA\\890Histobram.txt", toWrite);
+#if vocab
+            System.IO.File.WriteAllLines("C:\\Users\\PrairieRose\\Documents\\GitHub\\HabilisX\\Infer.NET 2.5\\Samples\\C#\\LDA\\TestLDA\\890Vocab.txt", Keys.ToArray<String>());
+#endif
+        }
         public MainWindow()
         {
             InitializeComponent();
+
+#if histogram
+            getHistogram("C:\\Users\\PrairieRose\\Documents\\GitHub\\HabilisX\\Infer.NET 2.5\\Samples\\C#\\LDA\\TestLDA\\890.bib");
+
+            return;
+#endif
+
             String Path = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\";
 
 

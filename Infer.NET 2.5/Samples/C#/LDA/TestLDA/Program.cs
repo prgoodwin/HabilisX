@@ -22,12 +22,12 @@ namespace TestLDA
 			Rand.Restart(5);
 			Dictionary<int, string> vocabulary = null;
 #if blei_corpus
-			Dictionary<int, int>[] trainWordsInTrainDoc = Utilities.LoadWordCounts(@"..\..\..\Data\ap.txt");
-			vocabulary = Utilities.LoadVocabulary(@"..\..\..\Data\apvocab.txt");
+			Dictionary<int, int>[] trainWordsInTrainDoc = Utilities.LoadWordCounts("C:\\Users\\PrairieRose\\Documents\\GitHub\\HabilisX\\Infer.NET 2.5\\Samples\\C#\\LDA\\TestLDA\\890Histobram.txt");
+			vocabulary = Utilities.LoadVocabulary(@"C:\\Users\\PrairieRose\\Documents\\GitHub\\HabilisX\\Infer.NET 2.5\\Samples\\C#\\LDA\\TestLDA\\890Vocab.txt");
 			Dictionary<int, int>[] testWordsInTrainDoc = trainWordsInTrainDoc;
 			Dictionary<int, int>[] wordsInTestDoc = null;
 			int sizeVocab = Utilities.GetVocabularySize(trainWordsInTrainDoc);
-			int numTopics = 10;
+			int numTopics = 4;
 			int numTrainDocs = trainWordsInTrainDoc.Length;
 			Dirichlet[] trueThetaTest = null;
 			Console.WriteLine("************************************");

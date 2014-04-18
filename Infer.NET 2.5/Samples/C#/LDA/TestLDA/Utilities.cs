@@ -100,6 +100,8 @@ namespace TestLDA
 				}
 				wordCounts[i] = counts;
 			}
+            Console.WriteLine("*$*$*$*$*$*$*$$$$$$$***************************");
+            Console.WriteLine(wordCounts);
 			return wordCounts;
 		}
 
@@ -188,5 +190,6 @@ namespace TestLDA
 			return max + 1;
 
 		}
+
 	}
 }
