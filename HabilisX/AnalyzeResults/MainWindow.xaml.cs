@@ -1,5 +1,6 @@
 ﻿//#define histogram
 //#define vocab
+#define excel
 
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ using HabilisX.Tools;
 using System.Threading;
 
 
+
 namespace AnalyzeResults
 {
     /// <summary>
@@ -33,6 +35,56 @@ namespace AnalyzeResults
     public partial class MainWindow : Window
     {
 
+        public void makeExcel(String filePath) {
+            Database data = new Database(filePath);
+            String[] attNames = data.allAttributes.Keys.ToArray<String>();
+            int columns = attNames.Length + 1;
+
+            Console.WriteLine("DATASIZE: " + data.Count());
+            Console.WriteLine("Atts: " );
+            String[][] spreadsheet = new String[data.Count() + 1][];
+            for(int i=0; i<spreadsheet.Length; i++){
+                spreadsheet[i] = new String[columns];
+            }
+            //String[,] spreadsheet = new String[data.Count() + 1, columns];
+
+            //fill in first row of attributes
+            spreadsheet[0][0] = "index";
+            for (int i = 1; i < columns; i++) {
+                spreadsheet[0][i] = attNames[i - 1];
+            }
+
+            //fill in columns
+            for (int i = 1; i < spreadsheet.Length; i++)
+            {
+                spreadsheet[i][0] = "" + i;
+            }
+
+            for (int i=0; i< data.allEntries.Count; i++){
+                Entry e = data.allEntries[i];
+
+                foreach (KeyValuePair<String, object> pair in e.attributes) {
+                    int index = Array.IndexOf(spreadsheet[0], pair.Key);
+                //    if(index > columns || index < 0)
+                //    Console.WriteLine(pair.Key + ": " + index);
+
+                        Console.WriteLine(i + "," + index);
+                        String noCommas = pair.Value.ToString().Replace(",", " ");
+                        spreadsheet[i + 1][index] = noCommas;
+                }
+            
+            }
+            //join for string array to be written
+            String[] toWrite = new String[spreadsheet.Length];
+            for(int i=0; i < spreadsheet.Length; i++){
+                toWrite[i] = String.Join(",", spreadsheet[i]);
+            }
+
+
+            System.IO.File.WriteAllLines("C:\\Users\\prairierose\\Downloads\\NLP\\Habilis.csv", toWrite);
+            
+
+        }
         public void getHistogram(String filePath){
             String text = System.IO.File.ReadAllText(filePath);
             text = text.ToLower();
@@ -74,9 +126,15 @@ namespace AnalyzeResults
 
 #if histogram
             getHistogram("C:\\Users\\PrairieRose\\Documents\\GitHub\\HabilisX\\Infer.NET 2.5\\Samples\\C#\\LDA\\TestLDA\\890.bib");
-
             return;
 #endif
+
+#if excel
+            makeExcel("C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\HabilisX\\Resources\\bibtexUnrelated.txt");
+            return;
+
+#endif
+
 
             String Path = "C:\\Users\\prairierose\\Documents\\GitHub\\HabilisX\\HabilisX\\AnalyzeResults\\Results\\";
 

@@ -65,7 +65,7 @@ namespace HabilisX
         public SurfaceWindow1()
         {
             InitializeComponent();
-
+            ClusterButton.Tag = 1;
             Double ScreenWidth = MyScatterView.Width;
             Console.WriteLine("WIDTH OF SCREEN" + MyScatterView.Width);
 
@@ -394,6 +394,21 @@ namespace HabilisX
 
 
         #region Add Buttons & MouseEventHandlers
+        private void ClusterButton_Click(object sender, RoutedEventArgs e) {
+            int numClusters = (int)((SurfaceButton)sender).Tag;
+            ClusterPapers(numClusters);
+            numClusters = (numClusters) % 8 + 1;
+
+            //if ( numClusters == 0) {
+            //    numClusters++;
+            //}
+
+            ((SurfaceButton)sender).Content = "Cluster " + numClusters;
+            ((SurfaceButton)sender).Tag = numClusters;
+
+
+        }
+
         private void AddStringFilter_Click(object sender, RoutedEventArgs e)
         {
             AddNewFilterTile(new StringFilterTile((String)((SurfaceButton)sender).Tag));
@@ -1625,9 +1640,116 @@ namespace HabilisX
 
         #region Helper Methods
 
+        public void ClusterPapers(int numClusters) {
+            int verticalSections;
+            int horizontalSections = Math.Min(5, numClusters + 1);
+            if(numClusters < 5){
+                verticalSections = 2;
+            } else {
+                verticalSections = 3;
+            }
+
+            
+
+            Console.WriteLine("clustering: " + numClusters);
+            if(numClusters == 1){
+                    foreach (Entry e in this.entries) {
+                        e.Center = new Point(MyScatterView.Width / horizontalSections, MyScatterView.Height / verticalSections);
+                    }
+            }
+            else if (numClusters == 2) {
+
+                try
+                {
+                    String path = "C:\\Users\\prairierose\\Downloads\\NLP\\TitleCluster\\" + 3 + "\\document-topic-distributions.csv";
+                    String[] text = System.IO.File.ReadAllLines(path);
+
+                    foreach (Entry e in this.entries)
+                    {
+                            e.Center = new Point((MyScatterView.Width / horizontalSections) * 2, MyScatterView.Height / verticalSections);
+                    }
+
+                    ////parse the line to find which group and categorize
+                    foreach (String line in text)
+                    {
+                        List<String> probs = line.Split(',').ToList<String>();
+                        int lineNumber = Int32.Parse(probs[0]);
+                        int max = MaxIndex(probs);
+                        Console.WriteLine("LineNumber: " + lineNumber);
+                        Entry e = this.entries[lineNumber];
+                    //    e.Orientation = 0;
+                        e.Center = new Point((MyScatterView.Width / horizontalSections), MyScatterView.Height / verticalSections);
+
+                    }
 
 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
 
+            }
+            else
+            {
+                try
+                {
+                    String path = "C:\\Users\\prairierose\\Downloads\\NLP\\TitleCluster\\" + numClusters + "\\document-topic-distributions.csv";
+                    String[] text = System.IO.File.ReadAllLines(path);
+
+
+                    //parse the line to find which group and categorize
+                    foreach (String line in text)
+                    {
+                        List<String> probs = line.Split(',').ToList<String>();
+                        int lineNumber = Int32.Parse(probs[0]);
+                        int max = MaxIndex(probs);
+                        Console.WriteLine("LineNumber: " + lineNumber);
+                        Entry e = this.entries[lineNumber];
+                       // e.Orientation = 0;
+
+                        if (numClusters < 5)
+                        {
+                            e.Center = new Point((MyScatterView.Width / horizontalSections) * max, MyScatterView.Height / verticalSections);
+                        }
+                        else
+                        {
+                            if (max < 5)
+                            {
+                                e.Center = new Point((MyScatterView.Width / horizontalSections) * max, MyScatterView.Height / verticalSections * (int)(((max - 1) / 4) + 1));
+                            }
+                            else
+                            {
+                                e.Center = new Point((MyScatterView.Width / horizontalSections) * ((max % 5) + 1), MyScatterView.Height / verticalSections * (int)(((max - 1) / 4) + 1));
+                            }
+
+                        }
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+        
+        }
+
+        public int MaxIndex(List<String> groups) {
+            int max = 1;
+            double maxVal = Double.Parse(groups[1]);
+            for (int i = 2; i < groups.Count; i++) {
+                double val = Double.Parse(groups[i]);
+                if (val > maxVal && val < 1) {
+                    max = i;
+                    maxVal = val;
+                }
+            }
+            //Console.WriteLine(groups[0] + "," + max + "," + maxVal);
+            return max;
+
+        }
         public void AddToScreen(ScatterViewItem item)
         {
             if (item is MagnifyingGlass)
@@ -1898,6 +2020,11 @@ namespace HabilisX
             //TODO: disable audio, animations here
         }
         #endregion
+
+        private void SurfaceButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 
