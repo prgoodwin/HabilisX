@@ -17,7 +17,8 @@ namespace HabilisX
             allAttributes = new Dictionary<String, Type>();
             //this.newInit();
             //newInit();
-            parseFromBibtex("HabilisX.Resources.bibtexUnrelated.txt");
+            //parseFromBibtex("HabilisX.Resources.bibtexUnrelated.txt");
+            parseFromBibtex("C:\\Users\\PrairieRose\\Documents\\GitHub\\HabilisX\\HabilisX\\HabilisX\\Resources\\890.bib");
         }
 
         public Database(int bibtex) {
